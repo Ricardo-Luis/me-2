@@ -4,13 +4,25 @@
 using Markdown
 using InteractiveUtils
 
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    #! format: off
+    return quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+    #! format: on
+end
+
 # ╔═╡ 766e42e6-0d19-48ba-b1a5-462708df3ff9
 using PlutoUI, PlutoTeachingTools  	# packages needed for this notebook
 
 # ╔═╡ ffe5e74c-8167-41c7-bc35-4c412081a757
 
 
-# ╔═╡ b08af239-c9d1-43c3-b150-e80f06801efd
+# ╔═╡ efe18f75-2f88-4794-8656-7734a276232d
 
 
 # ╔═╡ d4933445-95c9-4f86-a832-95278e8aa34c
@@ -18,11 +30,11 @@ md"""
 
 # Introdução 
 
-Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas II, lecionada no curso de Licenciatura em Engenharia Eletrotécnica do Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas II (ME II), lecionada no curso de Licenciatura em Engenharia Eletrotécnica do Instituto Superior de Engenharia de Lisboa.
 
-Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados computacionais, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
+Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
-Estes *notebooks* são desenvolvidos utilizando o **Pluto.jl**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica `Julia`. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo pontes entre o conhecimento académico e os desafios reais da engenharia. O objetivo é facilitar uma compreensão mais profunda e prática da matéria, contribuindo para o desenvolvimento de competências essenciais ao exercício da engenharia.
+Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo pontes entre o conhecimento académico e os desafios reais da engenharia. O objetivo é facilitar uma compreensão mais profunda e prática da matéria, contribuindo para o desenvolvimento de competências essenciais ao exercício da engenharia.
 """
 
 # ╔═╡ 1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
@@ -30,8 +42,124 @@ Estes *notebooks* são desenvolvidos utilizando o **Pluto.jl**, um ambiente de d
 
 # ╔═╡ 659cda0d-61f1-4e65-b541-9d5e6c69bab2
 md"""
-# 🎈 Notebooks de ME II:
-👆 Clique nos *links* seguintes para visualizar cada um dos *notebooks*: 
+# Notebooks de ME II
+"""
+
+# ╔═╡ 1d27f002-0a8f-4326-a1ed-12036aa9c8a3
+md"""
+## *Notebooks* introdutórios
+"""
+
+# ╔═╡ ca020f4c-e830-4eb1-8284-308551465919
+NotebookCard("https://ricardo-luis.github.io/me-2/ACpower.html")
+
+# ╔═╡ 3851b901-0f6f-4771-8adb-7820a7b60465
+NotebookCard("https://ricardo-luis.github.io/me-2/RLcircuit.html")
+
+# ╔═╡ a80136eb-b0fa-4062-8889-2c90976369a3
+NotebookCard("https://ricardo-luis.github.io/me-2/PowerMap.html")
+
+# ╔═╡ 1f3385c5-e2cb-4b36-af2c-3ca16e7dc4f1
+
+
+# ╔═╡ 93d4db20-7c76-4396-82ee-15f7fdd37b8a
+md"""
+## Máquina Elétrica de Corrente Contínua
+"""
+
+# ╔═╡ 379a42a7-8f18-42de-bdc0-5601561196dd
+NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+
+# ╔═╡ fc130cda-394a-44e8-b00e-ee330b9051c0
+
+
+# ╔═╡ f7821a8b-970f-4ab2-807e-05cb5d0304ee
+
+
+# ╔═╡ 7d3b4efe-fe0b-4496-b16a-439dc1f84638
+
+
+# ╔═╡ f33737fc-a926-454a-9d74-bf61b9529e2b
+
+
+# ╔═╡ ef1fe96b-efc1-4172-bb6f-9b7739b22382
+
+
+# ╔═╡ 034fb377-ce0e-4c8d-b038-1ef84b5f0aaa
+
+
+# ╔═╡ 37ecb88b-e91a-4bb2-aeae-94c3cd3dec62
+
+
+# ╔═╡ 7b93ca72-0e3b-4c48-a873-697b765c2465
+
+
+# ╔═╡ ef201862-d8f8-4dff-bea3-4063ea029d81
+
+
+# ╔═╡ 3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
+md"""
+## Máquina Elétrica Síncrona Trifásica
+"""
+
+# ╔═╡ 680b3695-db21-41b7-afc1-ba665bc76d5d
+NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+
+# ╔═╡ b3f9eb75-5cab-4fb4-9e25-2b3be1b5df99
+
+
+# ╔═╡ e06ae726-d38e-4841-80d5-7200f37da8f8
+
+
+# ╔═╡ ad768a4f-c5d3-4cd8-b443-9b430e2faaf9
+
+
+# ╔═╡ 7865e7ca-4fef-4cf0-b3b9-dbc1f25d0972
+
+
+# ╔═╡ cf92e34b-076f-4aa7-bd11-0ab4f5364233
+
+
+# ╔═╡ 4c005dfd-bc41-4721-becf-9b3d6ffd7f21
+
+
+# ╔═╡ ba948db8-8737-4f05-9651-25bee245cf7d
+
+
+# ╔═╡ 0bfebd14-9929-478e-8521-dc3c610e8304
+
+
+# ╔═╡ 4d1504da-3b03-4c0f-9582-22aa552b21ea
+md"""
+## Transitórios de Máquinas Elétricas
+"""
+
+# ╔═╡ 2d68bd77-e483-441b-b2cc-d4e69f684fd5
+NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+
+# ╔═╡ 20b341b4-341f-465c-9709-afa732072611
+
+
+# ╔═╡ 0c3a8f23-2bd1-43c7-887e-00499924527c
+
+
+# ╔═╡ b4310f50-02c9-481c-bc8c-17df8f0ed396
+
+
+# ╔═╡ 0374e554-f14a-4db7-9046-e6e7db231289
+
+
+# ╔═╡ b4e76ca5-16e5-46e6-8c5c-b1836724455d
+
+
+# ╔═╡ 26588df7-6aa2-42e6-96ec-533055139e40
+
+
+# ╔═╡ 581fcff8-a29e-428b-94b8-270227b4736d
+
+
+# ╔═╡ e7986aec-981c-4e6a-af2e-29267af7b6d7
+md"""
 \
 **Máquina elétrica de corrente contínua**
 
@@ -62,28 +190,16 @@ md"""
 # Instalação de *software*
 """
 
-# ╔═╡ 5fa1359a-5e2b-4d95-a09c-e32157b55a29
-md"""
-## Julia
-
-### Linha de comandos
-
-### Manual
-"""
-
-# ╔═╡ f78860b7-b9db-44c5-bdbe-1d97ac7060bb
+# ╔═╡ 93b1f79d-2ab4-48ad-9eff-0aea5b6a1505
 
 
 # ╔═╡ ff1ebc33-1a81-470b-8044-d09a0faec8e6
 md"""
 ## Pluto.jl
-Siga as instruções presentes no *website* do [Pluto.jl](https://plutojl.org/#install).
-De forma sintética siga os seguintes passos.
-"""
+Siga as instruções presentes no *website* do [`Pluto.jl`](https://plutojl.org/#install).
+De forma sintética, os passos são os seguintes:
 
-# ╔═╡ 8e8a5310-1518-4578-9173-e83a7d540737
-md"""
-Para instalar o ambiente de desenvolvimento Pluto.jl, executar na linha de comando do Julia:
+- Para instalar o ambiente de desenvolvimento `Pluto.jl` (apenas na primeira vez), execute na linha de comando do `Julia`:
 """
 
 # ╔═╡ a078a168-b48b-46bf-b1a6-6b106616c586
@@ -93,7 +209,7 @@ md"""
 
 # ╔═╡ 8e883eba-aed5-4d0d-8846-e440a9f6ee4f
 md"""
-Para abrir o ambiente de desenvolvimento Pluto.jl, executar na linha de comando do Julia:
+- Para abrir o ambiente de desenvolvimento `Pluto.jl`, seja para executar ou criar um *notebook*, escreva e execute na linha de comando do `Julia`:
 """
 
 # ╔═╡ e77f2489-a0e5-4aeb-a577-e86c353fdf0c
@@ -101,171 +217,228 @@ md"""
 	import Pluto; Pluto.run()
 """
 
-# ╔═╡ fb8fae23-5360-466f-884a-b6626064a589
-
-
-# ╔═╡ 0f360a8f-9a77-488d-a050-a95e8af83dfb
-md"""
-## Notebooks Pluto
-"""
-
-# ╔═╡ e66d1b52-c2da-44c6-9dcf-60afbd397ed9
-md"""
-### Work in progress...
-"""
-
-# ╔═╡ 4e5d5c46-6d98-4125-868f-548d28b96511
-Foldable("TODO list:",md"""
-
-- sobre notebooks... complemento aos elementos de estudo (não substitui livro, apontamentos da aula, etc...)
-- Sobre notebooks em geral?! Ex: [Data Science Notebooks](https://datasciencenotebook.org/)
-    - *literate programming*; ciência reproduzível
-- como abrir os notebooks:
-    - executar um notebook na cloud (Binder) raramente funciona! » Instalar Julia e Pluto (dentro do Julia)
-    - fazer download (notebook.jl) ou **copiar URL colocado no topo do notebook: "GitHub URL | notebook" e colar no Pluto na barra de "Open a notebook"**
-- Ferramentas utilizadas nos notebooks Pluto:
-    - Markdown (texto): qualquer célula pode ser interpretada como texto, premindo no teclado "Ctrl" + "m"
-    - LaTeX (equações)... não é necessário saber Latex, Ex: [Online Equation Editor](https://www.codecogs.com/eqnedit.php)
-    - [draw.io](https://app.diagrams.net/) (desenhos, esquemas, diagramas), disponíveis para reutilização
-    - Julia (cálculo, gráficos); não requer especial conhecimento de programação; sintaxe muito idêntica ao MATLAB/Octave
-    - Julia, aceita símbolos Unicode nas expressões de cálculo (grande vantagem, pois torna as expressões de cálculo muito semelhantes às equações escritas de forma matemática), [Unicode Input](https://docs.julialang.org/en/v1/manual/unicode-input/)
-    - PlutoUI (interactividade com o utilizador), [How to Create Engaging Interactive Reactive Notebooks using PlutoUI, Pluto and Julia](https://youtu.be/nkyvN7PXQZc), YT vídeo (cerca de 25min.)
-- Notebook reactivo: nas parcelas de código, o Pluto reconhece as dependências entre as células. Sempre que uma é alterada, todas as células que desta dependem são automaticamente atualizadas (como no Excel).
-
-""")
-
-# ╔═╡ ea2a84a1-7375-4933-a166-6bbd2eaa51e7
-
-
-# ╔═╡ 45290d8f-5625-4796-adef-bc89554d827f
-md"""
-### A linguagem de programação `Julia` 
-
-[`Julia`](https://en.wikipedia.org/wiki/Julia_(programming_language)) é uma linguagem de programação de [alto nível](https://en.wikipedia.org/wiki/High-level_programming_language), [dinâmica](https://en.wikipedia.org/wiki/Dynamic_programming_language) e de elevado desempenho adequada para [computação científica](https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica). Apresenta ótimas características para a construção de modelos matemáticos e de técnicas de simulação numérica, permitindo analisar e resolver problemas científicos e de engenharia, através do computador.
-
-`Julia` foi lançada em 2012 mantendo-se como uma linguagem de programação gratuita, multi-plataforma e *open source*.
-
-
-A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de *notebooks* de apoio a Máquinas Elétricas II, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl` permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
-
-- **F**indable
-- **A**ccessible
-- **I**nteroperable
-- **R**eusable
-
-Assim, os *notebooks* reactivos com `Julia/Pluto` podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia.
-"""
-
 # ╔═╡ 33ee713c-2142-47b7-8bca-691c00ca4db4
 
 
-# ╔═╡ 80b30983-2eb5-40f2-bbc3-c5a8b68ad8f8
+# ╔═╡ 69cefea4-fcc2-4f74-ad6f-4366de284bf7
 md"""
-#### "Time to first plot"
+# Julia
+[`Julia`](https://en.wikipedia.org/wiki/Julia_(programming_language)) é uma linguagem de programação de [alto nível](https://en.wikipedia.org/wiki/High-level_programming_language), [dinâmica](https://en.wikipedia.org/wiki/Dynamic_programming_language) e de elevado desempenho, lançada em 2012 como solução multiplataforma e de código aberto para [computação científica](https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica). Apresenta ótimas características para a construção de modelos matemáticos e de técnicas de simulação numérica, permitindo analisar e resolver problemas científicos e de engenharia através do computador.
 
-`Julia` é uma linguagem compilada *just-in-time* (JIT). Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por ["_time to first plot_"](https://lwn.net/Articles/856819/), que teve melhorias significativas na versão 1.6 do `Julia`. Após a 1ª execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
 
-Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II no seu `Julia/Pluto`, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a 1ª compilação/execução terminar, para então depois poder utilizá-lo.
+## "*Time to first plot*"
+`Julia` é uma linguagem compilada *just-in-time* (JIT). Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por "**_time to first plot_**", que teve melhorias significativas nas versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) do `Julia`. Após a primeira execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí, o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
 
-No final de cada *notebook* é indicado o tempo da 1ª compilação, acompanhado das informações sobre a frequência de processamento do CPU e a capacidade de memória RAM do computador em que foi testado, como referência.
+Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
+
+
+## Informação complementar
+
+- Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman, [Why We Created Julia](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, Feb. 2012;
+
+- Gabriel Maistre, [10 Reasons Why You Should Learn Julia](https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, Sept. 2018;
+
+- Lee Phillips, [An introduction to the Julia language, part 1](https://lwn.net/Articles/763626/), LWN.net, Aug. 2018;
+
+- Lee Phillips, [An introduction to the Julia language, part 2](https://lwn.net/Articles/764001/), LWN.net, Sept. 2018;
+
+- Toby Driscoll, [Matlab vs. Julia vs. Python](https://tobydriscoll.net/post/matlab-vs.-julia-vs.-python/), artigo de opinião, June 2019;
+
+- Bekhruz Tuychiev, [The Rise of the Julia Programming Language  — Is it Worth Learning in 2023?](https://www.datacamp.com/blog/the-rise-of-julia-is-it-worth-learning-in-2022), artigo de opinião, DataCamp, May 2023;
+
+- William F Godoy, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, Better Scientific Software, Apr., 2023;
+
+- João Pereira, Mario Siqueira, [Linguagem de programação JULIA: uma alternativa open source e de alto desempenho ao MATLAB](https://periodicos.ifpb.edu.br/index.php/principia/article/view/1345/661), Revista principia - divulgação científica e tecnológica do IFPB, N.º 34, p. 132-140, 2017;
+
+- Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em Julia](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O’Reilly Media, 2018;
+
+- Raimundo Filho, Marina Miranda, Millena Rocha, André Nascimento, [Introdução a linguagem de programação Julia](https://www.edufma.ufma.br/wp-content/uploads/woocommerce_uploads/2023/05/Introdu%C3%A7%C3%A3o-a-linguagem-de-programa%C3%A7%C3%A3o-Julia.pdf),  EDFUMA - Editora da Universidade Federal do Maranhão, São Luís, Brasil, 2023.
+
 """
 
-# ╔═╡ 1a9de438-3a54-4739-9c70-e501f58f71e6
+# ╔═╡ 7e966db6-ca39-4f66-9ab1-bdc088591608
 
 
-# ╔═╡ 37f6f655-412c-426d-9505-6bb5b269c612
+# ╔═╡ a99a1360-b179-4080-bdbe-b58217597d7e
 md"""
-## Consulta rápida
+# Pluto.jl
 
-- [Fastrack to `Julia`](https://juliadocs.github.io/Julia-Cheat-Sheet/) cheatsheet.
-- [MATLAB-`Julia`-Python](https://cheatsheets.quantecon.org/) by [QuantEcon group](https://quantecon.org) comparative cheatsheet
-- [Julia By Example](https://juliabyexample.helpmanual.io/)										
-- [MATLAB to `Julia` online converter](https://lakras.github.io/matlab-to-julia/)
-- [`Julia` Packages](https://juliapackages.com/packages?sort=stars)
-- [Basic Commands in `Pluto`](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)
-- [Plots.jl cheatsheet](https://github.com/sswatson/cheatsheets/blob/master/plotsjl-cheatsheet.pdf)
-- [Markdown Guide](https://www.markdownguide.org/)
-"""
+## Introdução ao Pluto.jl
 
-# ╔═╡ e7252dec-bd34-4186-b36a-111dea1ba96d
-md"""
-## Leitura/informação complementar:
-\
+Um *notebook* computacional é uma ferramenta amplamente utilizada em computação científica que combina código, texto e visualizações num ambiente interativo. Baseado nos conceitos de [*literate programming*](https://en.wikipedia.org/wiki/Literate_programming) e ciência reproduzível, permite documentar e partilhar análises de forma clara e transparente, como são exemplo os sistemas de *notebooks* existentes para a área de [ciência de dados](https://datasciencenotebook.org/). No contexto de estudo, os *notebooks* servem como complemento aos materiais tradicionais (livros, apontamentos, etc.), oferecendo um espaço para experimentação e exploração prática. O `Pluto.jl` é um ambiente de *notebook* desenvolvido especificamente para `Julia`, proporcionando uma experiência interativa e reativa ideal para aprendizagem e investigação.
 
-### Sobre _notebooks_ `Pluto`:
+O [`Pluto.jl`](https://plutojl.org/) é uma biblioteca `Julia` que proporciona um ambiente de desenvolvimento integrado para a criação de documentos computacionais interativos (*notebooks*).
+Utilizando um navegador *web* (recomendado: Mozilla Firefox ou Google Chrome), o `Pluto.jl` permite combinar código `Julia`, resultados computacionais, texto explicativo, expressões matemáticas, gráficos, imagens, etc., de forma interligada. Esta abordagem facilita o processo de ensino-aprendizagem, oferecendo uma experiência interativa ao utilizador.
 
-- Fons van der Plas, Mikołaj Bochenski, [Interactive notebooks `Pluto`.jl](https://youtu.be/IAF8DjrQSSk), vídeo de apresentação do `Pluto`, conferência JuliaCon 2020, Duração: 24min.
-- Fons van der Plas, [🎈 `Pluto`.jl — one year later](https://youtu.be/HiI4jgDyDhY), vídeo da conferência JuliaCon 2021. Duração: 27min.
-- Connor Burns, [A Guide to Building Reactive Notebooks for Scientific Computing With Julia and `Pluto.jl`](https://medium.com/swlh/a-guide-to-building-reactive-notebooks-for-scientific-computing-with-julia-and-pluto-jl-1a2c0c455d51), artigo de opinião, Medium, Dec. 2020.
+## Reatividade, reprodutibilidade e interatividade
+Os *notebooks* Pluto são reativos, pois a atualização de uma parte do código reexecuta automaticamente todas as partes afetadas por essa alteração. 
+Ou seja, o `Pluto.jl` reconhece as dependências entre as células, nos segmentos de código `Julia`. Por conseguinte, sempre que uma célula é alterada, todas as células dependentes são automaticamente atualizadas (como numa folha de cálculo: MS Excel, Google Sheets, ...). Assim, os resultados são recalculados em tempo real, permitindo ao utilizador a exploração dinâmica dos conceitos de forma interativa.
 
-\
+Os *notebooks* Pluto são reproduzíveis, pois configuram automaticamente as dependências necessárias. O `Pluto.jl` regista as bibliotecas usadas no *notebook* e configura o ambiente de execução, assegurando a qualquer utilizador as mesmas condições computacionais. Esta funcionalidade elimina o problema comum de "funciona no meu computador", permitindo uma colaboração mais eficiente e resultados consistentes entre diferentes máquinas.
 
-### Sobre programação `Julia`:
+O `Pluto.jl` disponibiliza suporte nativo para *widgets* interativos, como *sliders*, caixas de seleção e campos de introdução de texto, que podem ser associados a variáveis `Julia` através do comando `@bind`. Desta forma, o utilizador pode manipular parâmetros e visualizar de imediato os resultados dessas alterações no código e nas visualizações, sem necessidade de reiniciar ou executar várias células manualmente, tornando a experiência mais fluida e facilitando a criação de *dashboards* e aplicações científicas interativas.
 
-- Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman, [Why We Created `Julia`](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, Feb. 2012.
-- Gabriel Gauci Maistre, [10 Reasons Why You Should Learn `Julia`](https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, Sep. 2018.
-- Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em `Julia`](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think `Julia`: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O’Reilly Media, 2018. 
+
+## *Notebooks* em ME II
+A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de "*Notebooks* Computacionais Aplicados a Máquinas Elétricas II", possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl` permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
+
+- _**F**indable_
+- _**A**ccessible_
+- _**I**nteroperable_
+- _**R**eusable_
+
+Assim, os *notebooks* reativos com Julia/Pluto podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia.
+
+
+## Informação complementar
+
+- Fons van der Plas, Mikołaj Bochenski, [Interactive notebooks Pluto.jl](https://youtu.be/IAF8DjrQSSk), vídeo de apresentação do Pluto, conferência JuliaCon 2020. Duração: 24min;
+
+- Fons van der Plas, [Pluto.jl — one year later](https://youtu.be/HiI4jgDyDhY), vídeo da conferência JuliaCon 2021. Duração: 27min;
+
+- Fons van der Plas, [Pluto.jl – reactive and reproducible notebooks for Julia](https://www.youtube.com/watch?v=Rg3r3gG4nQo), vídeo de apresentação do Pluto, conferência JupyterCon 2023. Duração: 29min;
+
+- Connor Burns, [A Guide to Building Reactive Notebooks for Scientific Computing With Julia and Pluto.jl](https://medium.com/swlh/a-guide-to-building-reactive-notebooks-for-scientific-computing-with-julia-and-pluto-jl-1a2c0c455d51), artigo de opinião, Medium, Dec. 2020;
+
+- Lee Phillips, [An introduction to Pluto](https://lwn.net/Articles/835930/), artigo de opinião, LWN.net, Nov. 2020.
 """
 
 # ╔═╡ 79b4d3c8-4867-499b-8aec-7fb2f84f419e
 
 
+# ╔═╡ 16d500be-59b5-4d8e-b77e-f40a9d3dd231
+md"""
+# Consulta rápida
+
+Elementos de consulta (documentação, exemplos de *notebooks*, bibliotecas e outras ferramentas) úteis para programação em `Julia` e na realização de *notebooks* Pluto.
+"""
+
+# ╔═╡ 7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
+md"""
+## Programação [Julia](https://julialang.org/)
+
+- Jeff Delaney, [Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0), Fireship, YouTube, May 2022
+
+- [Fastrack to Julia](https://juliadocs.github.io/Julia-Cheat-Sheet/) cheatsheet
+
+- [Julia By Example](https://juliabyexample.helpmanual.io/)
+
+- [🎈 Julia docs with Pluto.jl](https://julia-docs-pluto.netlify.app/)
+
+- [MATLAB-Julia-Python](https://cheatsheets.quantecon.org/) comparative cheatsheet by [QuantEcon group](https://quantecon.org) 
+				
+- [MATLAB to Julia online converter](https://lakras.github.io/matlab-to-julia/)
+
+- [CodeConvert.AI - Convert code with a click of a button](https://www.codeconvert.ai/)
+
+- 🎈 Rémi Vezy, [Julia course: from total beginner to power user](https://vezy.github.io/julia_course/)
+
+
+### Julia *Packages*
+
+- [Julia Packages](https://juliapackages.com/packages?sort=stars)
+
+- Lee Phillips, [Digging into Julia's package system](https://lwn.net/Articles/871490/), LWN.net, Oct. 2021.
+
+- Alejandra Ramirez, [Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md), GitHub BlogPosts, Mar. 2023.
+
+"""
+
+# ╔═╡ 5bd4a301-45c5-4829-96fd-027affe65cbd
+md"""
+## Pluto.jl
+
+- [Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)
+
+- Add interactivity to your notebook with PlutoUI.jl:
+
+  - [PlutoUI.jl documentation](https://docs.juliahub.com/PlutoUI/abXFp/0.7.59/))
+    
+  - [🎈 PlutoUI sample notebook](https://featured.plutojl.org/basic/plutoui.jl)
+ 
+  - doggo dot jl, [How to Create Engaging Interactive Reactive Notebooks using PlutoUI](https://www.youtube.com/watch?v=nkyvN7PXQZc), YouTube, Oct. 2022. Duration: 24min.
+ 
+  - Abel Siqueira, [Explorando notebooks Pluto.jl - Tutoriais de Julia em Português](https://www.youtube.com/watch?v=ZnF27xxlcD8), YouTube, Maio 2021. Duração: 33min.
+
+
+### Texto e equações 
+
+- [Markdown Guide](https://www.markdownguide.org/)
+
+- [Unicode characters](https://docs.julialang.org/en/v1/manual/unicode-input/)
+
+- PlutoTeachingTools.jl: [🎈 example notebook](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html). This package provides several functions that are useful in Pluto notebooks used for teaching and making tutorials
+
+- LaTeX:
+
+    - [List of LaTeX mathematical symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+    
+    - [Online equation editor using LaTeX markup](https://editor.codecogs.com)
+
+- doggo dot jl, [How to Use Markdown and LaTeX in Pluto Notebooks](https://www.youtube.com/watch?v=YahByfBTnCc&list=PLhQ2JMBcfAsjeC10lx_2zDlFUMkBUTyyO&index=2), YouTube, Sep. 2022. Duration: 25min.
+
+
+### Tabelas
+
+- [Online Markdown tables generator](https://www.tablesgenerator.com/markdown_tables)
+
+- [Pretty Tables.jl](https://ronisbr.github.io/PrettyTables.jl/stable/) documentation. This package has the purpose to print data in matrices in a human-readable format
+
+
+### Gráficos, desenhos, diagramas, ...
+
+- Christopher Rackauckas, [Summary of Julia Plotting Packages](http://www.stochasticlifestyle.com/summary-of-julia-plotting-packages/), Stochastic Lifestyle blog, Jun. 2023.
+
+- [🎈 Notebooks for the examples in the book](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/): Diego Javier Zea, Interactive Visualization and Plotting with Julia, Packt Publishing, 2022.  
+
+- Tecnhical drawing, [draw.io](https://app.diagrams.net/)
+
+- Whiteboard for sketching/hand-draw, [tldraw](https://www.tldraw.com/)
+
+- [🎈 ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html): Simple embedding for Pluto notebooks
+"""
+
+# ╔═╡ 1a9de438-3a54-4739-9c70-e501f58f71e6
+md"""
+!!! tip "Nota:"
+	O símbolo 🎈 assinala a presença de *notebook*(*s*) associados. 
+"""
+
+# ╔═╡ ef240421-67ee-43bc-83cb-b92bc64c2bbe
+
+
 # ╔═╡ 1af310d4-12f0-4895-876c-eceed6b6fba5
 md"""
-# Sobre
-"""
+# Termos de Utilização
 
-# ╔═╡ ae141be7-41de-46cb-9124-0311feb4e43e
-md"""
-## Autor
-"""
+## Condições de Licença
+O material publicado neste *website* e no respetivo repositório do GitHub está licenciado da seguinte forma:
 
-# ╔═╡ 36f5fbe8-2f65-4747-9f4e-36158d87aac1
-md"""
+- Os segmentos de código `Julia` dos *notebooks* são disponibilizados sob a [Licença MIT](https://tldrlegal.com/license/mit-license);
+- O conteúdo explicativo e visual dos *notebooks* é partilhado sob a [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/deed.pt) (CC BY-SA 4.0).
 
-[**Ricardo Luís**](https://www.isel.pt/docentes/ricardo-jorge-ferreira-luis)
+As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestões de melhoria](https://github.com/Ricardo-Luis/me-2/pulls) sobre o(s) *notebook*(*s*) são bem-vindas.
 
-(Professor Adjunto, PhD)
 
-\
+## Sobre o Autor
+ $\textcopyright$ 2022-2025 Ricardo Luís 
+
+[**Ricardo Luís**](https://www.isel.pt/docentes/ricardo-jorge-ferreira-luis)\
+Professor Adjunto, PhD
+
 **E-mail:** [ricardo.luis@isel.pt](mailto:ricardo.luis@isel.pt)
 
-\
-**Endereço postal:**
-
-	[ISEL](https://www.isel.pt/) - Instituto Superior de Engenharia de Lisboa\
+**Endereço postal:**\
+[ISEL](https://www.isel.pt/) - Instituto Superior de Engenharia de Lisboa\
 Departamento de Engenharia Eletrotécnica de Energia e Automação\
 Rua Conselheiro Emídio Navarro, 1\
 1959-007 Lisboa, Portugal
-"""
 
-# ╔═╡ 2dedc485-5720-4553-b55e-2d5e0329124b
-md"""
-## Como citar
-"""
 
-# ╔═╡ e97fe045-3571-4b86-8022-d9870a45baf7
-md"""
+## Como citar este trabalho
+Para qualquer reutilização ou citação de *notebooks* ou dos seus resultados disponibilizados neste *website*, em trabalhos académicos, publicações, materiais educativos, projetos ou outros contextos, por favor, utilize a seguinte referência:
+
 	Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2
-"""
-
-# ╔═╡ b9468a1a-f715-45a2-81d5-a580622880cb
-
-
-# ╔═╡ 039c50af-bcb4-45a3-a028-efcfef2124b6
-md"""
-## Licenças
-"""
-
-# ╔═╡ d5427cae-3c95-4927-b8dd-1ba71a99b745
-md"""
-O material publicado neste *website* e respetivo repositório do GitHub, está licenciado da seguinte forma:
-
-- As parcelas de código `Julia` dos *notebooks* estão sob os termos da licença: [MIT License](https://tldrlegal.com/license/mit-license)
-- Os textos e outros conteúdos dos *notebooks* estão sob os termos da licença: [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/deed.pt) (CC BY-SA 4.0).
-
-
-As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestões de melhoria](https://github.com/Ricardo-Luis/me-2/pulls) sobre o(s) *notebook*(*s*) são bem-vindas.
 """
 
 # ╔═╡ 329f957f-5031-4da9-93a8-2c6acd87ed76
@@ -275,19 +448,19 @@ As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestõe
 md"""
 # Agradecimentos / Acknowledgements
 
-Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuíram para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino da unidade curricular de Máquinas Elétricas II.
+Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino-aprendizagem da unidade curricular de Máquinas Elétricas II.
 
-Um reconhecimento especial aos criadores do Pluto.jl, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reactiva do seu ambiente de notebooks para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas eléctricas.
+Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas eléctricas.
 
 Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes notebooks, cujo trabalho colaborativo enriquece constantemente as possibilidades educativas desta plataforma.
 
 ---
 
-I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for teaching the Electrical Machines II course.
+I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for the teaching and learning the Electric Machinery II course.
 
-Special acknowledgment goes to the creators of Pluto.jl, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the Julia scientific programming language made it possible to adopt this type of computational notebook for teaching and research in electrical machines.
+Special acknowledgment goes to the creators of `Pluto.jl`, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the `Julia` scientific programming language made it possible to adopt this type of computational notebook for teaching and research in electrical machines.
 
-I also express my gratitude to the `Julia` community and the developers of the libraries used in these notebooks, whose collaborative work constantly enriches the educational possibilities of this platform.
+I also express my appreciation to the `Julia` community and the developers of the packages used in these notebooks, whose collaborative work constantly enriches the educational possibilities of this platform.
 """
 
 # ╔═╡ cc5006d1-c8fb-4d34-863a-f1e5e5ce3147
@@ -297,13 +470,29 @@ Ricardo Luís
 </div>
 """)
 
+# ╔═╡ eaf85eed-ae13-42f2-ba95-0bd2024394e2
+
+
 # ╔═╡ 72c8086a-c513-4245-a00a-0a5a9da78ffb
 md"""
-# *Setup*
+# *Notebook*
 """
 
+# ╔═╡ 4c204456-666b-492f-b92e-45a591a95cda
+md"""
+Esta secção apresenta as bibliotecas `Julia` utilizadas neste *notebook*, carregadas automaticamente através do `Pluto.jl`.
+"""
+
+# ╔═╡ 8711b954-5490-4ade-acfe-ec1fa614bfc9
+begin
+	version=VERSION
+	md"""
+*Nobebook* desenvolvido em `Julia` versão $(version).
+	"""
+end
+
 # ╔═╡ f83478f1-ef46-4441-9f4f-fdac036563c9
-TableOfContents(title="Índice") 	# to generate the Table of Contents from Markdown cells
+TableOfContents(title="Índice") 			# to generate the Table of Contents from Markdown cells
 
 # ╔═╡ 99e9e1a5-29b4-4660-9e5c-8b70b25c5497
 # to adjust the notebook margins and used font-family/size on text content
@@ -400,6 +589,16 @@ begin
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/pluto.svg?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/pluto.svg?raw=true",
 	        height=35
+		),
+			"repl" => (
+	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/repl.png?raw=true",
+	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/repl_dark.png?raw=true",
+	        height=400
+		),
+			"welcome" => (
+	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/welcome_pluto.png?raw=true",
+	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/welcome_pluto_dark.png?raw=true",
+	        height=400
 		)
 	)
 	
@@ -424,16 +623,51 @@ TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
 
 # ╔═╡ 054f60fc-9f3b-49c7-8f0e-c94dd6595000
 md"""
-**$(html"<p><center style='font-size:25px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
+**$(html"<p><center style='font-size:29px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
 
 | | | |
 | :-: | :-: | :-: |
-| $$\quad$$ **Linguagem de computação científica** $$\quad$$ | $$\quad$$ **Ambiente de desenvolvimento**  $$\quad$$ | $$\quad$$ **_Notebooks_**  $$\quad$$ |
+| $$\qquad\qquad$$ **Linguagem de computação científica** $$\qquad\qquad$$ | $$\qquad\qquad$$ **Ambiente de desenvolvimento**  $$\qquad\qquad$$ | $$\qquad\qquad$$ **_Notebooks_**  $$\qquad\qquad$$ |
 | | | |
 | | | |
-| $$\quad$$ $(logo_adaptativo(my_logos, my_links, default_logo="julia")) $$\quad$$ | $$\quad$$ $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) $$\quad$$ | $$\quad$$ [reativos, reproduzíveis, interativos](#🎈-Notebooks-de-ME-II:) $$\quad$$ |
+| $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | [reativos, reproduzíveis, interativos](#Reatividade,-reprodutibilidade-e-interatividade) |
 | | | |
 | | | |
+"""
+
+# ╔═╡ 5fa1359a-5e2b-4d95-a09c-e32157b55a29
+md"""
+## Julia
+Para instalar a linguagem de computação científica `Julia`, pode recorrer a um dos seguintes métodos:
+
+### Linha de comando
+A forma mais simples de instalar `Julia` no seu computador é usar o `juliaup`, um pequeno programa que instala automaticamente a versão mais recente de `Julia` e facilita a sua atualização.
+
+Para tal, aceda à página *web* de `Julia`, [(https://julialang.org/)](https://julialang.org/), e clique em ["Install"](https://julialang.org/install/).
+
+A página de instalação apresentada deteta o sistema operativo do seu computador e apresenta, numa caixa cinzenta, uma linha de comando para instalação do `juliaup`. Copie, cole e executer essa instrução no [terminal do computador](https://hub.asimov.academy/tutorial/como-utilizar-o-terminal/).
+
+### *Download* manual
+Se por algum motivo não foi bem-sucedido com o instalador `juliaup`, pode, em alternativa, fazer uma instalação manual do *software* `Julia`, optando pela "**_Current stable release_**" adequada ao seu computador/sistema operativo. Consulte: [*Download* Julia](https://julialang.org/downloads/)
+
+### Executar Julia
+Após a instalação, certifique-se de que consegue executar o `Julia`. Em alguns sistemas, isto significa abrir o programa "**Julia 1.11.x**" instalado no seu computador; noutros, significa executar o comando `julia` no terminal do computador.
+
+Após abrir, teste, por exemplo, executando na linha de comando do `Julia`:
+
+	julia> 1+1
+
+\
+Ou seja:  
+
+$(logo_adaptativo(my_logos, my_links, default_logo="repl"))
+"""
+
+# ╔═╡ 82dbfe15-8e45-4348-8845-424e70f0deeb
+md"""
+- No seu navegador *web* aparecerá uma página de boas-vindas do `Pluto.jl`:
+
+$(logo_adaptativo(my_logos, my_links, default_logo="welcome"))
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -844,44 +1078,74 @@ version = "17.4.0+2"
 # ╟─c4c3c88d-e13f-4782-9131-eb0d70b5277d
 # ╟─ffe5e74c-8167-41c7-bc35-4c412081a757
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
-# ╟─b08af239-c9d1-43c3-b150-e80f06801efd
+# ╟─efe18f75-2f88-4794-8656-7734a276232d
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
 # ╟─1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2
+# ╟─1d27f002-0a8f-4326-a1ed-12036aa9c8a3
+# ╟─ca020f4c-e830-4eb1-8284-308551465919
+# ╠═3851b901-0f6f-4771-8adb-7820a7b60465
+# ╠═a80136eb-b0fa-4062-8889-2c90976369a3
+# ╟─1f3385c5-e2cb-4b36-af2c-3ca16e7dc4f1
+# ╟─93d4db20-7c76-4396-82ee-15f7fdd37b8a
+# ╠═379a42a7-8f18-42de-bdc0-5601561196dd
+# ╠═fc130cda-394a-44e8-b00e-ee330b9051c0
+# ╠═f7821a8b-970f-4ab2-807e-05cb5d0304ee
+# ╠═7d3b4efe-fe0b-4496-b16a-439dc1f84638
+# ╠═f33737fc-a926-454a-9d74-bf61b9529e2b
+# ╠═ef1fe96b-efc1-4172-bb6f-9b7739b22382
+# ╠═034fb377-ce0e-4c8d-b038-1ef84b5f0aaa
+# ╠═37ecb88b-e91a-4bb2-aeae-94c3cd3dec62
+# ╠═7b93ca72-0e3b-4c48-a873-697b765c2465
+# ╟─ef201862-d8f8-4dff-bea3-4063ea029d81
+# ╟─3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
+# ╠═680b3695-db21-41b7-afc1-ba665bc76d5d
+# ╠═b3f9eb75-5cab-4fb4-9e25-2b3be1b5df99
+# ╠═e06ae726-d38e-4841-80d5-7200f37da8f8
+# ╠═ad768a4f-c5d3-4cd8-b443-9b430e2faaf9
+# ╠═7865e7ca-4fef-4cf0-b3b9-dbc1f25d0972
+# ╠═cf92e34b-076f-4aa7-bd11-0ab4f5364233
+# ╠═4c005dfd-bc41-4721-becf-9b3d6ffd7f21
+# ╠═ba948db8-8737-4f05-9651-25bee245cf7d
+# ╟─0bfebd14-9929-478e-8521-dc3c610e8304
+# ╟─4d1504da-3b03-4c0f-9582-22aa552b21ea
+# ╠═2d68bd77-e483-441b-b2cc-d4e69f684fd5
+# ╠═20b341b4-341f-465c-9709-afa732072611
+# ╠═0c3a8f23-2bd1-43c7-887e-00499924527c
+# ╠═b4310f50-02c9-481c-bc8c-17df8f0ed396
+# ╠═0374e554-f14a-4db7-9046-e6e7db231289
+# ╠═b4e76ca5-16e5-46e6-8c5c-b1836724455d
+# ╠═26588df7-6aa2-42e6-96ec-533055139e40
+# ╠═581fcff8-a29e-428b-94b8-270227b4736d
+# ╠═e7986aec-981c-4e6a-af2e-29267af7b6d7
 # ╟─f3769341-6dcd-4332-a0a0-0cf79205f627
 # ╟─0823c4d6-bf8a-4bb5-9719-385f8fe90684
-# ╠═5fa1359a-5e2b-4d95-a09c-e32157b55a29
-# ╟─f78860b7-b9db-44c5-bdbe-1d97ac7060bb
+# ╟─5fa1359a-5e2b-4d95-a09c-e32157b55a29
+# ╟─93b1f79d-2ab4-48ad-9eff-0aea5b6a1505
 # ╟─ff1ebc33-1a81-470b-8044-d09a0faec8e6
-# ╟─8e8a5310-1518-4578-9173-e83a7d540737
 # ╟─a078a168-b48b-46bf-b1a6-6b106616c586
 # ╟─8e883eba-aed5-4d0d-8846-e440a9f6ee4f
 # ╟─e77f2489-a0e5-4aeb-a577-e86c353fdf0c
-# ╟─fb8fae23-5360-466f-884a-b6626064a589
-# ╟─0f360a8f-9a77-488d-a050-a95e8af83dfb
-# ╟─e66d1b52-c2da-44c6-9dcf-60afbd397ed9
-# ╟─4e5d5c46-6d98-4125-868f-548d28b96511
-# ╟─ea2a84a1-7375-4933-a166-6bbd2eaa51e7
-# ╟─45290d8f-5625-4796-adef-bc89554d827f
+# ╟─82dbfe15-8e45-4348-8845-424e70f0deeb
 # ╟─33ee713c-2142-47b7-8bca-691c00ca4db4
-# ╟─80b30983-2eb5-40f2-bbc3-c5a8b68ad8f8
-# ╟─1a9de438-3a54-4739-9c70-e501f58f71e6
-# ╟─37f6f655-412c-426d-9505-6bb5b269c612
-# ╟─e7252dec-bd34-4186-b36a-111dea1ba96d
+# ╟─69cefea4-fcc2-4f74-ad6f-4366de284bf7
+# ╟─7e966db6-ca39-4f66-9ab1-bdc088591608
+# ╟─a99a1360-b179-4080-bdbe-b58217597d7e
 # ╟─79b4d3c8-4867-499b-8aec-7fb2f84f419e
+# ╟─16d500be-59b5-4d8e-b77e-f40a9d3dd231
+# ╟─7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
+# ╟─5bd4a301-45c5-4829-96fd-027affe65cbd
+# ╟─1a9de438-3a54-4739-9c70-e501f58f71e6
+# ╟─ef240421-67ee-43bc-83cb-b92bc64c2bbe
 # ╟─1af310d4-12f0-4895-876c-eceed6b6fba5
-# ╟─ae141be7-41de-46cb-9124-0311feb4e43e
-# ╠═36f5fbe8-2f65-4747-9f4e-36158d87aac1
-# ╟─2dedc485-5720-4553-b55e-2d5e0329124b
-# ╟─e97fe045-3571-4b86-8022-d9870a45baf7
-# ╟─b9468a1a-f715-45a2-81d5-a580622880cb
-# ╟─039c50af-bcb4-45a3-a028-efcfef2124b6
-# ╟─d5427cae-3c95-4927-b8dd-1ba71a99b745
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76
 # ╟─a5004d56-6b46-49b9-bf7a-35d0a2749e6d
 # ╟─cc5006d1-c8fb-4d34-863a-f1e5e5ce3147
+# ╟─eaf85eed-ae13-42f2-ba95-0bd2024394e2
 # ╟─72c8086a-c513-4245-a00a-0a5a9da78ffb
+# ╟─4c204456-666b-492f-b92e-45a591a95cda
 # ╠═766e42e6-0d19-48ba-b1a5-462708df3ff9
+# ╟─8711b954-5490-4ade-acfe-ec1fa614bfc9
 # ╠═f83478f1-ef46-4441-9f4f-fdac036563c9
 # ╟─99e9e1a5-29b4-4660-9e5c-8b70b25c5497
 # ╟─e785e52d-3662-4e9f-a932-b01dac732421

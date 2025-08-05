@@ -6,7 +6,7 @@
 #> section = 4
 #> order = 4
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/a6691954a5c7a3754b799cb3afb21ef0808c88cc/images/card/Parallel.GEN.png?raw=true"
-#> title = "✏️ Paralelo de geradores"
+#> title = "Paralelo de geradores"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"

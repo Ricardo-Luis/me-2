@@ -6,11 +6,11 @@
 #> section = 1
 #> order = 1
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/8260c686a90bd229c7e21f52226a802d495dfe80/images/card/StandAloneSynGen.png?raw=true"
-#> title = "✏️ Alternador em regime isolado"
+#> title = "Alternador em regime isolado"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module3"]
 #> date = "2024-10-29"
-#> description = "O exercício proposto incide sobre a análise da operação do alternador síncrono 3~ de polos salientes em condições de rede isolada. São exploradas a determinação da característica externa com diferentes tipos de carga (resistiva, indutiva e capacitiva), a análise dos diagramas vetoriais de tensão para diferentes fatores de potência e a construção da característica de regulação necessária para manter a tensão de saída constante. A resolução considera parâmetros como a frequência e a excitação constantes, permitindo compreender o comportamento do alternador em situações típicas de funcionamento isolado"
+#> description = "O exercício proposto incide sobre a análise da operação do alternador síncrono 3~ de rotor cilíndrico em rede isolada. São exploradas a determinação da característica externa com diferentes tipos de carga (resistiva, indutiva e capacitiva), a análise dos diagramas vetoriais de tensão para diferentes fatores de potência e a construção da característica de regulação necessária para manter a tensão de saída constante. A resolução considera parâmetros como a frequência e a excitação constantes, permitindo compreender o comportamento do alternador num sistema elétrico autónomo"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

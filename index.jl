@@ -42,7 +42,7 @@ Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de
 
 # ╔═╡ 659cda0d-61f1-4e65-b541-9d5e6c69bab2
 md"""
-# Notebooks de ME II
+# 🎈 Notebooks de ME II
 """
 
 # ╔═╡ 1d27f002-0a8f-4326-a1ed-12036aa9c8a3
@@ -68,31 +68,28 @@ md"""
 """
 
 # ╔═╡ 379a42a7-8f18-42de-bdc0-5601561196dd
-NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+NotebookCard("https://ricardo-luis.github.io/me-2/MaqDCinduzido.html")
 
 # ╔═╡ fc130cda-394a-44e8-b00e-ee330b9051c0
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Separ.Shunt.GEN.html")
 
 # ╔═╡ f7821a8b-970f-4ab2-807e-05cb5d0304ee
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Compound.GEN.html")
 
 # ╔═╡ 7d3b4efe-fe0b-4496-b16a-439dc1f84638
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Parallel.GEN.html")
 
 # ╔═╡ f33737fc-a926-454a-9d74-bf61b9529e2b
-
+NotebookCard("https://ricardo-luis.github.io/me-2/DCmotors.html")
 
 # ╔═╡ ef1fe96b-efc1-4172-bb6f-9b7739b22382
-
+NotebookCard("https://ricardo-luis.github.io/me-2/back2backlab.html")
 
 # ╔═╡ 034fb377-ce0e-4c8d-b038-1ef84b5f0aaa
-
+NotebookCard("https://ricardo-luis.github.io/me-2/SeriesMotor.html")
 
 # ╔═╡ 37ecb88b-e91a-4bb2-aeae-94c3cd3dec62
-
-
-# ╔═╡ 7b93ca72-0e3b-4c48-a873-697b765c2465
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Test.DCmachines.html")
 
 # ╔═╡ ef201862-d8f8-4dff-bea3-4063ea029d81
 
@@ -1084,19 +1081,18 @@ version = "17.4.0+2"
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2
 # ╟─1d27f002-0a8f-4326-a1ed-12036aa9c8a3
 # ╟─ca020f4c-e830-4eb1-8284-308551465919
-# ╠═3851b901-0f6f-4771-8adb-7820a7b60465
-# ╠═a80136eb-b0fa-4062-8889-2c90976369a3
+# ╟─3851b901-0f6f-4771-8adb-7820a7b60465
+# ╟─a80136eb-b0fa-4062-8889-2c90976369a3
 # ╟─1f3385c5-e2cb-4b36-af2c-3ca16e7dc4f1
 # ╟─93d4db20-7c76-4396-82ee-15f7fdd37b8a
-# ╠═379a42a7-8f18-42de-bdc0-5601561196dd
-# ╠═fc130cda-394a-44e8-b00e-ee330b9051c0
-# ╠═f7821a8b-970f-4ab2-807e-05cb5d0304ee
-# ╠═7d3b4efe-fe0b-4496-b16a-439dc1f84638
-# ╠═f33737fc-a926-454a-9d74-bf61b9529e2b
-# ╠═ef1fe96b-efc1-4172-bb6f-9b7739b22382
-# ╠═034fb377-ce0e-4c8d-b038-1ef84b5f0aaa
-# ╠═37ecb88b-e91a-4bb2-aeae-94c3cd3dec62
-# ╠═7b93ca72-0e3b-4c48-a873-697b765c2465
+# ╟─379a42a7-8f18-42de-bdc0-5601561196dd
+# ╟─fc130cda-394a-44e8-b00e-ee330b9051c0
+# ╟─f7821a8b-970f-4ab2-807e-05cb5d0304ee
+# ╟─7d3b4efe-fe0b-4496-b16a-439dc1f84638
+# ╟─f33737fc-a926-454a-9d74-bf61b9529e2b
+# ╟─ef1fe96b-efc1-4172-bb6f-9b7739b22382
+# ╟─034fb377-ce0e-4c8d-b038-1ef84b5f0aaa
+# ╟─37ecb88b-e91a-4bb2-aeae-94c3cd3dec62
 # ╟─ef201862-d8f8-4dff-bea3-4063ea029d81
 # ╟─3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
 # ╠═680b3695-db21-41b7-afc1-ba665bc76d5d

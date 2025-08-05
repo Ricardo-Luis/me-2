@@ -6,7 +6,7 @@
 #> section = 3
 #> order = 3
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/477a59ef184b970bed95a7c4e2f985bf778d102b/images/card/Compound.GEN.png?raw=true"
-#> title = "✏️ Gerador compound"
+#> title = "Gerador compound"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"

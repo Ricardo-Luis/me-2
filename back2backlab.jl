@@ -6,7 +6,7 @@
 #> section = 6
 #> order = 6
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/276c849a55a685a43c1b3e7d97355f648664d3a9/images/card/back2back.svg?raw=true"
-#> title = "📈 Ensaio back-to-back"
+#> title = "Ensaio back-to-back"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> description = "Este notebook documenta o relatório laboratorial de um ensaio back-to-back em máquinas de corrente contínua (CC), realizado com um grupo motor-gerador mecanicamente acoplado e eletricamente ligado em paralelo a uma rede CC. Este método permite analisar o balanço de potências, avaliar as perdas e determinar o rendimento das máquinas em diferentes condições de funcionamento"

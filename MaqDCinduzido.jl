@@ -676,7 +676,7 @@ pluto-output {
 
 # ╔═╡ b467ed22-2892-4875-a2b7-173efafa5a8d
 md"""
-# Notebook
+# *Notebook*
 """
 
 # ╔═╡ 68fff8eb-4988-4c68-a543-2ddef8e4c428
@@ -705,7 +705,7 @@ aside((md"""
 md"""
 |  |  |
 |:--:|:--|
-|  | This notebook, [MaqDCinduzido.jl](https://ricardo-luis.github.io/me-2/MaqDCinduzido.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/isel-me2/)" by Ricardo Luís. |
+|  | This notebook, [MaqDCinduzido.jl](https://ricardo-luis.github.io/me-2/MaqDCinduzido.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
 |  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
 """

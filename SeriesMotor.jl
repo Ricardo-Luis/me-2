@@ -6,7 +6,7 @@
 #> section = 7
 #> order = 7
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/f2f5928dccab74b3631685e0bd0d9e5eccd4a236/images/card/SeriesMotor.png?raw=true"
-#> title = "✏️ Motor série"
+#> title = "Motor série"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"

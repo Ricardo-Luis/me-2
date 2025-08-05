@@ -6,7 +6,7 @@
 #> section = 1
 #> order = 1
 #> image = "https://github.com/Ricardo-Luis/notebooks/blob/main/ME2/images/commutator.jpg?raw=true"
-#> title = "📄 Máquina CC: induzido, RMI, comutação"
+#> title = "Máquina CC: induzido, RMI, comutação"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-16"
 #> layout = "layout.jlhtml"

@@ -584,7 +584,7 @@ begin
 	plot!([U⃗₂+RₛI⃗₂, U⃗₂+RₛI⃗₂+jXₛI⃗₂], arrow=:closed, label="XₛI∠(φ+90°)", linewidth=2)
 	
 	plot!([0, E⃗₀₂], arrow=:closed,minorticks=5, label="E₀∠δ", linewidth=2,
-		  ylims=(-1000,1000), xlims=(0,2000), size=(600,600))
+		  ylims=(-1500,1500), xlims=(0,3000), size=(600,600))
 	
 	# locus of EMF
 	δ_locus = -5:1:90
@@ -598,7 +598,7 @@ begin
 	φ_locus = -90:1:90
 	I⃗₂_locus = (K*I₂)∠.(φ_locus)
 	
-	plot!(I⃗₂_locus, linestyle=:dash, label="locus de I∠φ", legend=:top)
+	plot!(I⃗₂_locus, linestyle=:dash, label="locus de I∠φ")
 end
 
 # ╔═╡ c95b31b8-bfad-47d5-a5c8-bfb5340f76e3
@@ -1943,7 +1943,7 @@ version = "1.9.2+0"
 # ╟─e934fad8-c4fe-4e7f-bc64-e1c3f3e52460
 # ╟─96d3e48e-60bc-4c97-aac4-6517502fa936
 # ╟─f68a29b1-64c3-466b-987b-0c66b8385af3
-# ╠═4287947f-5fcc-4400-b4ea-7ddb29d259cf
+# ╟─4287947f-5fcc-4400-b4ea-7ddb29d259cf
 # ╟─d3581eff-e1c7-4e01-b722-3d94ff428746
 # ╟─14df28f1-6cb0-4e18-b5f0-4c8f94d02a56
 # ╟─76b147a2-d33f-49ef-8236-444818042a12
@@ -1999,6 +1999,6 @@ version = "1.9.2+0"
 # ╟─cb63050b-07c0-46ba-8b88-be17aeef96ac
 # ╠═88b36341-02ed-4043-8a9f-672340bf194f
 # ╟─9734b80e-1683-4812-9227-f5e61154086c
-# ╟─15984de3-1e84-41c9-8193-5fa3a4cb9f1c
+# ╠═15984de3-1e84-41c9-8193-5fa3a4cb9f1c
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

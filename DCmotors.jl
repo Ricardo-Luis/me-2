@@ -6,7 +6,7 @@
 #> section = 5
 #> order = 5
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/087e6ae9406f359c461b1825e9ce233dabb54fac/images/card/DCmotors.png?raw=true"
-#> title = "✏️ Curvas características motores"
+#> title = "Curvas características motores"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> description = "Este exercício incide sobre as curvas de funcionamento dos motores de corrente contínua (CC), designadamente as características de velocidade, binário e mecânica. Realiza-se uma comparação entre motores de excitação constante (separada e em derivação), excitação composta (aditiva e subtrativa) e excitação série. São ainda abordadas as condições de embalamento dos motores CC"

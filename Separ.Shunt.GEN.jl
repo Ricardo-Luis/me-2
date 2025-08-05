@@ -6,7 +6,7 @@
 #> section = 2
 #> order = 2
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/d354f228f68349d229cf52d7cb5825e40334355b/images/card/Sep.Shunt.GEN.png?raw=true"
-#> title = "✏️ Gerador: exc. separada vs. shunt"
+#> title = "Gerador: exc. separada vs. shunt"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"

@@ -6,7 +6,7 @@
 #> section = 8
 #> order = 8
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/cf9b5498fbc9ea264c8b0702aecf5e89dca05b97/images/card/Test.DCmachines.png?raw=true"
-#> title = "📝 Teste 03.nov.2022"
+#> title = "Teste 03.nov.2022"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"

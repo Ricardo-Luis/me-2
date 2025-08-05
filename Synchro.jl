@@ -5,7 +5,7 @@
 #> chapter = 2
 #> section = 3
 #> order = 3
-#> image = "https://github.com/Ricardo-Luis/me-2/blob/e23d7746d3e27684b4554883555de2ceb8f535e9/images/card/Synchro.gif?raw=true"
+#> image = "https://github.com/Ricardo-Luis/me-2/blob/e23d7746d3e27684b4554883555de2ceb8f535e9/images/card/Synchro.gif?raw=tre"
 #> title = "Sincronização de um alternador"
 #> date = "2024-11-18"
 #> tags = ["lecture", "module3"]

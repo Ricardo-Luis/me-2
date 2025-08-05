@@ -6,7 +6,7 @@
 #> section = 3
 #> order = 3
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/28e09c0ba2ad83436023514c97fb6b1f86c3c4c1/images/card/Synchro.gif?raw=true"
-#> title = "📚 Sincronização de um alternador"
+#> title = "Sincronização de um alternador"
 #> date = "2024-11-18"
 #> tags = ["lecture", "module3"]
 #> layout = "layout.jlhtml"

@@ -10,7 +10,7 @@
 #> date = "2024-12-11"
 #> tags = ["lecture", "module4"]
 #> title = "Curto-circuito simétrico de um alternador"
-#> description = "Analisa-se detalhadamente o curto-circuito simétrico trifásico num alternador síncrono em vazio, combinando os fundamentos teóricos com simulação numérica para observar o transitório das correntes de curto-circuito do alternador. Através de parâmetros ajustáveis, como o ângulo de falha (α), os estudantes podem observar como as correntes de curto-circuito (AC e DC) evoluem, compreendendo o papel das reatâncias síncronas e das constantes de tempo. Inclui-se ainda a modelação do transitório da corrente rotórica, enriquecendo a análise com exemplos numéricos e comparações com dados técnicos"
+#> description = "Analisa-se detalhadamente o curto-circuito simétrico 3~ num alternador síncrono em vazio, combinando os fundamentos teóricos com simulação numérica para observar o transitório das correntes de curto-circuito do alternador. Através de parâmetros ajustáveis, como o ângulo de falha (α), os estudantes podem observar como as correntes de curto-circuito (AC e DC) evoluem, compreendendo o papel das reatâncias síncronas e das constantes de tempo. Inclui-se ainda a modelação do transitório da corrente rotórica, enriquecendo a análise com exemplos numéricos e comparações com dados técnicos"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

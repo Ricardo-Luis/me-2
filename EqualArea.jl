@@ -10,7 +10,7 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module4"]
 #> date = "2024-12-03"
-#> description = "Apresenta-se a aplicação do critério da igualdade das áreas na análise de grandes perturbações em alternadores síncronos trifásicos. O exercício compara dois alternadores ligados a uma rede de capacidade infinita: um de polos lisos e outro de polos salientes. Através de métodos analíticos e computacionais, determina-se a máxima perturbação admissível que cada máquina pode suportar mantendo-se estável em regime transitório. Os diagramas P(δ) e as áreas correspondentes são apresentados de forma interativa para uma melhor compreensão dos conceitos de estabilidade dinâmica em sistemas elétricos de potência"
+#> description = "Apresenta-se a aplicação do critério da igualdade das áreas na análise de grandes perturbações em alternadores síncronos 3~. O exercício compara dois alternadores ligados a uma rede de capacidade infinita: um de polos lisos e outro de polos salientes. Através de métodos analíticos e computacionais, determina-se a máxima perturbação admissível que cada máquina pode suportar mantendo-se estável em regime transitório. Os diagramas P(δ) e as áreas correspondentes são apresentados de forma interativa para uma melhor compreensão dos conceitos de estabilidade dinâmica em sistemas elétricos de potência"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

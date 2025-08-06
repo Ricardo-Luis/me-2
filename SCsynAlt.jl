@@ -5,7 +5,7 @@
 #> chapter = 3
 #> section = 2
 #> order = 2
-#> image = "https://github.com/Ricardo-Luis/me-2/blob/bfc1477cd648078aaacad53992d420011a80c73d/images/card/SCsynAlt.png?raw=true"
+#> image = "https://github.com/Ricardo-Luis/me-2/blob/3b6078f37ee7f4cb3f36f456198e97773ec2c879/images/card/SCsynAlt.png?raw=true"
 #> layout = "layout.jlhtml"
 #> date = "2024-12-11"
 #> tags = ["lecture", "module4"]

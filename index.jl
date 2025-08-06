@@ -46,7 +46,7 @@ Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks*
 
 Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
-Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo pontes entre o conhecimento académico e os desafios reais da engenharia. O objetivo é facilitar uma compreensão mais profunda e prática da matéria, contribuindo para o desenvolvimento de competências essenciais ao exercício da engenharia.
+Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo pontes entre o conhecimento académico e os desafios reais da engenharia. O objetivo é estimular um domínio mais efetivo e prático dos conteúdos, contribuindo para o desenvolvimento de competências essenciais ao exercício da engenharia.
 """
 
 # ╔═╡ 1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
@@ -141,10 +141,10 @@ md"""
 """
 
 # ╔═╡ 2d68bd77-e483-441b-b2cc-d4e69f684fd5
-NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+NotebookCard("https://ricardo-luis.github.io/me-2/EqualArea.html")
 
 # ╔═╡ 20b341b4-341f-465c-9709-afa732072611
-NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+NotebookCard("https://ricardo-luis.github.io/me-2/SCsynAlt.html")
 
 # ╔═╡ f3769341-6dcd-4332-a0a0-0cf79205f627
 
@@ -191,7 +191,7 @@ md"""
 
 
 ## "*Time to first plot*"
-`Julia` é uma linguagem compilada *just-in-time* (JIT). Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por "**_time to first plot_**", que teve melhorias significativas nas versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) do `Julia`. Após a primeira execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí, o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
+`Julia` é uma linguagem compilada *just-in-time*. Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por "**_time to first plot_**", que teve melhorias significativas nas versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) do `Julia`. Após a primeira execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí, o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
 
 Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
 
@@ -238,13 +238,13 @@ Utilizando um navegador *web* (recomendado: Mozilla Firefox ou Google Chrome), o
 Os *notebooks* Pluto são reativos, pois a atualização de uma parte do código reexecuta automaticamente todas as partes afetadas por essa alteração. 
 Ou seja, o `Pluto.jl` reconhece as dependências entre as células, nos segmentos de código `Julia`. Por conseguinte, sempre que uma célula é alterada, todas as células dependentes são automaticamente atualizadas (como numa folha de cálculo: MS Excel, Google Sheets, ...). Assim, os resultados são recalculados em tempo real, permitindo ao utilizador a exploração dinâmica dos conceitos de forma interativa.
 
-Os *notebooks* Pluto são reproduzíveis, pois configuram automaticamente as dependências necessárias. O `Pluto.jl` regista as bibliotecas usadas no *notebook* e configura o ambiente de execução, assegurando a qualquer utilizador as mesmas condições computacionais. Esta funcionalidade elimina o problema comum de "funciona no meu computador", permitindo uma colaboração mais eficiente e resultados consistentes entre diferentes máquinas.
+Os *notebooks* Pluto são reproduzíveis, pois configuram automaticamente as dependências necessárias. O `Pluto.jl` regista as bibliotecas usadas no *notebook* e configura o ambiente de execução, assegurando a qualquer utilizador as mesmas condições computacionais. Esta funcionalidade elimina o problema comum de "funciona no meu computador", permitindo uma colaboração mais eficiente e resultados consistentes entre diferentes computadores.
 
 O `Pluto.jl` disponibiliza suporte nativo para *widgets* interativos, como *sliders*, caixas de seleção e campos de introdução de texto, que podem ser associados a variáveis `Julia` através do comando `@bind`. Desta forma, o utilizador pode manipular parâmetros e visualizar de imediato os resultados dessas alterações no código e nas visualizações, sem necessidade de reiniciar ou executar várias células manualmente, tornando a experiência mais fluida e facilitando a criação de *dashboards* e aplicações científicas interativas.
 
 
 ## *Notebooks* em ME II
-A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de "*Notebooks* Computacionais Aplicados a Máquinas Elétricas II", possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl` permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
+A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II**, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl` permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
 
 - _**F**indable_
 - _**A**ccessible_
@@ -609,7 +609,7 @@ A forma mais simples de instalar `Julia` no seu computador é usar o `juliaup`, 
 
 Para tal, aceda à página *web* de `Julia`, [(https://julialang.org/)](https://julialang.org/), e clique em ["Install"](https://julialang.org/install/).
 
-A página de instalação apresentada deteta o sistema operativo do seu computador e apresenta, numa caixa cinzenta, uma linha de comando para instalação do `juliaup`. Copie, cole e executer essa instrução no [terminal do computador](https://hub.asimov.academy/tutorial/como-utilizar-o-terminal/).
+A página de instalação apresentada deteta o sistema operativo do seu computador e apresenta, numa caixa cinzenta, uma linha de comando para instalação do `juliaup`. Copie, cole e execute essa instrução no [terminal do computador](https://hub.asimov.academy/tutorial/como-utilizar-o-terminal/).
 
 ### *Download* manual
 Se por algum motivo não foi bem-sucedido com o instalador `juliaup`, pode, em alternativa, fazer uma instalação manual do *software* `Julia`, optando pela "**_Current stable release_**" adequada ao seu computador/sistema operativo. Consulte: [*Download* Julia](https://julialang.org/downloads/)
@@ -1071,8 +1071,8 @@ version = "17.4.0+2"
 # ╟─4c005dfd-bc41-4721-becf-9b3d6ffd7f21
 # ╟─0bfebd14-9929-478e-8521-dc3c610e8304
 # ╟─4d1504da-3b03-4c0f-9582-22aa552b21ea
-# ╠═2d68bd77-e483-441b-b2cc-d4e69f684fd5
-# ╠═20b341b4-341f-465c-9709-afa732072611
+# ╟─2d68bd77-e483-441b-b2cc-d4e69f684fd5
+# ╟─20b341b4-341f-465c-9709-afa732072611
 # ╟─f3769341-6dcd-4332-a0a0-0cf79205f627
 # ╟─0823c4d6-bf8a-4bb5-9719-385f8fe90684
 # ╟─5fa1359a-5e2b-4d95-a09c-e32157b55a29

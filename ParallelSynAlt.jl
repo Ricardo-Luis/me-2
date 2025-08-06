@@ -10,7 +10,7 @@
 #> date = "2024-11-26"
 #> tags = ["lecture", "module3"]
 #> layout = "layout.jlhtml"
-#> description = "Este notebook permite analisar o funcionamento de alternadores síncronos trifásicos ligados em paralelo numa rede isolada, explorando a interdependência entre máquinas na repartição de potência ativa e reativa, mantendo simultaneamente a tensão e a frequência estáveis. Através da análise das relações, U=f(Q)  e  freq=f(P), são discutidos os mecanismos de regulação de tensão e de frequência e a sua influência na distribuição de cargas entre os alternadores. Cada alternador possui a sua própria corrente de excitação e potência mecânica de acionamento, sendo analisado como as variações destes parâmetros individuais afetam o equilíbrio dinâmico da rede e os diferentes modos de operação conjunta"
+#> description = "Este notebook permite analisar o funcionamento de alternadores síncronos 3~ ligados em paralelo numa rede isolada, explorando a interdependência entre máquinas na repartição de potência ativa e reativa, mantendo simultaneamente a tensão e a frequência estáveis. Através da análise das relações, U=f(Q)  e  freq=f(P), são discutidos os mecanismos de regulação de tensão e de frequência e a sua influência na distribuição de cargas entre os alternadores. Cada alternador possui a sua própria corrente de excitação e potência mecânica de acionamento, sendo analisado como as variações destes parâmetros individuais afetam o equilíbrio dinâmico da rede e os diferentes modos de operação conjunta"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

@@ -6,7 +6,7 @@
 #> section = 5
 #> order = 5
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/565d82d9044a5f73dcd40b10f327d87134df4cc9/images/card/ParallelSynAlt.png?raw=true"
-#> title = "📚 Paralelo de alternadores"
+#> title = "Paralelo de alternadores"
 #> date = "2024-11-26"
 #> tags = ["lecture", "module3"]
 #> layout = "layout.jlhtml"

@@ -1,6 +1,18 @@
 ### A Pluto.jl notebook ###
 # v0.20.13
 
+#> [frontmatter]
+#> site_name = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"
+#> title = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"
+#> date = "2025-01-09"
+#> tags = ["Pluto Notebooks", "Electric Machines", "DC Machines", "Synchronous Machines", "Transients of Electrical Machines"]
+#> url = "https://ricardo-luis.github.io/me-2/"
+#> description = "Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2"
+#> 
+#>     [[frontmatter.author]]
+#>     name = "Ricardo Luís"
+#>     url = "https://ricardo-luis.github.io"
+
 using Markdown
 using InteractiveUtils
 
@@ -100,28 +112,25 @@ md"""
 """
 
 # ╔═╡ 680b3695-db21-41b7-afc1-ba665bc76d5d
-NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
+NotebookCard("https://ricardo-luis.github.io/me-2/StandAloneSynGen.html")
 
 # ╔═╡ b3f9eb75-5cab-4fb4-9e25-2b3be1b5df99
-
+NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
 
 # ╔═╡ e06ae726-d38e-4841-80d5-7200f37da8f8
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Synchro.html")
 
 # ╔═╡ ad768a4f-c5d3-4cd8-b443-9b430e2faaf9
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Vcurves.html")
 
 # ╔═╡ 7865e7ca-4fef-4cf0-b3b9-dbc1f25d0972
-
+NotebookCard("https://ricardo-luis.github.io/me-2/ParallelSynAlt.html")
 
 # ╔═╡ cf92e34b-076f-4aa7-bd11-0ab4f5364233
-
+NotebookCard("https://ricardo-luis.github.io/me-2/SalientPoleSyncMotor.html")
 
 # ╔═╡ 4c005dfd-bc41-4721-becf-9b3d6ffd7f21
-
-
-# ╔═╡ ba948db8-8737-4f05-9651-25bee245cf7d
-
+NotebookCard("https://ricardo-luis.github.io/me-2/Test.ACmachines.html")
 
 # ╔═╡ 0bfebd14-9929-478e-8521-dc3c610e8304
 
@@ -135,49 +144,7 @@ md"""
 NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
 
 # ╔═╡ 20b341b4-341f-465c-9709-afa732072611
-
-
-# ╔═╡ 0c3a8f23-2bd1-43c7-887e-00499924527c
-
-
-# ╔═╡ b4310f50-02c9-481c-bc8c-17df8f0ed396
-
-
-# ╔═╡ 0374e554-f14a-4db7-9046-e6e7db231289
-
-
-# ╔═╡ b4e76ca5-16e5-46e6-8c5c-b1836724455d
-
-
-# ╔═╡ 26588df7-6aa2-42e6-96ec-533055139e40
-
-
-# ╔═╡ 581fcff8-a29e-428b-94b8-270227b4736d
-
-
-# ╔═╡ e7986aec-981c-4e6a-af2e-29267af7b6d7
-md"""
-\
-**Máquina elétrica de corrente contínua**
-
-- [Gerador: exc. separada vs. shunt, Ex.2](./Separ.Shunt.GEN.Ex2.html)
-- [Gerador compound, Ex.4](./Compound.GEN.Ex4.html)
-- [Paralelo de geradores, Ex.6](./ParallelGenerators.Ex6.html)
-- [Curvas características motores, Ex.7](./DCmotors.Ex7.html)
-- [Ensaio back-to-back, Lab.](./back2backlab.html)
-- [Motor série, Ex.9](./SeriesMotor.html)
-- [Resolução de teste (03/nov/2022)](./Test.DCmachines.html)
-
-\
-**Máquina elétrica síncrona trifásica**
-
-- [Alternador em regime isolado, Ex.1](./StandAloneSynGen.html)
-- [Alternador, curvas características, Ex.2](./CurvesSynGen.html)
-- [Curvas de Mordey](./Vcurves.html)
-- [Motor polos salientes, Ex.8](./SalientPoleSyncMotor.html)
-- [Critério da igualdade das áreas, Ex.11](./EqualArea.html)
-- [Resolução de teste (27/jan/2023)](./Test.ACmachines.html)
-"""
+NotebookCard("https://ricardo-luis.github.io/me-2/CurvesSynGen.html")
 
 # ╔═╡ f3769341-6dcd-4332-a0a0-0cf79205f627
 
@@ -1095,25 +1062,17 @@ version = "17.4.0+2"
 # ╟─37ecb88b-e91a-4bb2-aeae-94c3cd3dec62
 # ╟─ef201862-d8f8-4dff-bea3-4063ea029d81
 # ╟─3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
-# ╠═680b3695-db21-41b7-afc1-ba665bc76d5d
-# ╠═b3f9eb75-5cab-4fb4-9e25-2b3be1b5df99
-# ╠═e06ae726-d38e-4841-80d5-7200f37da8f8
-# ╠═ad768a4f-c5d3-4cd8-b443-9b430e2faaf9
-# ╠═7865e7ca-4fef-4cf0-b3b9-dbc1f25d0972
-# ╠═cf92e34b-076f-4aa7-bd11-0ab4f5364233
-# ╠═4c005dfd-bc41-4721-becf-9b3d6ffd7f21
-# ╠═ba948db8-8737-4f05-9651-25bee245cf7d
+# ╟─680b3695-db21-41b7-afc1-ba665bc76d5d
+# ╟─b3f9eb75-5cab-4fb4-9e25-2b3be1b5df99
+# ╟─e06ae726-d38e-4841-80d5-7200f37da8f8
+# ╟─ad768a4f-c5d3-4cd8-b443-9b430e2faaf9
+# ╟─7865e7ca-4fef-4cf0-b3b9-dbc1f25d0972
+# ╟─cf92e34b-076f-4aa7-bd11-0ab4f5364233
+# ╟─4c005dfd-bc41-4721-becf-9b3d6ffd7f21
 # ╟─0bfebd14-9929-478e-8521-dc3c610e8304
 # ╟─4d1504da-3b03-4c0f-9582-22aa552b21ea
 # ╠═2d68bd77-e483-441b-b2cc-d4e69f684fd5
 # ╠═20b341b4-341f-465c-9709-afa732072611
-# ╠═0c3a8f23-2bd1-43c7-887e-00499924527c
-# ╠═b4310f50-02c9-481c-bc8c-17df8f0ed396
-# ╠═0374e554-f14a-4db7-9046-e6e7db231289
-# ╠═b4e76ca5-16e5-46e6-8c5c-b1836724455d
-# ╠═26588df7-6aa2-42e6-96ec-533055139e40
-# ╠═581fcff8-a29e-428b-94b8-270227b4736d
-# ╠═e7986aec-981c-4e6a-af2e-29267af7b6d7
 # ╟─f3769341-6dcd-4332-a0a0-0cf79205f627
 # ╟─0823c4d6-bf8a-4bb5-9719-385f8fe90684
 # ╟─5fa1359a-5e2b-4d95-a09c-e32157b55a29

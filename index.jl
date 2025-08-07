@@ -32,10 +32,10 @@ end
 # ╔═╡ 766e42e6-0d19-48ba-b1a5-462708df3ff9
 using PlutoUI, PlutoTeachingTools  # packages needed for this notebook
 
-# ╔═╡ ffe5e74c-8167-41c7-bc35-4c412081a757
+# ╔═╡ 2e32c42e-7736-43e0-bff0-966cbbadc732
 
 
-# ╔═╡ efe18f75-2f88-4794-8656-7734a276232d
+# ╔═╡ f0ff75df-7efd-4628-830c-b4af68ac09d4
 
 
 # ╔═╡ d4933445-95c9-4f86-a832-95278e8aa34c
@@ -43,7 +43,7 @@ md"""
 
 # Introdução 
 
-Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas II (ME II), lecionada no curso de Licenciatura em Engenharia Eletrotécnica do Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de $$\small{\textrm{Máquinas Elétricas II (ME II)}}$$, lecionada no curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
 Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
@@ -525,7 +525,7 @@ begin
 	    "isel" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/ISEL-logo.png?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/ISEL-logo-dark.png?raw=true",
-	        height=75
+	        height=70
 	    ),
 	    "julia" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/julia.svg?raw=true",
@@ -537,20 +537,20 @@ begin
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/pluto.svg?raw=true",
 	        height=35
 		),
-			"repl" => (
+		"repl" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/repl.png?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/repl_dark.png?raw=true",
 	        height=300
 		),
-			"welcome" => (
+		"welcome" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/welcome_pluto.png?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/welcome_pluto_dark.png?raw=true",
 	        height=300
 		),
-			"QRcode" => (
+		"QRcode" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/card/qr-code.svg?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/card/qr-code.svg?raw=true",
-	        height=150
+	        height=120
 		)
 	)
 	
@@ -567,7 +567,7 @@ end;
 TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
     md"""
     $$\begin{align}
-    \\[-4mm]
+    \\[-1.5mm]
     \small{\textsf{Licenciatura em Engenharia Eletrotécnica}} \\
     \href{https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf}{\textcolor{Bittersweet}{\small{\textbf{Máquinas Elétricas II}}}}
     \end{align}$$
@@ -578,10 +578,9 @@ TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
 md"""
 **$(html"<p><center style='font-size:17px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
 
-| | | |
+|     |     |     |
 | :-: | :-: | :-: |
-| $$\qquad$$**Linguagem de**$$\qquad$$ | $$\qquad$$**Ambiente de**$$\qquad$$ | $$\qquad$$**_Notebooks_**$$\qquad$$ |
-| $$\qquad$$**Computação Científica**$$\qquad$$ | $$\qquad$$**Desenvolvimento Integrado**$$\qquad$$ | $$\qquad$$**de ME II**$$\qquad$$ |
+| Linguagem de computação científica | Ambiente de desenvolvimento integrado | _Notebooks_ computacionais aplicados a ME II |
 | $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | $(logo_adaptativo(my_logos, my_links, default_logo="QRcode")) |
 """
 
@@ -1034,9 +1033,9 @@ version = "17.4.0+2"
 
 # ╔═╡ Cell order:
 # ╟─c4c3c88d-e13f-4782-9131-eb0d70b5277d
-# ╟─ffe5e74c-8167-41c7-bc35-4c412081a757
+# ╟─2e32c42e-7736-43e0-bff0-966cbbadc732
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
-# ╟─efe18f75-2f88-4794-8656-7734a276232d
+# ╟─f0ff75df-7efd-4628-830c-b4af68ac09d4
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
 # ╟─1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2

@@ -2,6 +2,7 @@
 # v0.20.13
 
 #> [frontmatter]
+#> image = "https://github.com/Ricardo-Luis/me-2/blob/9286b03f000c773f8811a67dc6649fba00f9d6c8/images/card/qr-code.svg?raw=true"
 #> site_name = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"
 #> title = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"
 #> date = "2025-01-09"
@@ -29,7 +30,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 766e42e6-0d19-48ba-b1a5-462708df3ff9
-using PlutoUI, PlutoTeachingTools  	# packages needed for this notebook
+using PlutoUI, PlutoTeachingTools  # packages needed for this notebook
 
 # ╔═╡ ffe5e74c-8167-41c7-bc35-4c412081a757
 
@@ -456,25 +457,7 @@ begin
 end
 
 # ╔═╡ f83478f1-ef46-4441-9f4f-fdac036563c9
-TableOfContents(title="Índice") 			# to generate the Table of Contents from Markdown cells
-
-# ╔═╡ 99e9e1a5-29b4-4660-9e5c-8b70b25c5497
-# to adjust the notebook margins and used font-family/size on text content
-html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
-}
-</style>
-"""
+TableOfContents(title="Índice") 		# Table of Contents from Markdown cells
 
 # ╔═╡ e785e52d-3662-4e9f-a932-b01dac732421
 #= 
@@ -542,12 +525,12 @@ begin
 	    "isel" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/ISEL-logo.png?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/ISEL-logo-dark.png?raw=true",
-	        height=85
+	        height=75
 	    ),
 	    "julia" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/julia.svg?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/julia_dark.svg?raw=true",
-	        height=48
+	        height=45
 	    ),
 		"pluto" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/pluto.svg?raw=true",
@@ -557,12 +540,17 @@ begin
 			"repl" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/repl.png?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/repl_dark.png?raw=true",
-	        height=400
+	        height=300
 		),
 			"welcome" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/welcome_pluto.png?raw=true",
 	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/welcome_pluto_dark.png?raw=true",
-	        height=400
+	        height=300
+		),
+			"QRcode" => (
+	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/card/qr-code.svg?raw=true",
+	        dark="https://github.com/Ricardo-Luis/me-2/blob/main/images/card/qr-code.svg?raw=true",
+	        height=150
 		)
 	)
 	
@@ -570,7 +558,8 @@ begin
 	my_links = Dict(
 	    "isel" => "https://www.isel.pt",
 	    "julia" => "https://julialang.org",
-		"pluto" => "https://plutojl.org"
+		"pluto" => "https://plutojl.org",
+		"QRcode"=> "https://ricardo-luis.github.io/me-2/#🎈-Notebooks-de-ME-II"
 	)
 end;
 
@@ -578,25 +567,22 @@ end;
 TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
     md"""
     $$\begin{align}
-    \\[-3mm]
+    \\[-4mm]
     \small{\textsf{Licenciatura em Engenharia Eletrotécnica}} \\
-    \href{https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf}{\text{Máquinas Elétricas II}}
+    \href{https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf}{\textcolor{Bittersweet}{\small{\textbf{Máquinas Elétricas II}}}}
     \end{align}$$
     """
 )
 
 # ╔═╡ 054f60fc-9f3b-49c7-8f0e-c94dd6595000
 md"""
-**$(html"<p><center style='font-size:29px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
+**$(html"<p><center style='font-size:17px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
 
 | | | |
 | :-: | :-: | :-: |
-| $$\qquad\qquad$$ **Linguagem de computação científica** $$\qquad\qquad$$ | $$\qquad\qquad$$ **Ambiente de desenvolvimento**  $$\qquad\qquad$$ | $$\qquad\qquad$$ **_Notebooks_**  $$\qquad\qquad$$ |
-| | | |
-| | | |
-| $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | [reativos, reproduzíveis, interativos](#Reatividade,-reprodutibilidade-e-interatividade) |
-| | | |
-| | | |
+| $$\qquad$$**Linguagem de**$$\qquad$$ | $$\qquad$$**Ambiente de**$$\qquad$$ | $$\qquad$$**_Notebooks_**$$\qquad$$ |
+| $$\qquad$$**Computação Científica**$$\qquad$$ | $$\qquad$$**Desenvolvimento Integrado**$$\qquad$$ | $$\qquad$$**de ME II**$$\qquad$$ |
+| $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | $(logo_adaptativo(my_logos, my_links, default_logo="QRcode")) |
 """
 
 # ╔═╡ 5fa1359a-5e2b-4d95-a09c-e32157b55a29
@@ -632,6 +618,14 @@ md"""
 - No seu navegador *web* aparecerá uma página de boas-vindas do `Pluto.jl`:
 
 $(logo_adaptativo(my_logos, my_links, default_logo="welcome"))
+"""
+
+# ╔═╡ adb2949e-7f2c-4cc0-b748-90323a37670f
+html"""<style>
+pluto-output p {
+    text-align: justify;
+}
+</style>
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1102,8 +1096,8 @@ version = "17.4.0+2"
 # ╠═766e42e6-0d19-48ba-b1a5-462708df3ff9
 # ╟─8711b954-5490-4ade-acfe-ec1fa614bfc9
 # ╠═f83478f1-ef46-4441-9f4f-fdac036563c9
-# ╟─99e9e1a5-29b4-4660-9e5c-8b70b25c5497
 # ╟─e785e52d-3662-4e9f-a932-b01dac732421
 # ╟─c6d64e49-3d58-41a6-bdd3-62cddc7e86d6
+# ╟─adb2949e-7f2c-4cc0-b748-90323a37670f
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

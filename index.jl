@@ -8,7 +8,7 @@
 #> date = "2025-01-09"
 #> tags = ["Pluto Notebooks", "Electric Machines", "DC Machines", "Synchronous Machines", "Transients of Electrical Machines"]
 #> url = "https://ricardo-luis.github.io/me-2/"
-#> description = "Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2"
+#> description = "Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2/"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
@@ -30,7 +30,7 @@ macro bind(def, element)
 end
 
 # ╔═╡ 766e42e6-0d19-48ba-b1a5-462708df3ff9
-using PlutoUI, PlutoTeachingTools  # packages needed for this notebook
+using PlutoUI, PlutoTeachingTools   # packages needed for this notebook
 
 # ╔═╡ 2e32c42e-7736-43e0-bff0-966cbbadc732
 
@@ -188,6 +188,8 @@ md"""
 # ╔═╡ 69cefea4-fcc2-4f74-ad6f-4366de284bf7
 md"""
 # Julia
+
+## Introdução
 [`Julia`](https://en.wikipedia.org/wiki/Julia_(programming_language)) é uma linguagem de programação de [alto nível](https://en.wikipedia.org/wiki/High-level_programming_language), [dinâmica](https://en.wikipedia.org/wiki/Dynamic_programming_language) e de elevado desempenho, lançada em 2012 como solução multiplataforma e de código aberto para [computação científica](https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica). Apresenta ótimas características para a construção de modelos matemáticos e de técnicas de simulação numérica, permitindo analisar e resolver problemas científicos e de engenharia através do computador.
 
 
@@ -195,8 +197,16 @@ md"""
 `Julia` é uma linguagem compilada *just-in-time*. Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por "**_time to first plot_**", que teve melhorias significativas nas versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) do `Julia`. Após a primeira execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí, o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
 
 Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
+"""
+
+# ╔═╡ ae95b75a-0d10-4fd2-afe6-4d7e36448fe6
 
 
+# ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
+
+details("Informação complementar",
+
+		md"""
 ## Informação complementar
 
 - Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman, [Why We Created Julia](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, Feb. 2012;
@@ -218,8 +228,8 @@ Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II
 - Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em Julia](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O’Reilly Media, 2018;
 
 - Raimundo Filho, Marina Miranda, Millena Rocha, André Nascimento, [Introdução a linguagem de programação Julia](https://www.edufma.ufma.br/wp-content/uploads/woocommerce_uploads/2023/05/Introdu%C3%A7%C3%A3o-a-linguagem-de-programa%C3%A7%C3%A3o-Julia.pdf),  EDFUMA - Editora da Universidade Federal do Maranhão, São Luís, Brasil, 2023.
-
-"""
+	"""
+)
 
 # ╔═╡ 7e966db6-ca39-4f66-9ab1-bdc088591608
 
@@ -228,7 +238,7 @@ Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II
 md"""
 # Pluto.jl
 
-## Introdução ao Pluto.jl
+## Introdução
 
 Um *notebook* computacional é uma ferramenta amplamente utilizada em computação científica que combina código, texto e visualizações num ambiente interativo. Baseado nos conceitos de [*literate programming*](https://en.wikipedia.org/wiki/Literate_programming) e ciência reproduzível, permite documentar e partilhar análises de forma clara e transparente, como são exemplo os sistemas de *notebooks* existentes para a área de [ciência de dados](https://datasciencenotebook.org/). No contexto de estudo, os *notebooks* servem como complemento aos materiais tradicionais (livros, apontamentos, etc.), oferecendo um espaço para experimentação e exploração prática. O `Pluto.jl` é um ambiente de *notebook* desenvolvido especificamente para `Julia`, proporcionando uma experiência interativa e reativa ideal para aprendizagem e investigação.
 
@@ -247,14 +257,19 @@ O `Pluto.jl` disponibiliza suporte nativo para *widgets* interativos, como *slid
 ## *Notebooks* em ME II
 A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II**, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl` permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
 
-- _**F**indable_
-- _**A**ccessible_
-- _**I**nteroperable_
-- _**R**eusable_
+$$\begin{aligned}
+&\text{\textbf{F}indable} \\
+&\text{\textbf{A}ccessible} \\
+&\text{\textbf{I}nteroperable} \\
+&\text{\textbf{R}eusable}
+\end{aligned}$$
 
-Assim, os *notebooks* reativos com Julia/Pluto podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia.
+Assim, os *notebooks* com Julia/Pluto podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia.
+"""
 
-
+# ╔═╡ 1f41786c-01a2-4b48-9f13-937f7d6f75bf
+details("Informação complementar",
+md"""
 ## Informação complementar
 
 - Fons van der Plas, Mikołaj Bochenski, [Interactive notebooks Pluto.jl](https://youtu.be/IAF8DjrQSSk), vídeo de apresentação do Pluto, conferência JuliaCon 2020. Duração: 24min;
@@ -267,6 +282,7 @@ Assim, os *notebooks* reativos com Julia/Pluto podem fomentar a transparência, 
 
 - Lee Phillips, [An introduction to Pluto](https://lwn.net/Articles/835930/), artigo de opinião, LWN.net, Nov. 2020.
 """
+)
 
 # ╔═╡ 79b4d3c8-4867-499b-8aec-7fb2f84f419e
 
@@ -275,12 +291,13 @@ Assim, os *notebooks* reativos com Julia/Pluto podem fomentar a transparência, 
 md"""
 # Consulta rápida
 
-Elementos de consulta (documentação, exemplos de *notebooks*, bibliotecas e outras ferramentas) úteis para programação em `Julia` e na realização de *notebooks* Pluto.
+Elementos de consulta (documentação, exemplos de *notebooks*, bibliotecas e outras ferramentas) úteis para programação em `Julia` e desenvolvimento de *notebooks* Pluto.
 """
 
 # ╔═╡ 7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
-md"""
-## Programação [Julia](https://julialang.org/)
+details("Julia: zero to hero",
+	md"""
+## Julia: _zero to hero_
 
 - Jeff Delaney, [Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0), Fireship, YouTube, May 2022
 
@@ -308,10 +325,12 @@ md"""
 - Alejandra Ramirez, [Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md), GitHub BlogPosts, Mar. 2023.
 
 """
+)
 
 # ╔═╡ 5bd4a301-45c5-4829-96fd-027affe65cbd
+details("Ferramentas e recursos para Pluto.jl",
 md"""
-## Pluto.jl
+## Ferramentas e recursos para `Pluto.jl`
 
 - [Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)
 
@@ -361,13 +380,14 @@ md"""
 - Whiteboard for sketching/hand-draw, [tldraw](https://www.tldraw.com/)
 
 - [🎈 ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html): Simple embedding for Pluto notebooks
-"""
 
-# ╔═╡ 1a9de438-3a54-4739-9c70-e501f58f71e6
-md"""
+\
+
 !!! tip "Nota:"
 	O símbolo 🎈 assinala a presença de *notebook*(*s*) associados. 
+		
 """
+)
 
 # ╔═╡ ef240421-67ee-43bc-83cb-b92bc64c2bbe
 
@@ -393,17 +413,18 @@ Professor Adjunto, PhD
 
 **E-mail:** [ricardo.luis@isel.pt](mailto:ricardo.luis@isel.pt)
 
-**Endereço postal:**\
-[ISEL](https://www.isel.pt/) - Instituto Superior de Engenharia de Lisboa\
-Departamento de Engenharia Eletrotécnica de Energia e Automação\
-Rua Conselheiro Emídio Navarro, 1\
-1959-007 Lisboa, Portugal
+**Endereço postal:**
+
+> ISEL -- Instituto Superior de Engenharia de Lisboa\
+> DEEEA \\ Laboratório de Máquinas Elétricas\
+> Rua Conselheiro Emídio Navarro, 1\
+> 1959-007 Lisboa, Portugal
 
 
 ## Como citar este trabalho
-Para qualquer reutilização ou citação de *notebooks* ou dos seus resultados disponibilizados neste *website*, em trabalhos académicos, publicações, materiais educativos, projetos ou outros contextos, por favor, utilize a seguinte referência:
+Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados disponibilizados neste *website*, seja em trabalhos académicos, publicações, materiais educativos, projetos ou outros contextos, utilize, por favor, a seguinte referência:
 
-	Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2
+	Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2/
 """
 
 # ╔═╡ 329f957f-5031-4da9-93a8-2c6acd87ed76
@@ -445,7 +466,7 @@ md"""
 
 # ╔═╡ 4c204456-666b-492f-b92e-45a591a95cda
 md"""
-Esta secção apresenta as bibliotecas `Julia` utilizadas neste *notebook*, carregadas automaticamente através do `Pluto.jl`.
+Esta secção apresenta as bibliotecas `Julia` utilizadas neste *notebook*, carregadas automaticamente pelo `Pluto.jl`.
 """
 
 # ╔═╡ 8711b954-5490-4ade-acfe-ec1fa614bfc9
@@ -457,7 +478,7 @@ begin
 end
 
 # ╔═╡ f83478f1-ef46-4441-9f4f-fdac036563c9
-TableOfContents(title="Índice") 		# Table of Contents from Markdown cells
+TableOfContents(title="Índice", depth=2)  # Table of Contents from Markdown headers
 
 # ╔═╡ e785e52d-3662-4e9f-a932-b01dac732421
 #= 
@@ -597,12 +618,12 @@ Para tal, aceda à página *web* de `Julia`, [(https://julialang.org/)](https://
 A página de instalação apresentada deteta o sistema operativo do seu computador e apresenta, numa caixa cinzenta, uma linha de comando para instalação do `juliaup`. Copie, cole e execute essa instrução no [terminal do computador](https://hub.asimov.academy/tutorial/como-utilizar-o-terminal/).
 
 ### *Download* manual
-Se por algum motivo não foi bem-sucedido com o instalador `juliaup`, pode, em alternativa, fazer uma instalação manual do *software* `Julia`, optando pela "**_Current stable release_**" adequada ao seu computador/sistema operativo. Consulte: [*Download* Julia](https://julialang.org/downloads/)
+Se por algum motivo não foi bem-sucedido com o instalador `juliaup`, pode, em alternativa, fazer uma instalação manual do *software* `Julia`, optando pela "**_Current stable release_**" adequada ao seu computador/sistema operativo. Por favor, consulte: [*Download* Julia](https://julialang.org/downloads/)
 
-### Executar Julia
-Após a instalação, certifique-se de que consegue executar o `Julia`. Em alguns sistemas, isto significa abrir o programa "**Julia 1.11.x**" instalado no seu computador; noutros, significa executar o comando `julia` no terminal do computador.
+### Verificar a instalação do `Julia`
+Após a instalação, certifique-se de que consegue executar o `Julia`. Em alguns sistemas operativos, isto significa abrir o programa "**Julia 1.11.x**"; noutros, significa executar o comando `julia` no terminal.
 
-Após abrir, teste, por exemplo, executando na linha de comando do `Julia`:
+Após abrir o `Julia`, teste a instalação executando, por exemplo:
 
 	julia> 1+1
 
@@ -1077,13 +1098,15 @@ version = "17.4.0+2"
 # ╟─82dbfe15-8e45-4348-8845-424e70f0deeb
 # ╟─33ee713c-2142-47b7-8bca-691c00ca4db4
 # ╟─69cefea4-fcc2-4f74-ad6f-4366de284bf7
+# ╟─ae95b75a-0d10-4fd2-afe6-4d7e36448fe6
+# ╟─bee54122-c768-4232-be50-4a35b365dd0e
 # ╟─7e966db6-ca39-4f66-9ab1-bdc088591608
 # ╟─a99a1360-b179-4080-bdbe-b58217597d7e
+# ╟─1f41786c-01a2-4b48-9f13-937f7d6f75bf
 # ╟─79b4d3c8-4867-499b-8aec-7fb2f84f419e
 # ╟─16d500be-59b5-4d8e-b77e-f40a9d3dd231
 # ╟─7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
 # ╟─5bd4a301-45c5-4829-96fd-027affe65cbd
-# ╟─1a9de438-3a54-4739-9c70-e501f58f71e6
 # ╟─ef240421-67ee-43bc-83cb-b92bc64c2bbe
 # ╟─1af310d4-12f0-4895-876c-eceed6b6fba5
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76

@@ -10,7 +10,7 @@
 #> layout = "layout.jlhtml"
 #> tags = ["preliminaries"]
 #> date = "2024-09-09"
-#> description = "Revisão de conceitos sobre notação complexa em circuitos AC e construção de diagramas vetoriais em Julia/Pluto."
+#> description = "Revisão de conceitos sobre notação complexa em circuitos CA e construção de diagramas vetoriais em Julia/Pluto."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

@@ -10,7 +10,7 @@
 #> layout = "layout.jlhtml"
 #> tags = ["preliminaries"]
 #> date = "2024-09-09"
-#> description = "Notebook introdutório de revisão de conceitos potência em circuitos AC e construção de gráficos em Julia com Pluto.jl."
+#> description = "Notebook introdutório de revisão de conceitos potência em circuitos CA e construção de gráficos em Julia com Pluto.jl."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

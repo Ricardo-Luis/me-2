@@ -41,7 +41,7 @@ using PlutoUI, PlutoTeachingTools   # packages needed for this notebook
 # ╔═╡ d4933445-95c9-4f86-a832-95278e8aa34c
 md"""
 
-# Introdução 
+# Visão geral
 
 Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de $$\small{\textrm{Máquinas Elétricas II (ME II)}}$$, lecionada no curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
@@ -60,7 +60,7 @@ md"""
 
 # ╔═╡ 1d27f002-0a8f-4326-a1ed-12036aa9c8a3
 md"""
-## *Notebooks* introdutórios
+## Fundamentos
 """
 
 # ╔═╡ ca020f4c-e830-4eb1-8284-308551465919
@@ -330,7 +330,7 @@ details("Julia: zero to hero",
 # ╔═╡ 5bd4a301-45c5-4829-96fd-027affe65cbd
 details("Ferramentas e recursos para Pluto.jl",
 md"""
-## Ferramentas e recursos para `Pluto.jl`
+## Ferramentas e recursos para Pluto.jl
 
 - [Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)
 
@@ -416,7 +416,7 @@ Professor Adjunto, PhD
 **Endereço postal:**
 
 > ISEL -- Instituto Superior de Engenharia de Lisboa\
-> DEEEA \\ Laboratório de Máquinas Elétricas\
+> DEEEA \\ Lab. de Máquinas Elétricas\
 > Rua Conselheiro Emídio Navarro, 1\
 > 1959-007 Lisboa, Portugal
 

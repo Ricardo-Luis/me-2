@@ -10,7 +10,7 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"
-#> description = "Neste exercício é analisada a característica externa do gerador de corrente contínua de excitação composta. Avalia-se a atuação das forças magnetomotrizes de excitação e a sua relação com a característica magnética, bem como a contribuição do fluxo série para a força eletromotriz gerada, com base na razão de equivalência de espiras dos enrolamentos de excitação série e em derivação."
+#> description = "Neste exercício é analisada a característica externa do gerador de corrente contínua de excitação composta. Avalia-se a atuação das forças magnetomotrizes de excitação e a sua relação com a característica magnética. Analisa-se também a contribuição do fluxo série para a força eletromotriz gerada, com base na razão de equivalência de espiras dos enrolamentos de excitação série e em derivação."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

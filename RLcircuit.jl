@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["preliminaries"]
 #> date = "2024-09-09"
-#> description = "Revisão de conceitos sobre notação complexa em circuitos AC e construção de diagramas vetoriais em Julia/Pluto"
+#> description = "Revisão de conceitos sobre notação complexa em circuitos AC e construção de diagramas vetoriais em Julia/Pluto."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -48,7 +48,7 @@ TwoColumnWideLeft(md"`RLcircuit.jl`", md"`Last update: 09·09·2024`")
 md"""
 ---
 $\textbf{Grandezas complexas e fasores num circuito AC}$
-$\colorbox{pink}{Análise com diagramas vetoriais}$
+$\colorbox{Bittersweet}{\textcolor{white}{Análise com diagramas vetoriais}}$
 ---
 """
 
@@ -94,7 +94,8 @@ Em engenharia eletrotécnica é usual utilizar `j` para designar a unidade imagi
 """
 
 # ╔═╡ 58ada44d-294f-4542-8772-ff2db59f6f57
-j = Base.im 	 # imaginary unit defined in Julia Base for scientific and numerical computation
+# imaginary unit defined in Julia Base for scientific and numerical	computation
+j = Base.im 	 
 
 # alternative:
 # j(x) = (x)*im   # you can define a function j(x), with x being the imaginary quantity, but it must be enclosed in parentheses.
@@ -574,19 +575,10 @@ aside((md"""
 """), v_offset=-720)
 
 # ╔═╡ 3aaef504-b8a5-4214-973c-5b12c4cf4e4d
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
+pluto-output p {
+    text-align: justify;
 }
 </style>
 """
@@ -616,7 +608,7 @@ TableOfContents(title="Índice")
 aside((md"""
 !!! info "Informação"
 	No índice deste *notebook*, os tópicos assinalados com "💻" requerem a participação do estudante.
-"""), v_offset=-170)
+"""), v_offset=-100)
 
 # ╔═╡ 2523215e-7d3c-4b25-b220-7e787e16c242
 md"""
@@ -624,7 +616,7 @@ md"""
 |:--:|:--|
 |  | This notebook, [RLcircuit.jl](https://ricardo-luis.github.io/me-2/RLcircuit.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
-|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
+|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001

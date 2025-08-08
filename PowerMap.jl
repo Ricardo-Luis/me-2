@@ -10,11 +10,11 @@
 #> date = "2024-10-31"
 #> tags = ["preliminaries"]
 #> layout = "layout.jlhtml"
-#> description = "Este notebook demonstra a representação tridimensional de dados através de isolinhas (curvas de nível), criando mapas de funcionamento úteis para análises espaciais complexas em engenharia, exemplificado com motores de combustão interna selecionáveis pelo utilizador"
+#> description = "Este notebook demonstra a representação tridimensional de dados através de isolinhas (curvas de nível), criando mapas de funcionamento úteis para análises espaciais complexas em engenharia, exemplificado com motores de combustão interna selecionáveis pelo utilizador."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -49,7 +49,7 @@ TwoColumnWideLeft(md"`PowerMap.jl`", md"`Last update: 31·10·2024`")
 md"""
 ---
 $\textbf{Traçado de um mapa de eficiência}$
-$\colorbox{pink}{Análise tridimensional de dados}$
+$\colorbox{Bittersweet}{\textcolor{white}{Análise tridimensional de dados}}$
 ---
 """
 
@@ -130,7 +130,8 @@ Simplificação da designação de cada coluna, para evocar cada coluna facilmen
 """
 
 # ╔═╡ 60256e3e-bae3-46d9-beac-523c01a812c8
-df1 = rename!(df, ["RPM", "Nm", "BSFC"])  # simplifying the header to call the each column easily
+# simplifying the header to call the each column easily:
+df1 = rename!(df, ["RPM", "Nm", "BSFC"])  
 
 # ╔═╡ dc00691b-0976-49f4-903c-c70008a46e34
 
@@ -167,7 +168,8 @@ Extração da matriz base de valores BSFC:
 # ╔═╡ 2277c2d5-30c5-4c6c-b625-5bbdfb637c41
 begin
 	PM=Matrix(map) 
-	PM1=PM[:,2:end] # BSFC base matrix extraction without references (speed and torque)
+	# BSFC base matrix extraction without references (speed and torque):
+	PM1=PM[:,2:end] 
 end
 
 # ╔═╡ 82a7d150-25f3-47c9-8bbb-9ffc3d90dc60
@@ -318,7 +320,9 @@ Assim, calculando as potências mecânicas em kW tém-se:
 """
 
 # ╔═╡ c4a9c84c-08cc-48e2-a1af-e387ccebff82
-power = (Nm/1000) * (transpose(rad_p_sec))   #  crankshaft power (or rotational power) map, kW
+#  crankshaft power (or rotational power) map, kW:
+power = (Nm/1000) * (transpose(rad_p_sec))  
+
 # alternative:
 # power = (2*π*rpm/60)' .* (Nm/1000)
 
@@ -357,19 +361,10 @@ md"""
 """
 
 # ╔═╡ 3071dfff-820a-4d17-aafd-92afba6bb993
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
+pluto-output p {
+    text-align: justify;
 }
 </style>
 """
@@ -407,7 +402,7 @@ md"""
 |:--:|:--|
 |  | This notebook, [PowerMap.jl](https://ricardo-luis.github.io/me-2/PowerMap.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
-|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
+|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1768,7 +1763,7 @@ version = "1.9.2+0"
 # ╟─f7f99568-76f8-44dc-acb6-1f8b3abeaabe
 # ╠═c7a6a940-e39e-474e-941d-af3c4d1df2f9
 # ╠═a7e768a2-e41e-4fba-95c2-ab9688a8b2a7
-# ╠═d56f3f5d-6e56-4ee4-a03a-7a83c170e6ce
+# ╟─d56f3f5d-6e56-4ee4-a03a-7a83c170e6ce
 # ╟─e1820138-00ec-4be9-ae60-68c5e0dea093
 # ╟─0753143a-73e0-4bb8-b761-e21b62f8e5b8
 # ╟─bb606ee0-6dfa-4c44-b63c-e5c231010985

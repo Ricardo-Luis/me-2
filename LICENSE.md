@@ -1,9 +1,6 @@
-The material in this repository is licensed as follows:
+# Terms of Use
 
-- The **code** is under the [MIT license](https://opensource.org/licenses/MIT).
+- All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)).
+- The Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).
 
-- The **text** is under the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0).
-
-
-[$$© \text{ 2023 Ricardo Luís}$$](https://ricardo-luis.github.io/me-ii/)
-
+© 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io)

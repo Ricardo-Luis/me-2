@@ -43,7 +43,7 @@ md"""
 
 # Visão geral
 
-Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de $$\small{\textrm{Máquinas}}$$ $$\small{\textrm{Elétricas II}}$$ $$\small{\textrm{(ME II)}}$$, lecionada no curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas II (ME II), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
 Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
@@ -451,12 +451,12 @@ pluto-output {
 
 # ╔═╡ 72c8086a-c513-4245-a00a-0a5a9da78ffb
 md"""
-# *Notebook*
+# Configuração do *notebook*
 """
 
 # ╔═╡ 4c204456-666b-492f-b92e-45a591a95cda
 md"""
-Esta secção apresenta as bibliotecas `Julia` utilizadas neste *notebook*, carregadas automaticamente pelo `Pluto.jl`.
+Esta secção apresenta a configuração técnica deste *notebook*, incluindo as bibliotecas `Julia` carregadas automaticamente pelo `Pluto.jl`.
 """
 
 # ╔═╡ 8711b954-5490-4ade-acfe-ec1fa614bfc9
@@ -578,7 +578,7 @@ end;
 TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
     md"""
     $$\begin{align}
-    \\[-1.5mm]
+    \\[-5mm]
     \small{\textsf{Licenciatura em Engenharia Eletrotécnica}} \\
     \href{https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf}{\textcolor{Bittersweet}{\small{\textbf{Máquinas Elétricas II}}}}
     \end{align}$$
@@ -628,7 +628,7 @@ end;
 
 # ╔═╡ 054f60fc-9f3b-49c7-8f0e-c94dd6595000
 md"""
-**$(html"<p><center style='font-size:20px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
+**$(html"<p><center style='font-size:19px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
 
 |     |     |     |
 | :-: | :-: | :-: |

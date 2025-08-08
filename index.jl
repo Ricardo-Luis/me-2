@@ -441,12 +441,12 @@ Ricardo Luís
 
 # ╔═╡ 72c8086a-c513-4245-a00a-0a5a9da78ffb
 md"""
-# *Notebook*
+# Configuração do *notebook*
 """
 
 # ╔═╡ 4c204456-666b-492f-b92e-45a591a95cda
 md"""
-Esta secção apresenta as bibliotecas `Julia` utilizadas neste *notebook*, carregadas automaticamente pelo `Pluto.jl`.
+Esta secção apresenta a configuração técnica deste *notebook*, incluindo as bibliotecas `Julia` carregadas automaticamente pelo `Pluto.jl`.
 """
 
 # ╔═╡ 8711b954-5490-4ade-acfe-ec1fa614bfc9
@@ -560,7 +560,7 @@ begin
 	    "isel" => "https://www.isel.pt",
 	    "julia" => "https://julialang.org",
 		"pluto" => "https://plutojl.org",
-		"QRcode"=> "https://ricardo-luis.github.io/me-2/#Notebooks-de-ME-II"
+		"QRcode"=> "https://ricardo-luis.github.io/me-2/#Notebooks-ME-II"
 	)
 end;
 

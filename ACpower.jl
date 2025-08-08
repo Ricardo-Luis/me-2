@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["preliminaries"]
 #> date = "2024-09-09"
-#> description = "Notebook introdutório de revisão de conceitos potência em circuitos AC e construção de gráficos em Julia com Pluto.jl"
+#> description = "Notebook introdutório de revisão de conceitos potência em circuitos AC e construção de gráficos em Julia com Pluto.jl."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -48,7 +48,7 @@ TwoColumnWideLeft(md"`ACpower.jl`", md"`Last update: 09·09·2024`")
 md"""
 ---
 $\textbf{Potência em sistemas de corrente alternada}$
-$\colorbox{pink}{Análise com gráficos interativos}$
+$\colorbox{Bittersweet}{\textcolor{white}{Análise com gráficos interativos}}$
 ---
 """
 
@@ -506,19 +506,10 @@ Do gráfico anterior é possível verificar:
 """
 
 # ╔═╡ 8ed9575a-eab7-4160-a9d8-719ad09b3f4e
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
+pluto-output p {
+    text-align: justify;
 }
 </style>
 """
@@ -548,7 +539,7 @@ TableOfContents(title="Índice")
 aside((md"""
 !!! info "Informação"
 	No índice deste *notebook*, o tópico assinalado com "💻" requer a participação do estudante.
-"""), v_offset=-170)
+"""), v_offset=-100)
 
 # ╔═╡ 4b501cf6-5fbf-48be-8004-b67dd81d6276
 md"""
@@ -556,7 +547,7 @@ md"""
 |:--:|:--|
 |  | This notebook, [ACpower.jl](https://ricardo-luis.github.io/me-2/ACpower.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
-|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
+|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001

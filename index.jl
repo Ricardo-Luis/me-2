@@ -43,7 +43,7 @@ md"""
 
 # Visão geral
 
-Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de $$\small{\textrm{Máquinas Elétricas II (ME II)}}$$, lecionada no curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de $$\small{\textrm{Máquinas}}$$ $$\small{\textrm{Elétricas II}}$$ $$\small{\textrm{(ME II)}}$$, lecionada no curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
 Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
@@ -55,12 +55,7 @@ Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de
 
 # ╔═╡ 659cda0d-61f1-4e65-b541-9d5e6c69bab2
 md"""
-# 🎈 Notebooks de ME II
-"""
-
-# ╔═╡ 1d27f002-0a8f-4326-a1ed-12036aa9c8a3
-md"""
-## Fundamentos
+# Notebooks ME II
 """
 
 # ╔═╡ ca020f4c-e830-4eb1-8284-308551465919
@@ -74,11 +69,6 @@ NotebookCard("https://ricardo-luis.github.io/me-2/PowerMap.html")
 
 # ╔═╡ 1f3385c5-e2cb-4b36-af2c-3ca16e7dc4f1
 
-
-# ╔═╡ 93d4db20-7c76-4396-82ee-15f7fdd37b8a
-md"""
-## Máquina Elétrica de Corrente Contínua
-"""
 
 # ╔═╡ 379a42a7-8f18-42de-bdc0-5601561196dd
 NotebookCard("https://ricardo-luis.github.io/me-2/MaqDCinduzido.html")
@@ -107,11 +97,6 @@ NotebookCard("https://ricardo-luis.github.io/me-2/Test.DCmachines.html")
 # ╔═╡ ef201862-d8f8-4dff-bea3-4063ea029d81
 
 
-# ╔═╡ 3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
-md"""
-## Máquina Elétrica Síncrona Trifásica
-"""
-
 # ╔═╡ 680b3695-db21-41b7-afc1-ba665bc76d5d
 NotebookCard("https://ricardo-luis.github.io/me-2/StandAloneSynGen.html")
 
@@ -135,11 +120,6 @@ NotebookCard("https://ricardo-luis.github.io/me-2/Test.ACmachines.html")
 
 # ╔═╡ 0bfebd14-9929-478e-8521-dc3c610e8304
 
-
-# ╔═╡ 4d1504da-3b03-4c0f-9582-22aa552b21ea
-md"""
-## Transitórios de Máquinas Elétricas
-"""
 
 # ╔═╡ 2d68bd77-e483-441b-b2cc-d4e69f684fd5
 NotebookCard("https://ricardo-luis.github.io/me-2/EqualArea.html")
@@ -289,9 +269,9 @@ md"""
 
 # ╔═╡ 16d500be-59b5-4d8e-b77e-f40a9d3dd231
 md"""
-# Consulta rápida
+# Guia rápido Julia & Pluto.jl
 
-Elementos de consulta (documentação, exemplos de *notebooks*, bibliotecas e outras ferramentas) úteis para programação em `Julia` e desenvolvimento de *notebooks* Pluto.
+**Materiais de apoio** — Documentação, exemplos práticos, bibliotecas e ferramentas para programação científica em **`Julia`** e criação de notebooks interativos em **`Pluto.jl`**.
 """
 
 # ╔═╡ 7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
@@ -328,9 +308,9 @@ details("Julia: zero to hero",
 )
 
 # ╔═╡ 5bd4a301-45c5-4829-96fd-027affe65cbd
-details("Ferramentas e recursos para Pluto.jl",
+details("Pluto.jl: ferramentas e recursos",
 md"""
-## Ferramentas e recursos para Pluto.jl
+## Pluto.jl: ferramentas e recursos
 
 - [Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)
 
@@ -580,7 +560,7 @@ begin
 	    "isel" => "https://www.isel.pt",
 	    "julia" => "https://julialang.org",
 		"pluto" => "https://plutojl.org",
-		"QRcode"=> "https://ricardo-luis.github.io/me-2/#🎈-Notebooks-de-ME-II"
+		"QRcode"=> "https://ricardo-luis.github.io/me-2/#Notebooks-de-ME-II"
 	)
 end;
 
@@ -594,16 +574,6 @@ TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
     \end{align}$$
     """
 )
-
-# ╔═╡ 054f60fc-9f3b-49c7-8f0e-c94dd6595000
-md"""
-**$(html"<p><center style='font-size:17px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
-
-|     |     |     |
-| :-: | :-: | :-: |
-| Linguagem de computação científica | Ambiente de desenvolvimento integrado | _Notebooks_ computacionais aplicados a ME II |
-| $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | $(logo_adaptativo(my_logos, my_links, default_logo="QRcode")) |
-"""
 
 # ╔═╡ 5fa1359a-5e2b-4d95-a09c-e32157b55a29
 md"""
@@ -641,11 +611,48 @@ $(logo_adaptativo(my_logos, my_links, default_logo="welcome"))
 """
 
 # ╔═╡ adb2949e-7f2c-4cc0-b748-90323a37670f
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
 html"""<style>
 pluto-output p {
     text-align: justify;
 }
 </style>
+"""
+
+# ╔═╡ 7ccff6b8-1f59-4965-a9e9-6c22327963bd
+# cor adoptada para "ME II" (do LaTEX: BitterSweet)
+function ME2color(s::String)
+	HTML("<span style='color: hsl(19.88deg, 78.6%, 42.16%);'> $(s) <span>")
+end;
+
+# ╔═╡ 054f60fc-9f3b-49c7-8f0e-c94dd6595000
+md"""
+**$(html"<p><center style='font-size:19px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
+
+|     |     |     |
+| :-: | :-: | :-: |
+| $(ME2color("Linguagem de computação científica")) | $(ME2color("Ambiente de desenvolvimento integrado")) | $(ME2color("Biblioteca de notebooks ME II")) |
+| $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | $(logo_adaptativo(my_logos, my_links, default_logo="QRcode")) |
+"""
+
+# ╔═╡ 1d27f002-0a8f-4326-a1ed-12036aa9c8a3
+md"""
+## $(ME2color("Fundamentos"))
+"""
+
+# ╔═╡ 93d4db20-7c76-4396-82ee-15f7fdd37b8a
+md"""
+## $(ME2color("Máquina Elétrica de Corrente Contínua"))
+"""
+
+# ╔═╡ 3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
+md"""
+## $(ME2color("Máquina Elétrica Síncrona Trifásica"))
+"""
+
+# ╔═╡ 4d1504da-3b03-4c0f-9582-22aa552b21ea
+md"""
+## $(ME2color("Transitórios de Máquinas Elétricas"))
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1121,5 +1128,6 @@ version = "17.4.0+2"
 # ╟─e785e52d-3662-4e9f-a932-b01dac732421
 # ╟─c6d64e49-3d58-41a6-bdd3-62cddc7e86d6
 # ╟─adb2949e-7f2c-4cc0-b748-90323a37670f
+# ╟─7ccff6b8-1f59-4965-a9e9-6c22327963bd
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

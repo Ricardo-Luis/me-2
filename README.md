@@ -1,8 +1,26 @@
-# Documentos computacionais sobre Máquinas Elétricas II
+# Notebooks Computacionais Aplicados a Máquinas Elétricas II
+# (Computational Notebooks Applied to Electric Machinery II)
 
+## Overview
+This website provides a collection of notebooks supporting the Electric Machinery II course of the Electrical Engineering undergraduate program at ISEL. 
 
-Para citar o conteúdo deste repositório ou os *notebooks*, utilize o seguinte texto:
+Developed using [Pluto.jl](https://plutojl.org/) (an environment for the [**Julia**](https://julialang.org/) language), the collection is organized into 4 topics: 
+- Fundamentals
+- DC Electric Machine
+- Three-phase Synchronous Machine
+- Electric Machines Dynamics
 
+The website is primarily in Portuguese, with future plans to become bilingual (Portuguese/English).
 
-> **Ricardo Luís**. (2022). Documentos computacionais sobre Máquinas Elétricas II [coleção de *notebooks* de suporte a Máquinas Elétricas II, lecionada no curso LEE do ISEL]. Disponível: [https://ricardo-luis.github.io/me-ii](https://ricardo-luis.github.io/me-ii)
+## How to Cite This Work
+For any reuse or citation of the notebooks or their results available on this website, whether in academic work, publications, educational materials, projects, or other contexts, please use the following reference:
 
+```
+Luís, Ricardo (2025). Computational Notebooks Applied to Electric Machinery II. Instituto Superior de Engenharia de Lisboa, Electrical Engineering Undergraduate Program. Available at: https://ricardo-luis.github.io/me-2/
+```
+
+## Terms of Use
+- All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)).
+- The Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).
+
+© 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io)

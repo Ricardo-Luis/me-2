@@ -2,7 +2,7 @@
 Computational Notebooks Applied to Electric Machinery II
 
 ## Overview
-This [website](https://ricardo-luis.github.io/me-2/) provides a collection of notebooks supporting the Electric Machinery II course of the Electrical Engineering undergraduate program at ISEL. 
+This [website](https://ricardo-luis.github.io/me-2/) provides a collection of notebooks supporting the [Electric Machinery II](https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf) course of the Electrical Engineering undergraduate program at [ISEL](https://www.isel.pt/en). 
 
 Developed using [Pluto.jl](https://plutojl.org/) (an environment for the [**Julia**](https://julialang.org/) language), the collection is organized into 4 topics: 
 - Fundamentals

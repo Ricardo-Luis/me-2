@@ -1,8 +1,8 @@
 # Notebooks Computacionais Aplicados a Máquinas Elétricas II
-# (Computational Notebooks Applied to Electric Machinery II)
+Computational Notebooks Applied to Electric Machinery II
 
 ## Overview
-This website provides a collection of notebooks supporting the Electric Machinery II course of the Electrical Engineering undergraduate program at ISEL. 
+This [website](https://ricardo-luis.github.io/me-2/) provides a collection of notebooks supporting the Electric Machinery II course of the Electrical Engineering undergraduate program at ISEL. 
 
 Developed using [Pluto.jl](https://plutojl.org/) (an environment for the [**Julia**](https://julialang.org/) language), the collection is organized into 4 topics: 
 - Fundamentals
@@ -10,7 +10,7 @@ Developed using [Pluto.jl](https://plutojl.org/) (an environment for the [**Juli
 - Three-phase Synchronous Machine
 - Electric Machines Dynamics
 
-The website is primarily in Portuguese, with future plans to become bilingual (Portuguese/English).
+The [website](https://ricardo-luis.github.io/me-2/) is primarily in Portuguese, with future plans to become bilingual (Portuguese/English).
 
 ## How to Cite This Work
 For any reuse or citation of the notebooks or their results available on this website, whether in academic work, publications, educational materials, projects, or other contexts, please use the following reference:

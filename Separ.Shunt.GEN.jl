@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"
-#> description = "Neste exercício sobre geradores de corrente contínua, analisam-se as características externas dos geradores com excitação separada e em derivação, bem como a influência da corrente de excitação e da velocidade de rotação nas suas características magnética e externa"
+#> description = "Neste exercício sobre geradores de corrente contínua, analisam-se as características externas dos geradores com excitação separada e em derivação, bem como a influência da corrente de excitação e da velocidade de rotação nas suas características magnética e externa."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -52,11 +52,16 @@ $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
 $\text{EXERCÍCIO 4}$ 
 
-$\textbf{Gerador de excitação separada (ou independente)}$
-$\textbf{e}$
-$\textbf{Gerador de excitação em derivação (ou gerador \textit{shunt})}$
+$$\begin{gather}
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação separada (ou independente)}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{e}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação em derivação (ou gerador \textit{shunt})}}}
+\end{gather}$$
 ---
 """
+#=
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação separada (ou independente e Gerador de excitação em derivação (ou gerador \textit{shunt})}}}}$
+=#
 
 # ╔═╡ 75ecba91-0134-4ebe-8c7d-683a75b86137
 md"""
@@ -451,19 +456,10 @@ let
 end
 
 # ╔═╡ 7800fc5c-ea05-40f9-9034-be2ed28f067e
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
+pluto-output p {
+    text-align: justify;
 }
 </style>
 """
@@ -501,7 +497,7 @@ md"""
 |:--:|:--|
 |  | This notebook, [Separ.Shunt.GEN.jl](https://ricardo-luis.github.io/me-2/Separ.Shunt.GEN.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
-|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
+|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001

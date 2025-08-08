@@ -10,11 +10,11 @@
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-16"
 #> layout = "layout.jlhtml"
-#> description = "As observações laboratoriais deste trabalho incidem principalmente sobre o rotor da máquina de corrente contínua, com os seguintes objetivos: esquematizar os enrolamentos do induzido; observar a reação magnética do induzido; e analisar o processo de comutação"
+#> description = "As observações laboratoriais deste trabalho incidem principalmente sobre o rotor da máquina de corrente contínua, com os seguintes objetivos: esquematizar os enrolamentos do induzido; observar a reação magnética do induzido; e analisar o processo de comutação."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -48,7 +48,7 @@ $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
 $\text{RELATÓRIO}$ 
 
-$\textbf{Aspetos construtivos e de funcionamento da máquina de corrente contínua}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Aspetos construtivos e de funcionamento da máquina de corrente contínua}}}$
 ---
 """
 
@@ -656,20 +656,10 @@ DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/
 """
 
 # ╔═╡ bc2a479e-a961-43ef-b430-afd69b496ac0
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%;
-	text-align: justify
+pluto-output p {
+    text-align: justify;
 }
 </style>
 """
@@ -707,7 +697,7 @@ md"""
 |:--:|:--|
 |  | This notebook, [MaqDCinduzido.jl](https://ricardo-luis.github.io/me-2/MaqDCinduzido.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
-|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
+|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001

@@ -437,16 +437,26 @@ Ricardo Luís
 """)
 
 # ╔═╡ eaf85eed-ae13-42f2-ba95-0bd2024394e2
-
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
+html"""<style>
+pluto-output p {
+    text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
+}
+</style>
+"""
 
 # ╔═╡ 72c8086a-c513-4245-a00a-0a5a9da78ffb
 md"""
-# Configuração do *notebook*
+# *Notebook*
 """
 
 # ╔═╡ 4c204456-666b-492f-b92e-45a591a95cda
 md"""
-Esta secção apresenta a configuração técnica deste *notebook*, incluindo as bibliotecas `Julia` carregadas automaticamente pelo `Pluto.jl`.
+Esta secção apresenta as bibliotecas `Julia` utilizadas neste *notebook*, carregadas automaticamente pelo `Pluto.jl`.
 """
 
 # ╔═╡ 8711b954-5490-4ade-acfe-ec1fa614bfc9
@@ -610,15 +620,6 @@ md"""
 $(logo_adaptativo(my_logos, my_links, default_logo="welcome"))
 """
 
-# ╔═╡ adb2949e-7f2c-4cc0-b748-90323a37670f
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
-html"""<style>
-pluto-output p {
-    text-align: justify;
-}
-</style>
-"""
-
 # ╔═╡ 7ccff6b8-1f59-4965-a9e9-6c22327963bd
 # cor adoptada para "ME II" (do LaTEX: BitterSweet)
 function ME2color(s::String)
@@ -627,11 +628,11 @@ end;
 
 # ╔═╡ 054f60fc-9f3b-49c7-8f0e-c94dd6595000
 md"""
-**$(html"<p><center style='font-size:19px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
+**$(html"<p><center style='font-size:20px;font-family:monospace'>Notebooks Computacionais Aplicados a Máquinas Elétricas II</center></p>")** 
 
 |     |     |     |
 | :-: | :-: | :-: |
-| $(ME2color("Linguagem de computação científica")) | $(ME2color("Ambiente de desenvolvimento integrado")) | $(ME2color("Biblioteca de notebooks ME II")) |
+| $(ME2color("Linguagem de computação científica")) | $(ME2color("Ambiente de desenvolvimento integrado")) | $(ME2color("Biblioteca de notebooks")) |
 | $(logo_adaptativo(my_logos, my_links, default_logo="julia")) | $(logo_adaptativo(my_logos, my_links, default_logo="pluto")) | $(logo_adaptativo(my_logos, my_links, default_logo="QRcode")) |
 """
 
@@ -1127,7 +1128,6 @@ version = "17.4.0+2"
 # ╠═f83478f1-ef46-4441-9f4f-fdac036563c9
 # ╟─e785e52d-3662-4e9f-a932-b01dac732421
 # ╟─c6d64e49-3d58-41a6-bdd3-62cddc7e86d6
-# ╟─adb2949e-7f2c-4cc0-b748-90323a37670f
 # ╟─7ccff6b8-1f59-4965-a9e9-6c22327963bd
 # ╟─00000000-0000-0000-0000-000000000001
 # ╟─00000000-0000-0000-0000-000000000002

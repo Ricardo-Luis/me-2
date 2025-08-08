@@ -51,7 +51,7 @@ $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
 $\text{EXERCÍCIO 8}$ 
 
-$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Associação em paralelo de geradores DC}}}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Associação em paralelo de geradores CC}}}$
 ---
 """
 
@@ -101,7 +101,7 @@ md"""
 
 # ╔═╡ 10ce0429-8170-498d-b6a8-78c4d4005822
 md"""
-Analisando o funcionamento do paralelo de geradores DC para cargas reduzidas, verifica-se graficamente, que a máquina DC 2 absorve corrente (passa a motor DC). Por conseguinte, o gerador DC 1 fornece corrente para a carga e para a máquina 2.
+Analisando o funcionamento do paralelo de geradores CC para cargas reduzidas, verifica-se graficamente, que a máquina CC 2 absorve corrente (passa a motor CC). Por conseguinte, o gerador CC 1 fornece corrente para a carga e para a máquina 2.
 """
 
 # ╔═╡ 61763b38-5700-4559-9171-d40612354f0b
@@ -139,8 +139,8 @@ md"""
 
 # ╔═╡ 7e45e4aa-b6cd-4d9a-a78d-c0a32be51fc7
 md"""
-Determinação das correntes de cada gerador, `I₁` e `I₂`, por interpolação da característica externa do respectivo gerador DC, para diferentes valores de tensão do paralelo de geradores DC, `U`.\
-Inclui também a extrapolação das características externas de cada gerador para determinação gráfica de correntes circulatórias entre as máquinas e tensão de vazio com os geradores DC em paralelo:
+Determinação das correntes de cada gerador, `I₁` e `I₂`, por interpolação da característica externa do respectivo gerador CC, para diferentes valores de tensão do paralelo de geradores CC, `U`.\
+Inclui também a extrapolação das características externas de cada gerador para determinação gráfica de correntes circulatórias entre as máquinas e tensão de vazio com os geradores CC em paralelo:
 """
 
 # ╔═╡ 1e4d5035-1f17-4d8f-aaf3-0c62ec511abc
@@ -155,7 +155,7 @@ end;
 
 # ╔═╡ 76059231-9935-4437-bd3e-7d6b3ebcda63
 md"""
-Determinação das contribuições de carga de cada gerador DC, `Ic1` e `Ic2`, para uma dada resistência de carga, `Rcarga`, aplicada ao paralelo de geradores DC:
+Determinação das contribuições de carga de cada gerador CC, `Ic1` e `Ic2`, para uma dada resistência de carga, `Rcarga`, aplicada ao paralelo de geradores CC:
 """
 
 # ╔═╡ 089dd348-6ff5-4f42-8487-bfe9e4b94d76
@@ -205,10 +205,14 @@ begin
 end
 
 # ╔═╡ 41137dae-b56e-4f68-8bac-98ad72262080
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
 pluto-output p {
     text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
 }
 </style>
 """

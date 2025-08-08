@@ -47,7 +47,7 @@ TwoColumnWideLeft(md"`RLcircuit.jl`", md"`Last update: 09·09·2024`")
 # ╔═╡ f65b5561-c05d-4145-b828-a1f52f19a938
 md"""
 ---
-$\textbf{Grandezas complexas e fasores num circuito AC}$
+$\textbf{Grandezas complexas e fasores num circuito CA}$
 $\colorbox{Bittersweet}{\textcolor{white}{Análise com diagramas vetoriais}}$
 ---
 """
@@ -58,7 +58,7 @@ md"""
 
 Este *notebook* apresenta dois objetivos a serem concretizados em simultâneo:
 
-- serve de revisão a conceitos sobre a utilização de **notação complexa** em circuitos de corrente alternada (AC);
+- serve de revisão a conceitos sobre a utilização de **notação complexa** em circuitos de corrente alternada (CA);
 - e para introduzir a construção de **diagramas vetoriais** na linguagem de programação `Julia` usando a interface de trabalho `Pluto.jl`.
 
 Sendo um documento computacional de revisão de conceitos de base em engenharia eletrotécnica, mas fundamentais na aprendizagem e aplicação de máquinas elétricas, o estudante poderá dividir a sua atenção nos dois objetivos propostos.
@@ -224,13 +224,13 @@ md"""
 # Problema 
 
 \
-Suponha uma fonte de tensão AC ideal monofásica com $U=100\rm{V}$ e frequência, $f=50\rm{Hz}$.  
+Suponha uma fonte de tensão CA ideal monofásica com $U=100\rm{V}$ e frequência, $f=50\rm{Hz}$.  
 
 Esta fonte de tensão alimenta uma carga linear do tipo RL série, com $R=10\Omega$ e $L=20\rm mH$.
 Pretende-se dimensionar um condensador para compensar o fator de potência da carga.
 
 **Desafio:**
- > **Criar um ambiente de análise interativo das tensões e correntes envolvidas no circuito AC descrito, representando as grandezas na formas temporal e vetorial.**
+ > **Criar um ambiente de análise interativo das tensões e correntes envolvidas no circuito CA descrito, representando as grandezas na formas temporal e vetorial.**
 """
 
 # ╔═╡ 6c5e1063-19a2-4e72-85cb-b3fbd00d4a29
@@ -243,7 +243,7 @@ md"""
 
 # ╔═╡ 0eca339c-01fd-47ec-b14f-722ee300d068
 md"""
-Fonte tensão AC
+Fonte tensão alternada:
 """
 
 # ╔═╡ ff4982fd-062f-43da-86d6-56ec8d3e650e
@@ -251,7 +251,7 @@ U, f, θᵤ = 100.0, 50, 0 		# AC voltage, V; frequency, Hz; initial voltage pha
 
 # ╔═╡ 550357f9-92f8-484b-9966-65ad5ea592a7
 md"""
-Carga RL
+Carga RL:
 """
 
 # ╔═╡ 8603c14f-88e9-44d1-aeeb-8bf9b9ca3a88
@@ -519,13 +519,13 @@ end;
 
 # ╔═╡ 24f7bb6e-54f3-4f84-95c9-4f11e8292b6a
 begin
-	plot(t, u, xlim=[0, 0.04], ylim=[-150, 150], label="u(t)", xlabel="t (s)", ylabel="u (V)", lw=2, legend=:bottomleft, framestyle=:origin)
+	plot(t, u, xlim=[0, 0.04], ylim=[-150, 150], label="u(t)", xlabel="t (s)", 		ylabel="u (V)", lw=2, legend=:bottomleft, framestyle=:origin)
 
 	plot!(twinx(), t, iᵣₗ, ylim=[-20, 20], lc=:red, xlim=[0,0.04], label="iᵣₗ(t)", ylabel="i (A)", legend=:topright)
 	
 	plot!(twinx(), t, ic, ylim=[-20, 20], lc=:green, xlim=[0,0.04], label="ic(t)", legend=:bottomright)
 	
-	plot!(twinx(), t, iᵢ, ylim=[-20, 20], lc=:black, lw=2, xlim=[0,0.04], label="iᵢ(t)", legend=:topleft)
+	plot!(twinx(), t, iᵢ, ylim=[-20, 20], lc=:black, lw=2, xlim=[0,0.04], label="iᵢ(t)", legend=:topleft, size=[700,400])
 end
 
 # ╔═╡ d7dd132a-522e-4e4b-9f87-975459e2d70c
@@ -575,10 +575,14 @@ aside((md"""
 """), v_offset=-720)
 
 # ╔═╡ 3aaef504-b8a5-4214-973c-5b12c4cf4e4d
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
 pluto-output p {
     text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
 }
 </style>
 """

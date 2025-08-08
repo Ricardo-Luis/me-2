@@ -331,10 +331,14 @@ Resolvendo, obtém-se: $$\Delta {E}$$ = $(ΔE)V.
 """
 
 # ╔═╡ 9fc34ce9-2cb4-4bdc-b725-e884132664fa
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
 pluto-output p {
     text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
 }
 </style>
 """

@@ -83,7 +83,7 @@ As observações laboratoriais deste trabalho têm como foco principal, o rotor 
 """
 
 # ╔═╡ 09eb0bd2-d889-4969-a426-5d76b394dd4b
-aside((md"![](https://github.com/Ricardo-Luis/notebooks/blob/main/ME2/images/armature_winders.jpg?raw=true)\
+aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/armature_winders.jpg?raw=true)\
 
 Fig. 1: Bobinadores executando a montagem de um enrolamento induzido, [^Kennedy_1903].
 
@@ -124,7 +124,7 @@ Para o dimensionamento de um enrolamento induzido são necessários os seguintes
 """
 
 # ╔═╡ eaef98e4-c79f-4932-8b7c-32a90fa664db
-aside((md"![](https://github.com/Ricardo-Luis/notebooks/blob/main/ME2/images/armature_reaction.jpg?raw=true)\
+aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/armature_reaction.jpg?raw=true)\
 
 Fig. 2: Distorção do campo magnético num induzido em anel de Gramme, [^Audel_1917]
 
@@ -149,7 +149,7 @@ Assim, o campo magnético resultante que a atravessa o enrolamento induzido, qua
 
 
 # ╔═╡ 0d4b1a9b-de84-4e60-8256-ab48dbde4ccc
-aside((md"![](https://github.com/Ricardo-Luis/notebooks/blob/main/ME2/images/commutator.jpg?raw=true)\
+aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/commutator.jpg?raw=true)\
 
 Fig. 3: Coletor e escovas, [^Kral_2022]
 
@@ -656,10 +656,14 @@ DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/
 """
 
 # ╔═╡ bc2a479e-a961-43ef-b430-afd69b496ac0
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
 pluto-output p {
     text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
 }
 </style>
 """

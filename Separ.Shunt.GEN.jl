@@ -373,7 +373,7 @@ begin
 	plot!(id, Rexc.*id, xlims=(0,1.5),ylims=(0,400), 
 			label="Reta de excitação", legend=:topright)
 	
-	plot(P4, P3, layout = (1, 2), size=[900, 550])
+	plot(P4, P3, layout = (1, 2), size=[700, 450])
 end
 
 # ╔═╡ ed07e275-7ff6-4c9e-8a26-7dfcd79d7abe
@@ -424,21 +424,21 @@ md"""
 
 # ╔═╡ 4094e75c-8f73-4f60-9ad4-59b1cf9a8f60
 let
-	d = Dict("Num gerador DC de excitação separada, o valor da corrente de excitação depende da velocidade de acionamento." => "falso", "Num gerador DC de excitação derivação, o valor da corrente de excitação depende da velocidade de acionamento." => "verdadeiro")
+	d = Dict("Num gerador CC de excitação separada, o valor da corrente de excitação depende da velocidade de acionamento." => "falso", "Num gerador CC de excitação derivação, o valor da corrente de excitação depende da velocidade de acionamento." => "verdadeiro")
 	matchq(d, label="**Compare e classifique as seguintes afirmações:**")
 end
 
 # ╔═╡ b8fd0998-fad1-4eba-bbd5-389dbfd3c4bf
 let
 	choices = ["A FEM vai diminuir 3,5%", "A FEM vai aumentar 5,0%", "A FEM vai aumentar 3,5%", "A FEM vai aumentar 6,5%", "A FEM vai diminuir 5,0%", "A FEM vai diminuir 6,5%"]
-	question = "**Num gerador DC em funcionamento se a velocidade aumentar 15% e o fluxo magnético diminuir 10%, qual a resposta correta relativamente à força eletromotriz (FEM) resultante?**"
+	question = "**Num gerador CC em funcionamento se a velocidade aumentar 15% e o fluxo magnético diminuir 10%, qual a resposta correta relativamente à força eletromotriz (FEM) resultante?**"
 	answer = 3
 	radioq(choices, answer; label=question, hint="Utilize a expressão da FEM...")
 end
 
 # ╔═╡ c4ebde06-5060-497e-9849-7e0ef5bc618d
 let
-	question = "**Complete:** Para uma dada corrente de carga, a queda de tensão total (q.d.t.) num gerador DC de excitação derivação é ____ q.d.t. do mesmo gerador ligado com excitação com excitação separada."
+	question = "**Complete:** Para uma dada corrente de carga, a queda de tensão total (q.d.t.) num gerador CC de excitação derivação é ____ q.d.t. do mesmo gerador ligado com excitação com excitação separada."
 	fillblankq(question, ("maior que a", "menor qua a", "igual à"), 3)
 end
 
@@ -456,10 +456,14 @@ let
 end
 
 # ╔═╡ 7800fc5c-ea05-40f9-9034-be2ed28f067e
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
 pluto-output p {
     text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
 }
 </style>
 """

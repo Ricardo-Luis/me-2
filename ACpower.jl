@@ -58,7 +58,7 @@ md"""
 
 Este *notebook* apresenta dois objetivos a serem concretizados em simultâneo:
 
-- serve de revisão a conceitos sobre **potência** em circuitos de corrente alternada (AC);
+- serve de revisão a conceitos sobre **potência** em circuitos de corrente alternada (CA);
 - e para introduzir a construção de gráficos na linguagem de computação científica `Julia` usando a interface de trabalho `Pluto.jl`.
 
 Sendo um documento computacional de revisão de conceitos de base em engenharia eletrotécnica, mas fundamentais na aprendizagem e aplicação de máquinas elétricas, o estudante poderá dividir a sua atenção nos dois objetivos propostos.
@@ -72,12 +72,12 @@ md"""
 # Problema 
 
 \
-Suponha uma fonte de tensão AC ideal monofásica com $U=100\rm{V}$ e frequência, $f=50\rm{Hz}$.  
+Suponha uma fonte de tensão CA ideal monofásica com $U=100\rm{V}$ e frequência, $f=50\rm{Hz}$.  
 
 Esta fonte de tensão alimenta uma carga linear variável, cujo o valor de corrente poderá atingir $100\rm A$ e o seu desfasamento relativamente à tensão variar entre: $-\frac{\pi}{2}\leqslant\varphi\leqslant+\frac{\pi}{2} \:\:(\rm{rad})$.
 
 **Desafio:**
- > **Criar um ambiente de análise das potências temporais envolvidas e das potências ativa, reativa e aparente deste circuito AC.**
+ > **Criar um ambiente de análise das potências temporais envolvidas e das potências ativa, reativa e aparente deste circuito CA.**
 """
 
 # ╔═╡ 165d6a97-67fc-4bbe-936b-47b33f9e0e33
@@ -103,17 +103,18 @@ aside((md"""
 md"""
 # Forma computacional do problema
 
-## Tensão AC
+## Tensão alternada
 
 """
 
 # ╔═╡ 9e0ea587-0459-47ab-aa35-dcb458d158df
 md"""
-Definem-se as grandezas que vão permitir caracterizar a onda temporal da tensão AC:
+Definem-se as grandezas que vão permitir caracterizar a onda temporal da tensão alternada:
 """
 
 # ╔═╡ b263485a-636d-4a57-9c4e-dd10bf217826
-U, f, θᵤ = 100.0, 50, 0.0  # AC voltage, V; frequency, Hz; initial voltage phase angle, rad
+# AC voltage, V; frequency, Hz; initial voltage phase angle, rad:
+U, f, θᵤ = 100.0, 50, 0.0 
 
 # ╔═╡ e628a95a-30a5-4c58-8645-f01ac434b0d3
 md"""
@@ -134,7 +135,7 @@ t=0:1e-5:0.04  					   # time range
 
 # ╔═╡ 96b48340-ec08-4d87-b1f1-46b18a12b038
 md"""
-A determinação da tensão temporal do circuito AC vem dado por:
+A determinação da tensão temporal do circuito CA vem dado por:
 
 $\tag{1}
 u(t)=\sqrt2\:U\sin(\omega\:t+\theta_u) \quad\quad \rm{com}\it\quad t \in \left [\:0;\: k\:T\: \right ]$
@@ -145,7 +146,7 @@ Foldable("Onde:",md"
  -  $U$, valor eficaz da tensão, V
  -  $k$, número inteiro de períodos de onda
  -  $\theta_u$, o ângulo inicial da tensão, rad
- -  $T$, período da onda AC, $\:T=f^{-1}$ , em segundos")
+ -  $T$, período da onda CA, $\:T=f^{-1}$ , em segundos")
 
 # ╔═╡ 9a3db49a-5fa0-48ac-9de7-5cad998674c6
 md"""
@@ -178,7 +179,7 @@ aside((md"""
 
 # ╔═╡ 87bcbe0c-19e7-4c07-a1d7-bb1a83da434b
 md"""
-## Corrente AC
+## Corrente alternada
 Uma vez que a carga é variável define-se a corrente, $I$ e o ângulo de desfasamento da corrente em relação à tensão, $\varphi$, com base em dois controlos deslizantes (*sliders*) que permitem uma análise interativa. 
 """
 
@@ -259,7 +260,7 @@ Mostrar potência intantânea, $p(t)$? $(@bind z CheckBox())
 
 # ╔═╡ ee73db77-137d-456e-970e-957dbb99a60d
 md"""
-# Potências num circuito AC (carga linear)
+# Potências num circuito CA (carga linear)
 """
 
 # ╔═╡ fa0fb15d-45e4-48bf-82bf-8352c677c35b
@@ -280,12 +281,13 @@ begin
 	# Select the checkbox above the plot, to see the instantaneous power, p(t), together with voltage and current plot, with a secondary axis:
 	if z == 0
 		plot(t, u, xlabel="t (s)", label="u(t)", minorticks=5)
-		plot!(t,i, ylabel="u, i  (V, A)", label="i(t)", legend=:bottomleft, size=(800,400))
+		plot!(t,i, ylabel="u, i  (V, A)", label="i(t)", 
+			  	   legend=:bottomleft, size=(700,400))
 	else
 		plot(t, u, xlabel="t (s)", label="u(t)", minorticks=5)
 		plot!(t,i, ylabel="u, i  (V, A)", label="i(t)", legend=:bottomleft)
 		plot!(twinx(), t, p/1000, ylabel="p (kVA)", label="p(t)", lc=:green, 
-									lw=2, ylims=[-15,20], legend=:bottomright)
+								  lw=2, ylims=[-15,20], legend=:bottomright)
 	end
 end
 
@@ -410,7 +412,8 @@ begin
 	# p(t):
 	plot(t, p/1000, title="p(t) = P - pₐₗₜ(t)", 
 				legend=:topright, xlabel="t  (s)", ylims=[-11,21], lw=2, 
-				lc=:green, ylabel="kVA, kW", label="p(t)", minorticks=5, size=(800,400))
+				lc=:green, ylabel="kVA, kW", label="p(t)", minorticks=5, 
+		 		size=(700,400))
 	
 	# pₐₗₜ(t):
 	plot!(t, pₐₗₜ/1000, lc=:purple, label="pₐₗₜ(t)")
@@ -472,7 +475,7 @@ begin
 	# p(t), p₁(t), p₂(t):
 	plot(t, p/1000, title="p(t)=p₁(t)+p₂(t) ;  P=$(P)kW ;  Q=$(Q)kVAr ; S=$(S)kVA", 
 				legend=:topright, xlabel="t  (s)", lw=2, lc=:green, ylims=[-11,21],
-				ylabel="kW, kVAr, kVA",	label="p(t)", minorticks=5, size=(800,400))
+				ylabel="kW, kVAr, kVA",	label="p(t)", minorticks=5, size=(700,400))
 	plot!(t, p₁, lc=:red, label="p₁(t)") 
 	plot!(t, p₂, lc=:blue, label="p₂(t)")
 	
@@ -506,10 +509,14 @@ Do gráfico anterior é possível verificar:
 """
 
 # ╔═╡ 8ed9575a-eab7-4160-a9d8-719ad09b3f4e
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens:
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
 pluto-output p {
     text-align: justify;
+}
+pluto-output {
+    font-family: system-ui;
+	font-size:  100%
 }
 </style>
 """
@@ -1866,7 +1873,7 @@ version = "1.9.2+0"
 # ╟─90f50ad3-c86d-4e65-a338-c0fb082b1ef8
 # ╠═215762b7-272b-4749-83c9-532fed7671ef
 # ╟─96b48340-ec08-4d87-b1f1-46b18a12b038
-# ╟─8794c335-e5a7-4b91-b6e4-30e31eff27e9
+# ╠═8794c335-e5a7-4b91-b6e4-30e31eff27e9
 # ╟─9a3db49a-5fa0-48ac-9de7-5cad998674c6
 # ╠═2416a6df-b494-4620-a4cb-53efc61ae202
 # ╟─f0dad876-ded8-4da1-8b4e-243dde05b386
@@ -1906,7 +1913,7 @@ version = "1.9.2+0"
 # ╠═8ee8c903-7b59-4ca9-8a20-be8edcab7e09
 # ╟─1b66f615-427e-4d95-9058-0e31b239b006
 # ╟─19688a6a-fbca-4eaf-8acd-25a604902c04
-# ╠═b91708f8-e434-4007-b33b-6ee4a35e082b
+# ╟─b91708f8-e434-4007-b33b-6ee4a35e082b
 # ╟─0d3f746a-4fc4-4e3f-883a-9e62e965be80
 # ╟─8ed9575a-eab7-4160-a9d8-719ad09b3f4e
 # ╟─84b38e0e-a51f-4ee0-b238-c224e4dd8c94

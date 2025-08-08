@@ -262,7 +262,7 @@ begin
 		color=:turbo, contour_labels = true,
 		xlabel="rpm", ylabel="Nm", title="BSFC map (g/kWh)")
 	
-	plot(h1,h2, size=(1200, 400))
+	plot(h1,h2, size=(650, 370))
 	# [ColorSchemes · Plots](https://docs.juliaplots.org/latest/generated/colorschemes/)
 end
 

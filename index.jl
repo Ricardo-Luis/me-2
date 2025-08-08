@@ -379,8 +379,8 @@ md"""
 ## Condições de Licença
 O material publicado neste *website* e no respetivo repositório do GitHub está licenciado da seguinte forma:
 
-- Os segmentos de código `Julia` dos *notebooks* são disponibilizados sob a [Licença MIT](https://tldrlegal.com/license/mit-license);
-- O conteúdo explicativo e visual dos *notebooks* é partilhado sob a [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/deed.pt) (CC BY-SA 4.0).
+- O conteúdo explicativo e visual dos *notebooks* é partilhado sob a [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/deed.pt) (CC BY-SA 4.0);
+- Os segmentos de código `Julia` dos *notebooks* são disponibilizados sob a [Licença MIT](https://tldrlegal.com/license/mit-license).
 
 As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestões de melhoria](https://github.com/Ricardo-Luis/me-2/pulls) sobre o(s) *notebook*(*s*) são bem-vindas.
 

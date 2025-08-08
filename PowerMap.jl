@@ -10,7 +10,7 @@
 #> date = "2024-10-31"
 #> tags = ["preliminaries"]
 #> layout = "layout.jlhtml"
-#> description = "Este notebook demonstra a representação tridimensional de dados através de isolinhas (curvas de nível), criando mapas de funcionamento úteis para análises espaciais complexas em engenharia, exemplificado com motores de combustão interna selecionáveis pelo utilizador."
+#> description = "Este notebook demonstra a representação tridimensional de dados através de isolinhas (curvas de nível), criando mapas de funcionamento úteis para análises espaciais complexas em engenharia. A demonstração é exemplificada com motores de combustão interna selecionáveis pelo utilizador."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

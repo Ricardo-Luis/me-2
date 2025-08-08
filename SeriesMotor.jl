@@ -10,7 +10,7 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"
-#> description = "Apresenta-se a resolução detalhada de um exercício sobre o funcionamento de um motor de corrente contínua com excitação série. São analisados diversos aspetos do comportamento da máquina, como perdas mecânicas e no ferro, limites operacionais, efeitos da reação do induzido e condições de rendimento máximo. O estudo inclui ainda uma abordagem qualitativa ao impacto do reóstato de campo nas características de velocidade e binário do motor"
+#> description = "Apresenta-se a resolução detalhada de um exercício sobre o funcionamento de um motor de corrente contínua com excitação série. São analisados diversos aspetos do comportamento da máquina, como perdas mecânicas e no ferro, limites operacionais, efeitos da reação magnética do induzido e condições de rendimento máximo. O estudo inclui ainda uma abordagem qualitativa ao impacto do reóstato de campo nas características de velocidade e binário do motor"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

@@ -9,8 +9,12 @@
 #> title = "Curvas características motores"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
-#> description = "Este exercício incide sobre as curvas de funcionamento dos motores de corrente contínua (CC), designadamente as características de velocidade, binário e mecânica. Realiza-se uma comparação entre motores de excitação constante (separada e em derivação), excitação composta (aditiva e subtrativa) e excitação série. São ainda abordadas as condições de embalamento dos motores CC"
+#> description = "Este exercício incide sobre as curvas de funcionamento dos motores de corrente contínua (CC), designadamente as características de velocidade, binário e mecânica. Realiza-se uma comparação entre motores de excitação constante (separada e em derivação), excitação composta (aditiva e subtrativa) e excitação série. São ainda abordadas as condições de embalamento dos motores CC."
 #> date = "2024-09-09"
+#> 
+#>     [[frontmatter.author]]
+#>     name = "Ricardo Luís"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -47,7 +51,7 @@ $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
 $\text{EXERCÍCIO 10}$ 
 
-$\textbf{Motores DC: curvas características}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Motores CC: curvas características}}}$
 ---
 """
 
@@ -76,7 +80,7 @@ end
 aside((md"""
 !!! nota
 	No enunciado original não é considerada a existência de reacção magnética do induzido, $$(ΔE=0\rm V)$$.  
-	No entanto, na versão *notebook* para que se possa verificar a influência de $$ΔE$$, nas características de funcionamento do motor DC, para os diferentes tipos de excitação, uma curva de $$ΔE=f(I_i)$$ é considerada como uma opção de análise."""), v_offset=100)
+	No entanto, na versão *notebook* para que se possa verificar a influência de $$ΔE$$, nas características de funcionamento do motor CC, para os diferentes tipos de excitação, uma curva de $$ΔE=f(I_i)$$ é considerada como uma opção de análise."""), v_offset=100)
 
 # ╔═╡ e2fc78d6-480b-4fe0-b844-0d4329c0d572
 md"""
@@ -489,16 +493,11 @@ begin
 end
 
 # ╔═╡ 9aa6487a-1d1b-4b2d-9da5-4302a282d4f5
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%

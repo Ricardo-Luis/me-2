@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"
-#> description = "Apresenta-se a resolução de um teste sobre máquinas de corrente contínua, centrado na análise de um grupo motor-gerador constituído por duas máquinas idênticas. Na secção dedicada ao gerador, determinam-se a velocidade de acionamento e o rendimento do grupo, traçando-se ainda comparativamente as características externas para diferentes modos de excitação. Abordam-se também questões construtivas, como o enrolamento adequado para elevadas correntes e o papel dos polos auxiliares. Na parte referente ao motor, calculam-se a velocidade, a corrente e o binário desenvolvido, analisando-se ainda condições de embalamento e a característica de binário, incluindo o efeito de um reóstato de campo"
+#> description = "Apresenta-se a resolução de um teste sobre máquinas de corrente contínua, centrado na análise de um grupo motor-gerador constituído por duas máquinas idênticas. Na secção dedicada ao gerador, determinam-se a velocidade de acionamento e o rendimento do grupo, traçando-se ainda comparativamente as características externas para diferentes modos de excitação. Abordam-se também questões construtivas, como o enrolamento rotórico adequado para elevadas correntes do induzido e o papel dos polos auxiliares. Na parte referente ao motor, calculam-se a velocidade, a corrente e o binário desenvolvido, analisando-se ainda condições de embalamento e a característica de binário, incluindo o efeito de um reóstato de campo."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -44,7 +44,13 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ 9b9d7372-f136-499a-a900-e999a2a6784e
-ThreeColumn(md"`Test.DCmachines.jl`", md"`English version:` $(@bind z CheckBox())", md"`Last update: 09·09·2024`")
+Columns(md"""
+	`Test.DCmachines.jl`""", md"""
+	`Language:` $(@bind lang Select([
+		"pt" => "Português",
+		"en" => "English",
+		]))""", md"""
+	`Last update: 09·09·2024`""")
 
 # ╔═╡ ea3e2579-177a-477f-97f6-71ebe0f014cd
 md"""
@@ -53,55 +59,57 @@ $\textbf{Licenciatura em Engenharia Eletrotécnica }$
 
 $\text{MÁQUINAS ELÉTRICAS 2}$ 
 
-$\textbf{1º Teste de 03 de novembro de 2022 }$ 
+$\textbf{1º Teste de 03 de novembro de 2022}$ 
 ---
 """
 
-# ╔═╡ 2ad32a6c-a6b5-4244-8f34-cd456a70fe6c
-
-
-# ╔═╡ c9c8b075-855f-4650-b928-2d9b227fa52d
-begin
-	if z==false
-		md"""
-		# Dados
-		"""
-	else
-		md"""
-		# Data
-		"""
-	end
+# ╔═╡ 0823bba0-4ee5-41b4-bf9c-f1914fdbc7a3
+if lang == "pt"
+	md"""
+	$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Resolução de teste sobre máquinas elétricas de corrente contínua}}}$
+	"""
+elseif lang == "en"
+	md"""
+	$\colorbox{Bittersweet}{\textcolor{white}{\textbf{DC Electrical Machines Test Solution}}}$
+	"""
 end
 
 # ╔═╡ 7ca9e6c8-5e20-4215-a2eb-97798306a060
-begin
-	if z==false
-		md"""
-		Duas máquinas de corrente contínua de iguais características constituem um grupo motor-gerador, a funcionar em regime permanente, de acordo com os dados presentes no seguinte esquema elétrico:
-		"""
-	else
-		md"""
-		Two direct current machines with the same characteristics form a motor-generator group, operating at steady state, according to the data presented in the following electrical scheme:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Duas máquinas de corrente contínua de iguais características constituem um grupo motor-gerador, a funcionar em regime permanente, de acordo com os dados presentes no seguinte esquema elétrico:
+	"""
+elseif lang == "en"
+	md"""
+	Two direct current machines with the same characteristics form a motor-generator group, operating at steady state, according to the data presented in the following electrical scheme:
+	"""
 end
 
-# ╔═╡ e57b94bc-184a-4148-b41b-3627dcb0b611
-html"""
-<iframe frameborder="0" style="width:100%;height:507px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=me2_T1_03nov2022FIG.drawio#R7V1rc9o4F%2F41fIzHuvj2sUmaZnbSbbfNm%2B7ul4wLDvFbwNSYhPTXrwSWsWQZBJYtKLAz21gYGXSecz866qGr8eJDGk6fPyaDaNSD9mDRQ9c9CKHnQ%2FIPHXlbjQCM%2FdXIMI0H%2Bdh64Gv8K8oH7Xx0Hg%2BiGXdjliSjLJ7yg%2F1kMon6GTcWpmnyyt%2F2lIz4p07DYVQZ%2BNoPR9XRb%2FEge16N%2BtBbj99G8fCZPRm4weqdcchuzqeYPYeD5HU1tPxx6H0PXaVJkq3%2BGi%2BuohFdPbYuqxW4qXm3%2BGJpNMlUPjCNL74%2BPPb%2FvbjNrj0IXvAi%2BHGB82V%2BCUfz%2FBfn3zZ7Y0uQJvPJIKKzgB66fH2Os%2BjrNOzTd18J1cnYczYe5W%2FPsjT5USwVIiODOCWEiZMJuZ4lczp%2BOUzDQUy%2B91UyStLlU9DT8kXee4pHo9L45Tv6X%2Bkz16X5Jkm6nC9M%2Bzl0HLv4EqVJguWLvJMmWZh%2FNqB35r8%2BSrNoUbuuoKAWwXmUjKMsfSO35B9wHWhBZ%2FWpHOXY9ouh1zVqcgLZzyXAQBdY%2BZ1hDtVh8Yg1NckfOUF3IC6qkDIaEHDnl3TpkmEyCUfv16OXa2LT5Vnfc5ck05zE%2F4%2By7C1f7nCeJTwAosngHeU7%2BgSCqtXITTyqBwhZ5%2FTt7%2FyJy4t%2F6IXlYocNXC%2FKb1%2B%2Fla8%2BR2lM1itK88HVj6a%2FdDNBiSAJ02GUD71%2Fvb1%2FuPuSPtw%2Fpk92f%2Fzx6X5%2BUUP4NBoREL3w88uol3%2F0cxKTJxeAgb7NocVhTMimIFyS9qP8UwIGiq%2BhBIv6X7WZ5af02VH6%2FoUs2SwnHGWSmAjGu%2FB7NPqczOKcj74nWZaMKWWZgKNUGISz5wJG4Sge0lv70WRJpzJe2LTv8nsyijM615R%2Bl%2FFiSBWLFY0Iz6f0PiueDOb9LElnxV%2BPjhRXcl6X4KDC%2FrW8DgHiSOcyli5xOcASNkd2PUpUeVxKTNcIjy%2FibMmwlpNf%2FVN6Z82s9OKtdCGyaklWTJJJxMkKu0ZWMBsBbCTpioU2rBuUionueX0lgyq8TpYlfCvdtmTIWf1zEJA%2FZw2t1Yz7ChKpfglMYg%2BUkGdTbbs7%2BORqZy%2Blo6b1ShaJvXxJMa6uwFRRXlZ0f3zADzdfw8%2Fu9NsbuH%2BOR9d%2FD1b3NQB%2FIxEGj1sfpdEsni310TTJyIRxsgTGo9zYKSmlC21aCfPMj0FQ1Uq2RCuJwkgbSR0ZTd1RRs37ZCm31sR1f84T9sbFbMn278gNEE8X6zep6xb2%2BQ88ROkgnITlm9wh%2FTdjzyLfffW41XgFVmR9M5n7wvg0V0pljyQfqiBIhM04HgyWAk%2FmL%2FFCsIAm0AQHQecgr%2BqKyGwU2BoasEk0zE4bDaJlgGFVOHSLBsckGq5OGw2FI8LsRMabxtDgmUTD9RkNnDsbeJ2hQepRQKMuBfMUSn5ArUdB0XITjuMRHbgnvgBRM%2Faf0Sv5%2F5dkHE7yW%2FJnQm%2BJmDDNBH93OVbyeNU84u79CK%2Bhg6DmHSOnHe8Y%2B4H0Oa16xwibxDI4KCw39okLZx3wznrrMWJF1uB9bDke7FZ4CAeCDFeMMOmKJkOZAq%2FNINk1eq5WsW6GhZArKu5sIfSLIeYtJ5mTjbp0sqG%2FfeXJNPF0VmddlFY9nE1X6dOneEEp1YQMN8uXpmVH0BKSaz6qLjzA1YUvBvWvfNDYaMUOb7Su7M6Px2WP6qCvGwj0lTFWpy4JUghIDslCTNV%2FflGfEH5nM9Rog2JZkLgsTnVZWJiNQ31ry6JQKlA1XzmXZWOdQHU1N1Jna%2BamvE4S%2BLCxpiYsRyRx8WsyuZVZnM3TtKzCkUJGuErZ34mYO9OrNQLJ3eKjcSVkiTYD7kU3rvKXj3e%2Fktv%2FvX6Ck4fLr85kencfrhLy2q38CyFSgxGwbB%2BtX15bgKz%2FkcebshvHsz75leEkSuYz62k%2Bix6hFBfl2rXXaJZJJZu6zVOE4LElScm4EmWOmivz%2BoTv8RJwnXNlfy0JKCs1lHgrxCV6yJ%2FcRjoW8zVCMJBUAiIJrYGGBLtUfTi%2BSfVxjqrWMSFyWtEVPgaWAwMMgOdiz3bksc%2BubBfXPhbb5Qw%2BDeADwLUtTF6B7wZeAFyPQ5%2FnthPhJ5iXPkdXhH%2FDEv7%2BoU%2FPc7nF7TT0KV95BQP06EOfno%2BNhj7lK988Xy8PfX44udCnD0El9OlX3YKWQp9y6iqkFNoOffrAqYQ%2Bq8siC30Gba2KLNzfauRzI3FMB8ukkU9h7fcMfAqz6DNNpQuqsvmtcdzzoEl5OHFP6TK5uwWmv4%2BS%2Fg%2Fy2ckmKsGeeh2C6m4T02RkpZ6eUE6DbIvw1Pq1H4%2Fi6rRtoWDx849%2F3z7f%2Frp0v%2F3469PTX%2FH95fQCKrDpHmZ2mW0rENBpx0Fh%2FbBXrbmUbQ0VXSVt8SCFio0dxR6%2F%2FLx%2FKzAR5zIvOVbiMy%2Bv2aeKCh9dm3WkTLt1h%2Bgu0f5u%2BD3gA42VyM5WBi%2BSCe045cL3w3mesdWqO6Bfp%2B8L7pp4UBXb0lhVXtlmbkubOpdsrZGTcJOceMgoO0ErsJ21tuSdENezLduGNnsJ06sq02IfFgtUOcLuf028B71A%2Bpx2mY8B4txxQMYp2oOt0PMt17FFTDKS264StLaWZbu%2BGti1lTs4RmB0LnfYLNp3Etma6x2I%2BBLbpLSct2Kp92NNkTevcdivKw4jGJZUcbZU4SCnn5maqZ11kTHlIRgIzDrfWVv4W%2BZpWVkAWSqosw2Ed8eVtZBsIGzW%2B0qIbLAsrKn9g0CWv%2BgMDF9OGwwBH8tH0DQYzGwm3d8bEfa2QdPtz2AregcEvMJAAXG8oB5PpYiAd%2BWpyKJNzeQNExnEfMEO%2BXnOFb3Pufo0jobhaviIxYyCc6RBEolt2rrseSHHiSyRpQ8nNAJ2xsnuOAHi3lnbkxRm%2B7KQY1s9O5mX2RJSvjyGS91CC4RODjE1xd6NIIR8oVaFbWkyJmoU4hZNilXWsVMLBz5vsQROsI%2FJUglducvX3sbMAeYWoKCQFFu%2BVgswkG3ZgVvkKHxuWuJ8W67nFe%2B6agFgbdaQUVe8By%2BPWHxpEEUXjuCNI9NWj9HeThdnNJTR4Bm3gfXHZsqWDQZOYdGkY3LzwymYNDqAIrYodqpNwDo1gZHZnta9plUYv%2B0%2Boi7bGkEvsEqVi4Kh4zm443SgSveLQ04H7t01fyA5bkOD1EE%2B307JZSKmJHVkW4qAjj1Fcgq363kTu92Dp%2Bdz64CKsINVBpVuFZRnREEdS5mTuV540PfJjyspDX7fogc0FUR5rGtuR2kG6baszhypmyOWUDrEDxAdKcMRPul2tM7Q8P600YArbrVhNGBZakkgRZkG6uZm7aqLZubqnD1oze%2Fn6STXUZfLE%2F%2BwFWA6NR27jUL6KIQtn0aJBwtIr5CFPanyqjsGrmSfuqJ9ynq%2BaKCzK7b7lFQzAFZw2w2hJXH807U6tpoYrAtP%2B4V0AEC%2ByYWDhTlaNg9cMwf9adu2cloBE9xOxTRBoWO5pRefl1RtvKILk%2FjIy6cbnjLYrCzBFuoqXZnyaeuYQTk5jXagPJBzBivsv53XncNRQpo2lgHgyB%2FU6s4yrNBq6ZDFiZZD4hoKFZ%2BnG5adXdrWKXFyohqtF8hO25GtCAzEunwZ82SNlgsc%2F8FgDcWDJ4h1p7tTA%2BVwMBr0vD7DgTdBg%2B5ak8nhoNCEq%2BUuMA3lLRD0r%2BRYzk7bwLBI5jmg1JmJ7nDpKaFDw7r4fNf8FJkZW3yFqbc%2BN6ejKJRzbM0f2txutT082Z1naGM%2BlI0CsPeGK184alq155A2kEHtRgG34cpzziUaOiJWRUspU%2BaCI4s%2FnndcmQcKEuxK2%2B9wy5V0m6u3246Z7%2BEsuiYrt82a5EOMit2DD6STJLBtyJsTohWq3O8KCAQveljrjkuKX5k9qNW45Ploe6MhLOF0AfNax0znquNpOlOJK6iKA4lgsbfM1LYpajR6%2FfPEWd92ROob3t7k6tcE543b1Y3blT0JGlqWsf41tnDMiekdc67RjVCH3wfxkKp63LaOU4JbAi5tH9915Il3U20Q2QegUC%2BMWDDOVF9E1%2BhhgGehspNQ8VoSKmJ31Y6LA11Zpv8sVPYWKsV%2BJGNCpeUTkpp3iDEWSYMetLBdl%2FRDLj2ihZ9UObQGPSHn17Ft4JnJ%2BGlSJVoPSzgtvcS6LG7Ncja2ipudcyMRQod57vEZn4bw2dTAaobPI%2B8psS5qfgnTmJ7v%2BFgcx64Y2amCbpMJxfpP0BPcb3v6golYsIcdtrGvZCO4EhuhKJfWDw0zW7pOtzYLucBCpdosoTbasS22%2F3LnRAWqhnAsrFabtXMSdMOzWs2DekeS%2BPpt8VrZ7WfZ%2FvpgIF3QpfMCUDlwqG0Urx7bAYrPDSyNJvWQWF3oGs7ne0a3pJx4B8sKHIy3sPQUwlz9efpSrEJJQfVH4WwW93ky8Qu4t72s18EyFipDQpslLJrXypExJFSZeCIkdBWdYWFTh5NLrFbVFDuOr6VSA3q%2B87mT6l4CS2gV5UBk%2BjwB1maRwwqlJnAEKr9jVD5Icu4hG%2Bm1TDJqoLTYvRIGVTLLAgat9WfwFdL05Rpmeu72%2FXM8kRGW6QxY40%2FJ1lStX8LBqBrf40t9iMizCBHFJM2ueieoTqukdrQpBpn%2Fcmb2hszuC6fEmGd2mVdCyTk5U1W9wRuAFuSjJlhyZmm3hJVteacUvX%2FseZfjqN%2FzrqkxD%2BmxzzxD%2Fzk%2B016d9qhCe1fSDUUT7cllmlA7ey3qaSblYzKI6B3%2FAQ%3D%3D"></iframe>
-"""
+# ╔═╡ 0257581c-670d-437d-9d9d-c1620c5a60c1
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/Test.DCmachines/TestDCscheme.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:500px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
 
 # ╔═╡ 1e9ffcd8-aaab-4387-a60e-930deaf1f24a
-begin
-	if z==false
-		md"""
-		Conhecem-se ainda os seguintes dados:
-		"""
-	else
-		md"""
-		The following data are also known: 
-		"""
-	end
+if lang == "pt"
+	md"""
+	Conhecem-se ainda os seguintes dados:
+	"""
+elseif lang == "en"
+	md"""
+	The following data are also known: 
+	"""
 end
 
 # ╔═╡ 616efd77-a81e-4242-9110-cb73b7953497
@@ -119,16 +127,14 @@ begin
 end;
 
 # ╔═╡ 1ceaa326-46f1-4dba-8288-2d06345ca41d
-begin
-	if z==false
-		md"""
-		Característica magnética às $(n_mag) rpm:
-		"""
-	else
-		md"""
-		No-load characteristic at 1000 rpm:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Característica magnética às $(n_mag) rpm:
+	"""
+elseif lang == "en"
+	md"""
+	No-load characteristic at 1000 rpm:
+	"""
 end
 
 # ╔═╡ b64be4f2-d16c-4d40-8437-4bad945cff01
@@ -155,16 +161,14 @@ begin
 end
 
 # ╔═╡ a6ff8b62-6fd0-45ff-8453-2c5b0a630219
-begin
-	if z==false
-		md"""
-		## Dados do grupo motor-gerador
-		"""
-	else
-		md"""
-		## Electric circuit data of motor-generator set 
-		"""
-	end
+if lang == "pt"
+	md"""
+	## Dados do grupo motor-gerador
+	"""
+elseif lang == "en"
+	md"""
+	## Electric circuit data of motor-generator set 
+	"""
 end
 
 # ╔═╡ 62df9520-f4b6-41e5-a75f-8ad257ef3529
@@ -190,16 +194,14 @@ end;
 
 
 # ╔═╡ 7d2b527d-da2b-4704-a931-3cc06d5a5215
-begin
-	if z==false
-		md"""
-		# I - Gerador
-		"""
-	else
-		md"""
-		# I - Generator
-		"""
-	end
+if lang == "pt"
+	md"""
+	# I - Gerador
+	"""
+elseif lang == "en"
+	md"""
+	# I - Generator
+	"""
 end
 
 # ╔═╡ 4153a634-6797-449f-8c5b-25355b6a5507
@@ -208,45 +210,39 @@ md"""
 """
 
 # ╔═╡ fc2bd53a-7d0c-4ca8-adef-ddf7b700954b
-begin
-	if z==false
-		md"""
-		**Determine a velocidade de acionamento necessária para o gerador funcionar nas condições indicadas;**
-		"""
-	else
-		md"""
-		**Calculate the drive speed required for the generator to operate under the indicated conditions;**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**Determine a velocidade de acionamento necessária para o gerador funcionar nas condições indicadas;**
+	"""
+elseif lang == "en"
+	md"""
+	**Calculate the drive speed required for the generator to operate under the indicated conditions;**
+	"""
 end
 
 # ╔═╡ b2792a51-9371-4406-9224-ba96588827c7
-begin
-	if z==false
-		md"""
-		Cálculo da corrente de excitação do gerador DC:
-		"""
-	else
-		md"""
-		Calculation of DC generator field current:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Cálculo da corrente de excitação do gerador CC:
+	"""
+elseif lang == "en"
+	md"""
+	Calculation of DC generator field current:
+	"""
 end
 
 # ╔═╡ 54ccccd5-a2ce-42cf-85c5-8640fa0afcb4
 Ifᴳ = Uᴳ / (Rf + Rᵣₕᴳ) 		# A, field current
 
 # ╔═╡ 42335ad4-de0a-4ebd-9c2a-729c4a23cf7d
-begin
-	if z==false
-		md"""
-		Leitura da força eletromotriz na característica magnética às 1000rpm para o valor da corrente de excitação obtido:
-		"""
-	else
-		md"""
-		Electromotive-force from no-load magnetic characteristic at 1000rpm for the obtained field current:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Leitura da força eletromotriz na característica magnética às 1000rpm para o valor da corrente de excitação obtido:
+	"""
+elseif lang == "en"
+	md"""
+	Electromotive-force from no-load magnetic characteristic at 1000rpm for the obtained field current:
+	"""
 end
 
 # ╔═╡ eb2b2d53-f1b3-4798-b2fc-ba42b2914826
@@ -257,52 +253,48 @@ begin
 end
 
 # ╔═╡ da08e82c-f364-4102-9648-cf400cea0578
-begin
-	if z==false
-		md"""
-		Considerando a queda de tensão nas escovas desprezável, $$\Delta U_{brushes} \approx 0 \rm V$$, a força eletromotriz (FEM) do gerador DC, para as condições de funcionamento indicadas, vem dada por:
+if lang == "pt"
+	md"""
+	Considerando a queda de tensão nas escovas desprezável, $$\Delta U_{brushes} \approx 0 \rm V$$, a força eletromotriz (FEM) do gerador CC, para as condições de funcionamento indicadas, vem dada por:
 
-		$$E_0=U^G + R_a I_a^G + \Delta E$$
-		"""
-	else
-		md"""
-		Considering that voltage drop on the brushes is negligible, $$\Delta U_{brushes} \approx 0 \rm V$$, the electromotive-force (EMF) of the DC generator, for the indicated operating conditions, is given by:
+	$$E_0=U^G + R_a I_a^G + \Delta E$$
+	"""
+elseif lang == "en"
+	md"""
+	Considering that voltage drop on the brushes is negligible, $$\Delta U_{brushes} \approx 0 \rm V$$, the electromotive-force (EMF) of the DC generator, for the indicated operating conditions, is given by:
 		
-		$$E_0=U^G + R_a I_a^G + \Delta E$$
-		"""
-	end
+	$$E_0=U^G + R_a I_a^G + \Delta E$$
+	"""
 end
 
 # ╔═╡ a5964481-bfc3-429a-94af-6eac8d7335b2
 E₀ = Uᴳ + Rₐ * Iₐᴳ + ΔE  	# V, FEM
 
 # ╔═╡ 9e81564f-a752-4fcf-8309-aedbf46e3d21
-begin
-	if z==false
-		md"""
-		Como a FEM do gerador DC é diretamente proporcional ao fluxo magnético e à velocidade de acionamento, para as condições de funcionamento indicadas, vem dada por:
+if lang == "pt"
+	md"""
+	Como a FEM do gerador CC é diretamente proporcional ao fluxo magnético e à velocidade de acionamento, para as condições de funcionamento indicadas, vem dada por:
 
-		$$E_0=k\phi_0 \: n$$
+	$$E_0=k\phi_0 \: n$$
 
-		e $$k\phi_0$$ depende unicamente da corrente de excitação, ou seja:
+	e $$k\phi_0$$ depende unicamente da corrente de excitação, ou seja:
 
-		$$k\phi_0=\frac{E_0^{mag}}{n_{mag}}=\frac{E_0}{n}$$
+	$$k\phi_0=\frac{E_0^{mag}}{n_{mag}}=\frac{E_0}{n}$$
 
-		Assim, a velocidade do grupo motor-gerador, vem dada por:
-		"""
-	else
-		md"""
-		As the EMF of the DC generator is directly proportional to the magnetic flux and the drive speed, for the indicated operating conditions, it is given by:
+	Assim, a velocidade do grupo motor-gerador, vem dada por:
+	"""
+elseif lang == "en"
+	md"""
+	As the EMF of the DC generator is directly proportional to the magnetic flux and the drive speed, for the indicated operating conditions, it is given by:
 
-		$$E_0=k\phi_0 \: n$$
+	$$E_0=k\phi_0 \: n$$
 
-		and $$k\phi_0$$ depends only on the field current, that is:
+	and $$k\phi_0$$ depends only on the field current, that is:
 
-		$$k\phi_0=\frac{E_0^{mag}}{n_{mag}}=\frac{E_0}{n}$$
+	$$k\phi_0=\frac{E_0^{mag}}{n_{mag}}=\frac{E_0}{n}$$
 
-		Thus, the speed of the motor-generator set is given by:
-		"""
-	end
+	Thus, the speed of the motor-generator set is given by:
+	"""
 end
 
 # ╔═╡ e4cba508-69ed-4c0d-b3d8-85cd67b375e0
@@ -316,42 +308,36 @@ end
 
 
 # ╔═╡ 99718cff-350e-4614-a9bc-b8995e5c1024
-begin
-	if z==false
-		md"""
-		## b) $n$ através do balanço de potência. $\eta$ do grupo motor-gerador
-		"""
-	else
-		md"""
-		## b) $n$ using gen. power balance. $\eta$ of motor-gen. group
-		"""
-	end
+if lang == "pt"
+	md"""
+	## b) $n$ através do balanço de potência. $\eta$ do grupo motor-gerador
+	"""
+elseif lang == "en"
+	md"""
+	## b) $n$ using gen. power balance. $\eta$ of motor-gen. group
+	"""
 end
 
 # ╔═╡ c115c741-514d-4237-8c92-c9a7e51dbec0
-begin
-	if z==false
-		md"""
-		**Utilize o balanço de potências do gerador para confirmar o resultado anterior. Determine o rendimento do grupo motor-gerador;**
-		"""
-	else
-		md"""
-		**Use the generator power balance to confirm the previous result. Determine the efficiency of the motor-generator group;**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**Utilize o balanço de potências do gerador para confirmar o resultado anterior. Determine o rendimento do grupo motor-gerador;**
+	"""
+elseif lang == "en"
+	md"""
+	**Use the generator power balance to confirm the previous result. Determine the efficiency of the motor-generator group;**
+	"""
 end
 
 # ╔═╡ b794ec89-73ba-4543-86db-47b930ba2cd2
-begin
-	if z==false
-		md"""
-		Através do balanço de potência de cada máquina DC obtêm-se as respetivas potências absorvidas e úteis:
-		"""
-	else
-		md"""
-		Through the power balance of each DC machine, the respectives inputs and output powers are obtained:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Através do balanço de potência de cada máquina CC obtêm-se as respetivas potências absorvidas e úteis:
+	"""
+elseif lang == "en"
+	md"""
+	Through the power balance of each DC machine, the respectives inputs and output powers are obtained:
+	"""
 end
 
 # ╔═╡ 12461786-f362-4f7b-9f1c-1ea0b6256947
@@ -370,32 +356,30 @@ Pmec = Pᵤᴳ + pⱼfᴳ + pⱼₐᴳ + pᵣₒₜ 		# W, generator/motor input
 Pᵢₙᴹ = Uᴹ * Iₐᴹ + (Uᴹ^2)/(Rf+Rᵣₕᴹ)		# W, motor input power
 
 # ╔═╡ 0cd99825-9f0f-420e-904f-412ca8f88660
-begin
-	if z==false
-		md"""
-		O rendimento do grupo motor-gerador é obtido por:
+if lang == "pt"
+	md"""
+	O rendimento do grupo motor-gerador é obtido por:
 		
-		$$\eta=\frac{P_u^G}{P_{in}^M}$$
+	$$\eta=\frac{P_u^G}{P_{in}^M}$$
 
-		Ou através do produto dos rendimentos de cada uma das máquinas DC:
+	Ou através do produto dos rendimentos de cada uma das máquinas CC:
 		
-		$$\eta=\eta^M \: \eta^G =\frac{P_u^M}{P_{in}^M}\frac{P_u^G}{P_{in}^G}$$
+	$$\eta=\eta^M \: \eta^G =\frac{P_u^M}{P_{in}^M}\frac{P_u^G}{P_{in}^G}$$
 
-		onde se considera que o acoplamento mecânico entre as máquinas DC é perfeito, ou seja: $$P_u^M=P_{in}^G=P_{mec}=$$ $(Pmec) $$\rm W$$
-		"""
-	else
-		md"""
-		The efficiency of motor-generator set is obtained by:
+	onde se considera que o acoplamento mecânico entre as máquinas CC é perfeito, ou seja: $$P_u^M=P_{in}^G=P_{mec}=$$ $(Pmec) $$\rm W$$
+	"""
+elseif lang == "en"
+	md"""
+	The efficiency of motor-generator set is obtained by:
+	
+	$$\eta=\frac{P_u^G}{P_{in}^M}$$
+
+	Or through the product of the efficiency of each DC machines:
 		
-		$$\eta=\frac{P_u^G}{P_{in}^M}$$
+	$$\eta=\eta^M \: \eta^G =\frac{P_u^M}{P_{in}^M}\frac{P_u^G}{P_{in}^G}$$
 
-		Or through the product of the efficiency of each DC machines:
-		
-		$$\eta=\eta^M \: \eta^G =\frac{P_u^M}{P_{in}^M}\frac{P_u^G}{P_{in}^G}$$
-
-		where it is considered that the mechanical coupling between the DC machines is perfect, that is: $$P_u^M=P_{in}^G=P_{mec}=$$ $(Pmec) $$\rm W$$
-		"""
-	end
+	where it is considered that the mechanical coupling between the DC machines is perfect, that is: $$P_u^M=P_{in}^G=P_{mec}=$$ $(Pmec) $$\rm W$$
+	"""
 end
 
 # ╔═╡ 1fcd9e30-cd4e-4aff-b52d-0d4a84c34d9d
@@ -414,16 +398,14 @@ begin
 end
 
 # ╔═╡ 6c53cb0f-ed8c-44b8-a989-20f7681c4596
-begin
-	if z==false
-		md"""
-		Conhecidos o binário mecânico e potência mecânica aplicados ao gerador DC, $$T_{mec}$$ e $$P_{mec}$$, obtém-se a velocidade de acionamento:
-		"""
-	else
-		md"""
-		Knowing the mechanical torque and mechanical power applied to the DC generator, $$T_{mec}$$ and $$P_{mec}$$, the drive speed is obtained:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Conhecidos o binário mecânico e potência mecânica aplicados ao gerador CC, $$T_{mec}$$ e $$P_{mec}$$, obtém-se a velocidade de acionamento:
+	"""
+elseif lang == "en"
+	md"""
+	Knowing the mechanical torque and mechanical power applied to the DC generator, $$T_{mec}$$ and $$P_{mec}$$, the drive speed is obtained:
+	"""
 end
 
 # ╔═╡ 765f1a81-ed15-48a2-b2a5-184410410736
@@ -437,55 +419,47 @@ end
 
 
 # ╔═╡ 2b3f8456-6b70-4b7f-997c-a7d94db46c6b
-begin
-	if z==false
-		md"""
-		## c) 💻 $U=f(I)$: derivação, independente, composta aditiva
-		"""
-	else
-		md"""
-		## c) 💻 $U=f(I)$: shunt, independent, compound aditive
-		"""
-	end
+if lang == "pt"
+	md"""
+	## c) 💻 $U=f(I)$: derivação, independente, composta aditiva
+	"""
+elseif lang == "en"
+	md"""
+	## c) 💻 $U=f(I)$: shunt, independent, compound aditive
+	"""
 end
 
 # ╔═╡ 0a6f6c04-7856-495f-ac62-09c865e60472
-begin
-	if z==false
-		md"""
-		**Trace qualitativamente e de forma comparativa as características externas do gerador nos modos de excitação: derivação, independente e composta aditiva. As três características têm de passar pelo ponto de funcionamento nominal, $(I_n, U_n)$.**
-		"""
-	else
-		md"""
-		**Trace qualitatively and comparatively the external (load) characteristics of the generator in the excitation modes: shunt, independent and additive compound. All three characteristics must pass through the rated operation point, $(I_n, U_n)$.**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**Trace qualitativamente e de forma comparativa as características externas do gerador nos modos de excitação: derivação, independente e composta aditiva. As três características têm de passar pelo ponto de funcionamento nominal, $(I_n, U_n)$.**
+	"""
+elseif lang == "en"
+	md"""
+	**Trace qualitatively and comparatively the external (load) characteristics of the generator in the excitation modes: shunt, independent and additive compound. All three characteristics must pass through the rated operation point, $(I_n, U_n)$.**
+	"""
 end
 
 # ╔═╡ e0b9823e-1e98-4b87-a96f-c9472806f957
-begin
-	if z==false
-		md"""
-		> Para a resolução desta questão optou-se pelo desenvolvimento de uma solução quantitativa, determinando computacionalmente a solução numérica de cada característica externa, tirando partido da linguagem de programação científica `Julia` e do ambiente interativo do *notebook* `Pluto.jl`.
-		"""
-	else
-		md"""
-		> To solve this question, a quantitative solution was developed, computationally determining the numerical solution of each external characteristic, taking advantage of the scientific programming language `Julia` and the interactive *notebook* environment `Pluto.jl`.
-		"""
-	end
+if lang == "pt"
+	md"""
+	> Para a resolução desta questão optou-se pelo desenvolvimento de uma solução quantitativa, determinando computacionalmente a solução numérica de cada característica externa, tirando partido da linguagem de programação científica `Julia` e do ambiente interativo do *notebook* `Pluto.jl`.
+	"""
+elseif lang == "en"
+	md"""
+	> To solve this question, a quantitative solution was developed, computationally determining the numerical solution of each external characteristic, taking advantage of the scientific programming language `Julia` and the interactive *notebook* environment `Pluto.jl`.
+	"""
 end
 
 # ╔═╡ e645b64d-c6a3-48b0-8ed0-5525bef418e1
-begin
-	if z==false
-		md"""
-		Escolha os valores nominais $$(I_n,\: U_n)$$:
-		"""
-	else
-		md"""
-		Choose the nominal values $$(I_n,\: U_n)$$:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Escolha os valores nominais $$(I_n,\: U_n)$$:
+	"""
+elseif lang == "en"
+	md"""
+	Choose the nominal values $$(I_n,\: U_n)$$:
+	"""
 end
 
 # ╔═╡ acd3ce49-2f6b-42a2-ba90-03c46f539fb7
@@ -494,16 +468,14 @@ md"""
 """
 
 # ╔═╡ afee0704-03a6-4403-afe0-56b5a4a1df40
-begin
-	if z==false
-		md"""
-		Modifique a tensão de vazio, $$U_0$$, para cada tipo de excitação, para que a respetiva característica externa contenha $$(I_n, U_n)$$:
-		"""
-	else
-		md"""
-		Change the no-load voltage, $$U_0$$, for each field type generator, in order to load characteristic contain $$(I_n, U_n)$$ in the plot results:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Modifique a tensão de vazio, $$U_0$$, para cada tipo de excitação, para que a respetiva característica externa contenha $$(I_n, U_n)$$:
+	"""
+elseif lang == "en"
+	md"""
+	Change the no-load voltage, $$U_0$$, for each field type generator, in order to load characteristic contain $$(I_n, U_n)$$ in the plot results:
+	"""
 end
 
 # ╔═╡ cd5aeeee-5ab6-4589-a6e7-25fb6115b283
@@ -515,18 +487,16 @@ md"""
 """
 
 # ╔═╡ ffd3f7c6-e424-4d35-b711-b1e78bf565b0
-begin
-	if z==false
-		aside((md"""
-		!!! nota
-			Neste exercício interativo, o estudante deverá ficar a perceber como ajustar a tensão de vazio do gerador para cada tipo de excitação, de modo que a respectiva característica externa passe no ponto de funcionamento escolhido. 
-		"""), v_offset=-270)
-	else
-		aside((md"""
-		!!! note
-			In this interactive exercise, the student should understand how to adjust the no-load voltage of the DC generator for each type of field circuit, in order to each external characteristic crosses the chosen operating point. 
-		"""), v_offset=-270)
-	end
+if lang == "pt"
+	aside((md"""
+	!!! nota
+		Neste exercício interativo, o estudante deverá ficar a perceber como ajustar a tensão de vazio do gerador para cada tipo de excitação, de modo que a respectiva característica externa passe no ponto de funcionamento escolhido. 
+	"""), v_offset=-270)
+elseif lang == "en"
+	aside((md"""
+	!!! note
+		In this interactive exercise, the student should understand how to adjust the no-load voltage of the DC generator for each type of field circuit, in order to each external characteristic crosses the chosen operating point. 
+	"""), v_offset=-270)
 end
 
 # ╔═╡ 2131ec25-bbcc-4fb4-abc7-c4d2aaf149cd
@@ -540,20 +510,18 @@ end
 =#
 
 # ╔═╡ 65b12308-3fd2-4bc3-802f-f45d59c3dd0a
-begin
-	if z==false
-		md"""
-		### Cálculos auxiliares
-		Nos 3 blocos de código `Julia` seguintes são efetuados os cálculos de engenharia para determinação das curvas características externas, apresentadas no gráfico anterior, relativas ao funcionamento do gerador DC nos modos de excitação: independente, derivação e composta aditiva. 
-		> Não necessita de preocupar-se em perceber esta secção em detalhe!
-		"""
-	else
-		md"""
-		### Auxiliary calculations
-		In the next 3 `Julia` code snippets, the engineering calculations are carried out to determine the external characteristic curves, shown in the previous graph, related to the DC generator operation in the field circuit modes: independent, shunt and cumulative compound.
-		> No need to worry about understanding this section in detail!
-		"""
-	end
+if lang == "pt"
+	md"""
+	### Cálculos auxiliares
+	Nos 3 blocos de código `Julia` seguintes são efetuados os cálculos de engenharia para determinação das curvas características externas, apresentadas no gráfico anterior, relativas ao funcionamento do gerador CC nos modos de excitação: independente, derivação e composta aditiva. 
+	> Não necessita de preocupar-se em perceber esta secção em detalhe!
+	"""
+elseif lang == "en"
+	md"""
+	### Auxiliary calculations
+	In the next 3 `Julia` code snippets, the engineering calculations are carried out to determine the external characteristic curves, shown in the previous graph, related to the DC generator operation in the field circuit modes: independent, shunt and cumulative compound.
+	> No need to worry about understanding this section in detail!
+	"""
 end
 
 # ╔═╡ 5b9a8efb-8068-44b9-aa6f-3979907e8838
@@ -646,116 +614,104 @@ end
 
 
 # ╔═╡ 3d7cfce7-f135-4211-b34a-db348034d062
-begin
-	if z==false
-		md"""
-		## d) Tipo de enrolamento induzido para correntes elevadas
-		"""
-	else
-		md"""
-		## d) Armature winding type for high currents
-		"""
-	end
+if lang == "pt"
+	md"""
+	## d) Tipo de enrolamento induzido para correntes elevadas
+	"""
+elseif lang == "en"
+	md"""
+	## d) Armature winding type for high currents
+	"""
 end
 
 # ╔═╡ 616c9118-1e07-41d0-919a-9ad289c546a6
-begin
-	if z==false
-		md"""
-		**Que tipo de enrolamento é selecionado para o induzido, quando se pretende que a máquina de corrente contínua suporte corrente elevadas? Justifique;**
-		"""
-	else
-		md"""
-		**What type of winding is selected for the armature, when the direct current machine is intended to withstand high currents? Justify;**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**Que tipo de enrolamento é selecionado para o induzido, quando se pretende que a máquina de corrente contínua suporte corrente elevadas? Justifique;**
+	"""
+elseif lang == "en"
+	md"""
+	**What type of winding is selected for the armature, when the direct current machine is intended to withstand high currents? Justify;**
+	"""
 end
 
 # ╔═╡ de9086cc-4e8e-4fcc-973c-1aaa92cba3f4
-begin
-	if z==false
-		md"""
-		O enrolamento induzido do tipo **imbricado** permite obter vários caminhos em paralelo (igual ao número de polos), nos quais a corrente se divide, permitindo assim suportar correntes elevadas, contudo a tensão resultante é baixa.
+if lang == "pt"
+	md"""
+	O enrolamento induzido do tipo **imbricado** permite obter vários caminhos em paralelo (igual ao número de polos), nos quais a corrente se divide, permitindo assim suportar correntes elevadas, contudo a tensão resultante é baixa.
 
-		> Bibliografia diversa para leitura sobre os enrolamentos do induzido imbricado/ondulado:
-		>- Secção 5.3 de [^Guru2001];
-		>- Secção 4.2.3 de [^Sen1989];
-		>- Secção 6-3 de [^Matsch1987];
-		>- Secção 8.3 de [^Chapman2005];
-		>- Secção 4.2-10 de [^Sahdev2018].
-		"""
-	else
-		md"""
-		The **lap** armature winding type allows to obtain several parallel paths  (equal to the poles number), in which the current is divided, thus allowing it to withstand high currents, however the resulting voltage is low.
+	> Bibliografia diversa para leitura sobre os enrolamentos do induzido imbricado/ondulado:
+	>- Secção 5.3 de [^Guru2001];
+	>- Secção 4.2.3 de [^Sen1989];
+	>- Secção 6-3 de [^Matsch1987];
+	>- Secção 8.3 de [^Chapman2005];
+	>- Secção 4.2-10 de [^Sahdev2018].
+	"""
+elseif lang == "en"
+	md"""
+	The **lap** armature winding type allows to obtain several parallel paths  (equal to the poles number), in which the current is divided, thus allowing it to withstand high currents, however the resulting voltage is low.
 
-		> Diverse bibliography for reading on lap/wave armature windings:
-		>- Section 5.3 of [^Guru2001];
-		>- Section 4.2.3 of [^Sen1989];
-		>- Section 6-3 of [^Matsch1987];
-		>- Section 8.3 of [^Chapman2005];
-		>- Section 4.2-10 of [^Sahdev2018].
-		"""
-	end
+	> Diverse bibliography for reading on lap/wave armature windings:
+	>- Section 5.3 of [^Guru2001];
+	>- Section 4.2.3 of [^Sen1989];
+	>- Section 6-3 of [^Matsch1987];
+	>- Section 8.3 of [^Chapman2005];
+	>- Section 4.2-10 of [^Sahdev2018].
+	"""
 end
 
 # ╔═╡ 17f36e28-24b9-40fa-86fa-d896f035eaae
 
 
 # ╔═╡ 1f863b7f-b47a-49a9-b524-5d4af55a6c11
-begin
-	if z==false
-		md"""
-		## e) Comutação/polos auxiliares
-		"""
-	else
-		md"""
-		## e) Commutation/auxiliary poles
-		"""
-	end
+if lang == "pt"
+	md"""
+	## e) Comutação/polos auxiliares
+	"""
+elseif lang == "en"
+	md"""
+	## e) Commutation/auxiliary poles
+	"""
 end
 
 # ╔═╡ 649c95ce-6b90-4646-adbe-3aa0a106214e
-begin
-	if z==false
-		md"""
-		**O que são, onde são colocados e como atuam os polos auxiliares de uma máquina de corrente contínua? Como estão identificados na placa de terminais da máquina?**
-		"""
-	else
-		md"""
-		**What are and where the auxiliary poles of a direct current machine are  placed? How do they work? How are they identified on the machine's terminal board?**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**O que são, onde são colocados e como atuam os polos auxiliares de uma máquina de corrente contínua? Como estão identificados na placa de terminais da máquina?**
+	"""
+elseif lang == "en"
+	md"""
+	**What are and where the auxiliary poles of a direct current machine are  placed? How do they work? How are they identified on the machine's terminal board?**
+	"""
 end
 
 # ╔═╡ bb96846e-253b-4ce7-8dc8-ea0f7e03dfc9
-begin
-	if z==false
-		md"""
-		Os polos auxiliares, também designados por polos de comutação ou ainda por interpolos, tratam-se de pequenas peças polares com enrolamento auxiliar (ligado em série com o enrolamento induzido), que utiliza a corrente do induzido e servem para facilitar o processo de comutação, anulando a reação magnética do induzido, na zona da linha neutra geométrica. 
+if lang == "pt"
+	md"""
+	Os polos auxiliares, também designados por polos de comutação ou ainda por interpolos, tratam-se de pequenas peças polares com enrolamento auxiliar (ligado em série com o enrolamento induzido), que utiliza a corrente do induzido e servem para facilitar o processo de comutação, anulando a reação magnética do induzido, na zona da linha neutra geométrica. 
 		
-		Na placa de terminais da máquina, os interpolos estão identificados pelo par de terminais: $$\rm G-H$$.
+	Na placa de terminais da máquina, os interpolos estão identificados pelo par de terminais: $$\rm G-H$$.
 
-		> Bibliografia diversa para leitura sobre reação magnética do induzido e métodos de mitigação:
-		>- Secção 5.8 de [^Guru2001];
-		>- Secção 4.3.5 de [^Sen1989];
-		>- Secção 6-5.1 de [^Matsch1987];
-		>- Secção 8.4 de [^Chapman2005];
-		>- Secção 4.24 de [^Sahdev2018].
-		"""
-	else
-		md"""
-		Auxiliary poles, also called commutating poles or interpoles, are small pole pieces with an auxiliary winding (connected in series with the armature winding), which uses the armature current and serve to facilitate the commutation process, cancel the armature reaction, around to the geometric neutral line.
+	> Bibliografia diversa para leitura sobre reação magnética do induzido e métodos de mitigação:
+	>- Secção 5.8 de [^Guru2001];
+	>- Secção 4.3.5 de [^Sen1989];
+	>- Secção 6-5.1 de [^Matsch1987];
+	>- Secção 8.4 de [^Chapman2005];
+	>- Secção 4.24 de [^Sahdev2018].
+	"""
+elseif lang == "en"
+	md"""
+	Auxiliary poles, also called commutating poles or interpoles, are small pole pieces with an auxiliary winding (connected in series with the armature winding), which uses the armature current and serve to facilitate the commutation process, cancel the armature reaction, around to the geometric neutral line.
 
-		On the machine terminal board, the interpoles are identified by the terminal pair: $$\rm G-H$$.
+	On the machine terminal board, the interpoles are identified by the terminal pair: $$\rm G-H$$.
 
-		> Diverse bibliography for reading about the armature reaction and its mitigation methods:
-		>- Section 5.8 of [^Guru2001];
-		>- Section 4.3.5 of [^Sen1989];
-		>- Section 6-5.1 of [^Matsch1987];
-		>- Section 8.4 of [^Chapman2005];
-		>- Section 4.24 of [^Sahdev2018].
-		"""
-	end
+	> Diverse bibliography for reading about the armature reaction and its mitigation methods:
+	>- Section 5.8 of [^Guru2001];
+	>- Section 4.3.5 of [^Sen1989];
+	>- Section 6-5.1 of [^Matsch1987];
+	>- Section 8.4 of [^Chapman2005];
+	>- Section 4.24 of [^Sahdev2018].
+	"""
 end
 
 # ╔═╡ ac29873b-755d-416a-8276-2e1ac5bb446a
@@ -767,88 +723,78 @@ md"""
 """
 
 # ╔═╡ 9312748a-e976-4e10-8492-84edee70d785
-begin
-	if z==false
-		md"""
-		## a) motor de excitação composta, $n$
-		"""
-	else
-		md"""
-		## a) Compound motor, $n$
-		"""
-	end
+if lang == "pt"
+	md"""
+	## a) motor de excitação composta, $n$
+	"""
+elseif lang == "en"
+	md"""
+	## a) Compound motor, $n$
+	"""
 end
 
 # ╔═╡ e786c743-2c26-4c8b-a271-3d23b6cfdebc
-begin
-	if z==false
-		md"""
-		**Determine a velocidade nas condições indicadas no esquema elétrico do motor;**
-		"""
-	else
-		md"""
-		**Determine the speed under the conditions indicated on the motor electric scheme;**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**Determine a velocidade nas condições indicadas no esquema elétrico do motor;**
+	"""
+elseif lang == "en"
+	md"""
+	**Determine the speed under the conditions indicated on the motor electric scheme;**
+	"""
 end
 
 # ╔═╡ bb1a1a49-fe8d-4d8a-aa84-2dc80d5af0a5
-begin
-	if z==false
-		md"""
-		O circuito de excitação derivação do motor DC apresenta os valores do reóstato de campo, $$R_{rh}^M$$ e do enrolamento de excitação, $$R_f$$, pelo que se pode determinar a corrente de excitação deste ramo, $$I_f^M$$:
+if lang == "pt"
+	md"""
+	O circuito de excitação derivação do motor CC apresenta os valores do reóstato de campo, $$R_{rh}^M$$ e do enrolamento de excitação, $$R_f$$, pelo que se pode determinar a corrente de excitação deste ramo, $$I_f^M$$:
 
-		$$I_f^M=\frac{U^M}{R_f+R_{rh}^M}$$
-		"""
-	else
-		md"""
-		The shunt excitation circuit of the DC motor presents the values of the field rheostat and the field winding, thus the field current of this branch can be achived:
+	$$I_f^M=\frac{U^M}{R_f+R_{rh}^M}$$
+	"""
+elseif lang == "en"
+	md"""
+	The shunt excitation circuit of the DC motor presents the values of the field rheostat and the field winding, thus the field current of this branch can be achived:
 
-		$$I_f^M=\frac{U^M}{R_f+R_{rh}^M}$$
-		"""
-	end
+	$$I_f^M=\frac{U^M}{R_f+R_{rh}^M}$$
+	"""
 end
 
 # ╔═╡ 36694975-3d03-4cc3-a50e-4fb7cfc9695f
 Ifᴹ = Uᴹ /(Rf + Rᵣₕᴹ)  			# A, DC motor shunt field current
 
 # ╔═╡ 9105e60e-dd05-4ccd-8c7c-31768b41bf24
-begin
-	if z==false
-		md"""
-		O motor DC encontra-se ligado com excitação composta, em longa derivação, com fluxo série aditivo. Assim, para o cálculo do fluxo magnético total é necessário contabilizar também o contributo do enrolamento de excitação série. A corrente de excitação $$I_{ex}$$ representa a força magnetomotriz total dos polos de excitação e vem dada por:
+if lang == "pt"
+	md"""
+	O motor CC encontra-se ligado com excitação composta, em longa derivação, com fluxo série aditivo. Assim, para o cálculo do fluxo magnético total é necessário contabilizar também o contributo do enrolamento de excitação série. A corrente de excitação $$I_{ex}$$ representa a força magnetomotriz total dos polos de excitação e vem dada por:
 
-		$$I_{ex}^M=I_f^M + \alpha I_a^M$$ onde:
+	$$I_{ex}^M=I_f^M + \alpha I_a^M$$ onde:
 		
-		$$\alpha=\frac{N_s}{N_f}$$
-		"""
-	else
-		md"""
-		The DC motor is connected with compound excitation, in long shunt, with cumulative/additive series flux. Thus, to calculate the total magnetic flux, it is also necessary to taking account, the contribution of the series excitation winding. The field current $$I_{ex}$$ represents the total magnetomotive force of the field poles and is given by:
+	$$\alpha=\frac{N_s}{N_f}$$
+	"""
+elseif lang == "en"
+	md"""
+	The DC motor is connected with compound excitation, in long shunt, with cumulative/additive series flux. Thus, to calculate the total magnetic flux, it is also necessary to taking account, the contribution of the series excitation winding. The field current $$I_{ex}$$ represents the total magnetomotive force of the field poles and is given by:
 
-		$$I_{ex}^M=I_f^M + \alpha I_a^M$$ 
+	$$I_{ex}^M=I_f^M + \alpha I_a^M$$ 
 		
-		with:
+	with:
 		
-		$$\alpha=\frac{N_s}{N_f}$$
-		"""
-	end
+	$$\alpha=\frac{N_s}{N_f}$$
+	"""
 end
 
 # ╔═╡ 3a3138c4-380d-4f73-9872-cfa311972618
 Iexᴹ = Ifᴹ + α * Iₐᴹ 		# A, DC motor total field current
 
 # ╔═╡ 3bad44ae-3fef-4fee-bac8-3991155cdc86
-begin
-	if z==false
-		md"""
-		O valor da corrente de excitação calculado, $$I_{ex}^M$$, é agora utilizado para verificar qual a FEM correspondente na característica magnética e assim determinar-se o valor do fluxo magnético, representado por $$k\phi_0^M$$:
-		"""
-	else
-		md"""
-		The value of the calculated field current, $$I_{ex}^M$$, is now used to verify the corresponding EMF in the magnetic characteristic and thus to determine the value of the magnetic flux, represented by $$k\phi_0^ M$$:
-		"""
-	end
+if lang == "pt"
+	md"""
+	O valor da corrente de excitação calculado, $$I_{ex}^M$$, é agora utilizado para verificar qual a FEM correspondente na característica magnética e assim determinar-se o valor do fluxo magnético, representado por $$k\phi_0^M$$:
+	"""
+elseif lang == "en"
+	md"""
+	The value of the calculated field current, $$I_{ex}^M$$, is now used to verify the corresponding EMF in the magnetic characteristic and thus to determine the value of the magnetic flux, represented by $$k\phi_0^ M$$:
+	"""
 end
 
 # ╔═╡ 00b51733-1a4b-4c2b-8cf9-52dae8cd0026
@@ -859,20 +805,18 @@ begin
 end
 
 # ╔═╡ a3066a61-48e9-489e-8876-b4917dc5b9c9
-begin
-	if z==false
-		md"""
-		Assim, têm-se os dados para determinar a velocidade do motor DC através da expressão genérica:
+if lang == "pt"
+	md"""
+	Assim, têm-se os dados para determinar a velocidade do motor CC através da expressão genérica:
 
-		$$n=\frac{U-(R_a+R_s)I_a+\Delta E}{k\phi_0}$$
-		"""
-	else
-		md"""
-		Thus, we have the data to determine the DC motor speed through the generic expression:
+	$$n=\frac{U-(R_a+R_s)I_a+\Delta E}{k\phi_0}$$
+	"""
+elseif lang == "en"
+	md"""
+	Thus, we have the data to determine the DC motor speed through the generic expression:
 
-		$$n=\frac{U-(R_a+R_s)I_a+\Delta E}{k\phi_0}$$
-		"""
-	end
+	$$n=\frac{U-(R_a+R_s)I_a+\Delta E}{k\phi_0}$$
+	"""
 end
 
 # ╔═╡ ba4f74cb-0aed-46b6-b997-245cda624df9
@@ -885,93 +829,85 @@ end
 
 
 # ╔═╡ d18d3643-1785-42fd-a0e0-0f7d147b1a61
-begin
-	if z==false
-		md"""
-		## b) Motor série, $I$
-		"""
-	else
-		md"""
-		## b) Series motor, $I$
-		"""
-	end
+if lang == "pt"
+	md"""
+	## b) Motor série, $I$
+	"""
+elseif lang == "en"
+	md"""
+	## b) Series motor, $I$
+	"""
 end
 
 # ╔═╡ bdeaa35b-0ce1-465e-a5bd-d0e7e717e135
-begin
-	if z==false
-		md"""
-		**Considere que desliga no circuito do motor, o ramo de excitação em derivação.**
+if lang == "pt"
+	md"""
+	**Considere que desliga no circuito do motor, o ramo de excitação em derivação.**
 
-		**Determine a corrente consumida quando o motor série fornece uma potência útil de 27.5kW (binário motor e velocidade são desconhecidos). Despreze a reação magnética do induzido;**
+	**Determine a corrente consumida quando o motor série fornece uma potência útil de 27.5kW (binário motor e velocidade são desconhecidos). Despreze a reação magnética do induzido;**
 		"""
-	else
-		md"""
-		**Consider that the shunt field branch is turned off in the motor circuit.**
+elseif lang == "en"
+	md"""
+	**Consider that the shunt field branch is turned off in the motor circuit.**
 
-		**Determine the current consumed when the series motor supplies a mechanical power of 27.5kW (motor torque and speed are unknown). Neglect the armature magnetic reaction**
-		"""
-	end
+	**Determine the current consumed when the series motor supplies a mechanical power of 27.5kW (motor torque and speed are unknown). Neglect the armature magnetic reaction**
+	"""
 end
 
 # ╔═╡ ccaee162-7027-4787-98a2-3515cbdee0ff
 Pᵤᴹˢ = 27.5e3
 
 # ╔═╡ 2bb73740-feb1-434c-8fc1-aeb269fa39d0
-begin
-	if z==false
-		md"""
-		A potência desenvolvida d e um motor DC é dada por:
+if lang == "pt"
+	md"""
+	A potência desenvolvida d e um motor CC é dada por:
 		
-		$$P_d=P_u+P_{rot}$$
-		"""
-	else
-		md"""
-		The developed power of a DC motor is given by:
+	$$P_d=P_u+P_{rot}$$
+	"""
+elseif lang == "en"
+	md"""
+	The developed power of a DC motor is given by:
 
-		$$P_d=P_u+P_{rot}$$
-		"""
-	end
+	$$P_d=P_u+P_{rot}$$
+	"""
 end
 
 # ╔═╡ def42fc9-c9df-4abe-9494-0353bf08d643
 Pdᴹˢ = Pᵤᴹˢ + pᵣₒₜ
 
 # ╔═╡ 6ca44365-eed7-42da-a2cf-c8544e7b1a9f
-begin
-	if z==false
-		md"""
-		Por outro lado, a potência desenvolvida e um motor DC é dada por:
+if lang == "pt"
+	md"""
+	Por outro lado, a potência desenvolvida e um motor CC é dada por:
 		
-		$$P_d=E' I_a$$
+	$$P_d=E' I_a$$
 
-		No caso do motor série, a força contraeletromotriz (FCEM) vem dada por:
+	No caso do motor série, a força contraeletromotriz (FCEM) vem dada por:
 		
-		$$E'=U-(R_a+R_s)I$$
+	$$E'=U-(R_a+R_s)I$$
 
-		Juntando as duas expressões tém-se:
+	Juntando as duas expressões tém-se:
 
-		$$P_d=U I - (R_a+R_s)I^2$$ com $$I_a=I$$, tratando-se de um motor série.
+	$$P_d=U I - (R_a+R_s)I^2$$ com $$I_a=I$$, tratando-se de um motor série.
 
-		Encontrando a raíz apropriada do polinómio anterior, obtém-se a corrente:
-		"""
-	else
-		md"""
-		On the other hand, the developed power of a DC motor is given by:
+	Encontrando a raíz apropriada do polinómio anterior, obtém-se a corrente:
+	"""
+elseif lang == "en"
+	md"""
+	On the other hand, the developed power of a DC motor is given by:
 
-		$$P_d=E' I_a$$
+	$$P_d=E' I_a$$
 
-		In the case of the series motor, the  back electromotive force (back-EMF) is given by:
+	In the case of the series motor, the  back electromotive force (back-EMF) is given by:
 
-		$$E'=U-(R_a+R_s)I$$
+	$$E'=U-(R_a+R_s)I$$
 
-		Combining the two expressions, we have:
+	Combining the two expressions, we have:
 
-		$$P_d=U I - (R_a+R_s)I^2$$ with $$I_a=I$$, in the case of a series motor.
+	$$P_d=U I - (R_a+R_s)I^2$$ with $$I_a=I$$, in the case of a series motor.
 
-		Finding the appropriate root of the previous polynomial, we obtain the current:
-		"""
-	end
+	Finding the appropriate root of the previous polynomial, we obtain the current:
+	"""
 end
 
 # ╔═╡ 0bed098b-367e-4476-a3f4-d4ccf4cda029
@@ -987,50 +923,44 @@ end
 
 
 # ╔═╡ 4b360926-b2c4-4efd-89ca-d02fa170a37e
-begin
-	if z==false
-		md"""
-		## c) Motor série, $T_d$
-		"""
-	else
-		md"""
-		## c) Series motor, $T_d$
-		"""
-	end
+if lang == "pt"
+	md"""
+	## c) Motor série, $T_d$
+	"""
+elseif lang == "en"
+	md"""
+	## c) Series motor, $T_d$
+	"""
 end
 
 # ╔═╡ acbb3a77-8858-4aa8-b6bb-477246c24fa7
-begin
-	if z==false
-		md"""
-		**Calcule o binário desenvolvido nas condições da alínea anterior;**
-		"""
-	else
-		md"""
-		**Calculate the developed torque, under the conditions of the previous question;**
-		"""
-	end
+if lang == "pt"
+	md"""
+	**Calcule o binário desenvolvido nas condições da alínea anterior;**
+	"""
+elseif lang == "en"
+	md"""
+	**Calculate the developed torque, under the conditions of the previous question;**
+	"""
 end
 
 # ╔═╡ 5aedf07a-4cba-4416-8b0f-29aad1c4a563
-begin
-	if z==false
-		md"""
-		O binário desenvolvido, $$T_d$$, depende do fluxo magnético e da corrente do induzido. No caso do motor série a corrente do induzido é também a corrente de excitação, se não for considerado um reóstato de campo.
-		
-		Como a característica magnética é baseada na corrente de campo do enrolamento $$\rm C-D$$, como se percebe pelos baixos valores da corrente de excitação, é necessário através da razão de equivalência, $$\alpha$$, representar a mesma força magnetomotriz produzida pelo enrolamento $$\rm E-F$$:
+if lang == "pt"
+	md"""
+	O binário desenvolvido, $$T_d$$, depende do fluxo magnético e da corrente do induzido. No caso do motor série a corrente do induzido é também a corrente de excitação, se não for considerado um reóstato de campo.
+	
+	Como a característica magnética é baseada na corrente de campo do enrolamento $$\rm C-D$$, como se percebe pelos baixos valores da corrente de excitação, é necessário através da razão de equivalência, $$\alpha$$, representar a mesma força magnetomotriz produzida pelo enrolamento $$\rm E-F$$:
 
-		$$I_{ex}^{MS}=I_f^M + \alpha I_a^{MS}$$
-		"""
-	else
-		md"""
-		The developed torque, $$T_d$$, depends on the magnetic flux and the armature current. In the case of a series motor, the armature current is also the field current, if a field rheostat is not considered.
+	$$I_{ex}^{MS}=I_f^M + \alpha I_a^{MS}$$
+	"""
+elseif lang == "en"
+	md"""
+	The developed torque, $$T_d$$, depends on the magnetic flux and the armature current. In the case of a series motor, the armature current is also the field current, if a field rheostat is not considered.
 
-		As the magnetic characteristic is based on the $$\rm C-D$$ winding field current, as can be seen from the low excitation current values, it is necessary through the equivalence ratio, $$\alpha$$, to represent the same magnetomotive force  produced by the $$\rm E-F$$ winding:
+	As the magnetic characteristic is based on the $$\rm C-D$$ winding field current, as can be seen from the low excitation current values, it is necessary through the equivalence ratio, $$\alpha$$, to represent the same magnetomotive force  produced by the $$\rm E-F$$ winding:
 
-		$$I_{ex}^{MS}=\alpha I_a^{MS}$$ 
-		"""
-	end
+	$$I_{ex}^{MS}=\alpha I_a^{MS}$$ 
+	"""
 end
 
 # ╔═╡ b25e57bb-4569-4ef8-a2a2-ca056e008a94
@@ -1040,16 +970,14 @@ begin
 end
 
 # ╔═╡ 86a2e35e-566f-4c78-949c-5c8102965133
-begin
-	if z==false
-		md"""
-		Com a corrente de excitação, $$I_{ex}^{MS}$$, obtêm-se a FEM e o valor relativo ao fluxo magnético, $$k\phi_0^{MS}$$:
-		"""
-	else
-		md"""
-		With the field current, $$I_{ex}^{MS}$$, the values of EMF and the related magnetic flux, $$k\phi_0^{MS}$$, are obtained:
-		"""
-	end
+if lang == "pt"
+	md"""
+	Com a corrente de excitação, $$I_{ex}^{MS}$$, obtêm-se a FEM e o valor relativo ao fluxo magnético, $$k\phi_0^{MS}$$:
+	"""
+elseif lang == "en"
+	md"""
+	With the field current, $$I_{ex}^{MS}$$, the values of EMF and the related magnetic flux, $$k\phi_0^{MS}$$, are obtained:
+	"""
 end
 
 # ╔═╡ 8045db09-25b9-44a2-ab83-ca08a96cf1c8
@@ -1066,72 +994,64 @@ begin
 end;
 
 # ╔═╡ 44effeaa-2765-4249-9f70-dd2036d4c9a2
-begin
-	if z==false
-		md"""
-		Assim, obtém-se um binário desenvolvido, $$T_d=$$ $Td $$\rm Nm$$.
-		"""
-	else
-		md"""
-		Thus, a developed torque, $$T_d=$$ $Td $$\rm Nm$$ is obtained.
-		"""
-	end
+if lang == "pt"
+	md"""
+	Assim, obtém-se um binário desenvolvido, $$T_d=$$ $Td $$\rm Nm$$.
+	"""
+elseif lang == "en"
+	md"""
+	Thus, a developed torque, $$T_d=$$ $Td $$\rm Nm$$ is obtained.
+	"""
 end
 
 # ╔═╡ 8bdc891f-07d7-4c9a-93c6-93f774f4ce4c
 
 
 # ╔═╡ f204f664-f4f0-418b-a798-898ab22ac4d9
-begin
-	if z==false
-		md"""
-		## d) Embalamento
-		"""
-	else
-		md"""
-		## d) Overspeed
-		"""
-	end
+if lang == "pt"
+	md"""
+	## d) Embalamento
+	"""
+elseif lang == "en"
+	md"""
+	## d) Overspeed
+	"""
 end
 
 # ╔═╡ 7469aeed-9f3a-4833-a4c5-4c71a0395fe8
-begin
-	if z==false
-		md"""
-		**Em que situações pode um motor de corrente contínua embalar?**
+if lang == "pt"
+	md"""
+	**Em que situações pode um motor de corrente contínua embalar?**
 
-		**Justifique e apresente duas situações concretas;**
-		"""
-	else
-		md"""
-		**In what situations can a DC motor overspeed?**
+	**Justifique e apresente duas situações concretas;**
+	"""
+elseif lang == "en"
+	md"""
+	**In what situations can a DC motor overspeed?**
 
-		**Justify and present two specific situations.**
-		"""
-	end
+	**Justify and present two specific situations.**
+	"""
 end
 
 # ╔═╡ df15da50-053b-47f9-8c61-57d6b0c267cc
-begin
-	if z==false
-		md"""
-		Como regra geral, um motor de corrente contínua pode embalar sempre que o fluxo magnético se torne muito reduzido, pois a velocidade é inversamente proporcional ao valor do fluxo magnético.
+if lang == "pt"
+	md"""
+	Como regra geral, um motor de corrente contínua pode embalar sempre que o fluxo magnético se torne muito reduzido, pois a velocidade é inversamente proporcional ao valor do fluxo magnético.
 		
-		Situações em que o embalamento do motor pode ocorrer:
-		- um motor série ficar em vazio, ou com carga muito reduzida;
-		- um motor de excitação composta de fluxo subtrativo com carga excessiva;
-		- perda acidental do circuito de excitação nos motores de excitação: independente, derivação e composta (quando em vazio).
-		"""
-	else
-		md"""
-		As a rule of thumb, a direct current motor may  overspeed whenever the magnetic flux becomes too low, as the speed is inversely proportional to the value of the magnetic flux.
+	Situações em que o embalamento do motor pode ocorrer:
+	- um motor série ficar em vazio, ou com carga muito reduzida;
+	- um motor de excitação composta de fluxo subtrativo com carga excessiva;
+	- perda acidental do circuito de excitação nos motores de excitação: independente, derivação e composta (quando em vazio).
+	"""
+elseif lang == "en"
+	md"""
+	As a rule of thumb, a direct current motor may  overspeed whenever the magnetic flux becomes too low, as the speed is inversely proportional to the value of the magnetic flux.
 
-		Situations in which a motor overspeed can occur:
-		- a series motor loose the load, or went to a very low load;
-		- a differential compound motor with excessive load;
-		- accidental loss of the field circuit in the motors: independent, shunt and compound (when at no-load).
-		"""
-	end
+	Situations in which a motor overspeed can occur:
+	- a series motor loose the load, or went to a very low load;
+	- a differential compound motor with excessive load;
+	- accidental loss of the field circuit in the motors: independent, shunt and compound (when at no-load).
+	"""
 end
 
 # ╔═╡ fdab8c81-ab77-4db1-b1d4-922a6283c244
@@ -1143,33 +1063,29 @@ md"""
 """
 
 # ╔═╡ 16cbb122-d4fe-4fea-8799-20aef78b5a2f
-begin
-	if z==false
-		md"""
-		**Apresente qualitativamente a característica de binário desenvolvido de um motor série.**
+if lang == "pt"
+	md"""
+	**Apresente qualitativamente a característica de binário desenvolvido de um motor série.**
 
-		**Justifique a sua forma e explicite, também qualitativamente, a influência de um reóstato de campo sobre essa característica**
-		"""
-	else
-		md"""
-		**Qualitatively, present the developed torque characteristic of a series motor.**
+	**Justifique a sua forma e explicite, também qualitativamente, a influência de um reóstato de campo sobre essa característica**
+	"""
+elseif lang == "en"
+	md"""
+	**Qualitatively, present the developed torque characteristic of a series motor.**
 
-		**Justify its shape and explain, also qualitatively, the influence of a field rheostat on this characteristic.**
-		"""
-	end
+	**Justify its shape and explain, also qualitatively, the influence of a field rheostat on this characteristic.**
+	"""
 end
 
 # ╔═╡ f85a8b72-2f94-4692-a763-98b9457837f5
-begin
-	if z==false
-		md"""
-		> Para a resolução desta questão optou-se pelo desenvolvimento de uma solução quantitativa, determinando computacionalmente a solução numérica da característica de binário, tirando partido da linguagem de programação científica `Julia` e do ambiente interativo do *notebook* `Pluto.jl`.
-		"""
-	else
-		md"""
-		> To solve this question, a quantitative solution was developed, computationally determining the numerical solution of torque characteristic, taking advantage of the scientific programming language `Julia` and the interactive *notebook* environment `Pluto.jl`.
-		"""
-	end
+if lang == "pt"
+	md"""
+	> Para a resolução desta questão optou-se pelo desenvolvimento de uma solução quantitativa, determinando computacionalmente a solução numérica da característica de binário, tirando partido da linguagem de programação científica `Julia` e do ambiente interativo do *notebook* `Pluto.jl`.
+	"""
+elseif lang == "en"
+	md"""
+	> To solve this question, a quantitative solution was developed, computationally determining the numerical solution of torque characteristic, taking advantage of the scientific programming language `Julia` and the interactive *notebook* environment `Pluto.jl`.
+	"""
 end
 
 # ╔═╡ ef49d52d-83a2-4f5e-8b84-efd15e94f935
@@ -1178,33 +1094,29 @@ Field rheostat of series motor, Ω: $(@bind Rfₛₓ PlutoUI.Slider(0.0001:0.000
 """
 
 # ╔═╡ 2b61faee-5b76-43b4-ae84-2da98b8c735e
-begin
-	if z==false
-		aside((md"""
-		!!! nota
-			Neste exercício interativo, o estudante deverá conseguir justificar a influência de um reóstato de campo sobre essa característica de binário de um motor série. 
-		"""), v_offset=-240)
-	else
-		aside((md"""
-		!!! note
-			In this interactive exercise, the student should be able to justify the influence of a field rheostat on the torque characteristic of a series motor. 
-		"""), v_offset=-240)
-	end
+if lang == "pt"
+	aside((md"""
+	!!! nota
+		Neste exercício interativo, o estudante deverá conseguir justificar a influência de um reóstato de campo sobre essa característica de binário de um motor série. 
+	"""), v_offset=-240)
+elseif lang == "en"
+	aside((md"""
+	!!! note
+		In this interactive exercise, the student should be able to justify the influence of a field rheostat on the torque characteristic of a series motor. 
+	"""), v_offset=-240)
 end
 
 # ╔═╡ b7f80612-1ee1-435e-9665-4c19158e2638
-begin
-	if z==false
-		md"""
-		### Cálculos auxiliares
-		Nos 2 blocos de código `Julia` seguintes são efetuados os cálculos de engenharia para determinação da característica de binário do motor série, considerando a influência de um reóstato de excitação ligado em paralelo com o enrolamento de campo.
-		"""
-	else
-		md"""
-		### Auxiliary calculations
-		In the next 2 `Julia` code snippets, the engineering calculations are carried out to determine the torque characteristic of the series motor, considering the influence of a field rheostat connected in parallel with the field winding.
-		"""
-	end
+if lang == "pt"
+	md"""
+	### Cálculos auxiliares
+	Nos 2 blocos de código `Julia` seguintes são efetuados os cálculos de engenharia para determinação da característica de binário do motor série, considerando a influência de um reóstato de excitação ligado em paralelo com o enrolamento de campo.
+	"""
+elseif lang == "en"
+	md"""
+	### Auxiliary calculations
+	In the next 2 `Julia` code snippets, the engineering calculations are carried out to determine the torque characteristic of the series motor, considering the influence of a field rheostat connected in parallel with the field winding.
+	"""
 end
 
 # ╔═╡ e5e7d63b-67a0-48df-b959-34b0ac7f37c6
@@ -1226,18 +1138,16 @@ plot(I, Tdᴹˢ,
 		ylabel="Developed torque, Nm", xlabel="Armature current, A")
 
 # ╔═╡ 7af2b085-c36c-4469-b852-15b04396e95a
-begin
-	if z==false
-		md"""
-		---
-		# Bibliografia
-		"""
-	else
-		md"""
-		---
-		# Bibliography
-		"""
-	end
+if lang == "pt"
+	md"""
+	---
+	# Bibliografia
+	"""
+elseif lang == "en"
+	md"""
+	---
+	# Bibliography
+	"""
 end
 
 # ╔═╡ 1c125ce3-4345-4b5d-bf7b-c580b09f5613
@@ -1261,16 +1171,11 @@ md"""
 
 
 # ╔═╡ 080a827e-c525-4fb3-a81e-b1758949e18e
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -1284,52 +1189,48 @@ md"""
 """
 
 # ╔═╡ 3c84a0d4-8eeb-4feb-8276-4d62ed7492f5
+if lang == "pt"
+	md"""
+	Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
+	"""
+elseif lang == "en"
+	md"""
+	`Julia` packages documentation: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl.
+	"""
+end
+
+# ╔═╡ 3a2663dc-9474-44b1-b9f8-13cae96c42bf
 begin
-	if z==false
+	version=VERSION
+	if lang == "pt"
 		md"""
-		Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
+		*Notebook* desenvolvido em `Julia` versão $(version).
 		"""
-	else
+	elseif lang == "en"
 		md"""
-		`Julia` packages documentation: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl.
+		Notebook developed in `Julia` version $(version).
 		"""
 	end
 end
 
 # ╔═╡ 205b547e-731d-4049-9120-0400a84b2ea0
-if z==false
+if lang == "pt"
 	TableOfContents(title="Índice")
-else
+elseif lang == "en"
 	TableOfContents()
 end
 
 # ╔═╡ ea4b7a97-89da-478c-916d-5a497f03c120
-begin
-	version=VERSION
-	if z==false
-		aside((md"""
-		!!! info
-			No índice deste *notebook*, os tópicos assinalados com "💻" requerem a participação do estudante.
-		"""), v_offset=-100)
-	else
-		aside((md"""
-		!!! info
-			In the table of contents of this notebook, topics marked with "💻" require student participation.
-		"""), v_offset=-100)
-	end
-end
-
-# ╔═╡ 3a2663dc-9474-44b1-b9f8-13cae96c42bf
-begin
-	if z==false
-		md"""
-		*Notebook* desenvolvido em `Julia`, versão $(version).
-		"""
-	else
-		md"""
-		Notebook developed in `Julia`, version $(version).
-		"""
-	end
+if lang == "pt"
+	aside((md"""
+	!!! info
+		No índice deste *notebook*, os tópicos assinalados com "💻" requerem a participação do estudante.
+	"""), v_offset=-120)
+elseif lang == "en"
+	aside((md"""
+	!!! info
+		In the table of contents of this notebook, topics marked with "💻" require student participation.
+	"""), v_offset=-120)
 end
 
 # ╔═╡ 68d4acc1-7588-4a29-8a73-81ac21848568
@@ -1355,7 +1256,7 @@ Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
 Dierckx = "~0.5.4"
 EasyFit = "~0.6.10"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 Roots = "~2.0.22"
 """
@@ -1366,7 +1267,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "82876c23ffcf7a4ad4a70b3842b8e7e6caeb3ea1"
+project_hash = "5b32bd10aa6ac2596b7d5387b6d1a416572f2e9b"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "7927b9af540ee964cc5d1b73293f1eb0b761a3a1"
@@ -1480,12 +1381,6 @@ weakdeps = ["SparseArrays"]
     [deps.ChainRulesCore.extensions]
     ChainRulesCoreSparseArraysExt = "SparseArrays"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -1544,11 +1439,6 @@ weakdeps = ["Dates", "LinearAlgebra"]
 
     [deps.Compat.extensions]
     CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1947,12 +1837,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -2095,12 +1979,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.LsqFit]]
 deps = ["Distributions", "ForwardDiff", "LinearAlgebra", "NLSolversBase", "Printf", "StatsAPI"]
@@ -2290,23 +2168,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -2410,16 +2276,6 @@ deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
-
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-weakdeps = ["Distributed"]
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
 
 [[deps.Rmath]]
 deps = ["Random", "Rmath_jll"]
@@ -2927,10 +2783,9 @@ version = "1.9.2+0"
 # ╔═╡ Cell order:
 # ╟─9b9d7372-f136-499a-a900-e999a2a6784e
 # ╟─ea3e2579-177a-477f-97f6-71ebe0f014cd
-# ╟─2ad32a6c-a6b5-4244-8f34-cd456a70fe6c
-# ╟─c9c8b075-855f-4650-b928-2d9b227fa52d
+# ╟─0823bba0-4ee5-41b4-bf9c-f1914fdbc7a3
 # ╟─7ca9e6c8-5e20-4215-a2eb-97798306a060
-# ╟─e57b94bc-184a-4148-b41b-3627dcb0b611
+# ╟─0257581c-670d-437d-9d9d-c1620c5a60c1
 # ╟─1e9ffcd8-aaab-4387-a60e-930deaf1f24a
 # ╠═616efd77-a81e-4242-9110-cb73b7953497
 # ╟─1ceaa326-46f1-4dba-8288-2d06345ca41d

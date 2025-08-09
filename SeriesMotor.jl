@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
 #> date = "2024-09-09"
-#> description = "Apresenta-se a resolução detalhada de um exercício sobre o funcionamento de um motor de corrente contínua com excitação série. São analisados diversos aspetos do comportamento da máquina, como perdas mecânicas e no ferro, limites operacionais, efeitos da reação magnética do induzido e condições de rendimento máximo. O estudo inclui ainda uma abordagem qualitativa ao impacto do reóstato de campo nas características de velocidade e binário do motor"
+#> description = "Apresenta-se a resolução detalhada de um exercício sobre o funcionamento de um motor de corrente contínua com excitação série. São analisados diversos aspetos do comportamento da máquina, como perdas mecânicas e no ferro, limites operacionais, efeitos da reação magnética do induzido e condições de rendimento máximo. O estudo inclui ainda uma abordagem qualitativa ao impacto do reóstato de campo nas características de velocidade e binário do motor."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -51,7 +51,7 @@ $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
 $\text{EXERCÍCIO 11}$ 
 
-$\textbf{Motor série}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Motor série}}}$
 ---
 """
 
@@ -284,13 +284,24 @@ md"""
 
 # ╔═╡ 2ffca9f8-0fe3-47e7-9b26-e0a5c62514a6
 md"""
-Numa máquina DC série o reostato de campo é colocado em paralelo com o enrolamento de excitação, criando um divisor de corrente que permite regular o fluxo magnético indutor:
+Numa máquina CC série o reostato de campo é colocado em paralelo com o enrolamento de excitação, criando um divisor de corrente que permite regular o fluxo magnético indutor:
 """
 
-# ╔═╡ 8964d631-c3c8-4e15-a2f6-272877e7e250
-html"""
-<iframe frameborder="0" style="width:100%;height:450px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=C%C3%B3pia%20do%20Diagrama%20sem%20nome.drawio#R7Vxbc5s4FP41ntl9MAMSNz%2FWuTQ7m%2B60aZrt9iVDjGzTYOQF7Dj99SuBwOhiLjZ2k22cmdYciYOk851zPh2UDODZYvM%2B9pbzD9hH4QDo%2FmYAzwcAjIBO%2FqWC51xgmUYumMWBn4sqgs%2FBD8SE7L7ZKvBRwnVMMQ7TYMkLJziK0CTlZF4c4ye%2B2xSH%2FFOX3gxJgs8TL5Slfwd%2BOs%2BlLnC28isUzObFkw17lLcsvKIzm0ky93z8VBHBiwE8izFO82%2BLzRkK6doV65Lfd7mjtRxYjKK0zQ1evP5y7YZJ%2FMn9Nvp%2Bc4Hx3fnQYPNYe%2BGKzZiNNn0uliDGq8hHVIsxgOOneZCiz0tvQlufiM2JbJ4uQtY8xVF66S2CkNr7NlgQ2wH9L%2FRE%2Fr3BCy9iXZihgUuukzTGj%2BXqknUZxzj10gCTzudDSLtMgzA8wyGOsxFBx6I%2FRD6LPT8g86%2B0TbNPpe08iAkwcm1U5IXlMyu3uZf0h7Y8onQyZ7MpbaZThaGXJOy7vPjMHmsUp2hTETFjvEd4gdL4mXRhrabOgME8wwRWfv20xRko%2BswrGCsA5TFoz0rVW%2BuTLwwAO8CgP97cfbq3%2F7wab2Don5nP3y6GUDI98okzsEscp3M8w5EXXmyl4y046LJs%2B1xjvGSL%2BB2l6TMzuLdKMQ8YtAnSr5Xv%2F1BVmm1a7Pp8w3RnF8%2BVi48oJvhKUcxkFVxld%2B%2B0UYJX8YTN8OLp6vbu%2Bia%2Bu72Pp%2Fpk8WF6uxoarCOdfq0pYxQSoK75WKGyC7v1Iw7IWEoIwJGrAdOAzggaOjTNEQcI2zI1p9Js8epTL56hlGkULF8OsRUYategLjIs6cNRfLEmK5wwG1IHCEj8vPYeUPgRJwFzvQecpngh%2BpTvJfMSPV4YzGjXCYoyq1ZhUqh9x%2FqkFF5U15KOZbGZ0eyjoZC4ekz7aUHkryYpjpPy270lBRsoBJtRT74NgcmZ0inSWcW3DVPh27AH31aaE1rN5kSR%2F46mTHIV4QjxBpAXTu25DX4bkcmUN9ELzt%2BpYHtjdsXdKbr8%2Fi5eJPDci%2FqIBRXTWgrLFrKDQwaPLGskICafuRQWJEWm3aDoyPHF1psBWYVf%2B6ghhopF4PtZrhKjRc4Pgba6XcURQ%2F44I6pQMygPyTpcIY8%2BCpgaHYe%2FAXREpkaCtYJG6NlHSWoEDnOZffj4Yxi1easDt3B548LRSJPZhWHKMLVtzdqNyYNCkK3imnaYstRN2bnHfNb%2Bd0Vp8VhFIMtGipViv1DIjGqzPWP%2FZ88IOGwVveiTh7mad6QDcJcbWUVU6CDzDkS9RJYPvxALICYmS1WhtMACC7VVeDBRe2SrSDnPzEqXMfpBmGUI7NW2JXypElwf5FWJLsfslODwOtsH1Ce4yL8MwpKoRsX21CjS2tdKimuT%2FXiTHJ68XkhOEncy0NwzJ4EmRTtyEjGq91zplvHSpPuAt%2FjLNfaa8ECnrbbevNVum3ygnHzKnpXk0xv3hXzuMV1DzjxQgUbR2L2FBuC2CA1hGCyTXbG0supesszrTNNgQy11iBlKDtDHspugyNzFwpuKlK%2FK%2BaWw%2F5UfSSv%2F4YUmyNbVgw4mcUaiSRS%2BcNIsCUGzK8zIwizbT7%2BsvXoPhQa9YVmgsCwWkJfFAgqgHm1ZWmxG5N0xx6lqmYS8mrXWeSF5HXBGEhe%2FbVK36tUceZsJW5SxOtY9XpkxO9vraAZSvoFQmOMERWdpI1DL9XfXvnRNzyoF1cp1cd2%2Bcr0z2L6kSjXnxa4OWqFEocjRXDjafji1jktaLam1AcK9QbHbFvIhxJPH23kQ8diSacVB78PkjaiScNbTyJ8dg0qO6mqmXjGvw1nfHlmt7N1Vr2MJIz12SGssdE1K421LTZkZp9PaAlYu%2BKOQJKuHQpZUylEV8SGFKwqa7C2OsAFqTbpjlAQ%2FGCukvsC25US5NR5Y5wrot%2FAWGeP1vnwwXR3qGgQjuxcHMGwOmENBAZ5OE3QcSLbg%2FW%2Bh7RCuLO31oPgur300E3fykqpjBzBVwWRXEOJDy6uIIbRLO5DVO9PBsUXXgOXy%2ByPYCxyHYqBxTxVp2lQY%2BqzDt6ypv5AwIVaeJR69b6m8LSHvWioHtvo5fZXK1RiymwhU5xd5nd8t7uBeNwruNTkC%2BXoZRdHe3xoKR5ycotBZ8T7nlEfeXvkhJ5odk%2ByQ09qLA5p17gvRPVAUtVucfpqGwfKuP4ubNm%2Fxco9XfSmhOuVoH8vkr7vg1Omw1b6lpjpXOXWlyW5Zj5RTrWVrhqWXH4NXW7ylbEi8XfOlZYiHOPXaUe6abm%2F5VWXKbnWuLmcBdU0H9oEQ3eOUxEGAPQ3zE4HhOM5%2BzK%2BRQvbE%2FMQB9878VDZrcUr17VDgvuTLgJxBoWOf9FCgei8NO8Wit8JU17hjQiHB7Hs4yxQzVcvDWb0VpeSzJHJRanhwbfyXKGAVTtdDAcsEwlnjgmAfWsESa%2BVAIGz9lLBUSeh1VR%2Feig97%2FsLdTy8%2B7A5orXFmNuHsDsW%2BF3kytn4bgPHvvzYgDFc4BmzJgDjW6Tz1jkV1DO10iBjuxgOLOksapXYNYspyFh0GafIW1IKsw7p8KCemPfNR1s%2BiGIZejOQhVsS0fHi%2FFoQd%2Fk2hY8mMXkUuTasXRq8EMWgCcU%2FJcK%2BknN0maL5VZNVVY1ZVOchbst1W%2BoXfDzJ%2FdmyVN5pfKOO29Lv%2FHenv7ai2%2BJbRcmuihsDjS97ewyEXcrn9Qxl59%2B1fG4EX%2FwE%3D"></iframe>
-"""
+# ╔═╡ e90f67ba-7180-46c9-bbf7-104fe6e49eda
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/SeriesMotor/ex_motor_serie.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:500px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
 
 # ╔═╡ 83e8d548-d212-49ec-89f4-d794c9d26c85
 md"""
@@ -365,16 +376,11 @@ md"""
 """
 
 # ╔═╡ a5718dd1-fa17-4d7e-9afa-775cdcc06c53
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -1675,7 +1681,7 @@ version = "1.9.2+0"
 # ╟─5931d230-68e9-4003-bf94-800fbda03e79
 # ╟─21baaeb1-a64e-4931-abd8-2efb4ec6583d
 # ╟─2ffca9f8-0fe3-47e7-9b26-e0a5c62514a6
-# ╟─8964d631-c3c8-4e15-a2f6-272877e7e250
+# ╟─e90f67ba-7180-46c9-bbf7-104fe6e49eda
 # ╟─83e8d548-d212-49ec-89f4-d794c9d26c85
 # ╠═0d9375fb-4b18-4c41-8f51-3e2c85af382c
 # ╟─fb887b2d-9639-499b-9f1a-9cb3a4afaf73

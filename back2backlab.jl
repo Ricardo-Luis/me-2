@@ -14,7 +14,7 @@
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -54,7 +54,7 @@ md"""
 $\text{RELATÓRIO}$ 
 
 $$\begin{gather}
-\colorbox{Bittersweet}{\textcolor{white}{\textbf{Ensaio \emph{back-to-back}}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Ensaio \emph{back-to-back} :}}} \\
 \colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise de potências, perdas e rendimento de máquinas CC}}}
 \end{gather}$$
 ---
@@ -183,16 +183,6 @@ md"""
 ## 2.1 - Esquema de ligações
 """
 
-# ╔═╡ cb2b0eb9-2037-4b45-9038-b2f6cd7a16cd
-html"""
-<iframe frameborder="0" style="width:100%;height:600px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=back2backlab.drawio#R7V1Zc6O4Fv41rpp5iAtJrI9ZOknP7dzpSXLTfeclRQxOmLaNG%2BMs%2FetHYISREItBApw4XdWJZSywzndWnXM0Qqfz14vAXj5d%2BY47G0HFeR2hsxGE0EAI%2F4pG3jYjAGj6ZuQx8JxkbDtw4%2F1yk0ElGV17jruiLgx9fxZ6S3pw4i8W7iSkxuwg8F%2Foy6b%2BjL7r0n50cwM3E3uWH%2F3mOeET%2BRq6tX3j0vUen5Jbm9DYvDG304s3A6sn2%2FFfNkPxl0OfRug08P1w89f89dSdRatH1mWzAucF76YPFriLsM4HPr1c3t59uQ7ubu%2BDqTKZX01v10fkazzbs3XyjZOnDd%2FIErgL5zhaSfxq4S%2Fw4Iljr57caFqAXzyF81ny5yoM%2FB%2FpOiE8gp8tePuOXyhj1UoH%2Fh8PaAiQgbMIMEr66i376qsbeHM3dINkMP%2B9CS7s4NFNhv64UO%2FOb%2Byv%2BvLbG7h98mZn352jhDKuQ5E8Wa0L18d3Cd7wBS9bQmsJDJ8yJCZjgTuzQ%2B%2BZBoqd4O0xnS69w1ffw08MlYQ5jqCRrHXCG5qpjQ1mmpW%2FDiZu8skscdnJgFY92WaBcpPhPzJffzsU44ePJe7yAg508FLfJC%2F9IHzyH%2F2FPfu0HT0J%2FPXCibEU0XZ7zRffXyao%2BscNw7dEMtjr0Kcx57564ffM3xts6aqWvN5CK3rxlnnBAmuF1yckSPcxR5Cxc2%2B2RTh%2BnTwL2ECUZQ48knwgeT97eZ5DCuG8IX0J74KacG6K0zci0UxZMCr7WmUSaRnd2w0%2BPeM1WyWUeXaD0MNy%2B4v94M6%2B%2Bisv9PwFfu%2FBD0N%2FHi09kb9KVoJFL%2ByZ9xhdOnEXMRqy8CLTHifXhBEso7mW0bPMXx8jvTd2Z1j3BNF1Y2%2FhrCehH6zSv%2B41LuGxxgptb1Et16JHcF9LSZxKAUOnpIBlJrIqI9KAypFpSCmGBUXgXamp9ykTsI7JSAWws0TIMHciD7bMXaTvKHZvztxQMnNvlZBCI0ZnkFDA7Xhd7LfMZTFLrkpuhAD%2FRltwbaYUKkvgfsuSwF15q1iWLP0QT%2Bj5MTrv%2BdgL%2FNBOHvQImIokEYN0ho4GR8QoHBGjyhIxWjWRaYny8uSF7s3SjhnwBS96lRW7GTn1Z34Qz4fO4x9JKwwNg%2BEUM7fCkLPALOcKW%2BDdfIREUpYuKE2PrZNAOwiJEberg0DZcYlRlrXjlJwcryu1sx5GK5OsMw%2BjQrjXdy9Mi5oJc7gkPZHKCb6eqPEBy5KvWFRdNk80MWEIHwGaj2AjNiplER6P1TJ2oBNe%2Bz9ens%2BDv6enn39%2Bv7v%2Fzz9HRJpV8lddq6gj%2FkIqzRU5V6k2fyGdnimV%2BaLZS1VobkkZWS67NAoz7aRCSp3uDFgfZv7kB0cjUJ69VsJNjZiplkq5vvryy7%2F838ufcHF3cqMtll9ubeJADQbyFqLwo5Mg1s6QhwzzpLFi4RrFMLmPLBXxJBxHIV6fYWqcTP348bbQ13%2BuffLG0SqG4DG%2BAKrL1%2B2beGBqT%2BgP3LmBYy%2Fs7EX6Y%2FQ7JPfCz7653WY8x3TYJg15nEZs3YQTp5hPmKGco8N6N3PPcWJ3nmdu09xLxZOlOC0ma1SoI9ak5oVFoDSfRe0THqsDPGiPywI0PGDf8OD5tJ3B4%2FQADzqqajFR1d6lh9EnPM4O8KDgobHo0PpFB7HIBBrbVVtjOQMalq3tUGxZlQmPqKihLasrFRNJ3jIz0IHizShuiaI4O5FsitcIeu8YfyqN9zQJRwmOEQ0s9qMCxn2FDaGUC8mYXUsPXixzo%2BEd77mJMUHsgXYmyWaWa9dxCw2OdDh%2BUHp0AM9%2BllrSDwHnoet8l49pUukaHWVKFWqGuS0OcxvSbCqzkEfaQeS3ETwBQLn7%2FWBU00a1Sm%2BCqsRc7s2q5oWwhSDg6EB%2FHv1pr0o18xJAFv25cXjxThW9onWyD7dGmc6a36Xr3rfNlBo2TbefVdZCkrT5DJDFvZHcJCVeNIeBVoMElky6ihL%2FcEGYlRPZK6WEWUlkhKyuYuV4GiAO%2FqSlDkGeWme5ejbzlqsisZhZdnu13FQgTL3XiFRt6CA3wUjTxzQlDBJByFICqHlKpIPiSdFev6oaT79e7ZdmlUJwYI2rWa%2FbELZ4g3qHEPbF8X6BQv4GKaAdLsPsGx%2Fize0d8HFZ7KZ%2FTHwAqPeGD36xkZJX1B0WFoyyxUYtS40KUlQ5CUnl1QhiSo1aJSG1T1g1x5oBVGgm%2FzNOoLzIaNnX3tfygbm3muBvaS9cf70aT9cr9x5ygeF4Af7Q5iExFqJxOXaISVshms4xOxHH%2FtclSZEaTv2QCbytDyF%2FxQTmkZPjcWC35k6iylBJPWhakZqP4EAOsQEokRutqG0dVIYUldGq2LqtygDYt6E0BhM3lrcxy7dLQJ8gA12DDNAgk1gC3QvIdtyR3T3eyGwiM6nJuQcRnbpctqj7qhRbWT2ZGkpZwRjWlerdCCIhvffQA6TvnY5t4xvG9jEat%2FZQoTZWLCM3n26YCvnpuNGHNhwd17rRxx5oOdCR%2B63p3WyzsfcRXbFZuoj7qtb67CuCTJUmWJdtRbjU1AYjgnbvKtJW%2FHTtydXWrS3Fj6rBMdC3PwYNuq49Oa3f1jW9QqxrDdcVxPIaTo5jpzLd2Ar9uoLn6sTPS%2FXAnmrEzZ%2F%2B0dydPNmLeCjy9vjBzoL0iqwPuIjYVY4CVSGNB43k%2FGQUKC%2FxBUjbPyMFqAcF2oEChd1IN9brlLhdVvo9DwJFukDBtB2YQIG71aC16BK1d91t1Jrs301sCjDlRobJSIm6gSm2LFpaTyhQEJcofDDmeuE9bvgM0GtR9qFmn45Y6EzEosOSfT46es13PDugI4sOTWHR0V3JPhcdqIYrJrKct6T0pErdDUSLsa0NG%2FehyisXOSEB9j6duPio0dZet1VLTfusFSK08hwApA0KyvmgVMOdQg2ozEQKSfvvyANEcnrxDq6UCVpMOQVJ%2B%2Bmikom%2F8nUakr63SiakoFwhU16Tyytk4lOivR%2FAL2S62C8jTga9VYWtY%2BIwXqeWm8qz3A51TD0Z9pDpGmBYfcODFxI9lDH1BA8VqcOCR7%2BN%2FK7JvVbrBzJmB0EGM5k3DkiiqxuYPHOd2FsdQOn15x9%2Fv329%2FHWif%2Fvx15%2FTv7zbk%2BVRr%2FGlz%2BfwgA9K0jCtDjQjvz%2FTKTxAr5Lm8zk44IPOAicF%2BIMBiJkjxeGkrhG9vcdfuISQ0nf3LTpMJOukrjSsxT%2BApXWgsnQR9zV1YIAndUFmn7fTg7q4RCay672c1MWWM3d5UBd%2FgcVvI%2B3pSV0DCe1Xyuy6of1cBr5ljZFqbX%2BkqAIES1VB9fWCCzv4oO81xHI4aYUSiaDHg1b46OClpR0OWukpPMuectbhOSvc1DwBwXutMTjS2H0mypZ1kxsE35rv8EXTnttzbxaR5hZraQxd5b%2FuC%2F7%2F2p%2Fbi5xxAAshksMDBzXFjjFiSl1VJR9Y0yUZVVyMVAqQ%2BhRPCb7EC9oAXJtZ7rIYiWf6eCChtYxGarX6wkilCXLASClGuPkFsdsWTccbl4AqMDRU9VKA2E9xTTEARjx%2FrmEiPp%2F8bfPpmfStulU3nInYLq1pVUeFu9g2F5E8sig%2FjW9r9dKxsU6C4hDhLBymbJZh3XLq2rWqokFa9MByQcoJmA1f5jYr1y5Xutlb9QZaQNpEk0oeYCnNUAsrZxIlW4tuJBe3QryUtqcl1bZZubPgB%2FKm3sQenaLRsRH%2Fj3x8tWNHWPNnduA5dnQYlOJEw49uYDsYulDZHrPU0NodYPSlyO7NsCZU5djB0ICMHQIAzKfVYuuEXEYl1oro%2BcLHeC871P3Yw%2Fx98XQrnLsvLtBSRmKleWPLOPXE6pkYwqRpL51ih4S08gyMwSMtZ5PW9sGYEIDeLfC4O%2BS9BqTRhw9IqyhXdEBMx97Cjbvt8%2B9e1teoaXXp%2BbHbHqBppkCq0SqL%2FOpImmzVXwlv9ZUJkD%2F8qulh0%2FnzYtkGDqK6E%2BcPpgXyPRkC5eGIQHgQgTkRaJBASW8iUPyR5%2FUOwN5FInISVZuZTmWHV1QLvoK4d1cHZSsseHQLiRJ98jpc8ZeyRm%2F0YSlegXjbFHf3l0rH6s%2BGVfLiGz4IRxmva0OvKlD76CqQ3Rvu3QVAPE%2BxY%2F23e5kGLexE6sJedRzbeFFX6%2B3b1m4SI7zGg31gwc1o%2BGJNwJGOYsWa%2BuHFGmTq5fs26w%2BB11KZ%2Bo7SZJqHaNmJVGYicTFarqoxa2jeLSRBtXSodzLRY2A7nkttCk7jn1Gu5c7JcfQv85kzTlNaO5gk%2BNS4yErKSqhiNUtSqdoRJEm%2BacdOM18OyyulgopWDMRWrRkMnhFeSObaxWrtWll1QQtk0joBAJK130VzK24RR41YT3ah65d8Fu7Ws6WediTqV3C8vl0Hi0TunzjRCqljS43ZCY9dunZ0K6SOzYhznFcYvUJjbA7WoHLKthkqA1is%2BVsWoDOVOgCAeiwH2NOmhJGZ1zyupxyWZOz0fBQddJ0zHOeVhuM7SUPp4Dy8VISnst%2FKVwUZJc6b%2BFYINbbX3qXox2q3R9HPj3PU6WA6wL6GLetbDIshBAlSdtLXkE%2BJSvHcsK%2Fh1X7JRyn0Jj7MlvHyrQQ6rYxENRpyvD%2B%2BY89GGALfqTx%2F89BPVAi9dTQaFtuplVs%2FMm3gi2C9jFKr537oB0dpgvXm%2Fg9Bxp615xGBFg%2Br6Ndv9sRfzuw5XvX40%2B4kTt6GC2%2Fi%2F75fIKvKwY5lVAc52HkLID3%2FOXvCD7mIlkQCwPnp5fL27st1cHd7H0yVyfxqertuuOdU%2F6DoQhN2IN1cjvCKs6mAGtN5pXYqAzAq5xKXzMAnp%2Fgswj2goMauutqcgpVzyW63X8dIe8cMiZDOUkBvmBWCzMqpJBOTa%2Be9b3ZESM3JwMb0q5xKcm4Yt%2B%2B%2FcGZsUoTZkWxFKnMeHCQVWzuLVsgeLZebSjYxee2URTDjoOnHRP%2Bg0px%2BVVNJph%2B37%2F5HYkamPXkLXgRVM8kmpfhM7%2BFTj3X%2BGnMiqJpJMvW03aya3VuSCuohOlwwIDYmqbDRp9rngxWdiyq8b2jukSsah%2BafTHDTaT42d3OAH%2ByVe4Y1RAt8Fp%2BQV9y4Yw%2Fx2bC8g53Jqtnsoz08IRzrmpL%2BdFDmRira%2B%2BlL%2BnOPo7ISoq3FIravfQCtfdtaFMEjJnnLbi2FE1HNSt9HvgsLrhqJ2pndAKSS18mXLErB2GkrADtTTGgDkd5d4uGJXwZ%2BROWtsIsS4K58x42u%2BBc%3D"></iframe>
-"""
-
-# ╔═╡ 127a7dbf-88fe-4b28-a265-7bf315850497
-md"""
-[^Fig_2_1]: Esquema de ligações do ensaio *back-to-back*.
-"""
-
 # ╔═╡ 5f0b7230-28eb-4394-981f-0974e49284a3
 let
 # raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
@@ -208,6 +198,11 @@ HTML("""
 </iframe>
 """)
 end
+
+# ╔═╡ 127a7dbf-88fe-4b28-a265-7bf315850497
+md"""
+[^Fig_2_1]: Esquema de ligações do ensaio *back-to-back*.
+"""
 
 # ╔═╡ c387e50c-5aac-4901-b1f3-51b690c38a56
 md"""
@@ -367,7 +362,7 @@ md"""
 header_b2b = (["Irede", "Imot", "Iₑₓmot", "Iger", "Iₑₓger", "n"],["(A)", "(A)", "(A)", "(A)", "(A)", "(rpm)"]);  						# header of the table 1
 
 # ╔═╡ f202a1bf-aaf8-4115-98e9-eba0da1666e4
-OthersHeader = (["tensão da rede CC", "resistência rotórica do motor", "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 	# header of the table 2
+OthersHeader = (["tensão da rede CC", "resistência rotórica do motor", "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 		# header of the table 2
 
 # ╔═╡ bba03ae4-313e-4e3a-a367-73b1d28e733e
  dados_b2b = [I Iₗᴹ Iₑₓᴹ Iₗᴳ Iₑₓᴳ n]; 		# data of the table 1
@@ -442,16 +437,6 @@ md"""
 Na figura  [^Fig_2_2] apresenta-se o diagrama representativo do balanço de potências do ensaio *back-to-back*, com as relações de potências e perdas desta associação de máquinas elétricas de corrente contínua.
 """
 
-# ╔═╡ 8358d4e1-09c2-4467-b0fa-26fc9a882e9c
-html"""
-<iframe frameborder="0" style="width:100%;height:573px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#R7VpZb6M6FP416HYeRgLMkj5OlnJHupU67Wz3KXLBIVYdHDlOk86vHxtswtokI0I1FXlInWP7ePm%2Bs3CKASarfcDgenlLI0QM24z2Bpgatu2PbPEtBS%2BZwPHMTBAzHGUi6yB4wL%2BQEuphWxyhTWkgp5RwvC4LQ5okKOQlGWSM7srDFpSUV13DGNUEDyEkdekPHPGlklqmeej4F%2BF4qZYeuarjEYZPMaPbRK1n2GCRfrLuFcx1ZYLNEkZ0l4lSFWBmgAmjlGet1X6CiLxafW3ZOjctvfm%2BGUr4KRP8%2B%2F%2B%2FXCf4Kfi%2BAT8XyPlv9nD%2FESj0niHZIn2OdLf8Rd%2BQ2PhaNhcE7T%2FJGzfAGCWRak5DAjcbHArhkq%2BIEFiiueGMPuUXCoRkgQmZUEJZqlRfFRjXj6FOhqIScOpQAaIrxNmLGLA7wKUxWRaA0jKGCOT4uQw3VKyJc3X5CncUi53YpiL4tSaq4ren9WoVG7plIVKzivdfUeR6RxRxyGLEa4pEo3DsgyiF9xyorQHqnqCuKvKdfqG2rweoz4MaeB1B7bnWSVCLe4YvhWFrOWDTvmERj5p33Lax2gS9swPXsj10yzxvYN65zHO7YZ7tVxRd2skM8eQI1NWI35mTqSm6MNSWP0DdE9RVRU7PWeLgv48gbbkdIQ3sNzbqwX8fgfooQn9q1L1DPTzlH%2FPfbjVZ7tmqz30eqK6jN3zR7N5yGngkZM56bvhjbvhTIfz2OZPVGMbRnjfxR%2FMloQmqUEiJIMFxIkko2IOEfPyMGMchJJ9UxwpHkVxmvFtijh7WMJRr7hhcC1lao0PyXKZUTxOuqpC2%2FJ2X5azXaCoXRPtXiap7nQoBTJD9LhDZ8huYXCVKkbQlh3A2am4LanfzreHOghSzOUmbfxNyEWYo5JhKNQhu0h1Shn%2BJYZCoOR0Aaldcg2O7NUBHDXjmFe7uAW1K0jJAhRnCR2mH7uz2gOvtu8K1I0MFNUM139pQR6%2B5VySuMwf2fo5l60rh%2B%2FFzOmKvBnwQX2Lq%2BFtZbNgekbf5yEQr5uk1Dryo8sIBFXt36rzIo28%2FvGgq50rgtHWDae6%2Fx39X9D0FUzmnkFOa4nNzcyEf4L21D7DbUqy7eaSwnom%2Fwqz%2FEVbdav9g%2BlWNdydiZzGU%2FSsUygHvjR8d8MD1jydteXzohwdNJbc0FkhUJZpXEk57fIM%2BDKA2gjqqPHXrf5CXjNvqE1QdWY4E%2BCAP8MFVwbEXTTxoDvHBEOJPCvGVerrbkPqBpmrD5ZgBGpgxVGjOeX3iT4txbs%2FFONBaRJEGPHj2Uzx75ZHcB2%2Fu2dtrLJHy6LNXfLlO14IhXTsFf6%2F6akND2m73mraD9pLMVqXtX2Wrhi6Yloo2768CxyiHaog16qgk1%2FoyTJEAXgP%2B9vX5BBA%2FDy9pZkHg8CIsmP0G"></iframe>
-"""
-
-# ╔═╡ bc95d83c-fb07-4f24-b08a-b461d871c79e
-md"""
-[^Fig_2_2]: Balanço de potências do ensaio *back-to-back*.
-"""
-
 # ╔═╡ 3a44a05d-68a4-4622-afd3-1b67e95c7088
 let
 # raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
@@ -467,6 +452,11 @@ HTML("""
 </iframe>
 """)
 end
+
+# ╔═╡ bc95d83c-fb07-4f24-b08a-b461d871c79e
+md"""
+[^Fig_2_2]: Balanço de potências do ensaio *back-to-back*.
+"""
 
 # ╔═╡ 404e5b4b-0ddc-45b0-a4af-e29618a501be
 md"""
@@ -2826,9 +2816,8 @@ version = "1.9.2+0"
 # ╟─39721ee5-b4f8-47ed-ae4f-0865952ebd28
 # ╟─3010fa73-fdb8-4ad9-94dc-45db49ae7fcf
 # ╟─f60d6cdd-7ff4-4a00-b2aa-a1440234ec6d
-# ╟─cb2b0eb9-2037-4b45-9038-b2f6cd7a16cd
-# ╟─127a7dbf-88fe-4b28-a265-7bf315850497
 # ╟─5f0b7230-28eb-4394-981f-0974e49284a3
+# ╟─127a7dbf-88fe-4b28-a265-7bf315850497
 # ╟─c387e50c-5aac-4901-b1f3-51b690c38a56
 # ╟─dfa54345-bcae-4350-aa43-72cd62b83d65
 # ╟─59b3486d-61cd-43ac-ae1c-4bd04ab5dd40
@@ -2863,9 +2852,8 @@ version = "1.9.2+0"
 # ╟─1931180b-424d-43ba-af25-61e84faf0eaf
 # ╟─7e48b1e0-b66c-4773-9189-b72e931b8520
 # ╟─df08b5c7-d63b-430d-8869-a994ed85b73c
-# ╟─8358d4e1-09c2-4467-b0fa-26fc9a882e9c
-# ╟─bc95d83c-fb07-4f24-b08a-b461d871c79e
 # ╟─3a44a05d-68a4-4622-afd3-1b67e95c7088
+# ╟─bc95d83c-fb07-4f24-b08a-b461d871c79e
 # ╟─404e5b4b-0ddc-45b0-a4af-e29618a501be
 # ╟─2f7931fa-262f-4f76-8f4b-f28e26989a2b
 # ╟─66ada8ac-6556-4d18-9cf3-cbdbf3f9bc69

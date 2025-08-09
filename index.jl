@@ -173,9 +173,6 @@ md"""
 Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
 """
 
-# ╔═╡ ae95b75a-0d10-4fd2-afe6-4d7e36448fe6
-
-
 # ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
 
 details("Informação complementar",
@@ -229,7 +226,7 @@ O `Pluto.jl` disponibiliza suporte nativo para *widgets* interativos, como *slid
 
 
 ## *Notebooks* em ME II
-A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II**, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl` permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
+A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II**, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl`, sendo ferramentas [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software) (_Free and Open Source Software_), permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem acessíveis e sem barreiras tecnológicas ou económicas. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
 
 $$\begin{aligned}
 &\text{\textbf{F}indable} \\
@@ -238,7 +235,7 @@ $$\begin{aligned}
 &\text{\textbf{R}eusable}
 \end{aligned}$$
 
-Assim, os *notebooks* com Julia/Pluto podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia.
+Assim, os *notebooks* desenvolvidos com estas tecnologias FOSS podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia, alinhando-se com os valores fundamentais da ciência aberta.
 """
 
 # ╔═╡ 1f41786c-01a2-4b48-9f13-937f7d6f75bf
@@ -250,7 +247,7 @@ md"""
 
 - Fons van der Plas, [Pluto.jl — one year later](https://youtu.be/HiI4jgDyDhY), vídeo da conferência JuliaCon 2021. Duração: 27min;
 
-- Fons van der Plas, [Pluto.jl – reactive and reproducible notebooks for Julia](https://www.youtube.com/watch?v=Rg3r3gG4nQo), vídeo de apresentação do Pluto, conferência JupyterCon 2023. Duração: 29min;
+- Fons van der Plas, [Pluto.jl – reactive and reproducible notebooks for Julia](https://www.youtube.com/watch?v=Rg3r3gG4nQo), vídeo da conferência JupyterCon 2023. Duração: 29min;
 
 - Connor Burns, [A Guide to Building Reactive Notebooks for Scientific Computing With Julia and Pluto.jl](https://medium.com/swlh/a-guide-to-building-reactive-notebooks-for-scientific-computing-with-julia-and-pluto-jl-1a2c0c455d51), artigo de opinião, Medium, Dec. 2020;
 
@@ -298,6 +295,11 @@ details("Julia: zero to hero",
 
 - Alejandra Ramirez, [Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md), GitHub BlogPosts, Mar. 2023.
 
+\
+
+!!! tip "Nota:"
+	O símbolo 🎈 assinala a presença de *notebook*(*s*) associados. 
+	
 """
 )
 
@@ -1098,7 +1100,6 @@ version = "17.4.0+2"
 # ╟─82dbfe15-8e45-4348-8845-424e70f0deeb
 # ╟─33ee713c-2142-47b7-8bca-691c00ca4db4
 # ╟─69cefea4-fcc2-4f74-ad6f-4366de284bf7
-# ╟─ae95b75a-0d10-4fd2-afe6-4d7e36448fe6
 # ╟─bee54122-c768-4232-be50-4a35b365dd0e
 # ╟─7e966db6-ca39-4f66-9ab1-bdc088591608
 # ╟─a99a1360-b179-4080-bdbe-b58217597d7e

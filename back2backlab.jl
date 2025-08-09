@@ -9,7 +9,7 @@
 #> title = "Ensaio back-to-back"
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module2"]
-#> description = "Este notebook documenta o relatório laboratorial de um ensaio back-to-back em máquinas de corrente contínua (CC), realizado com um grupo motor-gerador mecanicamente acoplado e eletricamente ligado em paralelo a uma rede CC. Este método permite analisar o balanço de potências, avaliar as perdas e determinar o rendimento das máquinas em diferentes condições de funcionamento"
+#> description = "Este notebook documenta o relatório laboratorial de um ensaio back-to-back em máquinas de corrente contínua (CC), realizado com um grupo motor-gerador mecanicamente acoplado e eletricamente ligado em paralelo a uma rede CC. Este método permite analisar o balanço de potências, avaliar as perdas e determinar o rendimento das máquinas em diferentes condições de funcionamento."
 #> date = "2024-09-09"
 #> 
 #>     [[frontmatter.author]]
@@ -52,8 +52,11 @@ TwoColumnWideLeft(md"`back2backlab.jl`", md"`Last update: 09·09·2024`")
 md"""
 ---
 $\text{RELATÓRIO}$ 
-$\textbf{Ensaio \emph{back-to-back} :}$
-$\textbf{Análise de potências, perdas e rendimento de máquinas DC}$
+
+$$\begin{gather}
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Ensaio \emph{back-to-back}}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise de potências, perdas e rendimento de máquinas CC}}}
+\end{gather}$$
 ---
 """
 
@@ -70,9 +73,9 @@ md"""
 # ╔═╡ 57972b14-d0eb-49f2-a8fe-fbfa25eb2f43
 md"""
 - Compreender o ensaio *back-to-back*;
-- Ligar eletricamente máquinas DC em paralelo;
-- Estabelecer o balanço de potências de uma máquina de corrente contínua (gerador e motor);
-- Determinar curvas de rendimento das máquinas DC.
+- Ligar eletricamente máquinas de corrente contínua (CC) em paralelo;
+- Estabelecer o balanço de potências de uma máquina CC (gerador e motor);
+- Determinar curvas de rendimento das máquinas CC.
 """
 
 # ╔═╡ dcfb10ac-3a34-477f-ae1e-6a4b42fdc0d2
@@ -82,19 +85,19 @@ md"""
 
 # ╔═╡ 5d618284-7f40-4d33-94a1-829407bd5f47
 md"""
-O ensaio *back-to-back* de máquinas elétricas de corrente contínua (DC) consiste em associar em paralelo um grupo motor-gerador (mecanicamente acoplados), ligados eletricamente a uma rede DC, como apresentado no esquema de ligações, [^Fig_2_1].
+O ensaio *back-to-back* de máquinas elétricas CC consiste em associar em paralelo um grupo motor-gerador (mecanicamente acoplados), ligados eletricamente a uma rede CC, como apresentado no esquema de ligações, [^Fig_2_1].
 
-O funcionamento do grupo DC motor-gerador no ensaio *back-to-back* pode resumir-se nos seguintes passos:
+O funcionamento do grupo CC motor-gerador no ensaio *back-to-back* pode resumir-se nos seguintes passos:
 - Após o arranque do motor este alimentará mecanicamente o gerador;
-- O gerador é ligado à rede DC, após verificação das condições de paralelo;
-- A regulação da corrente de excitação do gerador, $I_{ex}^G$, permite regular a potência elétrica que o gerador fornece à rede DC, carregando mecanicamente o motor;
+- O gerador é ligado à rede CC, após verificação das condições de paralelo;
+- A regulação da corrente de excitação do gerador, $I_{ex}^G$, permite regular a potência elétrica que o gerador fornece à rede CC, carregando mecanicamente o motor;
 - Em simultâneo, o motor absorve a potência elétrica produzida pelo gerador;
-- Como os processos de conversão eletromecânica de energia nas máquinas têm perdas, a potência absorvida pela rede DC corresponderá ao somatório das perdas existentes no grupo motor-gerador.
+- Como os processos de conversão eletromecânica de energia nas máquinas têm perdas, a potência absorvida pela rede CC corresponderá ao somatório das perdas existentes no grupo motor-gerador.
 """
 
 # ╔═╡ 07eeed4a-6a40-4585-b04f-26da0157fe2e
 Foldable("Listagem das grandezas utilizadas neste relatório:",md"
--  $$U, I$$: tensão, corrente da rede DC\
+-  $$U, I$$: tensão, corrente da rede CC\
 -  $$p_t$$: perdas totais do sistema *back-to-back*\
 -  $$R_i^M, R_i^G$$: resistências rotórica do motor e gerador, velocidade do grupo motor-gerador\
 -  $$I_l^M, I_l^G$$: correntes de linha do motor e gerador\
@@ -127,15 +130,15 @@ Em $(1.1)$ e $(1.3)$ estabelecem-se os balanços de potências para o motor e ge
 
 Substituindo $(1.1)$ em $(1.2)$ e recombinando com $(1.3)$ obtém-se $(1.4)$, mostrando que a diferença entre $P_{ab}^M$ e $P_{u}^G$, corresponde ao somatório das perdas do grupo motor-gerador.
 
-Assim, o somatório das perdas corresponde à potência absorvida da rede DC, traduzida em $(1.5)$ e $(1.6)$.
+Assim, o somatório das perdas corresponde à potência absorvida da rede CC, traduzida em $(1.5)$ e $(1.6)$.
 
 As perdas elétricas do motor e gerador, $P_{el}^M$ e $P_{el}^G$, respetivamente, são determinadas pelo conhecimento dos seus circuitos induzidos e indutores (resistências, tensões e correntes).
 
-Sobram as perdas mecânicas e do ferro, ou perdas rotacionais, de cada máquina DC. Se as máquinas a ensaiar tiverem dimensões e potências semelhantes, então assume-se os mesmo valor de $p_{rot}$ para ambas, $(1.7)$, resultando $(1.8)$. 
+Sobram as perdas mecânicas e do ferro, ou perdas rotacionais, de cada máquina CC. Se as máquinas a ensaiar tiverem dimensões e potências semelhantes, então assume-se os mesmo valor de $p_{rot}$ para ambas, $(1.7)$, resultando $(1.8)$. 
 
-Caso tal não se verifique, uma possibilidade consiste em tomar uma ponderação que relacione a potência nominal de cada uma das máquinas DC, atribuindo um peso correnpondente, para o cálculo da perdas rotacionais.
+Caso tal não se verifique, uma possibilidade consiste em tomar uma ponderação que relacione a potência nominal de cada uma das máquinas CC, atribuindo um peso correnpondente, para o cálculo da perdas rotacionais.
 
-Determinadas todas as perdas é exequível a análise de potências, perdas e rendimento das máquinas DC ensaiadas.
+Determinadas todas as perdas é exequível a análise de potências, perdas e rendimento das máquinas CC ensaiadas.
 """
 
 # ╔═╡ f8de4a5c-64a2-49c4-88e2-c26c843b1fc1
@@ -190,6 +193,22 @@ md"""
 [^Fig_2_1]: Esquema de ligações do ensaio *back-to-back*.
 """
 
+# ╔═╡ 5f0b7230-28eb-4394-981f-0974e49284a3
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/back2backlab/scheme.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:700px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
+
 # ╔═╡ c387e50c-5aac-4901-b1f3-51b690c38a56
 md"""
 ## 2.2 - Material utilizado
@@ -199,9 +218,9 @@ md"""
 md"""
 **Bancada n.º3**
 
-Máquinas DC de excitação composta (utilizadas em excitação derivação): Elektromotoren Werke Kaiser (fabricante) 
+Máquinas CC de excitação composta (utilizadas em excitação derivação): Elektromotoren Werke Kaiser (fabricante) 
 
-- Motor DC n.º 951 (5.5kW; 1500rpm; 220V; 29A):
+- Motor CC n.º 951 (5.5kW; 1500rpm; 220V; 29A):
 
 | **V** | **A** | **kW** | **rpm** |
 |:-----:|:-----:|:------:|:-------:|
@@ -212,7 +231,7 @@ Máquinas DC de excitação composta (utilizadas em excitação derivação): El
 |  220  | 0.59 ... 0.35A | (excit.) |
 
 		
-- Gerador DC n.º 942 (4.0kW; 250V; 16A; 1500rpm):
+- Gerador CC n.º 942 (4.0kW; 250V; 16A; 1500rpm):
 
 | **V** | **A** | **kW** | **rpm** |
 |:-----:|:-----:|:------:|:-------:|
@@ -225,8 +244,8 @@ Máquinas DC de excitação composta (utilizadas em excitação derivação): El
 
 **Reostatos**
 - Reóstato de arranque: 7.5Ω
-- Reóstato de campo (motor DC): 750Ω
-- Reostáto de campo (gerador DC): 1100Ω
+- Reóstato de campo (motor CC): 750Ω
+- Reostáto de campo (gerador CC): 1100Ω
 
 
 **Equipamento de medida**
@@ -259,19 +278,19 @@ md"""
   - reóstato de campo do gerador no valor máximo ⟹ tensão baixa;
   - interruptores da montagem elétrica desligados inicialmente.
 \
-2. Ligar rede DC do Lab. de Máq. Elétricas e na bancada de ensaio $(U_{rede}=220\rm{V})$. Ligar o interruptor, $\rm IF1$, fazendo arrancar o motor DC;
+2. Ligar rede CC do Lab. de Máq. Elétricas e na bancada de ensaio $(U_{rede}=220\rm{V})$. Ligar o interruptor, $\rm IF1$, fazendo arrancar o motor CC;
 \
 3. Diminuir suavemente o reóstato de arranque até ao valor mínimo, $(0\Omega)$;
 \
-4. Ajustar a velocidade do grupo motor-gerador DC através do reostato de campo do motor para a velocidade nominal, $(n=1500\rm{rpm})$;
+4. Ajustar a velocidade do grupo motor-gerador CC através do reostato de campo do motor para a velocidade nominal, $(n=1500\rm{rpm})$;
 \
-5. Ajustar a tensão do gerador DC, $(U_{ger}=220\rm{V})$, através do seu reóstato de campo. Confirmar a correta polaridade dos terminais gerador DC, relativamente aos terminais da rede DC. Fechar o interruptor, $\rm IF2$. Poderá verificar-se uma corrente de linha do gerador DC residual, devido a diferença de aferição entre o voltímetro do gerador *vs.* voltímetro na entrada da rede DC da bancada;
+5. Ajustar a tensão do gerador CC, $(U_{ger}=220\rm{V})$, através do seu reóstato de campo. Confirmar a correta polaridade dos terminais gerador CC, relativamente aos terminais da rede CC. Fechar o interruptor, $\rm IF2$. Poderá verificar-se uma corrente de linha do gerador CC residual, devido a diferença de aferição entre o voltímetro do gerador *vs.* voltímetro na entrada da rede CC da bancada;
 \
 6. Dá-se início ao registo de valores do ensaio *back-to-back*:
 
-   - Para regular a carga das máquinas, de modo a criar vários pontos de funcionamento do grupo motor-gerador com potências em jogo sucessivamente crescentes, diminui-se progressivamente o reóstato de campo do gerador DC e reajusta-se a velocidade para o valor nominal, através do reóstato de campo do motor DC;
+   - Para regular a carga das máquinas, de modo a criar vários pontos de funcionamento do grupo motor-gerador com potências em jogo sucessivamente crescentes, diminui-se progressivamente o reóstato de campo do gerador CC e reajusta-se a velocidade para o valor nominal, através do reóstato de campo do motor CC;
 
-   - Registam-se sucessivamente os valores das correntes de linha e de exitação de cada máquina DC, a corrente na entrada da rede DC e a velocidade, para os diferentes pontos de funcionamento do grupo motor-gerador. A tensão será constante. 
+   - Registam-se sucessivamente os valores das correntes de linha e de exitação de cada máquina CC, a corrente na entrada da rede CC e a velocidade, para os diferentes pontos de funcionamento do grupo motor-gerador. A tensão será constante. 
 \
 7. Repetir ponto 5 (exceto a condição de polaridade). Desligar os interruptores por ordem inversa. Fim de ensaio.\
 
@@ -300,7 +319,7 @@ U = 220; 			# DC grid voltage, V
 
 # ╔═╡ 494278aa-f24d-4168-8615-f7803495fafd
 md"""
-Medição dos enrolamentos induzidos das máquinas DC:
+Medição dos enrolamentos induzidos das máquinas CC:
 """
 
 # ╔═╡ 080ba59a-6a4a-424e-8741-9b59332c2f86
@@ -348,7 +367,7 @@ md"""
 header_b2b = (["Irede", "Imot", "Iₑₓmot", "Iger", "Iₑₓger", "n"],["(A)", "(A)", "(A)", "(A)", "(A)", "(rpm)"]);  						# header of the table 1
 
 # ╔═╡ f202a1bf-aaf8-4115-98e9-eba0da1666e4
-OthersHeader = (["tensão da rede DC", "resistência rotórica do motor", "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 	# header of the table 2
+OthersHeader = (["tensão da rede CC", "resistência rotórica do motor", "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 	# header of the table 2
 
 # ╔═╡ bba03ae4-313e-4e3a-a367-73b1d28e733e
  dados_b2b = [I Iₗᴹ Iₑₓᴹ Iₗᴳ Iₑₓᴳ n]; 		# data of the table 1
@@ -388,7 +407,7 @@ Por análise dos dados estatísticos da velocidade constata-se que o ensaio *bac
 
 # ╔═╡ 71a60d6f-1527-4537-952d-b490af18a935
 md"""
-Assim, como a tensão das máquinas é contante (ambas ligadas à rede DC de $$220\rm V$$) e a velocidade é aproximadamente constante, perspectiva-se que as perdas rotacionais, $$p_{rot}$$, das máquinas sejam também aproximadamente constantes.
+Assim, como a tensão das máquinas é contante (ambas ligadas à rede CC de $$220\rm V$$) e a velocidade é aproximadamente constante, perspectiva-se que as perdas rotacionais, $$p_{rot}$$, das máquinas sejam também aproximadamente constantes.
 """
 
 # ╔═╡ 5bcefcd9-f30e-4b40-a1f0-b66ff862d963
@@ -433,6 +452,22 @@ md"""
 [^Fig_2_2]: Balanço de potências do ensaio *back-to-back*.
 """
 
+# ╔═╡ 3a44a05d-68a4-4622-afd3-1b67e95c7088
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/back2backlab/power_flow.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:400px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
+
 # ╔═╡ 404e5b4b-0ddc-45b0-a4af-e29618a501be
 md"""
 O diagrama do balanço de potências da [^Fig_2_2] permite perceber as conversões de potências que ocorrem no funcionamento das máquinas envolvidas, mas ainda não quantifica o valor de cada parcela relativa a potências e perdas de cada máquina.
@@ -448,7 +483,7 @@ md"""
 
 # ╔═╡ 01e08f32-9f91-41f9-b022-ad877864a784
 md"""
-**Perdas das máquinas DC:**
+**Perdas das máquinas CC:**
 """
 
 # ╔═╡ d12d08d6-4c4c-4afc-b4e5-970f86a440e5
@@ -489,7 +524,7 @@ end
 
 # ╔═╡ 55483f43-ca65-4775-a4b7-b824295ad34d
 md"""
-- Cálculo das perdas rotacionais (consideradas igualmente repartidas pelas máquinas DC):
+- Cálculo das perdas rotacionais (consideradas igualmente repartidas pelas máquinas CC):
 """
 
 # ╔═╡ 4cda0d79-6a76-4529-b70e-4eb0bf9c2451
@@ -565,7 +600,7 @@ aside((md"""
 	- binários desenvolvidos do motor e gerador, $$T_d^M$$ e $$T_d^G$$
 	- binário mecânico, $$T_u$$
 	
-	No final, analise comparativamente os resultados das potências e binários obtidos entre as máquinas DC.
+	No final, analise comparativamente os resultados das potências e binários obtidos entre as máquinas CC.
 """), v_offset=20)
 
 # ╔═╡ 076bd182-885d-4808-ba4a-9d125cd09957
@@ -646,7 +681,7 @@ $P_u^G(k)=P_{ab}^M(k)-p_t(k)$
 
 com: $k \in \{1,2,3,...,10,\}$, correspondendo à ordem de ensaio na Tabela 1.
 
-Ou seja, verifica-se no diagrama de Sankey, em qualquer momento, $k$, do ensaio _back-to-back_, que a potência útil do gerador, $P_u^G(k)$, é entregue ao motor, sendo-lhe adicionada uma potência elétrica proveniente da rede DC, que é igual ao somatório das perdas, $p_t$, relativas às máquinas elétricas em funcionamento.
+Ou seja, verifica-se no diagrama de Sankey, em qualquer momento, $k$, do ensaio _back-to-back_, que a potência útil do gerador, $P_u^G(k)$, é entregue ao motor, sendo-lhe adicionada uma potência elétrica proveniente da rede CC, que é igual ao somatório das perdas, $p_t$, relativas às máquinas elétricas em funcionamento.
 """
 
 # ╔═╡ 50f9ef55-ec4d-4801-a7df-b755fcc9cdef
@@ -694,7 +729,7 @@ md"""
 
 # ╔═╡ 884beeaf-d196-4d9a-9088-a3b88ff5670e
 md"""
-Cálculo dos pontos de rendimento do motor DC:
+Cálculo dos pontos de rendimento do motor CC:
 """
 
 # ╔═╡ 69892e4e-821b-4efa-b7f5-26bdbb5d0f8a
@@ -705,7 +740,7 @@ end
 
 # ╔═╡ 1658f96c-7d15-4ed2-9f58-a161bc8b635f
 md"""
-Cálculo dos pontos de rendimento do gerador DC:
+Cálculo dos pontos de rendimento do gerador CC:
 """
 
 # ╔═╡ 3ad1607a-66c4-42e2-a088-db1832fd1f32
@@ -753,7 +788,7 @@ end;
 
 # ╔═╡ 2a0e3a6a-0fd0-4f9e-ab54-2377d0761ba3
 md"""
-**Gráfico de curva de rendimento do motor DC, $$\:\eta^M=f(I_l^M)$$, e relação com as perdas "constantes", $$\:p_C^M=f(I_l^M)$$ e as perdas variáveis, $$\:p_J^M=f(I_l^M)$$:**
+**Gráfico de curva de rendimento do motor CC, $$\:\eta^M=f(I_l^M)$$, e relação com as perdas "constantes", $$\:p_C^M=f(I_l^M)$$ e as perdas variáveis, $$\:p_J^M=f(I_l^M)$$:**
 """
 
 # ╔═╡ 7ced39d8-26a1-497f-94fc-96d725ea6287
@@ -761,7 +796,7 @@ begin
 	scatter(Iₗᴹ, ηᴹ, ylims=(70,90), ylabel="rendimento (%)", 
 			right_margin = 5Plots.mm, bottom_margin = 5Plots.mm, mc=:orange, 
 			legend=:topleft, label="ηᴹ, ensaio", size=(700,500))				# calculated efficiency points
-	plot!(FIT_ηᴹ.x, FIT_ηᴹ.y, title="Motor DC", label="ηᴹ", lw=2) 				# trend line
+	plot!(FIT_ηᴹ.x, FIT_ηᴹ.y, title="Motor CC", label="ηᴹ", lw=2) 				# trend line
 	
 	scatter!(twinx(), Iₗᴹ, pcᴹ, ylims=(0,800), xlabel="corrente de linha (A)", label=:none)
 	plot!(twinx(), FIT_pcᴹ.x, FIT_pcᴹ.y, ylims=(0,800), legend=:bottomright,
@@ -778,7 +813,7 @@ end
 
 # ╔═╡ 1ee60c29-bb29-4d9c-a2d9-20fac192f89f
 md"""
-**Gráfico de curva de rendimento do gerador DC, $$\:\eta^G=f(I_l^G)$$, e relação com as perdas "constantes", $$\:p_C^G=f(I_l^G)$$ e as perdas variáveis, $$\:p_J^G=f(I_l^G)$$:**
+**Gráfico de curva de rendimento do gerador CC, $$\:\eta^G=f(I_l^G)$$, e relação com as perdas "constantes", $$\:p_C^G=f(I_l^G)$$ e as perdas variáveis, $$\:p_J^G=f(I_l^G)$$:**
 """
 
 # ╔═╡ cd62422c-abd3-493d-a563-16520b237537
@@ -786,7 +821,7 @@ begin
 	scatter(Iₗᴳ, ηᴳ, ylims=(50,90), ylabel="rendimento (%)", 
 			right_margin = 15Plots.mm, bottom_margin = 5Plots.mm, mc=:orange, 
 			legend=:topleft, label="ηᴳ, ensaio", size=(700,500))			# calculated efficiency points
-	plot!(FIT_ηᴳ.x, FIT_ηᴳ.y, title="Gerador DC", label="ηᴳ", lw=2) 		# trend line
+	plot!(FIT_ηᴳ.x, FIT_ηᴳ.y, title="Gerador CC", label="ηᴳ", lw=2) 		# trend line
 	
 	scatter!(twinx(), Iₗᴳ, pcᴳ, ylims=(0,800), xlabel="corrente de linha (A)", label=:none)
 	plot!(twinx(), FIT_pcᴳ.x, FIT_pcᴳ.y, ylims=(0,800), legend=:bottomright,
@@ -814,7 +849,7 @@ begin
 	(pcᴹᵥₐᵣ, pcᴳᵥₐᵣ) = round.((pcᴹᵥₐᵣ, pcᴳᵥₐᵣ), digits=1)
 	
 	# Presentation of results:
-	Text("Perdas constantes do motor DC, (média aritmética, desvio padrão) W:"), (pcᴹᵃᵛᵍ, pcᴹᵈᵉᵛ),  Text("Perdas constantes do gerador DC, (média aritmética, desvio padrão) W:"), (pcᴳᵃᵛᵍ, pcᴳᵈᵉᵛ) 
+	Text("Perdas constantes do motor CC, (média aritmética, desvio padrão) W:"), (pcᴹᵃᵛᵍ, pcᴹᵈᵉᵛ),  Text("Perdas constantes do gerador CC, (média aritmética, desvio padrão) W:"), (pcᴳᵃᵛᵍ, pcᴳᵈᵉᵛ) 
 end
 
 # ╔═╡ 1e3c4060-5d78-4159-bb2d-caf158d9a32d
@@ -878,13 +913,13 @@ begin
 	I2=FIT_ηᴳ.x[index2]			# current value corresponding to maximum efficiency
 	I2=round(I2, digits=1)
 	
-	Text("Ponto de rendimento máximo do motor DC: $(ηₘₐₓᴹ)% @ $(I1)A"),
-	Text("Ponto de rendimento máximo do gerador DC: $(ηₘₐₓᴳ)% @ $(I2)A")
+	Text("Ponto de rendimento máximo do motor CC: $(ηₘₐₓᴹ)% @ $(I1)A"),
+	Text("Ponto de rendimento máximo do gerador CC: $(ηₘₐₓᴳ)% @ $(I2)A")
 end
 
 # ╔═╡ e40a1b59-ed60-4081-afbf-661373b8b3fa
 md"""
-Da análise às curvas de rendimento das máquinas DC, verificam-se os seguintes pontos de rendimento máximo:
+Da análise às curvas de rendimento das máquinas CC, verificam-se os seguintes pontos de rendimento máximo:
 
 - Gerador: $$\:\:I_l^G(\eta_{max}^G) =$$ $(I2) $$\rm A; \it \quad\eta_{max}^G =$$ $(ηₘₐₓᴳ) $$\rm\%$$
 - Motor: $$\quad I_l^M(\eta_{max}^M) =$$ $(I1) $$\rm A; \it \quad\eta_{max}^M =$$ $(ηₘₐₓᴹ) $$\rm\%$$
@@ -912,14 +947,14 @@ md"""
 
 # ╔═╡ 0ec4b965-80c4-4b40-925a-f3dcb2fd0115
 md"""
-No ensaio *back-to-back* verifica-se que o mesmo consome pouca potência elétrica da rede DC, comparativamente com a potência nominal das máquinas ensaiadas.\
-Após o arranque do motor DC e ajuste à velocidade nominal, este alimenta mecanicamente o gerador DC. Após ligar o gerador DC em paralelo com a rede DC (verificadas as condições para essa manobra), o gerador alimentará eletricamente o motor DC.\
-Por conseguinte, a potência consumida da rede elétrica corresponde ao somatório das perdas do grupo motor-gerador.  Este fato é muito importante e permite concluir que o ensaio *back-to-back* pode possibilitar o ensaio em carga de máquinas elétricas de elevada potência, comparativamente com a potência disponível da rede DC para a realização do ensaio, desde que a mesma suporte o arranque reostático do motor DC.
+No ensaio *back-to-back* verifica-se que o mesmo consome pouca potência elétrica da rede CC, comparativamente com a potência nominal das máquinas ensaiadas.\
+Após o arranque do motor CC e ajuste à velocidade nominal, este alimenta mecanicamente o gerador CC. Após ligar o gerador CC em paralelo com a rede CC (verificadas as condições para essa manobra), o gerador alimentará eletricamente o motor CC.\
+Por conseguinte, a potência consumida da rede elétrica corresponde ao somatório das perdas do grupo motor-gerador.  Este fato é muito importante e permite concluir que o ensaio *back-to-back* pode possibilitar o ensaio em carga de máquinas elétricas de elevada potência, comparativamente com a potência disponível da rede CC para a realização do ensaio, desde que a mesma suporte o arranque reostático do motor CC.
 """
 
 # ╔═╡ e7aae6a9-1fa7-48a1-9b11-8e60c69cf9c9
 md"""
-O funcionamento do ensaio *back-to-back* utiliza a regulação dos circuitos de excitação de ambas as máquinas DC. Por um lado, o reóstato de campo do gerador DC ajusta a potência de saída do gerador (pois encontra-se ligado a uma rede DC de tensão constante), que por sua vez solicita mais potência mecânica ao motor DC (alimentado da mesma rede DC). Neste ajuste a velocidade poderá sofrer alguma variação significativa, sendo corrigida por atuação do reóstato de campo do motor DC.
+O funcionamento do ensaio *back-to-back* utiliza a regulação dos circuitos de excitação de ambas as máquinas CC. Por um lado, o reóstato de campo do gerador CC ajusta a potência de saída do gerador (pois encontra-se ligado a uma rede CC de tensão constante), que por sua vez solicita mais potência mecânica ao motor CC (alimentado da mesma rede CC). Neste ajuste a velocidade poderá sofrer alguma variação significativa, sendo corrigida por atuação do reóstato de campo do motor CC.
 
 Estas variações nos reostato de campo e consequentes variações nas correntes de excitação das máquinas provocam pequenas variações nas perdas constantes, contudo aceitáveis.
 """
@@ -941,7 +976,7 @@ md"""
 md"""
 O ensaio *back-to-back* pode ser também aproveitado para se analisar a reversibilidade de funcionamento das máquinas do grupo motor-gerador.
 
-Assim, com o sistema em funcionamento, o aumento do reóstato de campo do circuito de excitação do gerador pode fazer baixar a sua força-eletromotriz, tal que esta seja menor que a tensão da rede DC, invertendo o sentido da corrente de linha nesta máquina, passando a regime motor:
+Assim, com o sistema em funcionamento, o aumento do reóstato de campo do circuito de excitação do gerador pode fazer baixar a sua força-eletromotriz, tal que esta seja menor que a tensão da rede CC, invertendo o sentido da corrente de linha nesta máquina, passando a regime motor:
 
 $R_c 	\nearrow \quad \Rightarrow \quad I_{ex} \searrow\quad \Rightarrow \quad \phi \searrow \quad \Rightarrow \quad E \searrow$
 
@@ -950,7 +985,7 @@ $\text{Se:} \quad E<U \quad \Rightarrow \quad I_l < 0 \quad \text{, então:} \qu
 
 # ╔═╡ 4cbd2235-074d-4374-99c8-f290215b1640
 md"""
-Do lado do motor DC estabelece-se um raciocínio semelhante, para que este passe para o regime de funcionamento gerador:
+Do lado do motor CC estabelece-se um raciocínio semelhante, para que este passe para o regime de funcionamento gerador:
 
 $R_c 	\searrow \quad \Rightarrow \quad I_{ex} \nearrow\quad \Rightarrow \quad \phi \nearrow \quad \Rightarrow \quad E \nearrow$
 
@@ -960,20 +995,15 @@ $\text{Se:} \quad E>U \quad \Rightarrow \quad I_l > 0 \quad \text{, então:} \qu
 
 # ╔═╡ 46a23d85-70f0-4f15-9a76-8a3701a82183
 md"""
-O teste de reversibilidade com o grupo motor-gerador deve ser realizado com especial cuidado por causa do reostato de campo com o terminal $\textbf q$ (reostato de campo do gerador DC) estar em funcionamento. Assim, quando a máquina DC muda o regime de funcionamento de gerador para motor, tendo em conta a possibilidade do circuito de excitação ficar acidentalmente em aberto, e consequentemente, provocar o embalamento do motor DC.
+O teste de reversibilidade com o grupo motor-gerador deve ser realizado com especial cuidado por causa do reostato de campo com o terminal $\textbf q$ (reostato de campo do gerador CC) estar em funcionamento. Assim, quando a máquina CC muda o regime de funcionamento de gerador para motor, tendo em conta a possibilidade do circuito de excitação ficar acidentalmente em aberto, e consequentemente, provocar o embalamento do motor CC.
 """
 
 # ╔═╡ 8495592a-9619-4e2c-97fb-ef9f55f29f4d
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -2798,6 +2828,7 @@ version = "1.9.2+0"
 # ╟─f60d6cdd-7ff4-4a00-b2aa-a1440234ec6d
 # ╟─cb2b0eb9-2037-4b45-9038-b2f6cd7a16cd
 # ╟─127a7dbf-88fe-4b28-a265-7bf315850497
+# ╟─5f0b7230-28eb-4394-981f-0974e49284a3
 # ╟─c387e50c-5aac-4901-b1f3-51b690c38a56
 # ╟─dfa54345-bcae-4350-aa43-72cd62b83d65
 # ╟─59b3486d-61cd-43ac-ae1c-4bd04ab5dd40
@@ -2834,6 +2865,7 @@ version = "1.9.2+0"
 # ╟─df08b5c7-d63b-430d-8869-a994ed85b73c
 # ╟─8358d4e1-09c2-4467-b0fa-26fc9a882e9c
 # ╟─bc95d83c-fb07-4f24-b08a-b461d871c79e
+# ╟─3a44a05d-68a4-4622-afd3-1b67e95c7088
 # ╟─404e5b4b-0ddc-45b0-a4af-e29618a501be
 # ╟─2f7931fa-262f-4f76-8f4b-f28e26989a2b
 # ╟─66ada8ac-6556-4d18-9cf3-cbdbf3f9bc69
@@ -2864,7 +2896,7 @@ version = "1.9.2+0"
 # ╠═d780fb54-2677-481e-a228-478845fba613
 # ╟─d65460a3-a703-44f6-aa42-a3dd47ae3034
 # ╠═7bcd562e-970f-4614-94d0-41b8f47a5ff2
-# ╠═18159d33-d61e-44cc-9966-801f15b7f5d5
+# ╟─18159d33-d61e-44cc-9966-801f15b7f5d5
 # ╠═51f8e7ee-868e-47d9-bfa5-4ac06f37d942
 # ╟─95fdbbc4-b612-4512-9069-6110e41f9e9d
 # ╟─c771cef0-8fb8-4414-af8a-3e6512832d90

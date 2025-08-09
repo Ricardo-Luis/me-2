@@ -32,12 +32,6 @@ end
 # ╔═╡ 766e42e6-0d19-48ba-b1a5-462708df3ff9
 using PlutoUI, PlutoTeachingTools   # packages needed for this notebook
 
-# ╔═╡ 2e32c42e-7736-43e0-bff0-966cbbadc732
-
-
-# ╔═╡ f0ff75df-7efd-4628-830c-b4af68ac09d4
-
-
 # ╔═╡ d4933445-95c9-4f86-a832-95278e8aa34c
 md"""
 
@@ -418,7 +412,7 @@ Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do I
 
 Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas eléctricas.
 
-Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes notebooks, cujo trabalho colaborativo enriquece constantemente as possibilidades educativas desta plataforma.
+Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes *notebooks*, cujo trabalho colaborativo enriquece constantemente as possibilidades educativas desta plataforma.
 
 ---
 
@@ -1062,9 +1056,7 @@ version = "17.4.0+2"
 
 # ╔═╡ Cell order:
 # ╟─c4c3c88d-e13f-4782-9131-eb0d70b5277d
-# ╟─2e32c42e-7736-43e0-bff0-966cbbadc732
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
-# ╟─f0ff75df-7efd-4628-830c-b4af68ac09d4
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
 # ╟─1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2

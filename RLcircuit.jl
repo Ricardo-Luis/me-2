@@ -465,10 +465,21 @@ md"""
 Para melhorar o fator de potência deste circuito RL, uma solução é ligar em paralelo com a carga RL, um filtro passivo que cancele parcialmente ou totalmente a componente reativa imposta pela carga RL:
 """
 
-# ╔═╡ b0957eb0-3712-4d62-bfa4-71796efe6a9f
-html"""
-<iframe frameborder="0" style="width:100%;height:324px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=FFFFFF&edit=_blank&layers=1&nav=1#R7Vptc9o4EP41fGzG79gfA6S9zuRmMuWul%2FQLo9gCdDWWTxYB%2ButvZUl%2BT0hSDEePDAFptV7J%2BzzalWQP7PFq%2B4mhdPk7jXA8sIxoO7AnA8vybBe%2BhWAnBY5hScGCkUiKzFIwJT%2BwEhpKuiYRzmqKnNKYk7QuDGmS4JDXZIgxuqmrzWlc7zVFC9wSTEMUt6V%2FkYgvpdR3jVL%2BGyaLpe7ZNFTLCmllZSJboohupCjXsW8G9phRymVptR3jWPhO%2B0Ua%2BvhMazEwhhP%2Bmgts53H6zV5Nvvy4vX%2F4mgXpzp5%2FUFaeULxWN6wGy3faAyklCcfs5gn6Ec40B%2FboCTNOwEm36BHHdzQjnNAE2h4p53QFCsXNGlCJULbEkaqgmCyEaoiFVRAs%2BSpumL1WOpym0lYqxrLaLgTFrnAMQDOhd8VwRjJOWVaUZpbokDBQkUPK6FoAMco4o98LDG2QzGOSflU9A304IokYUD7KtnO1p2CIeFsRKWd%2FwnSFOduBimp1hooJmvnWUNY3JY8sW4qWNQpp%2BirqLgrTJbpQUAC%2FAWzrvMEmSbQOc7B1aeZ2AtsEk1GO1JiDQ4FrejVwXT9ogWs6Rhtd2%2BgJXLuFJY4gkqkqZXxJFzRB8U0pBcesk6gAq9S5pQKLHKW%2FMec7FZbRmtM6hnhL%2BL26XJQfRPnKVbXJttI02VUqd5gRuO0CIQCC7e6rFWnJc1wtKI3ltV211jYXXYvYD9WEJlhKPhLh0Ly9TZlnKQHhg4V4fwQVzn6ROAzHQMKnelrpYoG69E7MxArhfBO8ERR%2FfoN%2FXsMiR2yBuTLSoFYxqvezzTnvUJKBHopnEtzsSoM8QlkqFxFzshU9j%2FKbyF3qjuAjuG2NjfzfhZscg8wUNSXXMlk367K6HnyAlvE0H8kfu3ykKHwbOV8fr4pYpJNRMLxyWxHLN9sBy%2B8rG3knCVg60JhnF2jUlJMTe3%2BWP3BAgttEu4qCmhjPxitT80YRzvMbq9NWfLNe0oeCHMFBo1hwypypy%2B%2FPmQX3KMThGvfMA3NveJwkZ9tGJwmOldUs55wXUW3A91Hk7AjhWMclxPC8lzkhSlFI8i1TUZyZHTuiXtYcll8Hz9Ub2%2BoeyejYI3l97ZH0odJLeFbmTBijLCNhHYT6dH%2FWTXtnRsUJbocPtOwnJ5DVnEBmw7dyprcmUNuQv8dQzzNRc%2Bf%2FA53t1FdEjvNO6FqGgiND94pzp18NuuAws84O9hjqG7qufb4Xc3F6SvOBlhh6%2F6ypbviQ5Yuda1AwvXSbQ6bbobSQv474uGMKKSUmsHsajj4PhpMZUS2qIxi47Etf1qAOZCNeJ4vMZmMaU7E0UhuzOSx7GqJWrm0m2BWJonyNt1kSjqeQQUWfG0izLUqKIaoVnukdKH82YretQ3CFxN4xjxhN97hs%2BBPYcOFC3hrYNSq4ltNxfHNcMngnCA3hhQ7d%2ByL31KGha6fUNxvgl8WXGFGuOv5r%2BcLvmxRfLtCr01O%2FHg%2B8ruP944If9A3%2B7QX8%2Bn5OLw6C9jnLUaHXh3T9QT%2B%2BQC%2Fd7zYeA1veiaF3W84%2F5gl6cWr%2BMKgcmr%2F9NYTG08Ff5tlgPy8r%2FOyzQaf55lr73YeX9N%2F6bBCq5Vt3Ur18ddG%2B%2BRc%3D"></iframe>
-"""
+# ╔═╡ dd4e5f09-a3e1-4a37-8a5a-1c0f289602a0
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/RLcircuit/passive_filter.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:400px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
 
 # ╔═╡ b3c23dd5-ecb3-49b3-98e4-1f6d880f2025
 md"""
@@ -1901,7 +1912,7 @@ version = "1.9.2+0"
 # ╟─9d4b0fd3-f29c-437c-b354-d8b673145b66
 # ╟─c2634c14-1491-4982-815e-1899fa73e978
 # ╟─9450eb8e-6dae-41b0-91e5-d279baef30a1
-# ╟─b0957eb0-3712-4d62-bfa4-71796efe6a9f
+# ╟─dd4e5f09-a3e1-4a37-8a5a-1c0f289602a0
 # ╟─b3c23dd5-ecb3-49b3-98e4-1f6d880f2025
 # ╟─a4069d2f-5bca-45b7-95ea-0fbe59dc6a55
 # ╠═a4afa491-26ec-4655-8293-7774abb926f5

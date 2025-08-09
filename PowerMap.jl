@@ -89,19 +89,19 @@ Os dados para análise foram recolhidos da Agência de Proteção Ambiental dos 
 
 # ╔═╡ 3f430c04-f970-448f-a506-6b21434f24b4
 if engine=="2018 Mazda 2.5L Skyactiv-G"
-	data_url="https://raw.githubusercontent.com/Ricardo-Luis/notebooks/main/ME2/data/2018%20Mazda%202.5L%20Skyactiv-G.csv"
+	data_url="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/data/PowerMap/2018%20Mazda%202.5L%20Skyactiv-G.csv"
 
 elseif engine=="2018 Toyota 2.5L A25A-FKS"
-	data_url="https://raw.githubusercontent.com/Ricardo-Luis/notebooks/main/ME2/data/2018%20Toyota%202.5L%20A25A-FKS.csv"
+	data_url="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/data/PowerMap/2018%20Toyota%202.5L%20A25A-FKS.csv"
 
 elseif engine=="2016 Honda 1.5L L15B7"
-	data_url="https://raw.githubusercontent.com/Ricardo-Luis/notebooks/main/ME2/data/2016%20Honda%201.5L%20L15B7.csv"
+	data_url="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/data/PowerMap/2016%20Honda%201.5L%20L15B7.csv"
 
 elseif engine=="2013 Ford 1.6L EcoBoost"
-	data_url="https://raw.githubusercontent.com/Ricardo-Luis/notebooks/main/ME2/data/2013%20Ford%201.6L%20EcoBoost.csv"
+	data_url="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/data/PowerMap/2013%20Ford%201.6L%20EcoBoost.csv"
 
 elseif engine=="2015 BMW 3.0L N57"
-	data_url="https://raw.githubusercontent.com/Ricardo-Luis/notebooks/main/ME2/data/2015%20BMW%203.0L%20N57.csv"
+	data_url="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/data/PowerMap/2015%20BMW%203.0L%20N57.csv"
 	
 end;
 

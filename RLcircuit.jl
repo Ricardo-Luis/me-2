@@ -48,7 +48,7 @@ TwoColumnWideLeft(md"`RLcircuit.jl`", md"`Last update: 09·09·2024`")
 md"""
 ---
 $\textbf{Grandezas complexas e fasores num circuito CA}$
-$\colorbox{Bittersweet}{\textcolor{white}{Análise com diagramas vetoriais}}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise com diagramas vetoriais}}}$
 ---
 """
 

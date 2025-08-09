@@ -48,7 +48,7 @@ TwoColumnWideLeft(md"`ACpower.jl`", md"`Last update: 09·09·2024`")
 md"""
 ---
 $\textbf{Potência em sistemas de corrente alternada}$
-$\colorbox{Bittersweet}{\textcolor{white}{Análise com gráficos interativos}}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise com gráficos interativos}}}$
 ---
 """
 

@@ -49,7 +49,7 @@ TwoColumnWideLeft(md"`PowerMap.jl`", md"`Last update: 31·10·2024`")
 md"""
 ---
 $\textbf{Traçado de um mapa de eficiência}$
-$\colorbox{Bittersweet}{\textcolor{white}{Análise tridimensional de dados}}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise tridimensional de dados}}}$
 ---
 """
 

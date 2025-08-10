@@ -10,7 +10,7 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module4"]
 #> date = "2024-12-03"
-#> description = "Apresenta-se a aplicação do critério da igualdade das áreas na análise de grandes perturbações em alternadores síncronos 3~. O exercício compara dois alternadores ligados a uma rede de capacidade infinita: um de polos lisos e outro de polos salientes. Através de métodos analíticos e computacionais, determina-se a máxima perturbação admissível que cada máquina pode suportar mantendo-se estável em regime transitório. Os diagramas P(δ) e as áreas correspondentes são apresentados de forma interativa para uma melhor compreensão dos conceitos de estabilidade dinâmica em sistemas elétricos de potência"
+#> description = "Apresenta-se a aplicação do critério da igualdade das áreas na análise de grandes perturbações em alternadores síncronos trifásicos. O exercício compara dois alternadores ligados a uma rede de capacidade infinita: um de polos lisos e outro de polos salientes. Através de métodos analíticos e computacionais, determina-se a máxima perturbação admissível que cada máquina pode suportar mantendo-se estável em regime transitório. Os diagramas P(δ) e as áreas correspondentes são apresentados de forma interativa para uma melhor compreensão dos conceitos de estabilidade dinâmica em sistemas elétricos de potência."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
@@ -52,7 +52,7 @@ $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
 $\text{EXERCÍCIO 3}$ 
 
-$\textbf{Análise de grandes perturbações: critério da igualdade das áreas}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise de grandes perturbações: critério da igualdade das áreas}}}$
 ---
 """
 
@@ -100,7 +100,7 @@ O ângulo de carga, $\delta$, de cada alternador pode ser obtido diretamente das
 
 # ╔═╡ f9c26907-2d3a-4dd4-b44e-8e6605f2a697
 md"""
-$P_{d1}(\delta)=\frac{3UE_0}{X_s}\sin \delta_{01} \quad\quad;\quad\quad P_{d2}(\delta)=\dfrac{3UE_0}{X_d}\sin \delta_{02}+ \dfrac{3U^2(X_d - Xq)}{2 X_d X_q}\sin (2\delta_{02})$
+$P_{d1}(\delta)=\frac{3UE_0}{X_s}\sin \delta_{01} \qquad;\qquad P_{d2}(\delta)=\dfrac{3UE_0}{X_d}\sin \delta_{02}+ \dfrac{3U^2(X_d - Xq)}{2 X_d X_q}\sin (2\delta_{02})$
 """
 
 # ╔═╡ 6c990dc7-c7f6-4338-af92-de271e9e32eb
@@ -153,12 +153,12 @@ end;
 
 # ╔═╡ 4ed89457-39b8-4a65-8ac3-8f7866f3c3aa
 md"""
-Ajuste a potência abaixo, $$P_1^{lim}$$, de modo a obter a igualdade das áreas:
+Ajuste a potência abaixo, $$P_1^{\text{lim}}$$, de modo a obter a igualdade das áreas:
 """
 
 # ╔═╡ ab964942-c7aa-4591-a1d0-2399dcf8cf74
 md"""
- $$P_1^{lim}\:\:\rm (MW):$$ $(@bind P₁ˡⁱᵐ PlutoUI.Slider(1:0.01:P₁ᵐᵃˣ/1e6, default=2, show_value=true))
+ $$P_1^{\text{lim}}\:\:\rm (MW):$$ $(@bind P₁ˡⁱᵐ PlutoUI.Slider(1:0.01:P₁ᵐᵃˣ/1e6, default=2, show_value=true))
 """
 
 # ╔═╡ ffff3c2c-e08b-4292-9c0b-78d792d8f761
@@ -192,7 +192,7 @@ end
 
 # ╔═╡ e63c1dd7-e143-41f3-ba93-95ac9990c203
 md"""
-Os resultados das áreas $$A_1$$ e $$A_2$$ acima apresentados, são obtidos com a ajuda de ferramenta numérica computacional, para o cálculo dos integrais relativos à potência desenvolvida, nos intervalos de $$[\delta_0, \; \delta_{lim}]$$ e $$[\delta_{lim}, \; \pi-\delta_{lim}]$$, respetivamente.
+Os resultados das áreas $$A_1$$ e $$A_2$$ acima apresentados, são obtidos com a ajuda de ferramenta numérica computacional, para o cálculo dos integrais relativos à potência desenvolvida, nos intervalos de $$\bigl[\delta_0, \; \delta_{\text{lim}}\bigr]$$ e $$\bigl[\delta_{\text{lim}}, \; \pi-\delta_{\text{lim}}\bigr]$$, respetivamente.
 """
 
 # ╔═╡ 3be5577e-7075-4d50-9566-945f65a49836
@@ -252,25 +252,27 @@ md"""
 
 # ╔═╡ 2cf60d8b-6e25-419a-94e0-4aba427260f4
 md"""
-Aplicando o critério da igualdade das áreas, $$A_1 = A_2$$, escrevem-se as equações de cálculo das áreas igualando-as, de modo a obter uma equação final, que apresenta uma única incógnita, $$\delta_{lim}$$, que satisfaz a igualdade das áreas.
+Aplicando o critério da igualdade das áreas, $$A_1 = A_2$$, escrevem-se as equações de cálculo das áreas igualando-as, de modo a obter uma equação final, que apresenta uma única incógnita, $$\delta_{\text{lim}}$$, que satisfaz a igualdade das áreas.
 """
 
-# ╔═╡ 7dc55775-89d4-4509-9c95-83f36916f4c8
-md"""
+# ╔═╡ 981ef862-0acf-4aaa-8a81-850bd03fe5f5
+HTML("""
+<div style="overflow-x: auto; padding: 10px;">
+$(repr("text/html", md"""
 $$\begin{aligned} 
-
 A_1 &= A_2 \\
 \\
-P_{lim} (\delta_{lim} -\delta_{0}) - \int_{\delta_{0}}^{\delta_{lim}} P(\delta) \; \rm{d}\delta &= \int_{\delta_{lim}}^{\pi-\delta_{lim}} P(\delta) \; \rm{d}\delta - P_{lim}(\pi- 2\delta_{lim}) \\
+P_{\text{lim}} (\delta_{\text{lim}} - \delta_0) - \int_{\delta_0}^{\delta_{\text{lim}}} P(\delta) \, \mathrm{d}\delta &= \int_{\delta_{\text{lim}}}^{\pi - \delta_{\text{lim}}} P(\delta) \, \mathrm{d}\delta - P_{\text{lim}}(\pi - 2\delta_{\text{lim}}) \\
 \\
-(P_{max} \sin\delta_{lim})(\delta_{lim} -\delta_{0}) - P_{max}\int_{\delta_{0}}^{\delta_{lim}}\sin\delta \; \rm{d}\delta &= P_{max}\int_{\delta_{lim}}^{\pi-\delta_{lim}} \sin\delta \; \rm{d}\delta - (P_{max} \sin\delta_{lim})(\pi- 2\delta_{lim}) \\
+(P_{\max} \sin\delta_{\text{lim}})(\delta_{\text{lim}} - \delta_0) - P_{\max}\int_{\delta_0}^{\delta_{\text{lim}}} \sin\delta \, \mathrm{d}\delta &= P_{\max}\int_{\delta_{\text{lim}}}^{\pi - \delta_{\text{lim}}} \sin\delta \, \mathrm{d}\delta - (P_{\max} \sin\delta_{\text{lim}})(\pi - 2\delta_{\text{lim}}) \\
 \\
-(\sin\delta_{lim})(\delta_{lim} -\delta_{0}) - [-\cos\delta]_{\delta_{0}}^{\delta_{lim}} &= [-\cos\delta]_{\delta_{lim}}^{\pi-\delta_{lim}} - (\sin\delta_{lim})(\pi- 2\delta_{lim}) \\
+(\sin\delta_{\text{lim}})(\delta_{\text{lim}} - \delta_0) - \bigl[-\cos\delta\bigr]_{\delta_0}^{\delta_{\text{lim}}} &= \bigl[-\cos\delta\bigr]_{\delta_{\text{lim}}}^{\pi - \delta_{\text{lim}}} - (\sin\delta_{\text{lim}})(\pi - 2\delta_{\text{lim}}) \\
 \\
-(\sin\delta_{lim})(\pi -\delta_{lim} -\delta_{0}) - \cos\delta_{0} +  \cos(\pi-\delta_{lim}) &=0 \\
-
+(\sin\delta_{\text{lim}})(\pi - \delta_{\text{lim}} - \delta_0) - \cos\delta_0 + \cos(\pi - \delta_{\text{lim}}) &= 0
 \end{aligned}$$
-"""
+"""))
+</div>
+""")
 
 # ╔═╡ 806e4635-5520-4bc9-b030-ac847efcb77e
 
@@ -279,7 +281,7 @@ P_{lim} (\delta_{lim} -\delta_{0}) - \int_{\delta_{0}}^{\delta_{lim}} P(\delta) 
 md"""
 Definindo uma função, $$f(\delta)$$: 
 
-$$f(\delta) = (\sin\delta_{lim})(\pi -\delta_{lim} -\delta_{0}) - \cos\delta_{0} +  \cos(\pi-\delta_{lim})$$
+$$f(\delta) = (\sin\delta_{\text{lim}})(\pi - \delta_{\text{lim}} - \delta_0) - \cos\delta_0 + \cos(\pi - \delta_{\text{lim}})$$
 
 A resolução da equação que satisfaz o critério de igualdade das áreas consiste em encontrar a raíz para $$f(\delta)=0$$:
 """
@@ -303,7 +305,7 @@ end;
 md"""
 A determinação da raíz para $$f(\delta)$$ corresonde à solução do critério da igualdade das áreas, $$A_1$$ e $$A_2$$.
 
-Assim, com recurso a método numérico computacional, o ângulo de carga correspondente a $$f(\delta)=0$$, vem dado por: $$\delta_1^{lim}=$$ $δₛₒₗ $$°$$.
+Assim, com recurso a método numérico computacional, o ângulo de carga correspondente a $$f(\delta)=0$$, vem dado por: $$\delta_1^{\text{lim}}=$$ $δₛₒₗ $$°$$.
 """
 
 # ╔═╡ 46004f22-cd53-46d9-8176-b38419b2ef3d
@@ -314,7 +316,7 @@ end;
 
 # ╔═╡ 420bc556-5d93-4995-abae-2e8e8b69e44e
 md"""
-Substituindo $$\delta_1^{lim}$$ na expressão da potência desenvolvida, $$P_1(\delta)$$, obtém a potência admissível pela máquina síncrona em regime de grandes perturbações, $$P_1^{lim}=$$ $Pₛₒₗ $$\rm{MW}$$, quando esta se encontra a funcionar em regime nominal.
+Substituindo $$\delta_1^{\text{lim}}$$ na expressão da potência desenvolvida, $$P_1(\delta)$$, obtém a potência admissível pela máquina síncrona em regime de grandes perturbações, $$P_1^{\text{lim}}=$$ $Pₛₒₗ $$\rm{MW}$$, quando esta se encontra a funcionar em regime nominal.
 """
 
 # ╔═╡ 77572793-7820-47d8-822e-f2bb573672ea
@@ -356,12 +358,12 @@ end
 
 # ╔═╡ 0e83d341-e86f-4578-8150-f4066e9da587
 md"""
-Ajuste a potência abaixo, $$P_2^{lim}$$, de modo a obter a igualdade das áreas:
+Ajuste a potência abaixo, $$P_2^{\text{lim}}$$, de modo a obter a igualdade das áreas:
 """
 
 # ╔═╡ 0d7dc845-6645-4f28-8cbf-ae6c08bb2f4b
 md"""
- $$P_2^{lim}\:\:\rm (MW):$$ $(@bind P₂ˡⁱᵐ PlutoUI.Slider(1:0.01:P₂ᵐᵃˣ/1e6, default=2, show_value=true))
+ $$P_2^{\text{lim}}\:\:\rm (MW):$$ $(@bind P₂ˡⁱᵐ PlutoUI.Slider(1:0.01:P₂ᵐᵃˣ/1e6, default=2, show_value=true))
 """
 
 # ╔═╡ 9f6ecd73-c6d3-4681-95d2-73c7515e0cd9
@@ -405,7 +407,7 @@ end
 
 # ╔═╡ 987bafde-7b9d-4c8a-8b3c-ea9d488dafed
 md"""
-Os resultados das áreas $$A_1$$ e $$A_2$$ acima apresentados, são obtidos com a ajuda de ferramenta numérica computacional, para o cálculo dos integrais relativos à potência desenvolvida, nos intervalos de $$[\delta_0, \; \delta_{lim}]$$ e $$[\delta_{lim}, \; \delta'_{lim}]$$, respetivamente.
+Os resultados das áreas $$A_1$$ e $$A_2$$ acima apresentados, são obtidos com a ajuda de ferramenta numérica computacional, para o cálculo dos integrais relativos à potência desenvolvida, nos intervalos de $$\bigl[\delta_0, \; \delta_{\text{lim}}\bigr]$$ e $$\bigl[\delta_{\text{lim}}, \; \delta'_{\text{lim}}\bigr]$$, respetivamente.
 """
 
 # ╔═╡ 8b02f189-21d9-499b-85b8-cde39e4f4a24
@@ -456,16 +458,11 @@ md"""
 """
 
 # ╔═╡ 192e0f84-83f1-4383-a3b1-9df317392eb4
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -480,7 +477,7 @@ md"""
 
 # ╔═╡ 70f9768a-189f-4a61-bb55-1ec017ac2bdb
 md"""
-Documentação das bibliotecas `Julia` utilizadas: [NumericalIntegration](https://github.com/dextorious/NumericalIntegration.jl), [Roots](https://github.com/JuliaMath/Roots.jl), [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/).
+Documentação das bibliotecas `Julia` utilizadas: [NumericalIntegration](https://github.com/dextorious/NumericalIntegration.jl), [Roots](https://github.com/JuliaMath/Roots.jl), [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
 """
 
 # ╔═╡ 96b5059f-7b53-4792-83d6-8e6ac26e1366
@@ -505,7 +502,7 @@ md"""
 |  |  |
 |:--:|:--|
 |  | This notebook, [EqualArea.jl](https://ricardo-luis.github.io/me-2/EqualArea.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
-| **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are shared under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
+| **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
 |  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
@@ -521,7 +518,7 @@ Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
 [compat]
 NumericalIntegration = "~0.3.4"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 Roots = "~2.0.22"
 """
@@ -532,7 +529,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "fa4817a66f9f6db30fded17add9f77eba602bb54"
+project_hash = "bcfa49d17ce02730a075ffe66eed4c2f8b931dc0"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -602,12 +599,6 @@ weakdeps = ["SparseArrays"]
     [deps.ChainRulesCore.extensions]
     ChainRulesCoreSparseArraysExt = "SparseArrays"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -662,11 +653,6 @@ weakdeps = ["Dates", "LinearAlgebra"]
 
     [deps.Compat.extensions]
     CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -929,12 +915,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -1077,12 +1057,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1257,23 +1231,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1375,16 +1337,6 @@ deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
-
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-weakdeps = ["Distributed"]
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
 
 [[deps.Roots]]
 deps = ["ChainRulesCore", "CommonSolve", "Printf", "Setfield"]
@@ -1890,7 +1842,7 @@ version = "1.9.2+0"
 # ╟─05108e15-1238-4f48-a945-dd3fd11a3329
 # ╟─6ef341e8-308e-4e91-ab97-b107e4d5b01e
 # ╟─2cf60d8b-6e25-419a-94e0-4aba427260f4
-# ╟─7dc55775-89d4-4509-9c95-83f36916f4c8
+# ╟─981ef862-0acf-4aaa-8a81-850bd03fe5f5
 # ╟─806e4635-5520-4bc9-b030-ac847efcb77e
 # ╟─651b84e2-6957-4fbf-a1ac-a72b0251d30f
 # ╠═901b299e-d5de-49f1-839d-2ffa6265107a

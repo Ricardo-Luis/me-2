@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module3"]
 #> date = "2024-11-27"
-#> description = "Apresenta-se a resolução de um exercício sobre um motor síncrono 3~ de polos salientes. O estudo abrange o cálculo das reatâncias de eixo direto e de quadratura, determinação da FEM induzida, análise das componentes de potência desenvolvida, e análise de cenários críticos como o funcionamento sem excitação. A análise inclui diagramas vetoriais e fornece uma compreensão abrangente do comportamento do motor síncrono de polos salientes em diferentes condições de funcionamento"
+#> description = "Apresenta-se a resolução de um exercício sobre um motor síncrono 3~ de polos salientes. O estudo abrange o cálculo das reatâncias síncronas segundo os eixos direto e de quadratura, determinação da FEM induzida, análise das componentes de potência desenvolvida, e análise de cenários críticos como o funcionamento sem excitação. A análise inclui diagramas vetoriais e fornece uma compreensão abrangente do comportamento do motor síncrono de polos salientes em diferentes condições de funcionamento."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -50,7 +50,7 @@ $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
 $\text{EXERCÍCIO 12}$ 
 
-$\textbf{Motor síncrono de polos salientes}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Motor síncrono de polos salientes}}}$
 ---
 """
 
@@ -90,7 +90,7 @@ Definindo a potência de base, $$S_b$$, e a tensão de base, $$U_b$$:
 
 $$S_b=S_n\quad;\quad U_b=U_n$$
 
-como: $$\quad S_b=U_bI_b\quad \Leftrightarrow \quad S_b=\frac{U_b^2}{Z_b}\quad \Rightarrow\quad Z_b=\frac{U_b^2}{S_b}$$
+como: $$\quad S_b=U_bI_b\quad \Rightarrow\ \quad S_b=\dfrac{U_b^2}{Z_b}\quad \Leftrightarrow\quad Z_b=\dfrac{U_b^2}{S_b}$$
 
 sendo $$Z_b$$ a impedância de base. Assim:
 
@@ -156,9 +156,9 @@ md"""
 As parcelas da potência desenvolvida em *valores por unidade* são determinadas pelas expressões:
 
 $$\begin{align}
-P_d^{fcem}(pu) &= \frac{UE'_0}{X_d}\sin \delta \\
+P_d^{\text{fcem}}(pu) &= \frac{UE'_0}{X_d}\sin \delta \\
 \\
-P_d^{rel}(pu) &= \frac{U^2(X_d-Xq)}{2X_dX_q}\sin(2\delta)
+P_d^{\text{rel}}(pu) &= \frac{U^2(X_d-Xq)}{2X_dX_q}\sin(2\delta)
 \end{align}$$
 
 O que resulta:
@@ -176,7 +176,7 @@ Justifique;**
 
 # ╔═╡ 60f80e79-eeb8-4b60-801f-98caa28b4dfd
 md"""
-Por conseguinte, como: $$|P_d^{rel}(max)|< |P_d|$$, conclui-se que o motor perderia o sincronismo nesta situação $$(\space I_{exc}=0\space\mathrm {pu})$$, passando a um funcionamento instável.
+Por conseguinte, como: $$|P_d^{\text{rel}}(\text{max})|< |P_d|$$, conclui-se que o motor perderia o sincronismo nesta situação $$(\space I_{\text{exc}}=0\space\mathrm {pu})$$, passando a um funcionamento instável.
 """
 
 # ╔═╡ 9432cc05-5632-4e58-bf15-000783ee628c
@@ -184,20 +184,20 @@ Por conseguinte, como: $$|P_d^{rel}(max)|< |P_d|$$, conclui-se que o motor perde
 
 # ╔═╡ dd7d16e4-7b01-4aa0-a1ba-ecc7881900fb
 md"""
-# e) Funcionamento em vazio, sem $$I_{exc}$$
+# e) Funcionamento em vazio, sem $$I_{\text{exc}}$$
 
 **e) Se a carga ao veio for retirada e a corrente de excitação reduzida a zero, determine o valor da corrente do estator (em pu) e o fator de potência. Desenhe o diagrama vetorial da máquina para esta situação.**
 """
 
 # ╔═╡ 61609aa9-9feb-4a63-b4e9-2fd9a88f8106
 md"""
-Sem carga ao veio, $$\quad P_u=0\mathrm W\quad \Rightarrow \quad P_d=p_{rot}=0.15\mathrm{pu}$$.
+Sem carga ao veio, $$\quad P_u=0\mathrm W\quad \Rightarrow \quad P_d=p_{\text{rot}}=0.15\mathrm{pu}$$.
 
-Por outro lado, $$\quad I_{exc}=0\mathrm A\quad \Rightarrow \quad E'_0\simeq 0\mathrm V \quad \Rightarrow \quad P_d^{fcem}\simeq 0\mathrm W$$.
+Por outro lado, $$\quad I_{\text{exc}}=0\mathrm A\quad \Rightarrow \quad E'_0\simeq 0\mathrm V \quad \Rightarrow \quad P_d^{\text{fcem}}\simeq 0\mathrm W$$.
 
-Por conseguinte, $$\quad P_d^{rel}=p_{rot}=0.15\mathrm{pu}\quad$$ com $$\quad P_d^{rel}$$:
+Por conseguinte, $$\quad P_d^{\text{rel}}=p_{\text{rot}}=0.15\mathrm{pu}\quad$$ com $$\quad P_d^{\text{rel}}$$:
 
-$$P_d^{rel}(pu)=\frac{U^2(X_d-X_q)}{2X_dX_q}\sin(2\delta_0)$$
+$$P_d^{\text{rel}}(pu)=\frac{U^2(X_d-X_q)}{2X_dX_q}\sin(2\delta_0)$$
 """
 
 # ╔═╡ 28da7f3c-97fd-4a80-ad21-eeb201dcc881
@@ -222,7 +222,7 @@ md"""
 
 # ╔═╡ b47b956c-8880-4c22-aeea-d9a55c518b6a
 md"""
-Para se perceber o efeito das reduções da carga ao veio e da corrente de excitação, criou-se um segundo diagrama vetorial de tensões/correntes, mas dependente da posição de 2 cursores (*sliders*) associados à variação de cada um dos parâmetros $$(\delta$$ e $$I_{exc})$$, permitindo observar os seus efeitos sucessivos, no desenho do diagrama vetorial:
+Para se perceber o efeito das reduções da carga ao veio e da corrente de excitação, criou-se um segundo diagrama vetorial de tensões/correntes, mas dependente da posição de 2 cursores (*sliders*) associados à variação de cada um dos parâmetros $$(\delta$$ e $$I_{\text{exc}})$$, permitindo observar os seus efeitos sucessivos, no desenho do diagrama vetorial:
 """
 
 # ╔═╡ 78a2ef93-5ed1-44f8-8aa9-7e7d8d80a2df
@@ -236,20 +236,15 @@ Ou seja: $$\quad\overline {E'}_0=\overline U -jX_q\overline I_q -jX_d\overline I
 md"""
 !!! nota
 	Os resultados da **alínea e)** são corretamente apresentados apenas quandos os cursores se encontrem nas posições:
-	 $$\quad\delta=\delta_0 \quad \mathrm e \quad I_{exc}=0 \space\mathrm {pu}$$
+	 $$\quad\delta=\delta_0 \quad \mathrm e \quad I_{\text{exc}}=0 \space\mathrm {pu}$$
 """
 
 # ╔═╡ 5f84cb7b-9779-41d7-87b1-ecd357033c04
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -318,7 +313,7 @@ De onde resulta o valor de $$\delta_0=$$ $δ₀ °.
 # ╔═╡ 1ea9ab83-10c8-4d5f-8489-e9a4754e7b1b
 md"""
  $$\delta \to \delta_0 \:(°)$$ $(@bind δ₂ PlutoUI.Slider(δ:0.01:δ₀, default=δ,show_value=true)) 
- $$\quad\quad\quad\quad I_{ex} \: (\rm pu)$$ $(@bind K₂ PlutoUI.Slider(0:0.1:1, default=1, show_value=true))
+ $$\quad\quad\quad\quad I_{\text{exc}} \: (\rm pu)$$ $(@bind K₂ PlutoUI.Slider(0:0.1:1, default=1, show_value=true))
 """
 
 # ╔═╡ 67b54cd9-af1a-4bb7-9a44-c66179adfbcb
@@ -373,17 +368,17 @@ Pdₚᵤ = Pdᶠᵉᵐₚᵤ + Pdʳᵉˡₚᵤ  ;
 
 # ╔═╡ 2635c31e-8a91-45b0-8e4a-b4b6f6e59ae0
 md"""
-Com: $$\quad I_{exc}=0\space\mathrm {pu}\quad\Rightarrow\quad E'_0\simeq 0\space\mathrm {pu}\quad \Rightarrow\quad P_d^{fcem}\simeq 0\space\mathrm {pu}$$
+Com: $$\quad I_{\text{exc}}=0\space\mathrm {pu}\quad\Rightarrow\quad E'_0\simeq 0\space\mathrm {pu}\quad \Rightarrow\quad P_d^{\text{fcem}}\simeq 0\space\mathrm {pu}$$
 
-Por outro lado, o ponto de funcionamento, $$P_d(\delta)$$, em regime nominal é dado por: $$P_d=P_d^{fcem}+P_d^{rel}=$$ ( $Pdᶠᵉᵐₚᵤ ) + ( $Pdʳᵉˡₚᵤ ) = $Pdₚᵤ pu.  
+Por outro lado, o ponto de funcionamento, $$P_d(\delta)$$, em regime nominal é dado por: $$P_d=P_d^{\text{fcem}}+P_d^{\text{rel}}=$$ ( $Pdᶠᵉᵐₚᵤ ) + ( $Pdʳᵉˡₚᵤ ) = $Pdₚᵤ pu.  
 """
 
 # ╔═╡ f736b324-d6d9-4d8f-93d0-d520b79d4002
 md"""
-Assim, sem corrente de excitação, a potência desenvolvida devido ao efeito de relutância, $$P_d^{rel}$$, tem de suprir os $Pdₚᵤ pu, do ponto funcionamento.
+Assim, sem corrente de excitação, a potência desenvolvida devido ao efeito de relutância, $$P_d^{\text{rel}}$$, tem de suprir os $Pdₚᵤ pu, do ponto funcionamento.
 
-O valor máximo da potência desenvolvida devido ao efeito de relutância, $$P_d^{rel}(max)$$, verifica-se para $$\delta=-45°$$, que permite obter:
-$$P_d^{rel}(max)=\frac{U^2(X_d-Xq)}{2X_dX_q}=$$ $Pdʳᵉˡmax pu
+O valor máximo da potência desenvolvida devido ao efeito de relutância, $$P_d^{\text{rel}}(\text{max})$$, verifica-se para $$\delta=-45°$$, que permite obter:
+$$P_d^{\text{rel}}(\text{max})=\dfrac{U^2(X_d-Xq)}{2X_dX_q}=$$ $Pdʳᵉˡmax pu
 """
 
 # ╔═╡ c79f1fef-c2f1-45b0-af35-f3e69e6ec77e
@@ -475,12 +470,14 @@ begin
 			arrow=:closed, label="XdId∠(δ-180°)", linewidth=3) 
 end
 
-# ╔═╡ ca629d16-2cb0-41af-b8e2-4645fe7c97be
-
-
 # ╔═╡ a6ef52e3-bcf8-4911-aed8-b5e456f503ee
 md"""
 ## _Setup_
+"""
+
+# ╔═╡ 1f8c1679-a4d7-48b8-866d-114467cde6f8
+md"""
+Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
 """
 
 # ╔═╡ 2ca895f1-fbfc-4a1e-b82f-a84ea4ee37e3
@@ -518,7 +515,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -528,7 +525,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "e36c37af0f15eade5f5a9563f0dea37e9fff4ca8"
+project_hash = "4b8f2a02971a1f40c1050f140a2940321448e170"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -571,12 +568,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -616,11 +607,6 @@ deps = ["ColorTypes", "FixedPointNumbers", "Reexport"]
 git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.13.1"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -844,12 +830,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -992,12 +972,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1157,23 +1131,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1265,18 +1227,6 @@ deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
-
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -1752,8 +1702,8 @@ version = "1.9.2+0"
 # ╟─9ac8f499-9ab5-4d4f-b65e-b621ce5e74bf
 # ╟─8603f697-58ec-4c77-8749-4487f2053aff
 # ╠═dc95260b-8190-407b-9981-dff1e84acd62
-# ╟─ca629d16-2cb0-41af-b8e2-4645fe7c97be
 # ╟─a6ef52e3-bcf8-4911-aed8-b5e456f503ee
+# ╟─1f8c1679-a4d7-48b8-866d-114467cde6f8
 # ╠═cce68c02-32d9-4d2b-bd1a-224aa9c07e1e
 # ╟─2ca895f1-fbfc-4a1e-b82f-a84ea4ee37e3
 # ╟─e66c3929-1001-4cae-8e09-90e46195e7a6

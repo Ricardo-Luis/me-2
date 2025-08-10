@@ -10,11 +10,11 @@
 #> date = "2024-11-26"
 #> tags = ["lecture", "module3"]
 #> layout = "layout.jlhtml"
-#> description = "Este notebook permite analisar o funcionamento de alternadores síncronos 3~ ligados em paralelo numa rede isolada, explorando a interdependência entre máquinas na repartição de potência ativa e reativa, mantendo simultaneamente a tensão e a frequência estáveis. Através da análise das relações, U=f(Q)  e  freq=f(P), são discutidos os mecanismos de regulação de tensão e de frequência e a sua influência na distribuição de cargas entre os alternadores. Cada alternador possui a sua própria corrente de excitação e potência mecânica de acionamento, sendo analisado como as variações destes parâmetros individuais afetam o equilíbrio dinâmico da rede e os diferentes modos de operação conjunta"
+#> description = "Este notebook permite analisar o funcionamento de alternadores síncronos 3~ ligados em paralelo numa rede isolada, explorando a interdependência entre máquinas na repartição de potência ativa e reativa, mantendo simultaneamente a tensão e a frequência estáveis. Através da análise das relações, U=f(Q)  e  freq=f(P), são discutidos os mecanismos de regulação de tensão e de frequência e a sua influência na distribuição de cargas entre os alternadores. Cada alternador possui a sua corrente de excitação e potência mecânica de acionamento, sendo analisado como as variações destes parâmetros individuais afetam o equilíbrio dinâmico da rede e os diferentes modos de operação conjunta."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -50,9 +50,11 @@ $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
 $\text{PARALELO DE ALTERNADORES SÍNCRONOS 3 ∼}$ 
 
-$\textbf{Regulação de tensão e frequência}$
-$\text{e}$ 
-$\textbf{Repartição de carga entre alternadores}$
+$$\begin{gather}
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Regulação de tensão e frequência}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{e}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Repartição de carga entre alternadores}}}
+\end{gather}$$
 ---
 """
 
@@ -701,16 +703,11 @@ end
 (Qᵀ, Q₃, Q₄, Q₃ + Q₄), (Qᵀ, Q₃ʼ, Q₄ʼ, Q₃ʼ + Q₄ʼ), (Uᵣ, Uᵣʼ)
 
 # ╔═╡ 40fc37d4-5650-4148-9d55-e8f47023d8cb
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -721,6 +718,11 @@ pluto-output {
 # ╔═╡ 115fb585-3521-45d1-bfef-c14e9023491d
 md"""
 # _Notebook_
+"""
+
+# ╔═╡ 81bfdcd9-833c-4139-ab28-95325bb50942
+md"""
+Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
 """
 
 # ╔═╡ 61071afc-5f68-4362-afe8-7558b8a7cbb3
@@ -758,7 +760,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -768,7 +770,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "e36c37af0f15eade5f5a9563f0dea37e9fff4ca8"
+project_hash = "4b8f2a02971a1f40c1050f140a2940321448e170"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -811,12 +813,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -856,11 +852,6 @@ deps = ["ColorTypes", "FixedPointNumbers", "Reexport"]
 git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.13.1"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1084,12 +1075,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -1232,12 +1217,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1397,23 +1376,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1505,18 +1472,6 @@ deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
-
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -2051,6 +2006,7 @@ version = "1.9.2+0"
 # ╠═f9bfc461-cbbd-479f-829d-991bfa6a086b
 # ╟─40fc37d4-5650-4148-9d55-e8f47023d8cb
 # ╟─115fb585-3521-45d1-bfef-c14e9023491d
+# ╟─81bfdcd9-833c-4139-ab28-95325bb50942
 # ╠═3875d7ad-e592-4d50-84ad-760a35a16801
 # ╟─61071afc-5f68-4362-afe8-7558b8a7cbb3
 # ╟─6ac92bd1-0b05-461e-b123-7b8d483945c1

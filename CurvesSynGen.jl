@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module3"]
 #> date = "2024-10-29"
-#> description = "Este exercício que analisa o funcionamento de um alternador síncrono 3~, com base nos seus dados nominais e característica magnética. Inclui a determinação da corrente de excitação necessária em vazio e em carga, o cálculo da FEM gerada, do binário de acionamento e a construção do diagrama P-Q. São ainda traçadas as características externas da máquina para diferentes fatores de potência (indutivo, capacitivo e unitário), em diferentes condições de funcionamento, permitindo compreender o comportamento do alternador"
+#> description = "Este exercício que analisa o funcionamento de um alternador síncrono 3~ de polos lisos, com base nos seus dados nominais e característica magnética. Inclui a determinação da corrente de excitação necessária em vazio e em carga, o cálculo da FEM gerada, do binário de acionamento e a construção do diagrama P-Q. São ainda traçadas as características externas da máquina para diferentes fatores de potência (indutivo, capacitivo e unitário), em diferentes condições de funcionamento, permitindo compreender o comportamento do alternador."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -51,9 +51,7 @@ $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
 $\text{EXERCÍCIO 2}$ 
 
-$\textbf{Alternador síncrono de polos lisos}$
-
-$\textbf{Curvas características}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Alternador síncrono de polos lisos: curvas características}}}$
 ---
 """
 
@@ -158,7 +156,7 @@ Considerando a equação vetorial da força eletromotriz, $$\overline{E}_0$$, po
 
 $$\overline{E}_0=\overline{U}+(R_s+jX_s)\overline{I}$$
 
-Estando a máquina com as ligações em estrela: $$\quad U=\frac{U_n}{\sqrt3}\quad$$ e $$\quad I=I_n\quad$$ com $$\quad I_n=\frac{S_n}{\sqrt3U_n}$$
+Estando a máquina com as ligações em estrela: $$\quad U=\dfrac{U_n}{\sqrt3}\quad$$ e $$\quad I=I_n\quad$$ com $$\quad I_n=\dfrac{S_n}{\sqrt3U_n}$$
 
 Assim, o vetor da FEM vem dado por:
 
@@ -237,9 +235,9 @@ Para a determinação do diagrama $$P$$\-$$Q$$, conhecidas também por *capabili
 
 Assim, a partir do diagrama vetorial de tensões resultante, o afixo do vetor da tensão, $$\overline{U}$$, marca o início de um sistema de eixos: potência ativa (ordenada) e potência reativa(abcissa).
 
-Os módulos dos vetores: $$\overline{U}$$, $$j X_s\overline{I}$$ e $$\overline{E}_0$$ são multiplicados por $$\frac{3U}{X_s}$$ para se obter uma leitura de potências $$(\mathrm{VAr}, \mathrm{W})$$. Com a máquina em regime nominal são traçados o lugar geométrico das novas grandezas, com as designações:
+Os módulos dos vetores: $$\overline{U}$$, $$j X_s\overline{I}$$ e $$\overline{E}_0$$ são multiplicados por $$\dfrac{3U}{X_s}$$ para se obter uma leitura de potências $$(\mathrm{VAr}, \mathrm{W})$$. Com a máquina em regime nominal são traçados o lugar geométrico das novas grandezas, com as designações:
 - limite térmico do estator (lugar geométrico de $$\overline{S}=3U\overline{I}$$);
-- limite térmico do rotor (lugar geométrico de $$\frac{3U\overline{E}_0}{X_s}-\frac{3U^2}{X_s}$$);
+- limite térmico do rotor (lugar geométrico de $$\dfrac{3U\overline{E}_0}{X_s}-\dfrac{3U^2}{X_s}$$);
 - Adicionalmente coloca-se o limite mecânico do acionamento/turbina.
 
 No caso de um alternador, a área de funcionamento possível, cumprindo diversos os limites (estator, rotor, turbina), fica delimitada pelas curvas estabelecidas no diagrama P-Q, nos 1º e 2º quadrantes $$(\delta\geqslant0)$$.
@@ -314,20 +312,12 @@ md"""
 [^Chapman2005]:  Chapman, S. J., Electric Machinery Fundamentals, 4ᵗʰ edition, McGraw-Hill, USA, 2005.
 """
 
-# ╔═╡ 60ecdb18-d321-48e8-8622-e74960675b3f
-
-
 # ╔═╡ 66d23e11-bab8-4282-a356-e27a97985a41
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -354,7 +344,8 @@ No bloco seguinte definem-se o operador imaginário, `j`, e a função fasor, `�
 # ╔═╡ 00ded203-b6a6-4c1d-a6c4-9b7c97eae79d
 begin
 	j = Base.im 				# to use the Julia imaginary unit, "im", as "j"
-	∠(θ) = cis(deg2rad(θ))  	# to use phasors with angle in degrees. Note: to write the symbol "∠", do: \angle + [TAB] key
+	∠(θ) = cis(deg2rad(θ))  	# to use phasors with angle in degrees. 
+	#Note: to write the symbol "∠", do: \angle + [TAB] key
 end;
 
 # ╔═╡ e29ade22-1092-4a05-b078-d5d50509b875
@@ -401,7 +392,7 @@ end
 
 # ╔═╡ c08ae18e-7857-4dd0-b157-462ef9ab2c34
 md"""
-Assim, de modo similar ao realizado na alína a), obtém-se uma corrente de campo, $$I_{ex}=$$ $(Iₑₓ_Uₙ)A, por um dos processos anteriormente explicados:
+Assim, de modo similar ao realizado na alína a), obtém-se a corrente de campo, $$I_{ex}=$$ $(Iₑₓ_Uₙ)A, por um dos processos anteriormente explicados:
 """
 
 # ╔═╡ 4d172d04-2412-48cf-8136-ccce4fdb0c61
@@ -550,9 +541,6 @@ begin
 	plot!(I, U₆c, label="cosφ=0.8(c)")
 end
 
-# ╔═╡ eb60cb8c-6773-455b-badb-3baa4266efa8
-
-
 # ╔═╡ a8a21207-28b4-4372-9404-177a81b59e83
 md"""
 ## *Setup*
@@ -560,7 +548,7 @@ md"""
 
 # ╔═╡ 95125cfb-d225-4e38-957f-f53d6d206db7
 md"""
-Documentação das bibliotecas `Julia` utilizadas:  [Dierckx](https://github.com/kbarbary/Dierckx.jl), [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/).
+Documentação das bibliotecas `Julia` utilizadas:  [Dierckx](https://github.com/kbarbary/Dierckx.jl), [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
 """
 
 # ╔═╡ e4974853-db6a-4b66-8552-908345633574
@@ -600,7 +588,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 [compat]
 Dierckx = "~0.5.4"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -610,7 +598,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "5510b5b95403a33cbd6110dcc9fd828ed1c0785f"
+project_hash = "affe220aa9ac326fa3a0a896e85c9df6686a28a0"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -653,12 +641,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -699,21 +681,6 @@ git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.13.1"
 
-[[deps.Compat]]
-deps = ["TOML", "UUIDs"]
-git-tree-sha1 = "0037835448781bb46feb39866934e243886d756a"
-uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "4.18.0"
-weakdeps = ["Dates", "LinearAlgebra"]
-
-    [deps.Compat.extensions]
-    CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
-
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
@@ -736,10 +703,10 @@ uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
 version = "1.16.0"
 
 [[deps.DataStructures]]
-deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "4e1fe97fdaed23e9dc21d4d664bea76b65fc50a0"
+deps = ["OrderedCollections"]
+git-tree-sha1 = "76b3b7c3925d943edf158ddb7f693ba54eb297a5"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.22"
+version = "0.19.0"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -948,12 +915,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -1096,12 +1057,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1261,23 +1216,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1370,18 +1313,6 @@ git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
 
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
@@ -1446,9 +1377,9 @@ version = "1.7.1"
 
 [[deps.StatsBase]]
 deps = ["AliasTables", "DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "b81c5035922cc89c2d9523afc6c54be512411466"
+git-tree-sha1 = "2c962245732371acd51700dbb268af311bddd719"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.34.5"
+version = "0.34.6"
 
 [[deps.StyledStrings]]
 uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
@@ -1867,13 +1798,11 @@ version = "1.9.2+0"
 # ╟─9be1b929-edba-41ca-b970-4efcf6ec63c7
 # ╟─68888153-d958-42a9-abd7-463d0b42223b
 # ╟─1884eeff-905c-4ad0-a940-5822aacfd73b
-# ╟─60ecdb18-d321-48e8-8622-e74960675b3f
 # ╟─66d23e11-bab8-4282-a356-e27a97985a41
 # ╟─b689e21d-ff9b-412f-b195-3a3fc56b434b
 # ╟─8390d93f-f542-4ac2-9b07-6aae685105af
 # ╟─2abb9621-8af2-48fa-b6d9-72922f6166a9
 # ╠═00ded203-b6a6-4c1d-a6c4-9b7c97eae79d
-# ╟─eb60cb8c-6773-455b-badb-3baa4266efa8
 # ╟─a8a21207-28b4-4372-9404-177a81b59e83
 # ╟─95125cfb-d225-4e38-957f-f53d6d206db7
 # ╠═46957491-f987-44b2-aa8c-a4215fd534ec

@@ -10,7 +10,7 @@
 #> date = "2024-12-11"
 #> tags = ["lecture", "module4"]
 #> title = "Curto-circuito simétrico de um alternador"
-#> description = "Analisa-se detalhadamente o curto-circuito simétrico 3~ num alternador síncrono em vazio, combinando os fundamentos teóricos com simulação numérica para observar o transitório das correntes de curto-circuito do alternador. Através de parâmetros ajustáveis, como o ângulo de falha (α), os estudantes podem observar como as correntes de curto-circuito (AC e DC) evoluem, compreendendo o papel das reatâncias síncronas e das constantes de tempo. Inclui-se ainda a modelação do transitório da corrente rotórica, enriquecendo a análise com exemplos numéricos e comparações com dados técnicos"
+#> description = "Analisa-se detalhadamente o curto-circuito simétrico 3~ num alternador síncrono em vazio, combinando os fundamentos teóricos com simulação numérica para observar o transitório das correntes de curto-circuito do alternador. Através de parâmetros ajustáveis, como o ângulo de falha (α), os estudantes podem observar como as correntes de curto-circuito (CA e CC) evoluem, compreendendo o papel das reatâncias síncronas e das constantes de tempo. Inclui-se ainda a modelação do transitório da corrente rotórica, enriquecendo a análise com exemplos numéricos e comparações com dados técnicos."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
@@ -119,7 +119,7 @@ md"""
 
 # ╔═╡ 0221326a-605b-40aa-ab08-4fe03055dfec
 md"""
-O regime dinâmico da corrente de curto-circuito de um alternador síncrono é caracterizado por duas parcelas: uma parcela de corrente alternada (AC) e outra parcela de corrente contínua (DC).
+O regime dinâmico da corrente de curto-circuito de um alternador síncrono é caracterizado por duas parcelas: uma parcela de corrente alternada (CA) e outra parcela de corrente contínua (CC).
 """
 
 # ╔═╡ 83efce27-23e9-4a59-b79e-7cd3816788bb
@@ -127,21 +127,28 @@ O regime dinâmico da corrente de curto-circuito de um alternador síncrono é c
 
 # ╔═╡ 19e3e5f1-1a7e-4d7c-9e67-8cde3e743067
 md"""
-## Componente AC da corrente de curto-circuito
+## Componente CA da corrente de curto-circuito
 """
+
+# ╔═╡ cf14f85b-0b98-4fac-8a3c-ed8a01acea04
+HTML("""
+<div style="overflow-x: auto; padding: 10px;">
+$(repr("text/html", md"""
+$$\tag{1}
+i_k^{\text{ac}}(t) = \sqrt{2} E_0 \left[ \left( \frac{1}{X_d''} - \frac{1}{X_d'} \right) e^{-\frac{t}{T_d''}} + \left( \frac{1}{X_d'} - \frac{1}{X_d} \right) e^{-\frac{t}{T_d'}} + \frac{1}{X_d} \right] \sin\left( \omega t + \alpha + \varphi + \theta_k \right)\qquad$$
+"""))
+</div>
+""")
 
 # ╔═╡ f739b445-4928-4bac-8263-7be8b444392b
 md"""
-$\tag{1}
-i_k^{\text{ac}}(t) = \sqrt{2} E_0 \left[ \left( \frac{1}{X_d''} - \frac{1}{X_d'} \right) e^{-\frac{t}{T_d''}} + \left( \frac{1}{X_d'} - \frac{1}{X_d} \right) e^{-\frac{t}{T_d'}} + \frac{1}{X_d} \right] \sin\left( \omega t + \alpha + \varphi + \theta_k \right)$
-
 com:\
-$\quad\quad k = \{1, 2, 3\}, \:\:\text{fases 1, 2 e 3 do alternador}$\
-$\quad\quad E_0 \text{: força eletromotriz por fase}$\
-$\quad\quad \omega = 2\pi f, \:\:\text{velocidade angular elétrica}$ \
-$\quad\quad \alpha \text{: posição angular da tensão no momento que antecede o curto-circuito, } (t=0^-)$\
-$\quad\quad \varphi = -\dfrac{\pi}{2}, \:\:\text{posição angular da corrente em relação à força eletromotriz}$\
-$\quad\quad \theta_k = [0, \dfrac{-2π}{3}, \dfrac{2π}{3}],\:\:\text{posição angular relativa entre as fases 1, 2 e 3}$
+$\qquad k = \{1, 2, 3\}, \:\:\text{fases 1, 2 e 3 do alternador}$\
+$\qquad E_0 \text{: força eletromotriz por fase}$\
+$\qquad \omega = 2\pi f, \:\:\text{velocidade angular elétrica}$ \
+$\qquad \alpha \text{: posição angular da tensão no momento que antecede o curto-circuito, } (t=0^-)$\
+$\qquad \varphi = -\dfrac{\pi}{2}, \:\:\text{posição angular da corrente em relação à força eletromotriz}$\
+$\qquad \theta_k = \bigl[0, \dfrac{-2π}{3}, \dfrac{2π}{3}\bigr],\:\:\text{posição angular relativa entre as fases 1, 2 e 3}$
 """
 
 # ╔═╡ f3d503e8-9bf7-4010-9b9c-63ac7deed103
@@ -152,31 +159,11 @@ md"""
 A expansão da expressão de $(1)$, permite segmentar as parcelas nos períodos: subtransitório, transitório e estacionário, $(2)$:
 """
 
-# ╔═╡ ee66c76e-7f66-40d5-9fea-85129dbeb9bf
-md"""
-$\begin{aligned}
-i_k^{\text{ac}}(t) &= \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d''} - \frac{\sqrt{2} E_0}{X_d'} \right) e^{-\frac{t}{T_d''}} 
-\sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período subtransitório}} \:\: +\\[3mm]
-&\quad \: + \: \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d'} - \frac{\sqrt{2} E_0}{X_d} \right) e^{-\frac{t}{T_d'}} 
-\sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período transitório}} \: + \\[3mm] 
-&\quad \: + \: \underbrace{ \frac{\sqrt{2} E_0}{X_d} \sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período estacionário}}
-\end{aligned}
-\tag{2}$
-"""
-
-# ╔═╡ 7e77e293-dee6-4de8-b0fd-78a21cd01512
-md"""
-$$i_k^{\text{ac}}(t) = \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d''} - \frac{\sqrt{2} E_0}{X_d'} \right) e^{-\frac{t}{T_d''}} 
-\sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período subtransitório}} \: + \: \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d'} - \frac{\sqrt{2} E_0}{X_d} \right) e^{-\frac{t}{T_d'}} 
-\sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período transitório}} \: + \: \underbrace{ \frac{\sqrt{2} E_0}{X_d} \sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período estacionário}}
-\tag{2}$$
-"""
-
 # ╔═╡ 6271aff5-46c0-4054-a07c-a6f0bffbb166
 HTML("""
 <div style="overflow-x: auto; padding: 10px;">
 $(repr("text/html", md"""
-$$i_k^{\text{ac}}(t) = \underbrace{\left(\frac{\sqrt{2} E_0}{X_d''} - \frac{\sqrt{2} E_0}{X_d'}\right) e^{-\frac{t}{T_d''}} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período subtransitório}} \: + \: \underbrace{\left(\frac{\sqrt{2} E_0}{X_d'} - \frac{\sqrt{2} E_0}{X_d}\right) e^{-\frac{t}{T_d'}} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período transitório}} \: + \: \underbrace{\frac{\sqrt{2} E_0}{X_d} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período estacionário}} \tag{2}$$
+$$i_k^{\text{ac}}(t) = \underbrace{\left(\frac{\sqrt{2} E_0}{X_d''} - \frac{\sqrt{2} E_0}{X_d'}\right) e^{-\frac{t}{T_d''}} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período subtransitório}} \: + \: \underbrace{\left(\frac{\sqrt{2} E_0}{X_d'} - \frac{\sqrt{2} E_0}{X_d}\right) e^{-\frac{t}{T_d'}} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período transitório}} \: + \: \underbrace{\frac{\sqrt{2} E_0}{X_d} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período estacionário}}\qquad \tag{2}$$
 """))
 </div>
 """)
@@ -216,7 +203,7 @@ t = 0:0.001:5;
 
 # ╔═╡ 14dab71f-ea8d-4048-af48-7714165935a3
 md"""
-## Componente DC da corrente de curto-circuito
+## Componente CC da corrente de curto-circuito
 """
 
 # ╔═╡ a5b969d0-d700-427f-85b4-6f44b49090d5
@@ -236,7 +223,7 @@ md"""
 
 # ╔═╡ f346e683-ff83-4fd7-9099-547a739535ef
 md"""
-A corrente de curto-circuito do alternador, $i_k(t)$, vem dada pela soma das componentes AC e DC, $(5)$:
+A corrente de curto-circuito do alternador, $i_k(t)$, vem dada pela soma das componentes CA e CC, $(5)$:
 """
 
 # ╔═╡ 83fdb910-fe1b-41d2-ab8c-01f528f22328
@@ -271,14 +258,22 @@ md"""
 ## 💻 Gráfico das correntes de curto-circuito
 """
 
-# ╔═╡ 9b1a6a48-b110-4a07-b98b-430e8df6ca31
-md"""
- $(@bind seletor MultiSelect(["i₁", "i₂", "i₃", "i₁ᵉⁿᵛ", "i₂ᵉⁿᵛ", "i₃ᵉⁿᵛ"]))  $$\quad\quad$$ tmin: $(@bind Xmin Slider(0:0.01:2.5, default=0, show_value=true)) $$\quad\quad$$ tmax: $(@bind Xmax Slider(0.1:0.01:5, default=5, show_value=true)) 
-
-Posição angular da tensão, $$\alpha =$$ $(@bind α Slider(0:1:360, default=0, show_value=true))$$\degree$$ no momento que antecede o curto-circuito $$(t=0^-)$$ 
-
-
-"""
+# ╔═╡ d70a14d1-3ff3-4e7a-84b2-bb08fe91956b
+Columns(md"""Seletor das correntes:\
+		  $$\qquad$$ $(@bind seletor MultiSelect(["i₁", "i₂", "i₃", "i₁ᵉⁿᵛ", "i₂ᵉⁿᵛ", "i₃ᵉⁿᵛ"]; default=["i₃", "i₃ᵉⁿᵛ"]))
+		  """, md"""
+		Posição angular da tensão, $$\alpha$$, 
+		
+		 $$\qquad$$ $(@bind α Slider(0:1:360, default=0, show_value=true))$$\degree$$ \
+		
+		no momento que antecede o curto-circuito $$(t=0^-)$$		
+		""",
+		md""" $$\qquad$$ Intervalo de tempo:
+		  
+		 $$\quad$$ tmin: $(@bind Xmin Slider(0:0.01:2.5, default=0, show_value=false))
+		
+		 $$\quad$$ tmax: $(@bind Xmax Slider(0.1:0.01:5, default=5, show_value=false)) 
+		  """)
 
 # ╔═╡ b1d68348-6466-458f-ac1a-7bcb77ba42d9
 begin
@@ -358,7 +353,7 @@ md"""
 
 # ╔═╡ d3683113-63a5-4d13-a5e0-26bb11ce5fda
 md"""
-A extração da componente DC da corrente de curto-circuito, $i_k^{dc}(t)$, corresponde a determinar o valor intermédio entre as envolventes da corrente de curto-circuito, $(7)$:
+A extração da componente CC da corrente de curto-circuito, $i_k^{dc}(t)$, corresponde a determinar o valor intermédio entre as envolventes da corrente de curto-circuito, $(7)$:
 """
 
 # ╔═╡ 5d11f908-4a59-48ed-9c70-8da0c7dcacf1
@@ -378,13 +373,13 @@ begin
 	plot(t, i₃ᵉⁿᵛᴾ, label="i₃ᵉⁿᵛᴾ", ylabel="Corrente de curto-circuito (kA)")
 	plot!(t, i₃ᵉⁿᵛᴺ, label="i₃ᵉⁿᵛᴺ", yaxis=[-30e3, 30e3], size=[700, 400],
 									 yticks=(-30e3:10e3:30e3, [-30 -20 -10 0 10 20 30]))
-	plot!(t, i₃ᵈᶜ, label="i₃ᵈᶜ", lw=2, title="2 - Componente DC", xlabel="\$ t\$ (s)")
+	plot!(t, i₃ᵈᶜ, label="i₃ᵈᶜ", lw=2, title="2 - Componente CC", xlabel="\$ t\$ (s)")
 	plot!(t, (i₃ᵉⁿᵛᴾ .+ i₃ᵉⁿᵛᴺ)/2, label="cálculo i₃ᵈᶜ", lw=2)
 end
 
 # ╔═╡ 4f0b5c24-2bae-4710-ac87-52fd33dccb5f
 md"""
-Note-se que a componente DC da corrente de curto-circuito depende da posição angular, $\alpha$, da tensão (igual à força eletromotriz) no momento que antecede o curto-circuito. O resultado atual do gráfico 2 relativo à componente DC da corrente da fase 3, está apresentado para $\alpha=$ $(α)°.
+Note-se que a componente CC da corrente de curto-circuito depende da posição angular, $\alpha$, da tensão (igual à força eletromotriz) no momento que antecede o curto-circuito. O resultado atual do gráfico 2 relativo à componente CC da corrente da fase 3, está apresentado para $\alpha=$ $(α)°.
 """
 
 # ╔═╡ dd4635a7-373d-444f-b1e4-6095056f6527
@@ -405,13 +400,13 @@ begin
 	#plotly()
 	plot(t, i₃ᵉⁿᵛᴾ-i₃ᵈᶜ, label= "envolvente de i₃ᵃᶜ", lw=2, yaxis=[-30e3, 30e3],
 						yticks=(-30e3:10e3:30e3,[-30, -20, -10, 0 ,10, 20, 30]),
-						title="3 - Envolvente AC", xlabel="t (s)", legend=:bottomright,
+						title="3 - Envolvente CA", xlabel="t (s)", legend=:bottomright,
 						 ylabel="Corrente de curto-circuito (kA)", size=[700, 400])
 end
 
 # ╔═╡ c8eca392-f1d3-4ad1-a996-6ef11e6e6cc7
 md"""
-A representação da envolvente da componente AC da corrente de curto-circuito em um gráfico semilogarítmico permite evidenciar os decaimentos exponenciais, que aparecem como retas proporcionais na escala logarítmica:
+A representação da envolvente da componente CA da corrente de curto-circuito em um gráfico semilogarítmico permite evidenciar os decaimentos exponenciais, que aparecem como retas proporcionais na escala logarítmica:
 """
 
 # ╔═╡ fe91d744-8fe1-4674-9fc8-a180a35c6f47
@@ -423,7 +418,7 @@ plot(t, i₃ᵉⁿᵛᴾ.- i₃ᵈᶜ, yscale=:log10, xlims=[0,5], label=:none, 
 
 # ╔═╡ f3dfed46-ddcb-4dc1-a654-682402a217f7
 md"""
-**Corrente de curto-circuito fase 3 (sem componente DC)**\
+**Corrente de curto-circuito fase 3 (sem componente CC)**\
 Representar sinusoide da corrente de curto-circuito? $(@bind z CheckBox())
 """
 
@@ -435,7 +430,7 @@ begin
 		plot(t, i₃ᵉⁿᵛᴾ-i₃ᵈᶜ, label= "envolvente período subtransitório", lc=:green, 							     lw=2, yaxis=[-15e3, 15e3],
 							 yticks=(-15e3:5e3:15e3,[-15, -10, -5, 0 ,5, 10, 15]))
 		plot!(t, i₃ᵉⁿᵛᴾ .- i₃ᵈᶜ.- √2E₀*((1/Xdʼʼ-1/Xdʼ)*exp.(-t/Tdʼʼ)), lw=2, xaxis=[0, 5],
-			label= "envolvente período transitório + reg. permanente",legend=:bottomright, title="5 - Corrente de curto-circuito fase 3 (sem componente DC)", lc=:purple,
+			label= "envolvente período transitório + reg. permanente",legend=:bottomright, title="5 - Corrente de curto-circuito fase 3 (sem componente CC)", lc=:purple,
 			xlabel="t (s)",  ylabel="Corrente de curto-circuito (kA)", size=[700, 400])	
 	else
 		plotly()
@@ -444,7 +439,7 @@ begin
 		plot!(t, i₃ᵉⁿᵛᴾ-i₃ᵈᶜ, label= "envolvente período subtransitório", lc=:green, 								  lw=2, yaxis=[-15e3, 15e3],
 							  yticks=(-15e3:5e3:15e3,[-15, -10, -5, 0 ,5, 10, 15]))
 		plot!(t, i₃ᵉⁿᵛᴾ .- i₃ᵈᶜ.- √2E₀*((1/Xdʼʼ-1/Xdʼ)*exp.(-t/Tdʼʼ)), lw=2, xaxis=[0, 5],
-			label= "envolvente período transitório + regime permanente",legend=:bottomright, title="5 - Corrente de curto-circuito fase 3 (sem componente DC)", lc=:purple,
+			label= "envolvente período transitório + regime permanente",legend=:bottomright, title="5 - Corrente de curto-circuito fase 3 (sem componente CC)", lc=:purple,
 			xlabel="t (s)",  ylabel="Corrente de curto-circuito (kA)", size=[700, 400])	
 	end
 end
@@ -483,12 +478,16 @@ Iʼ = 10^3.88
 
 # ╔═╡ 19d21193-40ca-4a40-a627-a1cd5ce3fca4
 md"""
-- Corrente máxima da corrente durante o regime transitório do curto-circuito, $I'=$ $(round(Iʼ/1000, digits=1)) $$\rm{kA}$$;
+- Corrente máxima da corrente durante o regime transitório do curto-circuito:
+ $I'=$ $(round(Iʼ/1000, digits=1)) $$\rm{kA}$$;
 """
+
+# ╔═╡ 693e918c-20f7-498f-b661-8210a8cc9e7c
+
 
 # ╔═╡ c8e0da9b-c906-4aa7-a23b-9856075dccac
 md"""
-O valor máximo da corrente no período subtransitório, $I''$, obtém-se da envolvente AC, sem componente DC, em $(t=0 \rm{s})$: 
+O valor máximo da corrente no período subtransitório, $I''$, obtém-se da envolvente CA, sem componente CC, em $(t=0 \rm{s})$: 
 """
 
 # ╔═╡ 27e08a96-4433-4863-ae70-436f029acf4b
@@ -496,7 +495,8 @@ Iʼʼ= 14.786e3
 
 # ╔═╡ a3638e5b-755a-4852-b9cd-532dbc326f85
 md"""
-- Corrente máxima da corrente durante o regime subtransitório do curto-circuito, $I''=$ $(round(Iʼʼ/1000, digits=1)) $$\rm{kA}$$;
+- Corrente máxima da corrente durante o regime subtransitório do curto-circuito:
+ $I''=$ $(round(Iʼʼ/1000, digits=1)) $$\rm{kA}$$;
 """
 
 # ╔═╡ 4b9bfe70-990b-4828-9dac-1edcc2af4a1e
@@ -570,7 +570,7 @@ md"""
 
 # ╔═╡ 89172a2f-0aec-441e-b18a-0e19b5e932e0
 md"""
-As constantes de tempo subtransitória, transitória e da armadura são obtidas observando os decaimentos exponenciais da corrente a cerca de $36.8\%$ (ou seja, correspondente ao valor $e^{-1}$), das respetivas componentes com decaimento da corrente de curto-circuito: subtransitória, transitória e corrente contínua, [^3].
+As constantes de tempo subtransitória, transitória e da armadura são obtidas observando os decaimentos exponenciais da corrente a cerca de $36.8\%$ (que corresponde ao valor $e^{-1}$), das respetivas componentes com decaimento da corrente de curto-circuito: subtransitória, transitória e corrente contínua, [^3].
 """
 
 # ╔═╡ cfdc1c31-2738-4361-ab53-be4c9eb02888
@@ -627,15 +627,15 @@ Consultando um dos gráficos (4 ou 5), verifica-se que o tempo correspondente à
 
 # ╔═╡ 12e745a9-bd8f-4c55-8a08-307ad947d5b3
 md"""
-A constante de tempo da armadura é obtida pela análise do decaimento da componente DC da corrente de curto-circuito:
+A constante de tempo da armadura é obtida pela análise do decaimento da componente CC da corrente de curto-circuito:
 """
 
 # ╔═╡ 510600cd-3de4-4d2b-8296-f4723063c7c0
 begin
 	#plotly()
-	plot(t, i₃ᵈᶜ, xticks=20, label="i₃ᵈᶜ",  size=[700, 400], lw=2,												  title="6 - Componente DC do curto-circuito",
+	plot(t, i₃ᵈᶜ, xticks=20, label="i₃ᵈᶜ",  size=[700, 400], lw=2,												  title="6 - Componente CC do curto-circuito",
 				  yaxis=[-15e3, 15e3], yticks=(-15e3:5e3:15e3,[-15, -10, -5, 0 ,5, 10, 15]),
-				  xlabel="t (s)",  ylabel="Componente DC (kA)")
+				  xlabel="t (s)",  ylabel="Componente CC (kA)")
 end
 
 # ╔═╡ 83f92eaa-02bb-4a46-a989-02d9ae4d0c74
@@ -651,7 +651,7 @@ I₃ᵈᶜ = i₃ᵈᶜ[1]
 
 # ╔═╡ 2692d457-7f1e-4808-bb8f-3344387c374a
 md"""
-Consultando o valor do decaimento da corrente da componente DC no gráfico 6, obtém-se a contante de tempo da armadura:
+Consultando o valor do decaimento da corrente da componente CC no gráfico 6, obtém-se a contante de tempo da armadura:
 """
 
 # ╔═╡ 57863975-5545-44db-ac02-9e5725eef09e
@@ -664,7 +664,7 @@ md"""
 
 # ╔═╡ f0bb7a7b-34ab-4b6d-8f88-e228ce2da6f4
 md"""
-Adicionalmente determina-se a corrente máxima da componente DC que pode ocorrer no curto-circuito em qualquer das fases, $i_k^{dc_{max}}(t=0)$, $(11)$:
+Adicionalmente determina-se a corrente máxima da componente CC que pode ocorrer no curto-circuito em qualquer das fases, $i_k^{dc_{max}}(t=0)$, $(11)$:
 """
 
 # ╔═╡ af92d350-582c-4549-bf8a-a8dc7670cbc5
@@ -710,7 +710,7 @@ md"""
 
 # ╔═╡ 10f0abae-f3cc-44b7-9ae5-bf91a6a93b67
 md"""
-O valor eficaz (máximo) que pode ocorrer no curto-circuito trifásico do alternador tem em conta as duas componentes AC e DC, $(13)$:
+O valor eficaz (máximo) que pode ocorrer no curto-circuito trifásico do alternador tem em conta as duas componentes CA e CC, $(13)$:
 
 $\tag{13}
 I_{cc}^{rms} = \sqrt{(I'')^2 + (I_{cc}^{dc_{máx}})^2}$
@@ -805,12 +805,12 @@ $i_f(t) = I_{f0} + I_{f0} \left( \frac{X_d - X_d'}{X_d} \right) \left[ e^{-\frac
 
 # ╔═╡ 3a026946-a228-4269-a26e-e4825bae4c46
 md"""
-Da análise ao transitório da corrente rotórica, verifica-se que a componente DC da corrente de curto-circuito em cada fase gera uma componente alternada associada ao transitório da corrente do rotor. Essa componente AC apresenta um decaimento exponencial da sua amplitude, determinado pela constante de tempo da armadura, $T_a$.
+Da análise ao transitório da corrente rotórica, verifica-se que a componente CC da corrente de curto-circuito em cada fase gera uma componente alternada associada ao transitório da corrente do rotor. Essa componente CA apresenta um decaimento exponencial da sua amplitude, determinado pela constante de tempo da armadura, $T_a$.
 """
 
 # ╔═╡ 3d349b98-3861-42bf-b489-272371d9dbb5
 md"""
-Da mesma forma a componente AC rotórica gera uma componente contínua nas correntes de curto-circuito dos enrolamentos do estator. 
+Da mesma forma a componente CA rotórica gera uma componente contínua nas correntes de curto-circuito dos enrolamentos do estator. 
 """
 
 # ╔═╡ 087f40d5-5466-4a6b-9c47-26327d81a46b
@@ -932,7 +932,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -942,7 +942,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "e36c37af0f15eade5f5a9563f0dea37e9fff4ca8"
+project_hash = "4b8f2a02971a1f40c1050f140a2940321448e170"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -985,12 +985,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -1030,11 +1024,6 @@ deps = ["ColorTypes", "FixedPointNumbers", "Reexport"]
 git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.13.1"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1258,12 +1247,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -1406,12 +1389,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1571,23 +1548,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1679,18 +1644,6 @@ deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
-
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
@@ -2133,11 +2086,10 @@ version = "1.9.2+0"
 # ╟─0221326a-605b-40aa-ab08-4fe03055dfec
 # ╟─83efce27-23e9-4a59-b79e-7cd3816788bb
 # ╟─19e3e5f1-1a7e-4d7c-9e67-8cde3e743067
+# ╟─cf14f85b-0b98-4fac-8a3c-ed8a01acea04
 # ╟─f739b445-4928-4bac-8263-7be8b444392b
 # ╟─f3d503e8-9bf7-4010-9b9c-63ac7deed103
 # ╟─bc723dc3-455d-483b-86f8-ff93f4d8c751
-# ╟─ee66c76e-7f66-40d5-9fea-85129dbeb9bf
-# ╟─7e77e293-dee6-4de8-b0fd-78a21cd01512
 # ╟─6271aff5-46c0-4054-a07c-a6f0bffbb166
 # ╟─bd3abdf6-c73f-424c-a8e5-a9bcc0b1bb7e
 # ╟─02f68b6a-ef07-448e-9f8c-965496177e13
@@ -2161,7 +2113,7 @@ version = "1.9.2+0"
 # ╠═494fb8f8-2b95-410b-b6fb-635b482d7a73
 # ╟─b287fb68-1d55-4590-8143-89a1d424e370
 # ╟─17984570-cac9-4a8f-93df-1dbba973be2b
-# ╟─9b1a6a48-b110-4a07-b98b-430e8df6ca31
+# ╟─d70a14d1-3ff3-4e7a-84b2-bb08fe91956b
 # ╠═8f414dc5-216b-404f-b19b-fdd005f8316b
 # ╟─9d630b0e-29f6-4dd3-9d24-7998d3166b70
 # ╟─aa5795f2-ff47-49cc-a2fb-597ca71029f5
@@ -2188,8 +2140,9 @@ version = "1.9.2+0"
 # ╠═c68c360e-bb24-4597-ab9b-88e481069889
 # ╟─9aaf18f6-2d1e-4e96-9028-b7c7edfcaaed
 # ╟─99e068c1-894d-4033-8f79-babfe50e0ba1
-# ╠═15fc4a73-e39f-4254-a03b-3954becbbf92
 # ╟─19d21193-40ca-4a40-a627-a1cd5ce3fca4
+# ╠═15fc4a73-e39f-4254-a03b-3954becbbf92
+# ╟─693e918c-20f7-498f-b661-8210a8cc9e7c
 # ╟─c8e0da9b-c906-4aa7-a23b-9856075dccac
 # ╟─a3638e5b-755a-4852-b9cd-532dbc326f85
 # ╠═27e08a96-4433-4863-ae70-436f029acf4b

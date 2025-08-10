@@ -10,11 +10,11 @@
 #> date = "2024-11-18"
 #> tags = ["lecture", "module3"]
 #> layout = "layout.jlhtml"
-#> description = "Este notebook apresenta de forma interativa os princípios e técnicas associados à sincronização de um alternador síncrono3~ com a rede elétrica, aplicáveis também à ligação em paralelo entre alternadores. Através do oscilograma e da representação vetorial das grandezas envolvidas, é possível compreender as condições elétricas que devem ser satisfeitas no momento da ligação de um alternador. O objetivo é ilustrar, de forma clara, a correspondência entre as tensões da máquina e da rede durante o processo de sincronização"
+#> description = "Este notebook apresenta de forma interativa os princípios e técnicas associados à sincronização de um alternador síncrono3~ com a rede elétrica, aplicáveis também à ligação em paralelo entre alternadores. Através do oscilograma e da representação vetorial das grandezas envolvidas, é possível compreender as condições elétricas que devem ser satisfeitas no momento da ligação de um alternador. O objetivo é ilustrar, de forma clara, a correspondência entre as tensões da máquina e da rede durante o processo de sincronização."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -49,9 +49,7 @@ md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
-$\textbf{Sincronização de um alternador}$ 
-
-$\text{Observação temporal e fasorial}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Sincronização de um alternador: observação temporal e fasorial}}}$
 ---
 """
 
@@ -64,7 +62,7 @@ Este _notebook_ pretende apresentar de forma interativa os princípios e as téc
 
 # ╔═╡ b5b19f34-5819-4d0d-8ff7-933ae22d1ede
 md"""
-Este _notebook_ não está finalizado estando previstas diversas atividades.
+**Este _notebook_ não está finalizado estando previstas diversas atividades.**
 
 TODO list:
 
@@ -87,25 +85,26 @@ TODO list:
 # ╔═╡ eb025b44-4dd3-4c85-8341-8fcdd8ca81ef
 
 
-# ╔═╡ bb9cccb1-0428-462d-a4d5-af100b42a3cf
-
-
-# ╔═╡ 0ab243fe-a80f-4080-9b28-0d247bdd0d8a
-
-
 # ╔═╡ 1a3ab68f-fa0c-408e-9ee9-cd534b7785e1
 md"""
 # 💻 Processo de sincronização
-
-**cliclar para  `tick/sec` no início!  🔽** (ajuste da velocidade de visualização)
-
+\
+**Cliclar para  `tick/sec` no início!  👇** (ajuste da velocidade de visualização)
  $(@bind t Clock(50))  
-
-Frequência do alternador $(\rm Hz)$: $(@bind slider_freq Slider(45:0.1:55, show_value=true, default=50)) $$\quad\quad$$ Tensões do alternador $$(\rm pu)$$: $(@bind slider_amplitude Slider(0:0.1:1.5, show_value=true, default=0))
 """
 # Use Clock for continuous update (keeping the cell running)
 # @bind t Clock(50)  # Set clock with an update value of 50
 
+# ╔═╡ ddc298fd-21c2-4e5f-b70a-fe4861eaeff1
+Columns(md"""
+		Frequência do alternador $(\rm Hz)$:
+		
+		 $$\quad$$ $(@bind slider_freq Slider(45:0.1:55, show_value=true, default=50))
+		""", md"""
+		Tensões do alternador $$(\rm pu)$$:
+
+		 $$\quad$$ $(@bind slider_amplitude Slider(0:0.1:1.5, show_value=true, default=0))
+		""")
 # Slider to control the alternator frequency between 45 and 55 Hz
 # @bind slider_freq Slider(45:0.1:55, show_value=true, default=50)
 
@@ -116,9 +115,6 @@ Frequência do alternador $(\rm Hz)$: $(@bind slider_freq Slider(45:0.1:55, show
 
 
 # ╔═╡ ebd0d744-3ee8-4a1c-a337-e32ef5b6350f
-
-
-# ╔═╡ 02f5a7d0-4a1b-42e1-b687-67c0f0c59c79
 
 
 # ╔═╡ aa567fce-56d7-4603-b0fb-bbbc8828a920
@@ -253,23 +249,18 @@ initial_phase_grid = rand() * π;   # Random initial phase, same for all phasors
     highlighted_value_grid[] = values_grid
 
     # Display the plots side by side
-    plot(p1, p2, layout=(1, 2), size=(800, 400))
+    plot(p1, p2, layout=(1, 2), size=(690, 345))
 end
 
 # ╔═╡ c636562e-c20a-491c-a666-06c80cc6356a
 
 
 # ╔═╡ 44fadf74-969f-47d7-b653-351bb0ac4db1
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -290,9 +281,6 @@ O processo iniciou-se com o seguinte _prompt_:\
 $(@bind poem TextField((112, 4), "Utilizando Julia com Pluto.jl e Plots.jl, crie um gráfico interativo de uma onda sinusoidal, deslocando-se como a visualização num osciloscópio. A onda deve ser representada no tempo e no espaço, com o vetor de deslocamento angular (fasor) atualizado em tempo real, para um dado instante periódico, do movimento da onda ao longo do tempo. Adicionalmente, a frequência deve ser controlável via slider (PlutoUI.jl)."))
 """
 
-# ╔═╡ f1185e20-95aa-4f4f-a08a-e641a133099d
-
-
 # ╔═╡ 696045ec-f351-4b70-ba70-83b107fe5014
 md"""
 ## _Setup_
@@ -300,7 +288,7 @@ md"""
 
 # ╔═╡ 2b072110-8590-4573-a37a-fe13c12c97e7
 md"""
-Documentação das bibliotecas Julia utilizadas: [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Plots](http://docs.juliaplots.org/latest/), [Observables](https://juliagizmos.github.io/Observables.jl/stable/), .
+Documentação das bibliotecas Julia utilizadas: [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Plots](http://docs.juliaplots.org/latest/), [Observables](https://juliagizmos.github.io/Observables.jl/stable/), .
 """
 
 # ╔═╡ 49d3eaec-0b12-40e9-a221-8211131bbd4b
@@ -340,7 +328,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 [compat]
 Observables = "~0.5.5"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -350,7 +338,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "4116a4fa70bdb2696d172b82107be0899de8114b"
+project_hash = "449c692fd8c9feb4d499c6773d2a6be65cac1d87"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -393,12 +381,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -439,21 +421,6 @@ git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.13.1"
 
-[[deps.Compat]]
-deps = ["TOML", "UUIDs"]
-git-tree-sha1 = "0037835448781bb46feb39866934e243886d756a"
-uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "4.18.0"
-weakdeps = ["Dates", "LinearAlgebra"]
-
-    [deps.Compat.extensions]
-    CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
-
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
@@ -476,10 +443,10 @@ uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
 version = "1.16.0"
 
 [[deps.DataStructures]]
-deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "4e1fe97fdaed23e9dc21d4d664bea76b65fc50a0"
+deps = ["OrderedCollections"]
+git-tree-sha1 = "76b3b7c3925d943edf158ddb7f693ba54eb297a5"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.22"
+version = "0.19.0"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -676,12 +643,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -824,12 +785,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -994,23 +949,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1103,18 +1046,6 @@ git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
 
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
@@ -1179,9 +1110,9 @@ version = "1.7.1"
 
 [[deps.StatsBase]]
 deps = ["AliasTables", "DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "b81c5035922cc89c2d9523afc6c54be512411466"
+git-tree-sha1 = "2c962245732371acd51700dbb268af311bddd719"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.34.5"
+version = "0.34.6"
 
 [[deps.StyledStrings]]
 uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
@@ -1545,13 +1476,11 @@ version = "1.9.2+0"
 # ╟─8488ef93-2996-41a7-a52e-097cfb069567
 # ╟─b5b19f34-5819-4d0d-8ff7-933ae22d1ede
 # ╟─eb025b44-4dd3-4c85-8341-8fcdd8ca81ef
-# ╟─bb9cccb1-0428-462d-a4d5-af100b42a3cf
-# ╟─0ab243fe-a80f-4080-9b28-0d247bdd0d8a
 # ╟─1a3ab68f-fa0c-408e-9ee9-cd534b7785e1
+# ╟─ddc298fd-21c2-4e5f-b70a-fe4861eaeff1
 # ╟─98783ee6-1d7c-4361-9080-6ae84f4df149
 # ╠═928b23a5-55a7-4482-994c-b4482a65ed5f
 # ╠═ebd0d744-3ee8-4a1c-a337-e32ef5b6350f
-# ╟─02f5a7d0-4a1b-42e1-b687-67c0f0c59c79
 # ╟─aa567fce-56d7-4603-b0fb-bbbc8828a920
 # ╟─797de772-90b2-4968-93e5-1a79cbf8cdda
 # ╠═3140f83d-8d30-4dea-8449-6562d61bdcf8
@@ -1568,7 +1497,6 @@ version = "1.9.2+0"
 # ╟─44fadf74-969f-47d7-b653-351bb0ac4db1
 # ╟─eed84f60-3cb8-4541-8c39-5592bcd12b41
 # ╟─466b7448-efe6-4d09-a67a-18724051d0a2
-# ╟─f1185e20-95aa-4f4f-a08a-e641a133099d
 # ╟─696045ec-f351-4b70-ba70-83b107fe5014
 # ╟─2b072110-8590-4573-a37a-fe13c12c97e7
 # ╠═27615c10-a029-11ef-0909-737cb1f58c1e

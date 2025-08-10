@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module3"]
 #> date = "2024-11-18"
-#> description = "Neste exercício, relacionam-se os diagramas vetoriais de tensões de uma máquina síncrona de pólos lisos com as suas curvas “V”, também designadas por curvas de Mordey. São obtidas as equações das curvas V no regime de potência ativa nula e identificados os pontos de excitação ótima. Analisa-se o comportamento da máquina nos regimes sobreexcitado e subexcitado, no funcionamento como alternador, sendo o raciocínio extensível ao modo motor. O estudo é complementado com a análise do funcionamento da máquina como compensador síncrono, ilustrando graficamente os diagramas vetoriais nos modos de operação como condensador síncrono e como reator síncrono"
+#> description = "Neste exercício, relacionam-se os diagramas vetoriais de tensões de uma máquina síncrona de pólos lisos com as suas curvas “V”, também designadas por curvas de Mordey. São obtidas as equações das curvas V no regime de potência ativa nula e identificados os pontos de excitação ótima. Analisa-se o comportamento da máquina nos regimes sobreexcitado e subexcitado, no funcionamento como alternador, sendo o raciocínio extensível ao modo motor. O estudo é complementado com a análise do funcionamento da máquina como compensador síncrono, ilustrando graficamente os diagramas vetoriais nos modos de operação como condensador síncrono e como reator síncrono."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -51,9 +51,10 @@ $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
 $\text{EXERCÍCIO 6}$ 
 
-$\textbf{Máquina síncrona de polos lisos}$
-
-$\textbf{Contrução analítica das curvas "V" (curvas de Mordey)}$
+$$\begin{gather}
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Máquina síncrona de polos lisos}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Contrução analítica das curvas "V" (curvas de Mordey)}}}
+\end{gather}$$
 ---
 """
 
@@ -82,7 +83,7 @@ $$0;\quad 5;\quad 10;\quad 15;\quad 20;\quad \mathrm {kW, \: kVAr}$$
 
 # ╔═╡ 159419d5-0555-43a0-8320-9cb51e0b05ba
 md"""
-Conforme se verificou anteriormente, no traçado do diagrama P-Q para um alternador síncrono (Exercício 2), no diagrama vetorial de tensões, o vetor da queda de tensão na reatância síncrona, dado por $$jX_s\overline I$$, pode ser transformado no vetor de potência aparente, $$\overline S= P+ jQ$$, se multiplicarmos por um fator de escala constante: $$\frac{3U}{X_s}$$. 
+Conforme se verificou anteriormente, no traçado do diagrama P-Q para um alternador síncrono (Exercício 2), no diagrama vetorial de tensões, o vetor da queda de tensão na reatância síncrona, dado por $$jX_s\overline I$$, pode ser transformado no vetor de potência aparente, $$\overline S= P+ jQ$$, se multiplicarmos por um fator de escala constante: $$\dfrac{3U}{X_s}$$. 
 
 Desta forma, a posição dos afixos dos vetores, $$jX_s\overline I$$ ou $$\overline{E}_0$$, representam, adequando a escala para potências, o ponto de funcionamento da máquina, $$(Q, P)$$, num sistemas de eixos de potência ativa, $P(\delta)$, e reativa, $Q(\delta)$, representados a partir do afixo do vetor da tensão, $$\overline U$$.
 
@@ -113,7 +114,9 @@ $\overline E_0=\overline U + j X_s \overline I$
 md"""
 **Diagrama vetorial:** $$\quad$$ Linhas de $$Q$$ constante: $(@bind z2 CheckBox()) $$\quad$$;$$\quad$$ Linhas de $$P$$ constante: $(@bind z1 CheckBox())
 
-**Diagrama vetorial e curvas "V":** $$\quad$$ $$P\: (\rm W):$$ $(@bind P PlutoUI.Slider(0:5.0e3:20e3, default=15000,show_value=true)) $$\quad$$ $$\quad; \quad Q\:(\rm VAr):$$ $(@bind Q PlutoUI.Slider(-20e3:5.0e3:20e3, default=10000, show_value=true))
+**Diagrama vetorial e curvas "V":**
+
+ $$\quad$$ $$P\: (\rm W):$$ $(@bind P PlutoUI.Slider(0:5.0e3:20e3, default=15000,show_value=true)) $$\quad$$ $$\quad; \quad Q\:(\rm VAr):$$ $(@bind Q PlutoUI.Slider(-20e3:5.0e3:20e3, default=10000, show_value=true))
 """
 
 # ╔═╡ 66de4e49-ede7-44d1-b7b4-49ecb3ec2e53
@@ -170,16 +173,11 @@ md"""
 """
 
 # ╔═╡ e0418deb-b380-4c8b-b3bb-5075689f09a1
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -205,7 +203,7 @@ end;
 
 # ╔═╡ fb03a3aa-f94b-4b73-a21b-f05bc548dd9d
 begin
-	Xₛ, U = 4, 200 		# data (Ω, V)
+	Xₛ, U = 4, 200 				# data (Ω, V)
 	
 	U⃗ = (U)∠(0)
 
@@ -325,7 +323,7 @@ md"""
 
 # ╔═╡ 63c7a971-9e7c-474c-b389-93ec7afcc010
 md"""
-Documentação das bibliotecas `Julia` utilizadas:  [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [LaTeXStrings](https://github.com/JuliaStrings/LaTeXStrings.jl).
+Documentação das bibliotecas `Julia` utilizadas:  [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [LaTeXStrings](https://github.com/JuliaStrings/LaTeXStrings.jl).
 """
 
 # ╔═╡ 8d1f4326-137e-4125-b207-e3efbef3fdda
@@ -365,7 +363,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 [compat]
 LaTeXStrings = "~1.4.0"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -375,7 +373,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "6eaf1ab4a57b06d738d1dc5bbd7d0b21ea33e373"
+project_hash = "7084a5d7ca296d3d23730ac374f2964f0dc8ea28"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -418,12 +416,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
 git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
@@ -464,21 +456,6 @@ git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
 uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
 version = "0.13.1"
 
-[[deps.Compat]]
-deps = ["TOML", "UUIDs"]
-git-tree-sha1 = "0037835448781bb46feb39866934e243886d756a"
-uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
-version = "4.18.0"
-weakdeps = ["Dates", "LinearAlgebra"]
-
-    [deps.Compat.extensions]
-    CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
-
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
@@ -501,10 +478,10 @@ uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
 version = "1.16.0"
 
 [[deps.DataStructures]]
-deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "4e1fe97fdaed23e9dc21d4d664bea76b65fc50a0"
+deps = ["OrderedCollections"]
+git-tree-sha1 = "76b3b7c3925d943edf158ddb7f693ba54eb297a5"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.22"
+version = "0.19.0"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -701,12 +678,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -849,12 +820,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1014,23 +979,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1123,18 +1076,6 @@ git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
 
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
@@ -1199,9 +1140,9 @@ version = "1.7.1"
 
 [[deps.StatsBase]]
 deps = ["AliasTables", "DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "b81c5035922cc89c2d9523afc6c54be512411466"
+git-tree-sha1 = "2c962245732371acd51700dbb268af311bddd719"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.34.5"
+version = "0.34.6"
 
 [[deps.StyledStrings]]
 uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"

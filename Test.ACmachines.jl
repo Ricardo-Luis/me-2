@@ -10,11 +10,11 @@
 #> layout = "layout.jlhtml"
 #> tags = ["lecture", "module3"]
 #> date = "2024-11-20"
-#> description = "Apresenta-se a resolução de um teste sobre máquinas síncronas 3~ dividido em dois problemas. O primeiro analisa um sistema com dois alternadores síncronos em paralelo alimentando uma carga. Inclui a determinação experimental dos parâmetros, verificação da sequência de fases, repartição equitativa de carga e operação como condensador síncrono. O segundo problema estuda um motor síncrono 3~ de polos lisos. Abrange o cálculo da FCEM, análise de diagramas vetoriais com variação da corrente de campo, e aplicação do critério de igualdade das áreas"
+#> description = "Apresenta-se a resolução de um teste sobre máquinas síncronas 3~ dividido em dois problemas. O primeiro analisa um sistema com dois alternadores síncronos em paralelo alimentando uma carga. Inclui a determinação experimental das reatâncias síncronas segundo os eixos direto e de quadratura, verificação da sequência de fases, repartição equitativa de carga e operação como condensador síncrono. O segundo problema estuda um motor síncrono 3~ de polos lisos. Abrange o cálculo da FCEM, análise de diagramas vetoriais com variação da corrente de campo, e aplicação do critério de igualdade das áreas."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
-#>     url = "https://ricardo-luis.github.io/"
+#>     url = "https://ricardo-luis.github.io"
 
 using Markdown
 using InteractiveUtils
@@ -43,7 +43,13 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ eab2de41-f779-4705-a3cf-456c615d4fd5
-ThreeColumn(md"`Test.ACmachines.jl`", md"`English version:` $(@bind z CheckBox())", md"`Last update: 20·11·2024`")
+Columns(md"""
+	`Test.ACmachines.jl`""", md"""
+	`Language:` $(@bind lang Select([
+		"pt" => "Português",
+		"en" => "English",
+		]))""", md"""
+	`Last update: 20·11·2024`""")
 
 # ╔═╡ 40083415-01b1-4570-bd6a-2c25e4cf4673
 md"""
@@ -53,6 +59,11 @@ $\text{MÁQUINAS ELÉTRICAS 2}$
 
 $\textbf{Rep. do 2º Teste (do Exame de Época Normal de 27 de janeiro de 2023)}$ 
 ---
+"""
+
+# ╔═╡ 4b2410af-4cb1-4e68-b745-e68625b514f6
+md"""
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Resolução de teste sobre máquinas elétricas síncronas trifásicas}}}$
 """
 
 # ╔═╡ 263cc10b-55d4-47bd-8a6c-dcdacc4cdf3d
@@ -65,7 +76,7 @@ VERSÃO DRAFT !
 **To do:**
 
  $(@bind thing1 CheckBox()) tornar o texto mais didático\
- $(@bind thing2 CheckBox()) do the English version\
+ $(@bind thing2 CheckBox()) _do the English version_\
  $(@bind thing3 CheckBox()) adicionar bibliografia para algumas questões\
  $(@bind thing4 CheckBox()) circuitos com os métodos das lâmpadas\
  $(@bind thing5 CheckBox()) adicionar comentários nos códigos\
@@ -462,12 +473,12 @@ md"""
 
 # ╔═╡ 3718458e-0f67-42cd-a27d-317ee0906145
 md"""
- $$P_{lim},\:\rm kW:$$ $(@bind Pₗᵢₘ PlutoUI.Slider(1:1:350, default=150, show_value=true))
+ $$P_{\text{lim}},\:\rm kW:$$ $(@bind Pₗᵢₘ PlutoUI.Slider(1:1:350, default=150, show_value=true))
 """
 
 # ╔═╡ 1dca9b65-07bf-4c52-b691-65ae0147887c
 md"""
-Aplicando o critério da igualdade das áreas, $$A_1 = A_2$$, escrevem-se as equações de cálculo das áreas igualando-as, de modo a obter uma equação final, que apresenta uma única incógnita, $$\delta_{lim}$$, que satisfaz a igualdade das áreas.
+Aplicando o critério da igualdade das áreas, $$A_1 = A_2$$, escrevem-se as equações de cálculo das áreas igualando-as, de modo a obter uma equação final, que apresenta uma única incógnita, $$\delta_{\text{lim}}$$, que satisfaz a igualdade das áreas.
 """
 
 # ╔═╡ d81ab12b-6339-477c-b69c-0981ca04d1d2
@@ -475,29 +486,30 @@ md"""
 Aproveitando o cálculo computacional, estendeu-se esta questão para obter solução do problema, resolvendo os integrais. Assim, tem-se:
 """
 
-# ╔═╡ fd41f976-4b92-4009-b353-9db4161b6223
-md"""
+# ╔═╡ 24236092-6fa3-4c86-b70c-f4f32c15d14d
+HTML("""
+<div style="overflow-x: auto; padding: 10px;">
+$(repr("text/html", md"""
 $$\begin{aligned} 
-
 A_1 &= A_2 \\
 \\
-P_{lim} \delta_{lim}- \int_{0}^{\delta_{lim}} P(\delta) \; \rm{d}\delta &= \int_{\delta_{lim}}^{\pi-\delta_{lim}} P(\delta) \; \rm{d}\delta - P_{lim}(\pi- 2\delta_{lim}) \\
+P_{\text{lim}} \delta_{\text{lim}} - \int_{0}^{\delta_{\text{lim}}} P(\delta) \, \mathrm{d}\delta &= \int_{\delta_{\text{lim}}}^{\pi - \delta_{\text{lim}}} P(\delta) \, \mathrm{d}\delta - P_{\text{lim}}(\pi - 2\delta_{\text{lim}}) \\
 \\
-(P_{max} \sin\delta_{lim})\delta_{lim} - P_{max}\int_{0}^{\delta_{lim}}\sin\delta \; \rm{d}\delta &= P_{max}\int_{\delta_{lim}}^{\pi-\delta_{lim}} \sin\delta \; \rm{d}\delta - (P_{max} \sin\delta_{lim})(\pi- 2\delta_{lim}) \\
+(P_{\max} \sin\delta_{\text{lim}})\delta_{\text{lim}} - P_{\max}\int_{0}^{\delta_{\text{lim}}}\sin\delta \, \mathrm{d}\delta &= P_{\max}\int_{\delta_{\text{lim}}}^{\pi - \delta_{\text{lim}}} \sin\delta \, \mathrm{d}\delta - (P_{\max} \sin\delta_{\text{lim}})(\pi - 2\delta_{\text{lim}}) \\
 \\
-(\sin\delta_{lim})\delta_{lim} - [-\cos\delta]_{0}^{\delta_{lim}} &= [-\cos\delta]_{\delta_{lim}}^{\pi-\delta_{lim}} - (\sin\delta_{lim})(\pi- 2\delta_{lim}) \\
+(\sin\delta_{\text{lim}})\delta_{\text{lim}} - \bigl[-\cos\delta\bigr]_{0}^{\delta_{\text{lim}}} &= \bigl[-\cos\delta\bigr]_{\delta_{\text{lim}}}^{\pi - \delta_{\text{lim}}} - (\sin\delta_{\text{lim}})(\pi - 2\delta_{\text{lim}}) \\
 \\
-(\sin\delta_{lim})(\pi -\delta_{lim}) - 1 +  \cos(\pi-\delta_{lim}) &=0 \\
-
+(\sin\delta_{\text{lim}})(\pi - \delta_{\text{lim}}) - 1 + \cos(\pi - \delta_{\text{lim}}) &= 0
 \end{aligned}$$
-"""
+"""))
+</div>
+""")
 
 # ╔═╡ 8330caa4-d7b9-476b-92d9-38f0b64af425
 md"""
 Definindo uma função, $$g(\delta)$$: 
 
-$$g(\delta) = (\sin\delta_{lim})(\pi -\delta_{lim}) - 1 +  \cos(\pi-\delta_{lim})$$
-
+$$g(\delta) = (\sin\delta_{\text{lim}})(\pi - \delta_{\text{lim}}) - 1 + \cos(\pi - \delta_{\text{lim}})$$
 A resolução da equação que satisfaz o critério de igualdade das áreas consiste em encontrar a raíz para $$g(\delta)=0$$:
 """
 
@@ -519,7 +531,7 @@ begin
 md"""
 A determinação da raíz para $$f(\delta)$$ corresonde à solução do critério da igualdade das áreas, $$A_1$$ e $$A_2$$.
 
-Assim, com recurso a método numérico computacional, o ângulo de carga correspondente a $$f(\delta)=0$$, vem dado por: $$\delta_{lim}=$$ $δₛₒₗ $$°$$.
+Assim, com recurso a método numérico computacional, o ângulo de carga correspondente a $$f(\delta)=0$$, vem dado por: $$\delta_{\text{lim}}=$$ $δₛₒₗ $$°$$.
 """
 
 # ╔═╡ e178a306-05a2-4fcb-8101-db1d4fd11cf4
@@ -535,16 +547,11 @@ md"""
 
 
 # ╔═╡ 42f5ca5e-e0c8-46d2-937a-93929b833271
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -870,7 +877,7 @@ end;
 
 # ╔═╡ bfd3608d-6aa2-4891-be71-cd809ce71dc6
 md"""
-Substituindo $$\delta_{lim}$$ na expressão da potência desenvolvida, $$P(\delta)$$, obtém a potência admissível pela máquina síncrona em regime de grandes perturbações, $$P_{lim}=$$ $Pₛₒₗ $$\rm{kW}$$, quando esta se encontra a funcionar em regime nominal.
+Substituindo $$\delta_{\text{lim}}$$ na expressão da potência desenvolvida, $$P(\delta)$$, obtém a potência admissível pela máquina síncrona em regime de grandes perturbações, $$P_{\text{lim}}=$$ $Pₛₒₗ $$\rm{kW}$$, quando esta se encontra a funcionar em regime nominal.
 """
 
 # ╔═╡ 377458d9-a00e-45af-9f4b-d8961bca5f89
@@ -939,26 +946,24 @@ md"""
 """
 
 # ╔═╡ 2b0b227b-e818-4b5e-a883-0dcd5419b205
-begin
-	if z==false
-		md"""
-		Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
+if lang == "pt"
+	md"""
+	Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
 		"""
-	else
-		md"""
-		`Julia` packages documentation: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
-		"""
-	end
+elseif lang == "en"
+	md"""
+	`Julia` packages documentation: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
+	"""
 end
 
 # ╔═╡ 440f6f76-98bd-484c-b993-1a71cdbfe634
 begin
 	version=VERSION
-	if z==false
+	if lang == "pt"
 		md"""
 		*Notebook* desenvolvido em `Julia` versão $(version).
 		"""
-	else
+	elseif lang == "en"
 		md"""
 		Notebook developed in `Julia` version $(version).
 		"""
@@ -966,24 +971,22 @@ begin
 end
 
 # ╔═╡ c4a9e3a0-3471-4c7f-ab7e-87d34aea85a7
-begin
-	if z==false
-		md"""
-		!!! info
-			No índice deste *notebook*, os tópicos assinalados com "💻" requerem a participação do estudante.
-		"""
-	else
-		md"""
-		!!! info
-			In the table of contents of this notebook, topics marked with "💻" require student participation.
-		"""
-	end
+if lang == "pt"
+	md"""
+	!!! info
+		No índice deste *notebook*, os tópicos assinalados com "💻" requerem a participação do estudante.
+	"""
+elseif lang == "en"
+	md"""
+	!!! info
+		In the table of contents of this notebook, topics marked with "💻" require student participation.
+	"""
 end
 
 # ╔═╡ ceb57965-22b9-48e9-85ef-47e6380a613b
-if z==false
+if lang == "pt"
 	TableOfContents(title="Índice", depth=4)
-else
+elseif lang == "en"
 	TableOfContents()
 end
 
@@ -1008,7 +1011,7 @@ Roots = "f2b01f46-fcfa-551c-844a-d8ac1e96c665"
 [compat]
 Dierckx = "~0.5.4"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 Roots = "~2.0.22"
 """
@@ -1019,7 +1022,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "7b34b2052f3f7319f2e95692b719232b319125f4"
+project_hash = "52958f84732cf8ae6657b94af5662355aef6d7f1"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -1071,12 +1074,6 @@ weakdeps = ["SparseArrays"]
 
     [deps.ChainRulesCore.extensions]
     ChainRulesCoreSparseArraysExt = "SparseArrays"
-
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
 
 [[deps.CodecZlib]]
 deps = ["TranscodingStreams", "Zlib_jll"]
@@ -1132,11 +1129,6 @@ weakdeps = ["Dates", "LinearAlgebra"]
 
     [deps.Compat.extensions]
     CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1392,12 +1384,6 @@ git-tree-sha1 = "eac1206917768cb54957c65a615460d87b455fc1"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
 version = "3.1.1+0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -1540,12 +1526,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
@@ -1705,23 +1685,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1813,18 +1781,6 @@ deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
-
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 
 [[deps.Roots]]
 deps = ["ChainRulesCore", "CommonSolve", "Printf", "Setfield"]
@@ -2282,6 +2238,7 @@ version = "1.9.2+0"
 # ╔═╡ Cell order:
 # ╟─eab2de41-f779-4705-a3cf-456c615d4fd5
 # ╟─40083415-01b1-4570-bd6a-2c25e4cf4673
+# ╟─4b2410af-4cb1-4e68-b745-e68625b514f6
 # ╟─263cc10b-55d4-47bd-8a6c-dcdacc4cdf3d
 # ╟─0262a34b-95f8-453e-812c-43663d6337b2
 # ╟─5a58ddf6-b17e-4c34-bae5-2aa60245a9c3
@@ -2379,7 +2336,7 @@ version = "1.9.2+0"
 # ╟─82941af9-9cf9-4b92-b308-ad1db029fa72
 # ╟─1dca9b65-07bf-4c52-b691-65ae0147887c
 # ╟─d81ab12b-6339-477c-b69c-0981ca04d1d2
-# ╟─fd41f976-4b92-4009-b353-9db4161b6223
+# ╟─24236092-6fa3-4c86-b70c-f4f32c15d14d
 # ╟─8330caa4-d7b9-476b-92d9-38f0b64af425
 # ╠═706c07f0-eebb-4f71-8a4d-3093b1c79af9
 # ╟─714edc82-b6f7-4b88-b345-c9578f83ff30

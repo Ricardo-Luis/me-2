@@ -37,7 +37,7 @@ md"""
 
 # Visão geral
 
-Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas II (ME II), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas $\rm{II}$ (ME $\rm{II\,}$), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
 Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
@@ -170,7 +170,7 @@ md"""
 ## "*Time to first plot*"
 `Julia` é uma linguagem compilada *just-in-time*. Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por "**_time to first plot_**", que teve melhorias significativas nas versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) do `Julia`. Após a primeira execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí, o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
 
-Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas II no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
+Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas $\rm{II}$ no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
 """
 
 # ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
@@ -226,7 +226,7 @@ O `Pluto.jl` disponibiliza suporte nativo para *widgets* interativos, como *slid
 
 
 ## *Notebooks* em ME II
-A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II**, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl`, sendo ferramentas [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software) (_Free and Open Source Software_), permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem acessíveis e sem barreiras tecnológicas ou económicas. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
+A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl`, sendo ferramentas [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software) (_Free and Open Source Software_), permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem acessíveis e sem barreiras tecnológicas ou económicas. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
 
 $$\begin{aligned}
 &\text{\textbf{F}indable} \\
@@ -410,7 +410,7 @@ Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados
 md"""
 # Agradecimentos / Acknowledgements
 
-Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino-aprendizagem da unidade curricular de Máquinas Elétricas II.
+Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino-aprendizagem da unidade curricular de Máquinas Elétricas $\rm{II}$.
 
 Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas eléctricas.
 
@@ -418,7 +418,7 @@ Expresso também o meu apreço à comunidade `Julia` e aos programadores das bib
 
 ---
 
-I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for the teaching and learning the Electric Machinery II course.
+I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for the teaching and learning the Electric Machinery $\rm{II}$ course.
 
 Special acknowledgment goes to the creators of `Pluto.jl`, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the `Julia` scientific programming language made it possible to adopt this type of computational notebook for teaching and research in electrical machines.
 
@@ -659,8 +659,8 @@ PlutoTeachingTools = "661c6b06-c737-4d37-b85c-46df65de6f69"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
-PlutoTeachingTools = "~0.2.15"
-PlutoUI = "~0.7.68"
+PlutoTeachingTools = "~0.4.4"
+PlutoUI = "~0.7.69"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -669,7 +669,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "bb49baa68f0cfedf1cca0fcc8cfa7dcdf5b33099"
+project_hash = "76ab8b73b713e8a99fdd4b01a1edb6667195d203"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -689,26 +689,17 @@ version = "1.11.0"
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 version = "1.11.0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.ColorTypes]]
 deps = ["FixedPointNumbers", "Random"]
 git-tree-sha1 = "67e11ee83a43eb71ddc950302c53bf33f0690dfe"
 uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
 version = "0.12.1"
-weakdeps = ["StyledStrings"]
 
     [deps.ColorTypes.extensions]
     StyledStringsExt = "StyledStrings"
 
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
+    [deps.ColorTypes.weakdeps]
+    StyledStrings = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -768,12 +759,6 @@ deps = ["Dates", "Mmap", "Parsers", "Unicode"]
 git-tree-sha1 = "31e996f0a15c7b280ba9f76636b3ff9e2ae58c9a"
 uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
 version = "0.21.4"
-
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
 
 [[deps.LaTeXStrings]]
 git-tree-sha1 = "dda21b8cbd6a6c40d9d02a73230f9d70fed6918c"
@@ -836,12 +821,6 @@ version = "1.11.0"
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
 version = "1.11.0"
 
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
-
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
 uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
@@ -894,34 +873,24 @@ version = "2.8.3"
 deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
 version = "1.11.0"
-weakdeps = ["REPL"]
 
     [deps.Pkg.extensions]
     REPLExt = "REPL"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
+    [deps.Pkg.weakdeps]
+    REPL = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
-git-tree-sha1 = "ec9e63bd098c50e4ad28e7cb95ca7a4860603298"
+git-tree-sha1 = "2d7662f95eafd3b6c346acdbfc11a762a2256375"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.68"
+version = "0.7.69"
 
 [[deps.PrecompileTools]]
 deps = ["Preferences"]
@@ -940,11 +909,6 @@ deps = ["Unicode"]
 uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 version = "1.11.0"
 
-[[deps.REPL]]
-deps = ["InteractiveUtils", "Markdown", "Sockets", "StyledStrings", "Unicode"]
-uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
-version = "1.11.0"
-
 [[deps.Random]]
 deps = ["SHA"]
 uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
@@ -961,28 +925,12 @@ git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
 
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
-    [deps.Revise.weakdeps]
-    Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
-
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
 version = "0.7.0"
 
 [[deps.Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
-version = "1.11.0"
-
-[[deps.Sockets]]
-uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
 version = "1.11.0"
 
 [[deps.Statistics]]
@@ -996,10 +944,6 @@ version = "1.11.1"
 
     [deps.Statistics.weakdeps]
     SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
-
-[[deps.StyledStrings]]
-uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
-version = "1.11.0"
 
 [[deps.TOML]]
 deps = ["Dates"]
@@ -1017,9 +961,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 version = "1.11.0"
 
 [[deps.Tricks]]
-git-tree-sha1 = "6cae795a5a9313bbb4f60683f7263318fc7d1505"
+git-tree-sha1 = "0fc001395447da85495b7fef1dfae9789fdd6e31"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.10"
+version = "0.1.11"
 
 [[deps.URIs]]
 git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"

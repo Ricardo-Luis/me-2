@@ -264,15 +264,15 @@ Columns(md"""Seletor das correntes:\
 		  """, md"""
 		Posição angular da tensão, $$\alpha$$, 
 		
-		 $$\qquad$$ $(@bind α Slider(0:1:360, default=0, show_value=true))$$\degree$$ \
+		 $$\quad$$ $(@bind α Slider(0:1:360, default=0, show_value=true))$$\degree$$ \
 		
 		no momento que antecede o curto-circuito $$(t=0^-)$$		
 		""",
 		md""" $$\qquad$$ Intervalo de tempo:
 		  
-		 $$\quad$$ tmin: $(@bind Xmin Slider(0:0.01:2.5, default=0, show_value=false))
+		 $$\quad t_{\text{min}}$$ $(@bind Xmin Slider(0:0.01:2.5, default=0, show_value=false))
 		
-		 $$\quad$$ tmax: $(@bind Xmax Slider(0.1:0.01:5, default=5, show_value=false)) 
+		 $$\quad t_{\text{max}}$$ $(@bind Xmax Slider(0.1:0.01:5, default=5, show_value=false)) 
 		  """)
 
 # ╔═╡ b1d68348-6466-458f-ac1a-7bcb77ba42d9

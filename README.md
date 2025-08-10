@@ -1,5 +1,5 @@
 # Notebooks Computacionais Aplicados a Máquinas Elétricas II
-Computational Notebooks Applied to Electric Machinery II
+Applied Computational Notebooks for Electric Machines II
 
 ## Overview
 This [website](https://ricardo-luis.github.io/me-2/) provides a collection of notebooks supporting the [Electric Machinery II](https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf) course of the Electrical Engineering undergraduate program at [ISEL](https://www.isel.pt/en). 

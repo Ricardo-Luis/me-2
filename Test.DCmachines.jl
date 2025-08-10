@@ -1191,11 +1191,11 @@ md"""
 # ╔═╡ 3c84a0d4-8eeb-4feb-8276-4d62ed7492f5
 if lang == "pt"
 	md"""
-	Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
+	Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl).
 	"""
 elseif lang == "en"
 	md"""
-	`Julia` packages documentation: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl.
+	`Julia` packages documentation: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [EasyFit.jl](https://github.com/m3g/EasyFit.jl), [Roots](https://juliamath.github.io/Roots.jl/stable/), [Dierckx](https://github.com/kbarbary/Dierckx.jl.
 	"""
 end
 
@@ -2781,7 +2781,7 @@ version = "1.9.2+0"
 """
 
 # ╔═╡ Cell order:
-# ╟─9b9d7372-f136-499a-a900-e999a2a6784e
+# ╠═9b9d7372-f136-499a-a900-e999a2a6784e
 # ╟─ea3e2579-177a-477f-97f6-71ebe0f014cd
 # ╟─0823bba0-4ee5-41b4-bf9c-f1914fdbc7a3
 # ╟─7ca9e6c8-5e20-4215-a2eb-97798306a060

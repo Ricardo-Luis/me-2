@@ -359,13 +359,17 @@ md"""
 """
 
 # ╔═╡ fdb1a1d4-fb0f-45ae-96ef-5c3b5bec7f69
-header_b2b = (["Irede", "Imot", "Iₑₓmot", "Iger", "Iₑₓger", "n"],["(A)", "(A)", "(A)", "(A)", "(A)", "(rpm)"]);  						# header of the table 1
+# header of the table 1
+header_b2b = (["Irede", "Imot", "Iₑₓmot", "Iger", "Iₑₓger", "n"],
+			  ["(A)", "(A)", "(A)", "(A)", "(A)", "(rpm)"]);  
 
 # ╔═╡ f202a1bf-aaf8-4115-98e9-eba0da1666e4
-OthersHeader = (["tensão da rede CC", "resistência rotórica do motor", "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 		# header of the table 2
+# header of the table 2
+OthersHeader = (["tensão da rede CC", "resistência rotórica do motor", 
+				 "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 		
 
 # ╔═╡ bba03ae4-313e-4e3a-a367-73b1d28e733e
- dados_b2b = [I Iₗᴹ Iₑₓᴹ Iₗᴳ Iₑₓᴳ n]; 		# data of the table 1
+dados_b2b = [I Iₗᴹ Iₑₓᴹ Iₗᴳ Iₑₓᴳ n]; 		# data of the table 1
 
 # ╔═╡ 22e2b92e-d1e2-4f4b-b61c-f4776976f216
 OutrosDados = [U Rᵢᴹ Rᵢᴳ]; 					# data of the table 2
@@ -707,7 +711,7 @@ colors = palette(:seaborn_bright);  	# palette colors used in the Sankey chart
 # from color schemes: https://docs.juliaplots.org/latest/generated/colorschemes/
 
 # ╔═╡ fbb2ce7b-3a81-4c4e-b271-0f33819837a7
-sankey(src, dst, weights; node_labels=names, label_position=:bottom, label_size=12, edge_color=:gradient, compact=:true, node_colors=colors, size=(1100,500))
+sankey(src, dst, weights; node_labels=names, label_position=:bottom, label_size=12, edge_color=:gradient, compact=:true, node_colors=colors, size=(1000,500))
 
 # ╔═╡ 469dd7f7-dc57-4743-a844-714fa3952c8c
 
@@ -1009,7 +1013,7 @@ md"""
 # ╔═╡ 6bd294df-005b-4979-b2ee-39922b9223b7
 md"""
 Documentação das bibliotecas Julia utilizadas: \
-[Plots](http://docs.juliaplots.org/latest/), [EasyFit](https://github.com/m3g/EasyFit.jl), [PrettyTables](https://ronisbr.github.io/PrettyTables.jl/stable/), [Statistics](https://docs.julialang.org/en/v1/stdlib/Statistics/), [BasicInterpolators](https://markmbaum.github.io/BasicInterpolators.jl/dev/), [SankeyPlots](https://github.com/daschw/SankeyPlots.jl), [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
+[Plots](http://docs.juliaplots.org/latest/), [EasyFit](https://github.com/m3g/EasyFit.jl), [PrettyTables](https://ronisbr.github.io/PrettyTables.jl/stable/), [Statistics](https://docs.julialang.org/en/v1/stdlib/Statistics/), [BasicInterpolators](https://markmbaum.github.io/BasicInterpolators.jl/dev/), [SankeyPlots](https://github.com/daschw/SankeyPlots.jl), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
 """
 
 # ╔═╡ 42b2d4f0-4d76-4e42-bd2a-f2ed48a4e4a4
@@ -1054,7 +1058,7 @@ Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 BasicInterpolators = "~0.7.1"
 EasyFit = "~0.6.10"
 Plots = "~1.40.17"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 PrettyTables = "~2.4.0"
 SankeyPlots = "~0.2.2"
@@ -1066,7 +1070,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "2d787ae2d89449705f86410e5ac59e0501696d27"
+project_hash = "c617d9518b6fc4b6eba20205f0ce4e053688ae73"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "7927b9af540ee964cc5d1b73293f1eb0b761a3a1"
@@ -1190,12 +1194,6 @@ git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
 uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
 version = "1.18.5+0"
 
-[[deps.CodeTracking]]
-deps = ["InteractiveUtils", "UUIDs"]
-git-tree-sha1 = "5ac098a7c8660e217ffac31dc2af0964a8c3182a"
-uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
-version = "2.0.0"
-
 [[deps.CodecBzip2]]
 deps = ["Bzip2_jll", "TranscodingStreams"]
 git-tree-sha1 = "84990fa864b7f2b4901901ca12736e45ee79068c"
@@ -1255,11 +1253,6 @@ weakdeps = ["Dates", "LinearAlgebra"]
 
     [deps.Compat.extensions]
     CompatLinearAlgebraExt = "LinearAlgebra"
-
-[[deps.Compiler]]
-git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
-uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
-version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
@@ -1739,12 +1732,6 @@ version = "1.27.0"
     [deps.JuMP.weakdeps]
     DimensionalData = "0703355e-b756-11e9-17c0-8b28908087d0"
 
-[[deps.JuliaInterpreter]]
-deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
-git-tree-sha1 = "e09121f4c523d8d8d9226acbed9cb66df515fcf2"
-uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
-version = "0.10.4"
-
 [[deps.LAME_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
 git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
@@ -1893,12 +1880,6 @@ deps = ["Dates", "Logging"]
 git-tree-sha1 = "f02b56007b064fbfddb4c9cd60161b6dd0f40df3"
 uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
 version = "1.1.0"
-
-[[deps.LoweredCodeUtils]]
-deps = ["CodeTracking", "Compiler", "JuliaInterpreter"]
-git-tree-sha1 = "73b98709ad811a6f81d84e105f4f695c229385ba"
-uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
-version = "3.4.3"
 
 [[deps.LsqFit]]
 deps = ["Distributions", "ForwardDiff", "LinearAlgebra", "NLSolversBase", "Printf", "StatsAPI"]
@@ -2118,23 +2099,11 @@ version = "1.40.17"
     ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
     Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -2249,16 +2218,6 @@ git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
 
-[[deps.Revise]]
-deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
-git-tree-sha1 = "20ccb7e2501e9da93fe8450d01aeabf16a5f0c82"
-uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
-version = "3.8.1"
-weakdeps = ["Distributed"]
-
-    [deps.Revise.extensions]
-    DistributedExt = "Distributed"
-
 [[deps.Rmath]]
 deps = ["Random", "Rmath_jll"]
 git-tree-sha1 = "852bd0f55565a9e973fcfee83a84413270224dc4"
@@ -2325,9 +2284,9 @@ version = "1.11.0"
 
 [[deps.SortingAlgorithms]]
 deps = ["DataStructures"]
-git-tree-sha1 = "66e0a8e672a0bdfca2c3f5937efb8538b9ddc085"
+git-tree-sha1 = "64d974c2e6fdf07f8155b5b2ca2ffa9069b608d9"
 uuid = "a2af1166-a08f-5f64-846c-94a0d3cef48c"
-version = "1.2.1"
+version = "1.2.2"
 
 [[deps.SparseArrays]]
 deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
@@ -2389,9 +2348,9 @@ version = "1.7.1"
 
 [[deps.StatsBase]]
 deps = ["AliasTables", "DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "b81c5035922cc89c2d9523afc6c54be512411466"
+git-tree-sha1 = "2c962245732371acd51700dbb268af311bddd719"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.34.5"
+version = "0.34.6"
 
 [[deps.StatsFuns]]
 deps = ["HypergeometricFunctions", "IrrationalConstants", "LogExpFunctions", "Reexport", "Rmath", "SpecialFunctions"]

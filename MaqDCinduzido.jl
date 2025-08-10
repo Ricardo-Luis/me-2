@@ -145,9 +145,6 @@ Quando circula corrente no enrolamento do rotor, são produzidas linhas de campo
 Assim, o campo magnético resultante que a atravessa o enrolamento induzido, quando este está em carga, apresenta-se com elevada distorção. Isso implica uma movimentação do plano das escovas para que fique perpendicular à distribuição das linhas de fluxo. Este processo denomina-se por **calagem das escovas**, posicionando-as na Linha Neutra Real, que é dependente do valor da corrente do induzido. 
 """
 
-# ╔═╡ 173f214d-6a15-44e4-abec-3b336d6bb6db
-
-
 # ╔═╡ 0d4b1a9b-de84-4e60-8256-ab48dbde4ccc
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/commutator.jpg?raw=true)\
 
@@ -209,7 +206,7 @@ md"""
 aside((md"""
 !!! info "Informação"
 	A biblioteca `handcalcs.jl` permite transpor código de cálculo em Julia para $\LaTeX$, mas de uma forma que imita como alguém escreveria o seu cálculo manualmente: escreve-se a fórmula simbólica de cálculo, seguida das substituições numéricas e, por fim, o resultado.\
-	Como o `handcalcs.jl` mostra a substituição numérica, os cálculos tornam-se significativamente mais fáceis de verificar.
+	Como a `handcalcs.jl` mostra as substituições numéricas, os cálculos tornam-se significativamente mais fáceis de verificar.
 """), v_offset=100)
 
 # ╔═╡ 5bd6c690-c2e9-4353-b262-fafb845a0aec
@@ -342,6 +339,9 @@ Verifica-se que para realizar o enrolamento induzido do tipo **imbricado simples
 | $$y_{2k}$$ | $(y₂ₖ_sol[1]) |
 | | |
 """
+
+# ╔═╡ a832f08b-cb3d-4b5f-9d6e-e0843aabbbaa
+
 
 # ╔═╡ 069d947f-261b-4ac6-a679-345d5e3d4879
 md"""
@@ -675,7 +675,7 @@ md"""
 
 # ╔═╡ 68fff8eb-4988-4c68-a543-2ddef8e4c428
 md"""
-Documentação das bibliotecas Julia utilizadas: [PlutoUI](https://juliahub.com/docs/PlutoUI/abXFp/0.7.6/), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Handcalcs](https://co1emi11er2.github.io/Handcalcs.jl/stable/).
+Documentação das bibliotecas Julia utilizadas: [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html), [Handcalcs](https://co1emi11er2.github.io/Handcalcs.jl/stable/).
 """
 
 # ╔═╡ 8ce3ded3-faa0-423a-9ce2-582d242f4dc8
@@ -713,7 +713,7 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
 Handcalcs = "~0.4.4"
-PlutoTeachingTools = "~0.2.15"
+PlutoTeachingTools = "~0.4.4"
 PlutoUI = "~0.7.69"
 """
 
@@ -723,7 +723,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.11.6"
 manifest_format = "2.0"
-project_hash = "b4753b91e61827fdb9a22ba290299520a2329126"
+project_hash = "485a13069bcebe00bae76d1b660118c162f3718c"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -964,23 +964,11 @@ weakdeps = ["REPL"]
     [deps.Pkg.extensions]
     REPLExt = "REPL"
 
-[[deps.PlutoHooks]]
-deps = ["InteractiveUtils", "Markdown", "UUIDs"]
-git-tree-sha1 = "072cdf20c9b0507fdd977d7d246d90030609674b"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0774"
-version = "0.0.5"
-
-[[deps.PlutoLinks]]
-deps = ["FileWatching", "InteractiveUtils", "Markdown", "PlutoHooks", "Revise", "UUIDs"]
-git-tree-sha1 = "8f5fa7056e6dcfb23ac5211de38e6c03f6367794"
-uuid = "0ff47ea0-7a50-410d-8455-4348d5de0420"
-version = "0.1.6"
-
 [[deps.PlutoTeachingTools]]
-deps = ["Downloads", "HypertextLiteral", "LaTeXStrings", "Latexify", "Markdown", "PlutoLinks", "PlutoUI", "Random"]
-git-tree-sha1 = "5d9ab1a4faf25a62bb9d07ef0003396ac258ef1c"
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.2.15"
+version = "0.4.4"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
@@ -1141,7 +1129,6 @@ version = "17.4.0+2"
 # ╟─eaef98e4-c79f-4932-8b7c-32a90fa664db
 # ╟─3571ba78-44b7-489a-a2bd-c4841c931879
 # ╟─2b9ef51e-bfe4-4a77-9e04-f1eea7320f99
-# ╟─173f214d-6a15-44e4-abec-3b336d6bb6db
 # ╟─0d4b1a9b-de84-4e60-8256-ab48dbde4ccc
 # ╟─689c4341-3ff8-4a3f-b913-8b196fde0a0f
 # ╟─17402250-5f39-4343-9dcb-a30a0d5a361f
@@ -1171,6 +1158,7 @@ version = "17.4.0+2"
 # ╟─9fb13e92-41bc-4948-8e5e-7db1e0fd4571
 # ╟─b432b0a5-1333-46c7-b616-657dcc5c9bb7
 # ╟─84d93def-10b6-4108-9b32-9ae6199f3c06
+# ╟─a832f08b-cb3d-4b5f-9d6e-e0843aabbbaa
 # ╟─069d947f-261b-4ac6-a679-345d5e3d4879
 # ╟─04ae7282-aaef-44b3-928c-105b905b39b1
 # ╟─413f497a-8917-448c-923d-f89938bb75ea

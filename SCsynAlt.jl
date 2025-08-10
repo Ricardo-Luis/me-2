@@ -48,9 +48,7 @@ md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
-$\textbf{Curto-circuito simétrico de um alternador em vazio}$
-
-$\text{Análise do transitório}$
+$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Curto-circuito simétrico de um alternador em vazio: análise do transitório}}}$
 ---
 """
 
@@ -165,6 +163,23 @@ i_k^{\text{ac}}(t) &= \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d''} - \frac{\sq
 \end{aligned}
 \tag{2}$
 """
+
+# ╔═╡ 7e77e293-dee6-4de8-b0fd-78a21cd01512
+md"""
+$$i_k^{\text{ac}}(t) = \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d''} - \frac{\sqrt{2} E_0}{X_d'} \right) e^{-\frac{t}{T_d''}} 
+\sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período subtransitório}} \: + \: \underbrace{ \left( \frac{\sqrt{2} E_0}{X_d'} - \frac{\sqrt{2} E_0}{X_d} \right) e^{-\frac{t}{T_d'}} 
+\sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período transitório}} \: + \: \underbrace{ \frac{\sqrt{2} E_0}{X_d} \sin\left( \omega t + \alpha + \varphi + \theta_k \right) }_{\textbf{período estacionário}}
+\tag{2}$$
+"""
+
+# ╔═╡ 6271aff5-46c0-4054-a07c-a6f0bffbb166
+HTML("""
+<div style="overflow-x: auto; padding: 10px;">
+$(repr("text/html", md"""
+$$i_k^{\text{ac}}(t) = \underbrace{\left(\frac{\sqrt{2} E_0}{X_d''} - \frac{\sqrt{2} E_0}{X_d'}\right) e^{-\frac{t}{T_d''}} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período subtransitório}} \: + \: \underbrace{\left(\frac{\sqrt{2} E_0}{X_d'} - \frac{\sqrt{2} E_0}{X_d}\right) e^{-\frac{t}{T_d'}} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período transitório}} \: + \: \underbrace{\frac{\sqrt{2} E_0}{X_d} \sin\left(\omega t + \alpha + \varphi + \theta_k\right)}_{\textbf{período estacionário}} \tag{2}$$
+"""))
+</div>
+""")
 
 # ╔═╡ bd3abdf6-c73f-424c-a8e5-a9bcc0b1bb7e
 md"""
@@ -825,9 +840,6 @@ begin
 	Ifᵉⁿᵛᴴ = I𝚏₀ .+ I𝚏₀ * ((Xd-Xdʼ)/Xd)*(exp.(-t/Tdʼ) .- (1-Tdʼr/Tdʼʼ)*exp.(-t/Tdʼʼ) .+ (Tdʼr/Tdʼʼ)*exp.(-t/Tₐ))
 end;
 
-# ╔═╡ 610d50f2-65ce-405f-954f-65fb9939160a
-
-
 # ╔═╡ 4cf98440-4b8b-4512-bdfd-e2b79a4f643a
 md"""
 $I_f^{\text{ave}}(t) = \frac{I_f^{\text{env}H}(t) + I_f^{\text{env}L}(t)}{2}$
@@ -844,9 +856,6 @@ begin
 	plot!(t, Ifᵉⁿᵛᴴ, label="Ifᵉⁿᵛ")
 	plot!(t, Ifᵃᵛᵉ, label="Ifᵉⁿᵛ", size=[700, 400])
 end
-
-# ╔═╡ d17f8a08-6fed-4305-a7f9-e26bb8338413
-
 
 # ╔═╡ 1c6c0b6a-eb71-42f9-9ac8-1d5fe8339cbb
 
@@ -866,16 +875,11 @@ md"""
 """
 
 # ╔═╡ a140ea41-5872-4f52-9d44-4e2314c9e216
-# to adjust the notebook margins and used font-family/size on text content
+# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
 html"""<style>
-@media screen {
-	main {
-		margin: auto;
-		max-width: 1920px;
-		padding-left: 5%;
-		padding-right: 25.9%; 
-		}
-	}
+pluto-output p {
+    text-align: justify;
+}
 pluto-output {
     font-family: system-ui;
 	font-size:  100%
@@ -886,6 +890,11 @@ pluto-output {
 # ╔═╡ 83a8151a-3259-48a9-8386-c55484a9f719
 md"""
 # _Notebook_
+"""
+
+# ╔═╡ c6a5b92d-a3bc-401f-b7ad-790bcacc7026
+md"""
+Documentação das bibliotecas `Julia` utilizadas: [Plots](http://docs.juliaplots.org/latest/), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
 """
 
 # ╔═╡ d3557937-ae73-4939-9f78-ba2764e45735
@@ -2128,6 +2137,8 @@ version = "1.9.2+0"
 # ╟─f3d503e8-9bf7-4010-9b9c-63ac7deed103
 # ╟─bc723dc3-455d-483b-86f8-ff93f4d8c751
 # ╟─ee66c76e-7f66-40d5-9fea-85129dbeb9bf
+# ╟─7e77e293-dee6-4de8-b0fd-78a21cd01512
+# ╟─6271aff5-46c0-4054-a07c-a6f0bffbb166
 # ╟─bd3abdf6-c73f-424c-a8e5-a9bcc0b1bb7e
 # ╟─02f68b6a-ef07-448e-9f8c-965496177e13
 # ╟─9c3e9360-fc5a-48fb-8812-f508f0399de6
@@ -2250,15 +2261,14 @@ version = "1.9.2+0"
 # ╟─6c0d42c4-9718-42ef-b315-efbc4901e849
 # ╟─3d12d672-f0f3-4d7e-9325-8ff5b81f06ed
 # ╠═6500094b-fb25-4e6b-bbf7-0c2bd7dea34b
-# ╟─610d50f2-65ce-405f-954f-65fb9939160a
 # ╟─4cf98440-4b8b-4512-bdfd-e2b79a4f643a
 # ╠═16ba8314-8677-4c2c-bd70-41d338818502
-# ╠═d17f8a08-6fed-4305-a7f9-e26bb8338413
 # ╟─1c6c0b6a-eb71-42f9-9ac8-1d5fe8339cbb
 # ╟─ad5f9fe4-c4a5-4b5a-a337-febe52733459
 # ╟─e4da46c0-9ec7-4ee8-bbf4-3315a2302a5f
 # ╟─a140ea41-5872-4f52-9d44-4e2314c9e216
 # ╟─83a8151a-3259-48a9-8386-c55484a9f719
+# ╟─c6a5b92d-a3bc-401f-b7ad-790bcacc7026
 # ╠═ccb548ca-265d-42fa-a64e-c6f0a29a17df
 # ╟─d3557937-ae73-4939-9f78-ba2764e45735
 # ╟─d82e7ab4-214d-4666-8d63-85ce21225cca

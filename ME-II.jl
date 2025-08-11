@@ -46,9 +46,9 @@ Columns(md"""
 
 # ╔═╡ 399c7a6d-88da-4966-a524-9a00491809a1
 if lang == "pt"
-	md"# Aula de apresentação"
+	md"# Apresentação da Unidade Curricular"
 elseif lang == "en"
-	md"# Aula de apresentação"
+	md"# Course Presentation"
 end
 
 # ╔═╡ 117c889a-2c0a-4648-befb-4067cb0869a1
@@ -72,57 +72,66 @@ if lang == "pt"
 	- Avaliação"""
 elseif lang == "en"
 		md"""
-	### Sumário:
-	- Competências
-	- Programa
-	- Funcionamento
-	- Avaliação"""
+	### Summary:
+	- Competencies
+	- Syllabus
+	- Course Organization
+	- Assessment"""
 end
 
 # ╔═╡ 797e2cea-ff51-43b2-8d5b-29c6740ec9c5
 if lang == "pt"
 	md" # Competências a Desenvolver"
 elseif lang == "en"
-	md" # Competências a Desenvolver"
+	md" # Competencies to Develop"
 end
 
 # ╔═╡ 4a679083-ab50-414c-b0e7-1c1ca50f53a0
 if lang == "pt"
 	md"""
-	◾ **Reconhecer máquinas elétricas (ME), síncronas e de corrente contínua (CC), identificando as suas características construtivas e funcionais distintivas;**
+	- **Reconhecer máquinas elétricas (ME), síncronas e de corrente contínua (CC), identificando as suas características construtivas e funcionais distintivas;**
 
-	◾ **Resolver problemas práticos usando curvas características das ME, considerando diferentes condições de operação;**
+	
+	- **Resolver problemas práticos usando curvas características das ME, considerando diferentes condições de operação;**
 
-	◾ **Distinguir processos de regulação na operação de ME, diferenciando a aplicação de princípios fundamentais e consequências práticas;**
+	
+	- **Distinguir processos de regulação na operação de ME, diferenciando a aplicação de princípios fundamentais e consequências práticas;**
 
-	◾ **Selecionar procedimentos de operação de ME associadas em sistemas de acionamento e de energia, coordenando e regulando grandezas elétricas e mecânicas de forma fundamentada;**
+	
+	- **Selecionar procedimentos de operação de ME associadas em sistemas de acionamento e de energia, coordenando e regulando grandezas elétricas e mecânicas de forma fundamentada;**
 
-	◾ **Explicar o funcionamento de ME não convencionais, explorando aplicações, vantagens e limitações em contextos específicos;**
+	
+	- **Explicar o funcionamento de ME não convencionais, explorando aplicações, vantagens e limitações em contextos específicos;**
 
-	◾ **Distinguir os regimes transitórios das ME, examinando o comportamento e resultados experimentais em ensaios específicos;**
+	
+	- **Distinguir os regimes transitórios das ME, examinando o comportamento e resultados experimentais em ensaios específicos;**
 
-	◾ **Aplicar e analisar técnicas de instalação, operação, supervisão e manutenção de ME, executando procedimentos em ME isoladas e integradas em sistemas elétricos e industriais.**
+	
+	- **Aplicar e analisar técnicas de instalação, operação, supervisão e manutenção de ME, executando procedimentos em ME isoladas e integradas em sistemas elétricos e industriais.**
 	"""
 elseif lang == "en"
 		md"""
-	◾ **Recognize electrical machines (EM), synchronous and direct current (DC), identifying their distinctive constructive and functional characteristics;**
+	- **Recognize electrical machines (EM), synchronous and direct current (DC), identifying their distinctive constructive and functional characteristics;**
 
-	◾ **Solve practical problems using characteristic curves of EM, considering different operating conditions;**
+	
+	- **Solve practical problems using characteristic curves of EM, considering different operating conditions;**
 
-	◾ **Distinguish regulation processes in the operation of EM, differentiating the application of fundamental principles and practical consequences;**
+	
+	- **Distinguish regulation processes in the operation of EM, differentiating the application of fundamental principles and practical consequences;**
 
-	◾ **Select operating procedures of EM associated in drive and energy systems, coordinating and regulating electrical and mechanical quantities in a well-founded manner;**
+	
+	- **Select operating procedures of EM associated in drive and energy systems, coordinating and regulating electrical and mechanical quantities in a well-founded manner;**
 
-	◾ **Explain the operation of non-conventional EM, exploring applications, advantages and limitations in specific contexts;**
+	
+	- **Explain the operation of non-conventional EM, exploring applications, advantages and limitations in specific contexts;**
 
-	◾ **Distinguish the transient phenomena in EM, examining the behaviour and experimental results in specific tests;**
+	
+	- **Distinguish the transient phenomena in EM, examining the behaviour and experimental results in specific tests;**
 
-	◾ **Apply and analyse techniques for installation, operation, supervision and maintenance of EM, executing procedures in stand-alone EM as well integrated in electrical and industrial systems.**	
+	
+	- **Apply and analyse techniques for installation, operation, supervision and maintenance of EM, executing procedures in stand-alone EM as well integrated in electrical and industrial systems.**	
 	"""
 end
-
-# ╔═╡ a4d4044e-044b-40bb-87c0-f9c29d7dd07e
-
 
 # ╔═╡ 6dd8ad18-9069-4500-bc84-51e502d57c37
 md"""
@@ -133,43 +142,67 @@ md"""
 if lang == "pt"
 	md"**Fig. 1 - Domínios das competências**, [^Tidema]."
 elseif lang == "en"
-	md"**Fig. 1 - Domínios das competências**, [^Tidema]."
+	md"**Fig. 1 - Competency domains**, [^Tidema]."
 end
 
 # ╔═╡ 689fbf6c-8504-4648-a1da-cf5049fa5310
-md"""
-# Enquadramento Pedagógico 
-"""
+if lang == "pt"
+	md"# Enquadramento Pedagógico"
+elseif lang == "en"
+	md"# Pedagogical Framework"
+end
 
 # ╔═╡ dce5565f-b004-489d-827b-b0af02c3cc6b
-md"""
-Aproximar os estudantes do mundo técnico das máquinas elétricas através da prática e resolução de problemas reais.
-"""
+if lang == "pt"
+	md"""
+	Aproximar os estudantes do mundo técnico das máquinas elétricas através da prática e resolução de problemas reais.
+	"""
+elseif lang == "en"
+	md"""
+	Connecting students with the technical world of electrical machines through practice and real problem solving.
+	"""
+end
 
 # ╔═╡ 7cda7c65-c1e5-4038-8414-406b30da4675
-md"""
-## Metodologias:
-"""
+if lang == "pt"
+	md"## Metodologias"
+elseif lang == "en"
+	md"## Methodologies"
+end
 
 # ╔═╡ 250883b0-68da-46e8-8159-d478587e7c31
-Foldable("Aprendizagem Baseada em Problemas", md"Resolução de exercícios individuais e em grupo, integrando conceitos fundamentais com aplicações práticas. A metodologia promove discussão, análise crítica e pensamento analítico, envolvendo os estudantes na aplicação progressiva da teoria a situações reais.")
+if lang == "pt"
+	Foldable("Aprendizagem Baseada em Problemas", md"Resolução de exercícios individuais e em grupo, integrando conceitos fundamentais com aplicações práticas. A metodologia promove discussão, análise crítica e pensamento analítico, envolvendo os estudantes na aplicação progressiva da teoria a situações reais.")
+elseif lang == "en"
+	Foldable("Problem-Based Learning", md"Individual and group problem solving, integrating fundamental concepts with practical applications. The methodology promotes discussion, critical analysis and analytical thinking, engaging students in the progressive application of theory to real situations.")
+end
 
 # ╔═╡ f0b7a6b5-a87f-4c54-aff8-f23f5c6f726f
-Foldable("Experimentação Colaborativa e Prática Reflexiva", md"As aulas Práticas direcionam os alunos para o trabalho em equipa na realização de ensaios experimentais, de modo a:
-- desenvolver as competências técnicas nos procedimentos de ensaio e de segurança;
-- promover a reflexão estruturada sobre as observações e os resultados obtidos; 
-- através do processo iterativo de experimentação e reflexão coletiva: 
-  - aprofundar a compreensão teórica dos conceitos em estudo;
-  - desenvolver aptidões práticas; 
-  - estimular o pensamento crítico.")
+if lang == "pt"
+	Foldable("Experimentação Colaborativa e Prática Reflexiva", md"As aulas Práticas direcionam os alunos para o trabalho em equipa na realização de ensaios experimentais, de modo a:
+	- desenvolver as competências técnicas nos procedimentos de ensaio e de segurança;
+	- promover a reflexão estruturada sobre as observações e os resultados obtidos; 
+	- através do processo iterativo de experimentação e reflexão coletiva: 
+	  - aprofundar a compreensão teórica dos conceitos em estudo;
+	  - desenvolver aptidões práticas; 
+	  - estimular o pensamento crítico.")
+elseif lang == "en"
+	Foldable("Collaborative Experimentation and Reflective Practice", md"Practical classes direct students to teamwork in conducting experimental tests, in order to:
+	- develop technical competencies in testing and safety procedures;
+	- promote structured reflection on observations and results obtained;
+	- through the iterative process of experimentation and collective reflection:
+	  - deepen theoretical understanding of concepts under study;
+	  - develop practical skills;
+	  - stimulate critical thinking.")
+end
 
 # ╔═╡ 364d1e59-c671-41ba-9be9-83aa1e167208
 begin
 	Julia_logo="https://github.com/JuliaLang/julia/raw/master/doc/src/assets/logo.svg"
 	Pluto_logo="https://raw.githubusercontent.com/fonsp/Pluto.jl/dd0ead4caa2d29a3a2cfa1196d31e3114782d363/frontend/img/logo_white_contour.svg"
 
-	Foldable("Integração de Tecnologias de Educação Aberta", md"""
-
+	if lang == "pt"
+		Foldable("Integração de Tecnologias de Educação Aberta", md"""
 |     |    |
 |-----|:--:|
 | [Linguagem de computação científica](https://julialang.org/): | $(Resource(Julia_logo, :height => 35)) |
@@ -184,12 +217,25 @@ begin
 ![](https://www.ub.uzh.ch/dam/jcr:0417c862-6463-465e-8f3c-b4fc585cb6e0/FAIR-data-principles.png)
 
 **Fig. 2 - Aplicação dos princípios FAIR, [^Bezjak_2018]**
-
 """)
+	elseif lang == "en"
+		Foldable("Integration of Open Education Technologies", md"""
+	|     |    |
+	|-----|:--:|
+	| [Scientific computing language](https://julialang.org/): | $(Resource(Julia_logo, :height => 35)) |
+	|     |    |
+	| [Reactive notebooks](https://plutojl.org/): | $(Resource(Pluto_logo, :height => 35)) |
+	|     |    |
+				 
+	\
+				 
+	#### Open education:
+				 
+	![](https://www.ub.uzh.ch/dam/jcr:0417c862-6463-465e-8f3c-b4fc585cb6e0/FAIR-data-principles.png)
+	**Fig. 2 - Application of FAIR principles, [^Bezjak_2018]**
+	""")
+	end
 end
-
-# ╔═╡ 1b078568-4378-488d-9315-94522ab8a7f3
-
 
 # ╔═╡ d6816245-7d61-4136-91f0-e8c480665278
 if lang == "pt"
@@ -254,9 +300,11 @@ elseif lang == "en"
 end
 
 # ╔═╡ 6538fe16-97a6-4886-8253-2f40593d4d81
-md"""
-# Main bibliography
-"""
+if lang == "pt"
+	md"# Bibliografia Principal"
+elseif lang == "en"
+	md"# Main Bibliography"
+end
 
 # ╔═╡ fba9f05c-7b5f-4f7c-bcd6-608ff25ff634
 begin
@@ -277,40 +325,67 @@ begin
 end
 
 # ╔═╡ 57166d2c-e6c5-4b74-8103-7746e3ace7f2
-md"""
-# Avaliação
-"""
+if lang == "pt"
+	md"# Avaliação"
+elseif lang == "en"
+	md"# Assessment"
+end
 
 # ╔═╡ 656887e0-2f78-498a-90ff-eccdab3bc3f5
-md"""
-$\boldsymbol{\mathit{NF}}=0.45 \times MT+0.50 \times ML+0.05 \times ME$
+if lang == "pt"
+	md"""
+	$\boldsymbol{\mathit{NF}} = 0.45 \times MT+0.50 \times ML+0.05 \times ME$
+	
+	 $\boldsymbol{\mathit{NF}}$: **Nota Final**\
+	 $MT$: Média dos testes (ou nota do exame)\
+	 $ML$: Média ponderada dos Trabalhos Laboratoriais $(TL)$\
+	 $ME$: Nota da apresentação da Máquina Elétrica Especial $\rm{(MEE)}$
+	
+	$ML=\frac{\sum\limits_{i=1}^{5} TL_i \times P_i}{\sum\limits_{i=1}^{5} P_i}$
+	
+	 $P_i$: peso baseado no número de aulas práticas necessárias para cada trabalho
+	
+	**Componentes facultativas:** $\rm{MEE}$ e $TL_5$.
+	"""
+elseif lang == "en"
+	md"""
+	$\boldsymbol{\mathit{FG}}=0.45 \times TA+0.50 \times LA+0.05 \times SM$
+	
+	 $\boldsymbol{\mathit{FG}}$: **Final Grade**\
+	 $TA$: Tests Average (or exam grade)\
+	 $LA$: Laboratory Assignments Weighted Average\
+	 $SM$: Special Electrical Machine $\rm{(SEM)}$ presentation grade 
+	
+	$LA=\frac{\sum\limits_{i=1}^{5} LA_i \times W_i}{\sum\limits_{i=1}^{5} W_i}$
+	
+	 $W_i$: weight based on the number of practical classes required for each assignment
+	
+	**Optional components:** $\rm{SEM}$ and $LA_5$.
+	"""
+end
 
- $\boldsymbol{\mathit{NF}}$: **Nota Final**\
- $MT$: Média dos testes (ou nota do exame)\
- $ML$: Média ponderada dos Trabalhos Laboratoriais $(TL)$\
- $ME$: Nota da apresentação da Máquina Elétrica Especial $\rm{(MEE)}$
-
-$ML=\dfrac{\sum\limits_{i=1}^{5} TL_i \times P_i}{\sum\limits_{i=1}^{5} P_i}$
-
- $P_i$: peso baseado no número de aulas práticas necessárias para cada trabalho
-
-**Componentes facultativas:** $\rm{MEE}$ e $TL_5$.
-"""
+# ╔═╡ cf6d97ec-e94b-4ec8-8b08-2e596b5624a4
+if lang == "pt"
+   md"# Referências"
+elseif lang == "en"
+   md"# References"
+end
 
 # ╔═╡ f6c8f4cb-66a3-4879-8a17-85c37bab2701
 md"""
-# Referências
-
 [^Tidema]: Tidema, [A visual representation of Bloom's revised taxonomy, with indications of possible classroom activities associated with each level.](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Bloom%27s_revised_taxonomy.svg/512px-Bloom%27s_revised_taxonomy.svg.png?20240919191759), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0), via *Wikimedia Commons*.
 
 [^Bezjak_2018]: Sonja Bezjak, April Clyburne-Sherin, Philipp Conzett, Pedro Fernandes, Edit Görögh, Kerstin Helbig, Bianca Kramer, Ignasi Labastida, Kyle Niemeyer, Fotis Psomopoulos, Tony Ross-Hellauer, René Schneider, Jon Tennant, Ellen Verbakel, Helene Brinken, & Lambert Heller. (2018). [The Open Science Training Handbook](https://open-science-training-handbook.gitbook.io/book). [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1212496.svg)](https://doi.org/10.5281/zenodo.1212496)
 """
 
+# ╔═╡ 79b6d4b5-4617-4084-81fe-a06d1c728c06
+
+
 # ╔═╡ c251fd12-11b6-4649-898d-70dba9f9e976
 if lang == "pt"
 	md"# Anexo: árvore das ME"
 elseif lang == "en"
-	md"# Anexo: árvore das ME"
+	md"# Appendix: EM tree"
 end
 
 # ╔═╡ 3b3aa8fe-8b09-43e5-8ca6-05860f3044ad
@@ -351,7 +426,11 @@ begin
     "Electronically              c o n t r o l l e d"  [color = "lightgreen"]
 	
 }""")
-	md"Destape (👁) para visualizar..."
+	if lang == "pt"
+		md"Destape (👁) para visualizar..."
+	elseif lang == "en"
+		md"Click (👁) to view..."
+	end
 end
 
 # ╔═╡ b1289346-6bbe-46a0-9721-c51acdf6e362
@@ -377,9 +456,11 @@ pluto-output {
 """
 
 # ╔═╡ 5b3c89b5-a757-4709-9bdb-f3e0feff5da1
-md"""
-# Notebook
-"""
+if lang == "pt"
+   md"# *Notebook*"
+elseif lang == "en"
+   md"# Notebook"
+end
 
 # ╔═╡ bf113704-6d60-4677-901c-79d0125bc3c0
 if lang == "pt"
@@ -820,16 +901,14 @@ version = "17.4.0+2"
 # ╟─20e8ef2a-b923-4e9d-86c8-53aafcd2d8e3
 # ╟─797e2cea-ff51-43b2-8d5b-29c6740ec9c5
 # ╟─4a679083-ab50-414c-b0e7-1c1ca50f53a0
-# ╟─a4d4044e-044b-40bb-87c0-f9c29d7dd07e
 # ╟─6dd8ad18-9069-4500-bc84-51e502d57c37
-# ╠═596dca72-e55b-4559-862b-0807defad8a2
+# ╟─596dca72-e55b-4559-862b-0807defad8a2
 # ╟─689fbf6c-8504-4648-a1da-cf5049fa5310
 # ╟─dce5565f-b004-489d-827b-b0af02c3cc6b
 # ╟─7cda7c65-c1e5-4038-8414-406b30da4675
 # ╟─250883b0-68da-46e8-8159-d478587e7c31
 # ╟─f0b7a6b5-a87f-4c54-aff8-f23f5c6f726f
 # ╟─364d1e59-c671-41ba-9be9-83aa1e167208
-# ╟─1b078568-4378-488d-9315-94522ab8a7f3
 # ╟─d6816245-7d61-4136-91f0-e8c480665278
 # ╟─689dad68-fd9d-4e6b-8adc-029ca1f08ccc
 # ╟─b8c5ca70-be9d-464e-8489-fd41b8445952
@@ -839,7 +918,9 @@ version = "17.4.0+2"
 # ╟─fba9f05c-7b5f-4f7c-bcd6-608ff25ff634
 # ╟─57166d2c-e6c5-4b74-8103-7746e3ace7f2
 # ╟─656887e0-2f78-498a-90ff-eccdab3bc3f5
+# ╟─cf6d97ec-e94b-4ec8-8b08-2e596b5624a4
 # ╟─f6c8f4cb-66a3-4879-8a17-85c37bab2701
+# ╟─79b6d4b5-4617-4084-81fe-a06d1c728c06
 # ╟─c251fd12-11b6-4649-898d-70dba9f9e976
 # ╟─3b3aa8fe-8b09-43e5-8ca6-05860f3044ad
 # ╟─a9501886-df7e-4c46-88b7-06e8344b01fd

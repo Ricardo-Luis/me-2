@@ -93,7 +93,7 @@ md"""
 
 # ╔═╡ b2cfb3de-c46b-40c5-b982-da47b62a0628
 md"""
-# a) $$I_{exc}$$, alternador em vazio 💻
+# a) 💻 $$I_{exc}$$, alternador em vazio 
 **Qual o valor da corrente de campo necessário para que a tensão composta do seja de
 2300V, quando o alternador funciona em vazio?**
 """

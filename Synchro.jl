@@ -278,7 +278,7 @@ md"""
 ## Referência de colaboração com IA
 Este _notebook_ foi desenvolvido em colaboração com Inteligência Artificial (IA), especificamente utilizando o ChatGPT, um modelo de linguagem avançado criado pela [OpenAI](https://openai.com/).\
 O processo iniciou-se com o seguinte _prompt_:\
-$(@bind poem TextField((112, 4), "Utilizando Julia com Pluto.jl e Plots.jl, crie um gráfico interativo de uma onda sinusoidal, deslocando-se como a visualização num osciloscópio. A onda deve ser representada no tempo e no espaço, com o vetor de deslocamento angular (fasor) atualizado em tempo real, para um dado instante periódico, do movimento da onda ao longo do tempo. Adicionalmente, a frequência deve ser controlável via slider (PlutoUI.jl)."))
+$(@bind poem TextField((73, 6), "Utilizando Julia com Pluto.jl e Plots.jl, crie um gráfico interativo de uma onda sinusoidal, deslocando-se como a visualização num osciloscópio. A onda deve ser representada no tempo e no espaço, com o vetor de deslocamento angular (fasor) atualizado em tempo real, para um dado instante periódico, do movimento da onda ao longo do tempo. Adicionalmente, a frequência deve ser controlável via slider (PlutoUI.jl)."))
 """
 
 # ╔═╡ 696045ec-f351-4b70-ba70-83b107fe5014

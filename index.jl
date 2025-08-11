@@ -44,6 +44,9 @@ Os *notebooks* são documentos computacionais que utilizam o navegador *web*, in
 Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo pontes entre o conhecimento académico e os desafios reais da engenharia. O objetivo é estimular um domínio mais efetivo e prático dos conteúdos, contribuindo para o desenvolvimento de competências essenciais ao exercício da engenharia.
 """
 
+# ╔═╡ ed8524bb-0e87-42fa-9c9c-dc198f44c39f
+blockquote("Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.", md"-- Richard P. Feynman",)
+
 # ╔═╡ 1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 
 
@@ -51,6 +54,9 @@ Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de
 md"""
 # Notebooks ME II
 """
+
+# ╔═╡ 354f89d1-5860-47f8-9a7f-d1f4faf40979
+NotebookCard("https://ricardo-luis.github.io/me-2/ME-II.html")
 
 # ╔═╡ ca020f4c-e830-4eb1-8284-308551465919
 NotebookCard("https://ricardo-luis.github.io/me-2/ACpower.html")
@@ -1004,8 +1010,10 @@ version = "17.4.0+2"
 # ╟─c4c3c88d-e13f-4782-9131-eb0d70b5277d
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
+# ╟─ed8524bb-0e87-42fa-9c9c-dc198f44c39f
 # ╟─1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2
+# ╟─354f89d1-5860-47f8-9a7f-d1f4faf40979
 # ╟─1d27f002-0a8f-4326-a1ed-12036aa9c8a3
 # ╟─ca020f4c-e830-4eb1-8284-308551465919
 # ╟─3851b901-0f6f-4771-8adb-7820a7b60465

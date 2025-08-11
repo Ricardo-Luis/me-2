@@ -251,7 +251,8 @@ begin
 end
 
 # ╔═╡ 5ed2befd-6499-4ef5-adb1-79cff3d1aea1
-heatmap(rpm, Nm, PM1, color=:gist_rainbow, xlabel="rpm", ylabel="Nm", title="matrix heatmap")
+heatmap(rpm, Nm, PM1, color=:gist_rainbow, xlabel="rpm", ylabel="Nm", 
+					  title="matrix heatmap")
 
 # ╔═╡ cdbee392-9871-4f1d-be1f-016b39f6c5a5
 begin
@@ -272,7 +273,8 @@ end
 begin
 	#plotly()
 	# for interaction: zoom, pan, rotation,...
-	surface(rpm,Nm,PM1, color=:turbo, xlabel = "rpm", ylabel = "Nm", zlabel = "g/kWh")
+	surface(rpm,Nm,PM1, color=:turbo, xlabel = "rpm", ylabel = "Nm", 
+						zlabel = "g/kWh")
 end
 
 # ╔═╡ d56f3f5d-6e56-4ee4-a03a-7a83c170e6ce
@@ -340,10 +342,23 @@ Combinando o mapa BSFC com o mapa de potências mecânicas, obtém-se o mapa com
 begin
 	contour(rpm, Nm, PM1, 
 			levels=20, 
-			contour_labels = true,
-			xlabel="rpm", ylabel="Nm", title="BSFC (g/kWh) & rotational power (kW) maps")
+			contour_labels=false,
+			color=:turbo,
+			linestyle=:solid,
+			linewidth=2,
+			cbar=false,
+			label="BSFC (g/kWh)",
+			xlabel="rpm", ylabel="Nm") 
+	
 	contour!(rpm, Nm, power,
-			levels=[2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120], contour_labels = true, cbar=false)
+			levels=[2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 120], contour_labels=true,
+			color=:black,
+			linestyle=:dash,
+            linewidth=2,
+			cbar=false,
+			label="Power (kW)",
+			title="BSFC (g/kWh) & rotational power (kW) maps",
+			size=[600, 500])
 end
 
 # ╔═╡ 49cd08c3-4ca2-427c-9045-d46baea041c2

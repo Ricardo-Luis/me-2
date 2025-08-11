@@ -254,7 +254,7 @@ md"""
 
 # ╔═╡ 8d7ad9b1-2233-4a3f-ad60-8c759aea65e7
 md"""
-Mostrar potência intantânea, $p(t)$? $(@bind z CheckBox())
+Mostrar potência intantânea, $p(t)$? $(@bind z Select([0 => "Não", 1 => "Sim",]))
 """
 
 # ╔═╡ 4892078c-73aa-4eb6-851a-714a08ee050c
@@ -280,16 +280,17 @@ p = u.*i
 
 # ╔═╡ ad4c33ec-473c-4b72-86ca-d2674d45813b
 begin
-	# Select the checkbox above the plot, to see the instantaneous power, p(t), together with voltage and current plot, with a secondary axis:
+	# Select the select box above the plot, to see the instantaneous power, p(t), together with voltage and current plot, with a secondary axis:
 	if z == 0
 		plot(t, u, xlabel="t (s)", label="u(t)", minorticks=5)
 		plot!(t,i, ylabel="u, i  (V, A)", label="i(t)", 
-			  	   legend=:bottomleft, size=(700,400))
+			  	   legend=:bottomleft, size=(602,402))
 	else
 		plot(t, u, xlabel="t (s)", label="u(t)", minorticks=5)
 		plot!(t,i, ylabel="u, i  (V, A)", label="i(t)", legend=:bottomleft)
 		plot!(twinx(), t, p/1000, ylabel="p (kVA)", label="p(t)", lc=:green, 
-								  lw=2, ylims=[-15,20], legend=:bottomright)
+								  lw=2, ylims=[-15,20], legend=:bottomright,
+			 					  size=(650,400))
 	end
 end
 
@@ -1817,7 +1818,7 @@ version = "1.9.2+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═4726fac7-ee43-4e91-b95e-dbb1a09e1b7d
+# ╟─4726fac7-ee43-4e91-b95e-dbb1a09e1b7d
 # ╟─65b1d051-b0ec-4b7b-a7e7-c3a5c3ac1a0a
 # ╟─9cd8d54b-23ae-4586-90c5-f560ff418f73
 # ╟─dc578ed3-d498-4c02-9b7c-2f121e4358c6
@@ -1831,7 +1832,7 @@ version = "1.9.2+0"
 # ╟─90f50ad3-c86d-4e65-a338-c0fb082b1ef8
 # ╠═215762b7-272b-4749-83c9-532fed7671ef
 # ╟─96b48340-ec08-4d87-b1f1-46b18a12b038
-# ╠═8794c335-e5a7-4b91-b6e4-30e31eff27e9
+# ╟─8794c335-e5a7-4b91-b6e4-30e31eff27e9
 # ╟─9a3db49a-5fa0-48ac-9de7-5cad998674c6
 # ╠═2416a6df-b494-4620-a4cb-53efc61ae202
 # ╟─f0dad876-ded8-4da1-8b4e-243dde05b386
@@ -1846,7 +1847,7 @@ version = "1.9.2+0"
 # ╟─72acfb93-b5bb-4767-8214-2571165304bd
 # ╟─01e4e485-c4ba-473c-9de3-d28179e147e2
 # ╟─8d7ad9b1-2233-4a3f-ad60-8c759aea65e7
-# ╟─ad4c33ec-473c-4b72-86ca-d2674d45813b
+# ╠═ad4c33ec-473c-4b72-86ca-d2674d45813b
 # ╟─4892078c-73aa-4eb6-851a-714a08ee050c
 # ╟─ee73db77-137d-456e-970e-957dbb99a60d
 # ╟─fa0fb15d-45e4-48bf-82bf-8352c677c35b

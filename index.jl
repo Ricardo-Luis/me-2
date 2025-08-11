@@ -412,7 +412,7 @@ md"""
 
 Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino-aprendizagem da unidade curricular de Máquinas Elétricas $\rm{II}$.
 
-Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas eléctricas.
+Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas elétricas.
 
 Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes *notebooks*, cujo trabalho colaborativo enriquece constantemente as possibilidades educativas desta plataforma.
 

@@ -37,11 +37,11 @@ md"""
 
 # Visão geral
 
-Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks* na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas $\rm{II}$ (ME $\rm{II\,}$), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza uma coleção de *notebooks*, na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas $\rm{II}$ (ME $\small{\rm{II\,}}$), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
-Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
+Os *notebooks* são documentos computacionais que combinam, num único ambiente, código executável, resultados, texto explicativo, expressões matemáticas, tabelas, imagens e outros elementos. Permitem articular a aprendizagem teórica com exemplos práticos e contextos aplicados, promovendo uma experiência de estudo mais interativa e integrada.
 
-Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, criando ligações entre o conhecimento académico e os desafios reais da engenharia. O objectivo é promover um domínio mais eficaz e prático dos conteúdos, contribuindo para o desenvolvimento de competências essenciais ao exercício da profissão.
+Estes *notebooks* são desenvolvidos com **`Pluto.jl`**, um ambiente de desenvolvimento integrado, simples e reativo, para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo ligações entre o conhecimento académico e os desafios reais da engenharia. O objetivo é promover um domínio mais eficaz e prático dos conteúdos, contribuindo para o desenvolvimento de competências essenciais ao exercício da profissão.
 """
 
 # ╔═╡ ed8524bb-0e87-42fa-9c9c-dc198f44c39f
@@ -170,13 +170,17 @@ md"""
 # Julia
 
 ## Introdução
-[`Julia`](https://en.wikipedia.org/wiki/Julia_(programming_language)) é uma linguagem de programação de [alto nível](https://en.wikipedia.org/wiki/High-level_programming_language), [dinâmica](https://en.wikipedia.org/wiki/Dynamic_programming_language) e de elevado desempenho, lançada em 2012 como solução multiplataforma e de código aberto para [computação científica](https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica). Apresenta ótimas características para a construção de modelos matemáticos e de técnicas de simulação numérica, permitindo analisar e resolver problemas científicos e de engenharia através do computador.
+[`Julia`](https://en.wikipedia.org/wiki/Julia_(programming_language)) é uma linguagem de programação de [alto nível](https://en.wikipedia.org/wiki/High-level_programming_language), [dinâmica](https://en.wikipedia.org/wiki/Dynamic_programming_language) e de elevado desempenho, lançada em 2012 como solução multiplataforma e de código aberto para [computação científica](https://pt.wikipedia.org/wiki/Computa%C3%A7%C3%A3o_cient%C3%ADfica). Possui características particularmente adequadas à criação de modelos matemáticos e à simulação numérica, permitindo analisar e resolver problemas científicos e de engenharia com recurso ao computador.
 
 
 ## "*Time to first plot*"
-`Julia` é uma linguagem compilada *just-in-time*. Isso significa que o compilador irá gerar código binário conforme necessário. Assim, quando abrir/executar o *notebook* pela primeira vez, verificará que tem de aguardar algum tempo pela compilação do código `Julia`, dependendo da complexidade do mesmo e da capacidade de processamento do seu computador. Por exemplo, a biblioteca `Plots.jl` para realização de gráficos tem uma dimensão considerável e exige tempo de compilação. Esta latência na compilação de um programa `Julia` é conhecida por "**_time to first plot_**", que teve melhorias significativas nas versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) do `Julia`. Após a primeira execução, apenas as alterações que realize (no código, nos dados, por interação) serão compiladas, pelo que verificará, a partir daí, o [elevado desempenho](https://julialang.org/benchmarks/) da linguagem `Julia`.
+`Julia` utiliza um compilador *just-in-time*, que gera código máquina à medida que este é executado pela primeira vez. Desta forma, ao executar um *notebook* pela primeira vez, poderá ter de aguardar algum tempo até que o código seja compilado e executado. O tempo necessário depende da complexidade do programa e do desempenho do computador  — nos *notebooks* desta unidade curricular, com versões recentes de `Julia`, situa-se normalmente entre algumas dezenas de segundos a dois minutos (podendo ser superior em máquinas menos potentes).
 
-Assim, como sugestão, após abrir um dos *notebooks* de Máquinas Elétricas $\rm{II}$ no seu Julia/Pluto, pode fazer uma primeira leitura desse *notebook* na versão estática do mesmo, disponibilizada neste *website*, até a primeira compilação/execução terminar, para então depois poder utilizá-lo.
+Por exemplo, a biblioteca `Plots.jl`, utilizada para criar gráficos, é relativamente extensa e contribui para esta latência inicial, conhecida por "**_time to first plot_**". As versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) de `Julia` introduziram melhorias significativas neste aspeto.
+
+Após esta fase inicial, o código já compilado é reutilizado, tornando as execuções subsequentes muito mais rápidas, permitindo tirar partido do [elevado desempenho](https://julialang.org/benchmarks/) característico da linguagem.
+
+💡 **Sugestão:** Quando abrir um dos *notebooks* de Máquinas Elétricas $\rm{II}$ no ambiente Julia/Pluto, pode iniciar a leitura na versão estática disponível neste *website*, enquanto decorre a primeira execução. Desta forma, aproveita o tempo de espera e, logo que o *notebook* esteja pronto, pode explorá-lo de forma interativa.
 """
 
 # ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
@@ -238,31 +242,46 @@ md"""
 
 ## Introdução
 
-Um *notebook* computacional é uma ferramenta amplamente utilizada em computação científica que combina código, texto e visualizações num ambiente interativo. Baseado nos conceitos de [*literate programming*](https://en.wikipedia.org/wiki/Literate_programming) e ciência reproduzível, permite documentar e partilhar análises de forma clara e transparente, como são exemplo os sistemas de *notebooks* existentes para a área de [ciência de dados](https://datasciencenotebook.org/). No contexto de estudo, os *notebooks* servem como complemento aos materiais tradicionais (livros, apontamentos, etc.), oferecendo um espaço para experimentação e exploração prática. O `Pluto.jl` é um ambiente de *notebook* desenvolvido especificamente para `Julia`, proporcionando uma experiência interativa e reativa ideal para aprendizagem e investigação.
+Um *notebook* computacional é uma ferramenta amplamente utilizada em computação científica que combina código, texto e visualizações num ambiente interativo. Inspirado nos conceitos de [*literate programming*](https://en.wikipedia.org/wiki/Literate_programming) e ciência reproduzível, este formato permite documentar e partilhar análises de forma estruturada, seguindo o exemplo de outros sistemas de *notebooks* utilizados em [ciência de dados](https://datasciencenotebook.org/). No contexto educativo, estes documentos computacionais complementam os materiais tradicionais (livros, apontamentos, etc.), proporcionando um ambiente dinâmico para a experimentação prática.
 
-O [`Pluto.jl`](https://plutojl.org/) é uma biblioteca `Julia` que proporciona um ambiente de desenvolvimento integrado para a criação de documentos computacionais interativos (*notebooks*).
-Utilizando um navegador *web* (recomendado: Mozilla Firefox ou Google Chrome), o `Pluto.jl` permite combinar código `Julia`, resultados computacionais, texto explicativo, expressões matemáticas, gráficos, imagens, etc., de forma interligada. Esta abordagem facilita o processo de ensino-aprendizagem, oferecendo uma experiência interativa ao utilizador.
+O `Pluto.jl` é um ambiente de desenvolvimento para *notebooks* em `Julia`,  caracterizado pela sua arquitetura reativa. Funcionando através de um navegador *web* (recomendado: Mozilla Firefox ou Google Chrome), permite combinar código executável, resultados computacionais, texto explicativo, expressões matemáticas e elementos gráficos num único documento interligado. Esta característica torna-o particularmente adequado para ensino e investigação, facilitando a exploração ativa dos conceitos teóricos.
+
+
 
 ## Reatividade, reprodutibilidade e interatividade
-Os *notebooks* Pluto são reativos, pois a atualização de uma parte do código reexecuta automaticamente todas as partes afetadas por essa alteração. 
-Ou seja, o `Pluto.jl` reconhece as dependências entre as células, nos segmentos de código `Julia`. Por conseguinte, sempre que uma célula é alterada, todas as células dependentes são automaticamente atualizadas (como numa folha de cálculo: MS Excel, Google Sheets, ...). Assim, os resultados são recalculados em tempo real, permitindo ao utilizador a exploração dinâmica dos conceitos de forma interativa.
+### Reatividade
+Os *notebooks* Pluto distinguem-se pela sua característica reativa: qualquer alteração do código desencadeia automaticamente a reexecução de todas as células dependentes. Tal como numa folha de cálculo (e.g., MS Excel ou Google Sheets), o sistema identifica as relações entre as células e atualiza os resultados em tempo real, permitindo uma exploração dinâmica dos conceitos.
 
-Os *notebooks* Pluto são reproduzíveis, pois configuram automaticamente as dependências necessárias. O `Pluto.jl` regista as bibliotecas usadas no *notebook* e configura o ambiente de execução, assegurando a qualquer utilizador as mesmas condições computacionais. Esta funcionalidade elimina o problema comum de "funciona no meu computador", permitindo uma colaboração mais eficiente e resultados consistentes entre diferentes computadores.
+### Reprodutibilidade
+O `Pluto.jl` garante a reprodutibilidade através da gestão automática de dependências. Cada *notebook* inclui um registo das bibliotecas utilizadas, criando um ambiente de execução consistente em qualquer sistema. Esta funcionalidade elimina o problema habitual de "funciona no meu computador", assegurando resultados idênticos independentemente da plataforma utilizada.
 
-O `Pluto.jl` disponibiliza suporte nativo para *widgets* interativos, como *sliders*, caixas de seleção e campos de introdução de texto, que podem ser associados a variáveis `Julia` através do comando `@bind`. Desta forma, o utilizador pode manipular parâmetros e visualizar de imediato os resultados dessas alterações no código e nas visualizações, sem necessidade de reiniciar ou executar várias células manualmente, tornando a experiência mais fluida e facilitando a criação de *dashboards* e aplicações científicas interativas.
+### Interatividade
+A plataforma oferece suporte nativo para *widgets* interativos (como *sliders*, caixas de seleção e campos de texto), controláveis através do comando `@bind`. Estes elementos permitem ajustar parâmetros e observar instantaneamente os seus efeitos nos resultados e visualizações, sem necessidade de reexecução manual. Esta capacidade torna o `Pluto.jl` particularmente útil para criar *dashboards* e aplicações científicas interativas.
+
 
 
 ## *Notebooks* em ME II
-A escolha do `Pluto.jl` como ambiente de programação reativo para `Julia`, para a elaboração de **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$, possibilita a implementação de boas práticas de [Ciência Aberta](https://www.ciencia-aberta.pt/). O `Julia` com o `Pluto.jl`, sendo ferramentas [FOSS](https://en.wikipedia.org/wiki/Free_and_open-source_software) (_Free and Open Source Software_), permitem disponibilizar [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), através da realização de materiais de ensino-aprendizagem acessíveis e sem barreiras tecnológicas ou económicas. Também no âmbito da investigação e desenvolvimento, estas ferramentas permitem aplicar os princípios [FAIR](https://openscience.eu/):
+Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$, são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que ferecem vantagens integradas:
 
-$$\begin{aligned}
-&\text{\textbf{F}indable} \\
-&\text{\textbf{A}ccessible} \\
-&\text{\textbf{I}nteroperable} \\
-&\text{\textbf{R}eusable}
-\end{aligned}$$
+- Alinhamento com Boas Práticas Científicas
+  - Implementação dos princípios [FAIR](https://openscience.eu/) (Localizável, Acessível, Interoperável, Reutilizável)
+  - Utilização de tecnologias [open-source](https://en.wikipedia.org/wiki/Free_and_open-source_software) sem restrições de licenciamento
+  - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilháveis
 
-Assim, os *notebooks* desenvolvidos com estas tecnologias FOSS podem fomentar a transparência, reprodutibilidade, reutilização e inovação em ciência/engenharia, alinhando-se com os valores fundamentais da ciência aberta.
+
+- Robustez Computacional
+  - Reprodutibilidade garantida entre plataformas (mesmos inputs = mesmos outputs)
+  - Gestão automática de dependências via ambiente controlado
+  - Atualizações dinâmicas com arquitetura reativa
+
+
+- Valor Educativo
+  - Plataforma interativa para experimentação com modelos teóricos
+  - Visualização paramétrica em tempo real
+  - Ferramenta flexível, adaptável a diferentes metodologias de ensino
+
+
+Esta implementação concretiza os princípios da [Ciência Aberta](https://www.ciencia-aberta.pt/), garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas, estabelecendo uma prática científica moderna, colaborativa e orientada para desafios de engenharia.
 """
 
 # ╔═╡ 1f41786c-01a2-4b48-9f13-937f7d6f75bf
@@ -402,7 +421,7 @@ details("Julia: zero to hero",
 details("Pluto.jl: ferramentas e recursos",
 md"""
 ## Pluto.jl: ferramentas e recursos
-### 🚀 Comandos Básicos e Fundamentos
+### ⌨️ Comandos Básicos e Fundamentos
 #### Recursos Essenciais
 
 - **[Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)** - Wiki oficial com comandos fundamentais
@@ -513,9 +532,11 @@ As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestõe
 [**Ricardo Luís**](https://www.isel.pt/docentes/ricardo-jorge-ferreira-luis)\
 Professor Adjunto, PhD
 
+
 **E-mail:** [ricardo.luis@isel.pt](mailto:ricardo.luis@isel.pt)
 
-**Endereço postal:**
+
+**Endereço institucional:**
 
 > ISEL -- Instituto Superior de Engenharia de Lisboa\
 > DEEEA \\ Lab. de Máquinas Elétricas\
@@ -523,10 +544,29 @@ Professor Adjunto, PhD
 > 1959-007 Lisboa, Portugal
 
 
-## Como citar este trabalho
-Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados disponibilizados neste *website*, seja em trabalhos académicos, publicações, materiais educativos, projetos ou outros contextos, utilize, por favor, a seguinte referência:
+## Como Citar este Trabalho
+Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados disponibilizados neste *website*, seja em trabalhos académicos, publicações, materiais educativos, projetos ou outros contextos, utilize, por favor, uma das seguintes referências:
+
+
+**Formato de Referência Bibliográfica:**
 
 	Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2/
+
+
+**Formato BibTeX:**
+
+```bibtex
+@misc{luis2025notebooks,
+  author      = {Ricardo Luís},
+  title       = {Notebooks Computacionais Aplicados a Máquinas Eléctricas II},
+  year        = {2025},
+  institution = {Instituto Superior de Engenharia de Lisboa},
+  program     = {Licenciatura em Engenharia Electrotécnica},
+  url         = {https://ricardo-luis.github.io/me-2/},
+  note        = {Acedido em: [inserir data]},
+  notebook    = {[inserir nome específico do notebook, se aplicável]}
+}
+```
 """
 
 # ╔═╡ 329f957f-5031-4da9-93a8-2c6acd87ed76

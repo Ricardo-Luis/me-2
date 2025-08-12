@@ -248,7 +248,7 @@ O `Pluto.jl` é um ambiente de desenvolvimento para *notebooks* em `Julia`,  car
 
 
 
-## Reatividade, reprodutibilidade e interatividade
+## Características principais
 ### Reatividade
 Os *notebooks* Pluto distinguem-se pela sua característica reativa: qualquer alteração do código desencadeia automaticamente a reexecução de todas as células dependentes. Tal como numa folha de cálculo (e.g., MS Excel ou Google Sheets), o sistema identifica as relações entre as células e atualiza os resultados em tempo real, permitindo uma exploração dinâmica dos conceitos.
 
@@ -261,7 +261,7 @@ A plataforma oferece suporte nativo para *widgets* interativos (como *sliders*, 
 
 
 ## *Notebooks* em ME II
-Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$, são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que ferecem vantagens integradas:
+Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$, são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que oferecem vantagens integradas:
 
 - Alinhamento com Boas Práticas Científicas
   - Implementação dos princípios [FAIR](https://openscience.eu/) (Localizável, Acessível, Interoperável, Reutilizável)
@@ -270,7 +270,7 @@ Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$
 
 
 - Robustez Computacional
-  - Reprodutibilidade garantida entre plataformas (mesmos inputs = mesmos outputs)
+  - Reprodutibilidade garantida entre plataformas (mesmos *inputs* = mesmos *outputs*)
   - Gestão automática de dependências via ambiente controlado
   - Atualizações dinâmicas com arquitetura reativa
 

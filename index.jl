@@ -41,7 +41,7 @@ Este *website* disponibiliza a leitura e o acesso a uma coleção de *notebooks*
 
 Os *notebooks* são documentos computacionais que utilizam o navegador *web*, integrando o desenvolvimento e os resultados de execução, com texto explicativo, expressões matemáticas, tabelas, imagens, entre outros, de forma interligada e interativa com o utilizador. Esta metodologia procura integrar a aprendizagem teórica com as características operacionais das máquinas elétricas.
 
-Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo pontes entre o conhecimento académico e os desafios reais da engenharia. O objetivo é estimular um domínio mais efetivo e prático dos conteúdos, contribuindo para o desenvolvimento de competências essenciais ao exercício da engenharia.
+Estes *notebooks* são desenvolvidos utilizando o **`Pluto.jl`**, um ambiente de desenvolvimento integrado simples e reativo para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, criando ligações entre o conhecimento académico e os desafios reais da engenharia. O objectivo é promover um domínio mais eficaz e prático dos conteúdos, contribuindo para o desenvolvimento de competências essenciais ao exercício da profissão.
 """
 
 # ╔═╡ ed8524bb-0e87-42fa-9c9c-dc198f44c39f
@@ -185,27 +185,48 @@ details("Informação complementar",
 
 		md"""
 ## Informação complementar
+### 📚 Fundamentos e História
+#### Origem da Linguagem Julia
+- **Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman**, [Why We Created Julia](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, fev. 2012.
+  - *Artigo fundacional que explica a motivação e a filosofia por detrás da linguagem*  
+  - *Leitura essencial para compreender os objectivos de conceção*
 
-- Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman, [Why We Created Julia](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, Feb. 2012;
 
-- Gabriel Maistre, [10 Reasons Why You Should Learn Julia](https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, Sept. 2018;
+#### Introduções Técnicas Aprofundadas
+- **Lee Phillips**, [An introduction to the Julia language, part 1](https://lwn.net/Articles/763626/), LWN.net, ago. 2018.  
+- **Lee Phillips**, [An introduction to the Julia language, part 2](https://lwn.net/Articles/764001/), LWN.net, set. 2018. 
+  - *Análise técnica detalhada das características da linguagem*  
+  - *Abordagem de um especialista em programação científica*
 
-- Lee Phillips, [An introduction to the Julia language, part 1](https://lwn.net/Articles/763626/), LWN.net, Aug. 2018;
+\
 
-- Lee Phillips, [An introduction to the Julia language, part 2](https://lwn.net/Articles/764001/), LWN.net, Sept. 2018;
+### 🔍 Análises Comparativas e de Mercado
+#### Comparações com Outras Linguagens
+- **Toby Driscoll**, [Matlab vs. Julia vs. Python](https://tobydriscoll.net/post/matlab-vs.-julia-vs.-python/), artigo de opinião, jun. 2019.
+  - *Comparação prática para computação científica*  
+  - *Análise de desempenho e usabilidade*
 
-- Toby Driscoll, [Matlab vs. Julia vs. Python](https://tobydriscoll.net/post/matlab-vs.-julia-vs.-python/), artigo de opinião, June 2019;
+#### Perspectivas de Adoção
+- **Gabriel Maistre**, [10 Reasons Why You Should Learn Julia](https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, set. 2018.
+- **Bekhruz Tuychiev**, [The Rise of the Julia Programming Language — Is it Worth Learning in 2023?](https://www.datacamp.com/blog/the-rise-of-julia-is-it-worth-learning-in-2022), artigo de opinião, DataCamp, mai. 2023. 
+  - *Análise actual do mercado e tendências*  
+  - *Perspectiva de carreira e oportunidades*
 
-- Bekhruz Tuychiev, [The Rise of the Julia Programming Language  — Is it Worth Learning in 2023?](https://www.datacamp.com/blog/the-rise-of-julia-is-it-worth-learning-in-2022), artigo de opinião, DataCamp, May 2023;
+#### Aplicações Científicas
+- **William F. Godoy**, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, Better Scientific Software, abr. 2023.  
+  - *Foco em software científico de qualidade*  
+  - *Casos de utilização em investigação*
 
-- William F Godoy, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, Better Scientific Software, Apr., 2023;
+\
 
-- João Pereira, Mario Siqueira, [Linguagem de programação JULIA: uma alternativa open source e de alto desempenho ao MATLAB](https://periodicos.ifpb.edu.br/index.php/principia/article/view/1345/661), Revista principia - divulgação científica e tecnológica do IFPB, N.º 34, p. 132-140, 2017;
-
-- Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em Julia](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O’Reilly Media, 2018;
-
+### 📖 Recursos em Português
+#### Livros e Artigos Académicos
+		
+- Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em Julia](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O’Reilly Media, 2018.
 - Raimundo Filho, Marina Miranda, Millena Rocha, André Nascimento, [Introdução a linguagem de programação Julia](https://www.edufma.ufma.br/wp-content/uploads/woocommerce_uploads/2023/05/Introdu%C3%A7%C3%A3o-a-linguagem-de-programa%C3%A7%C3%A3o-Julia.pdf),  EDFUMA - Editora da Universidade Federal do Maranhão, São Luís, Brasil, 2023.
-	"""
+- J. A. Carneiro Neto e G. dos Santos Lima, [LINGUAGEM DE PROGRAMAÇÃO JULIA: uma linguagem feita para a ciência](https://revista.ibict.br/p2p/article/view/7060/6815), p2p, vol. 11, nº 1, p. e-7060, ago. 2024.
+- João Pereira, Mario Siqueira, [Linguagem de programação JULIA: uma alternativa open source e de alto desempenho ao MATLAB](https://periodicos.ifpb.edu.br/index.php/principia/article/view/1345/661), Revista principia - divulgação científica e tecnológica do IFPB, N.º 34, p. 132-140, 2017;
+"""
 )
 
 # ╔═╡ 7e966db6-ca39-4f66-9ab1-bdc088591608
@@ -248,16 +269,31 @@ Assim, os *notebooks* desenvolvidos com estas tecnologias FOSS podem fomentar a 
 details("Informação complementar",
 md"""
 ## Informação complementar
+### 🎥 Apresentações Oficiais
+- Fons van der Plas, Mikołaj Bochenski, **[Interactive notebooks Pluto.jl](https://youtu.be/IAF8DjrQSSk)**, apresentação do Pluto, JuliaCon 2020, 24min.
 
-- Fons van der Plas, Mikołaj Bochenski, [Interactive notebooks Pluto.jl](https://youtu.be/IAF8DjrQSSk), vídeo de apresentação do Pluto, conferência JuliaCon 2020. Duração: 24min;
+		
+- Fons van der Plas, **[Pluto.jl — one year later](https://youtu.be/HiI4jgDyDhY)**, JuliaCon 2021, 27min.
 
-- Fons van der Plas, [Pluto.jl — one year later](https://youtu.be/HiI4jgDyDhY), vídeo da conferência JuliaCon 2021. Duração: 27min;
+		
+- Fons van der Plas, **[Pluto.jl – reactive and reproducible notebooks for Julia](https://www.youtube.com/watch?v=Rg3r3gG4nQo)**, JupyterCon 2023, 29min.
 
-- Fons van der Plas, [Pluto.jl – reactive and reproducible notebooks for Julia](https://www.youtube.com/watch?v=Rg3r3gG4nQo), vídeo da conferência JupyterCon 2023. Duração: 29min;
+\
+		
+### 📝 Análises e Tutoriais da Comunidade
 
-- Connor Burns, [A Guide to Building Reactive Notebooks for Scientific Computing With Julia and Pluto.jl](https://medium.com/swlh/a-guide-to-building-reactive-notebooks-for-scientific-computing-with-julia-and-pluto-jl-1a2c0c455d51), artigo de opinião, Medium, Dec. 2020;
+#### Guias Práticos
+- Connor Burns, **[A Guide to Building Reactive Notebooks for Scientific Computing With Julia and Pluto.jl](https://medium.com/swlh/a-guide-to-building-reactive-notebooks-for-scientific-computing-with-julia-and-pluto-jl-1a2c0c455d51)**, Medium, dez. 2020.
+  - *Tutorial prático para computação científica*
+  - *Foco em aplicações reactivas*
+  - *Exemplos concretos e boas práticas*
 
-- Lee Phillips, [An introduction to Pluto](https://lwn.net/Articles/835930/), artigo de opinião, LWN.net, Nov. 2020.
+
+#### Análise Técnica
+- Lee Phillips, **[An introduction to Pluto](https://lwn.net/Articles/835930/)**, LWN.net, nov. 2020.
+  - *Análise técnica independente*
+  - *Comparação com Jupyter e outros notebooks*
+  - *Perspectiva de utilizador experiente*
 """
 )
 
@@ -266,7 +302,7 @@ md"""
 
 # ╔═╡ 16d500be-59b5-4d8e-b77e-f40a9d3dd231
 md"""
-# Guia rápido Julia & Pluto.jl
+# Guia rápido Julia & Pluto
 
 **Materiais de apoio** — Documentação, exemplos práticos, bibliotecas e ferramentas para programação científica em **`Julia`** e criação de notebooks interativos em **`Pluto.jl`**.
 """
@@ -275,36 +311,89 @@ md"""
 details("Julia: zero to hero",
 	md"""
 ## Julia: _zero to hero_
-
-- Jeff Delaney, [Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0), Fireship, YouTube, May 2022
-
-- [Fastrack to Julia](https://juliadocs.github.io/Julia-Cheat-Sheet/) cheatsheet
-
-- [Julia By Example](https://juliabyexample.helpmanual.io/)
-
-- [🎈 Julia docs with Pluto.jl](https://julia-docs-pluto.netlify.app/)
-
-- [MATLAB-Julia-Python](https://cheatsheets.quantecon.org/) comparative cheatsheet by [QuantEcon group](https://quantecon.org) 
-				
-- [MATLAB to Julia online converter](https://lakras.github.io/matlab-to-julia/)
-
-- [CodeConvert.AI - Convert code with a click of a button](https://www.codeconvert.ai/)
-
-- 🎈 Rémi Vezy, [Julia course: from total beginner to power user](https://vezy.github.io/julia_course/)
+### 🚀 Primeiros Passos e Introdução Rápida
+#### Quick Start
+- Jeff Delaney, **[Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0)**, Fireship, YouTube, May 2022.
 
 
-### Julia *Packages*
+- **[The Fastrack to Julia](https://juliadocs.github.io/Julia-Cheat-Sheet/)** - A quick and dirty overview of Julia 1.0, [JuliaDocs](https://juliadocs.org/)
 
-- [Julia Packages](https://juliapackages.com/packages?sort=stars)
 
-- Lee Phillips, [Digging into Julia's package system](https://lwn.net/Articles/871490/), LWN.net, Oct. 2021.
+- Victoria Gregory, Andrij Stachurski, Natasha Watkins **[Julia cheatsheet](https://cheatsheets.quantecon.org/julia-cheatsheet.html)**, QuantEcon, 2017.
 
-- Alejandra Ramirez, [Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md), GitHub BlogPosts, Mar. 2023.
+
+- **[Julia By Example](https://juliabyexample.helpmanual.io/)** – Coleção prática de exemplos comentados que ilustram conceitos essenciais da linguagem Julia
+
+
+#### Boas Práticas
+
+- **[Modern Julia Workflows](https://modernjuliaworkflows.org/writing/)** – Guia sobre organização, estilo e estrutura de código em Julia
+
+
+#### Recursos Interativos
+- 🎈 **[Julia docs with Pluto.jl](https://julia-docs-pluto.netlify.app/)** - Documentação oficial em notebooks interativos
+
+
+- 🎈 Rémi Vezy, **[Julia course: from total beginner to power user](https://vezy.github.io/julia_course/)** - Curso completo e prático
 
 \
 
-!!! tip "Nota:"
-	O símbolo 🎈 assinala a presença de *notebook*(*s*) associados. 
+### 🔄 Migração de Outras Linguagens
+#### Comparações e Conversores
+- Victoria Gregory, Andrij Stachurski, Natasha Watkins, **[MATLAB--Python--Julia cheatsheet](https://cheatsheets.quantecon.org/)**, QuantEcon, 2017.
+
+
+- **[Noteworthy Differences from Other Languages](https://docs.julialang.org/en/v1/manual/noteworthy-differences/)** - Documentação oficial sobre diferenças
+
+
+- Lydia Krasilnikova, **[MATLAB to Julia online converter](https://lakras.github.io/matlab-to-julia/)**  - Ferramenta que converte código MATLAB para Julia de forma automática
+
+		
+- **[CodeConvert.AI](https://www.codeconvert.ai/)** - *Convert code with a click of a button*
+
+\
+
+### 📦 Julia Packages
+#### Descoberta e Exploração
+- **[Julia Packages](https://juliapackages.com/packages?sort=stars)** - Diretório oficial
+
+
+- Lee Phillips, **[Digging into Julia's package system](https://lwn.net/Articles/871490/)**, LWN.net, Oct. 2021.
+
+
+#### Contribuição *Open Source*
+- Alejandra Ramirez, **[Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md)**, GitHub BlogPosts, Mar. 2023.
+
+\
+
+### 📚 Recursos Educacionais
+#### Cursos e Tutoriais
+- **[JuliaAcademy](https://juliaacademy.com/)** - Cursos oficiais gratuitos
+
+
+- Alan Edelman, David P. Sanders, Charles E. Leiserson, **🎈[Computational Thinking with Julia](https://computationalthinking.mit.edu/)** - Curso MIT
+
+
+#### Livro online gratuito
+- Ben Lauwens, Allen Downey, **[Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html)**, O'Reilly Media Inc., 2018.
+
+
+#### Comunidade e Suporte
+- **[Julia Discourse](https://discourse.julialang.org/)** - Fórum oficial
+
+
+- **[Julia Community - Zulip](https://julialang.zulipchat.com/)** – Plataforma de chat colaborativo da comunidade Julia para discussão técnica, troca de ideias e apoio entre utilizadores
+
+
+- **[Julia Slack](https://julialang.org/slack/)** - Chat da comunidade  
+
+		
+- **[Julia YouTube Channel](https://www.youtube.com/user/JuliaLanguage)** - Talks e tutoriais oficiais
+
+\
+
+!!! tip "Legenda:"
+	O símbolo 🎈 indica a presença de *notebook*(*s*) de exemplo disponíveis.
 	
 """
 )
@@ -313,61 +402,92 @@ details("Julia: zero to hero",
 details("Pluto.jl: ferramentas e recursos",
 md"""
 ## Pluto.jl: ferramentas e recursos
+### 🚀 Comandos Básicos e Fundamentos
+#### Recursos Essenciais
 
-- [Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)
-
-- Add interactivity to your notebook with PlutoUI.jl:
-
-  - [PlutoUI.jl documentation](https://docs.juliahub.com/PlutoUI/abXFp/0.7.59/))
-    
-  - [🎈 PlutoUI sample notebook](https://featured.plutojl.org/basic/plutoui.jl)
- 
-  - doggo dot jl, [How to Create Engaging Interactive Reactive Notebooks using PlutoUI](https://www.youtube.com/watch?v=nkyvN7PXQZc), YouTube, Oct. 2022. Duration: 24min.
- 
-  - Abel Siqueira, [Explorando notebooks Pluto.jl - Tutoriais de Julia em Português](https://www.youtube.com/watch?v=ZnF27xxlcD8), YouTube, Maio 2021. Duração: 33min.
+- **[Basic Commands in Pluto.jl](https://github.com/fonsp/Pluto.jl/wiki/%F0%9F%94%8E-Basic-Commands-in-Pluto)** - Wiki oficial com comandos fundamentais
 
 
-### Texto e equações 
-
-- [Markdown Guide](https://www.markdownguide.org/)
-
-- [Unicode characters](https://docs.julialang.org/en/v1/manual/unicode-input/)
-
-- PlutoTeachingTools.jl: [🎈 example notebook](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html). This package provides several functions that are useful in Pluto notebooks used for teaching and making tutorials
-
-- LaTeX:
-
-    - [List of LaTeX mathematical symbols](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
-    
-    - [Online equation editor using LaTeX markup](https://editor.codecogs.com)
-
-- doggo dot jl, [How to Use Markdown and LaTeX in Pluto Notebooks](https://www.youtube.com/watch?v=YahByfBTnCc&list=PLhQ2JMBcfAsjeC10lx_2zDlFUMkBUTyyO&index=2), YouTube, Sep. 2022. Duration: 25min.
-
-
-### Tabelas
-
-- [Online Markdown tables generator](https://www.tablesgenerator.com/markdown_tables)
-
-- [Pretty Tables.jl](https://ronisbr.github.io/PrettyTables.jl/stable/) documentation. This package has the purpose to print data in matrices in a human-readable format
-
-
-### Gráficos, desenhos, diagramas, ...
-
-- Christopher Rackauckas, [Summary of Julia Plotting Packages](http://www.stochasticlifestyle.com/summary-of-julia-plotting-packages/), Stochastic Lifestyle blog, Jun. 2023.
-
-- [🎈 Notebooks for the examples in the book](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/): Diego Javier Zea, Interactive Visualization and Plotting with Julia, Packt Publishing, 2022.  
-
-- Tecnhical drawing, [draw.io](https://app.diagrams.net/)
-
-- Whiteboard for sketching/hand-draw, [tldraw](https://www.tldraw.com/)
-
-- [🎈 ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html): Simple embedding for Pluto notebooks
+- Abel Siqueira, **[Explorando notebooks Pluto.jl - Tutoriais de Julia em Português](https://www.youtube.com/watch?v=ZnF27xxlcD8)**, YouTube, Maio 2021. Duração: 33min.	
 
 \
 
-!!! tip "Nota:"
-	O símbolo 🎈 assinala a presença de *notebook*(*s*) associados. 
+### 🎮 Interatividade com PlutoUI.jl
+#### Recursos para *Notebooks* Interativos
+
+- **[🎈 PlutoUI sample notebook](https://featured.plutojl.org/basic/plutoui.jl)** - Exemplos práticos de componentes interativos
+
+
+- **Tutorial de PlutoUI.jl:** doggo dot jl, [How to Create Engaging Interactive Reactive Notebooks using PlutoUI](https://www.youtube.com/watch?v=nkyvN7PXQZc), YouTube, Oct. 2022. Duration: 24min.
+
+\
+	
+### ✍️ Formatação de Texto e Equações
+#### Markdown e Documentação
+
+- **[Markdown Guide](https://www.markdownguide.org/)** - Referência completa para sintaxe Markdown
+
+
+- **[Unicode characters](https://docs.julialang.org/en/v1/manual/unicode-input/)** - Caracteres especiais em Julia
+
+
+#### Ferramentas para Ensino
+- **🎈 [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html)** - Funções específicas para notebooks educacionais
+
+
+#### $\small{\LaTeX}$ e Equações Matemáticas
+
+- **[Lista de símbolos matemáticos $\small{\LaTeX}$](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)**
+
+
+- **[Editor online de equações](https://editor.codecogs.com)** - Para criar equações complexas
+
 		
+- **Tutorial**: doggo dot jl, [How to Use Markdown and $\small{\LaTeX}$ in Pluto Notebooks](https://www.youtube.com/watch?v=YahByfBTnCc&list=PLhQ2JMBcfAsjeC10lx_2zDlFUMkBUTyyO&index=2), YouTube, Sep. 2022. Duration: 25min.
+
+\
+
+### 📊 Tabelas e Apresentação de Dados
+#### Ferramentas para Tabelas
+
+- **[Gerador online de tabelas Markdown](https://www.tablesgenerator.com/markdown_tables)** - Interface visual para criar tabelas
+
+
+- **[PrettyTables.jl](https://ronisbr.github.io/PrettyTables.jl/stable/)** - Formatação avançada de tabelas em Julia
+
+\
+		
+### 📈 Visualização e Gráficos
+#### Recursos Gerais
+
+- Christopher Rackauckas, **[Summary of Julia Plotting Packages](http://www.stochasticlifestyle.com/summary-of-julia-plotting-packages/)**, Stochastic Lifestyle blog, Jun. 2023.
+
+
+- **[🎈 Notebooks de exemplo do livro:](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/)** Diego Javier Zea, Interactive Visualization and Plotting with Julia, Packt Publishing, 2022.
+
+\
+
+### 🎨 Ferramentas de Desenho e Diagramas
+#### Desenho Técnico e Diagramas
+
+- **[draw.io](https://app.diagrams.net/)** - Criação de diagramas técnicos profissionais
+
+
+#### Desenho Livre
+
+- **[tldraw](https://www.tldraw.com/)** - Quadro branco digital para esboços
+
+\
+
+### 🔗 Integração e Embedding
+
+#### ShortCodes.jl
+- **🎈 [ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html)** - Embedding simplificado
+
+\
+
+!!! tip "Legenda:"
+	O símbolo 🎈 indica a presença de *notebook*(*s*) de exemplo disponíveis.		
 """
 )
 

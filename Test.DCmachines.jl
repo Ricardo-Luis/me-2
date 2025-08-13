@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.13
+# v0.20.15
 
 #> [frontmatter]
 #> chapter = 1
@@ -1171,17 +1171,39 @@ md"""
 
 
 # ╔═╡ 080a827e-c525-4fb3-a81e-b1758949e18e
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
-html"""<style>
-pluto-output p {
-    text-align: justify;
-}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
-}
-</style>
-"""
+begin
+	#=
+	Advanced CSS code for text formatting in Pluto.jl notebooks
+	- Applies text justification and automatic hyphenation to content
+	- Bilingual support: European Portuguese (pt-PT) and English (en)
+	- Dynamic mapping based on the 'lang' selector variable
+	- Uses system fonts with fallbacks for better compatibility
+	- Significantly improves readability of long texts
+	
+	Developed with GenAI assistance from Claude (Anthropic) - September 2025
+	=#
+	
+	# Language code mapping for specific locales
+	lang_code = lang == "pt" ? "pt-PT" : lang
+	#lang_code = "pt-PT"
+	
+	html"""<div lang="$(lang_code)">
+	<style>
+	pluto-output p {
+	   text-align: justify;
+	   hyphens: auto;
+	   -webkit-hyphens: auto;
+	   -ms-hyphens: auto;
+	   -moz-hyphens: auto;
+	}
+	pluto-output {
+	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	   font-size: 100%;
+	}
+	</style>
+	</div>
+	"""
+end
 
 # ╔═╡ 08a6b27b-8aa2-4225-8f9b-576d8333c3d2
 md"""
@@ -1477,10 +1499,10 @@ uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
 version = "1.16.0"
 
 [[deps.DataStructures]]
-deps = ["Compat", "InteractiveUtils", "OrderedCollections"]
-git-tree-sha1 = "4e1fe97fdaed23e9dc21d4d664bea76b65fc50a0"
+deps = ["OrderedCollections"]
+git-tree-sha1 = "76b3b7c3925d943edf158ddb7f693ba54eb297a5"
 uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
-version = "0.18.22"
+version = "0.19.0"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -2071,9 +2093,9 @@ version = "1.5.0"
 
 [[deps.OpenSSL_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "87510f7292a2b21aeff97912b0898f9553cc5c2c"
+git-tree-sha1 = "2ae7d4ddec2e13ad3bddf5c0796f7547cf682391"
 uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
-version = "3.5.1+0"
+version = "3.5.2+0"
 
 [[deps.OpenSpecFun_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl"]
@@ -2188,9 +2210,9 @@ version = "1.2.1"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "9306f6085165d270f7e3db02af26a400d580f5c6"
+git-tree-sha1 = "0f27480397253da18fe2c12a4ba4eb9eb208bf3d"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.4.3"
+version = "1.5.0"
 
 [[deps.Printf]]
 deps = ["Unicode"]
@@ -2392,9 +2414,9 @@ version = "1.7.1"
 
 [[deps.StatsBase]]
 deps = ["AliasTables", "DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
-git-tree-sha1 = "b81c5035922cc89c2d9523afc6c54be512411466"
+git-tree-sha1 = "2c962245732371acd51700dbb268af311bddd719"
 uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
-version = "0.34.5"
+version = "0.34.6"
 
 [[deps.StatsFuns]]
 deps = ["HypergeometricFunctions", "IrrationalConstants", "LogExpFunctions", "Reexport", "Rmath", "SpecialFunctions"]
@@ -2455,9 +2477,9 @@ uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
 version = "0.11.3"
 
 [[deps.Tricks]]
-git-tree-sha1 = "0fc001395447da85495b7fef1dfae9789fdd6e31"
+git-tree-sha1 = "372b90fe551c019541fafc6ff034199dc19c8436"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.11"
+version = "0.1.12"
 
 [[deps.URIs]]
 git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"
@@ -2781,7 +2803,7 @@ version = "1.9.2+0"
 """
 
 # ╔═╡ Cell order:
-# ╠═9b9d7372-f136-499a-a900-e999a2a6784e
+# ╟─9b9d7372-f136-499a-a900-e999a2a6784e
 # ╟─ea3e2579-177a-477f-97f6-71ebe0f014cd
 # ╟─0823bba0-4ee5-41b4-bf9c-f1914fdbc7a3
 # ╟─7ca9e6c8-5e20-4215-a2eb-97798306a060

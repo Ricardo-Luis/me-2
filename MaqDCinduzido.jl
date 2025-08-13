@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.13
+# v0.20.15
 
 #> [frontmatter]
 #> chapter = 1
@@ -96,7 +96,7 @@ md"""
 
 # ╔═╡ ff0e1c6b-6c1a-4d27-b986-a2c003b27ab3
 md"""
-Existem dois tipos de enrolamentos do induzido para disposições em tambor:
+Existem dois tipos de bobinagem do induzido para disposições em tambor:
 - enrolamento imbricado
 - enrolamento ondulado
 
@@ -109,19 +109,57 @@ No presente trabalho, serão executados apenas enrolamentos simples. Em vez de u
 md"""
 Para o dimensionamento de um enrolamento induzido são necessários os seguintes parâmetros:
 
- $\quad\quad c$: Número de lâminas do coletor;\
- $\quad\quad s$: Número de secções (bobinas) no induzido; $\quad\quad\:\: s=c$\
- $\quad\quad la$: Número de lados ativos no induzido; $\quad\quad\quad\quad la=2s$\
- $\quad\quad N_s$: Número de condutores por lado ativo;\
- $\quad\quad p$: Número de par de polos;\
- $\quad\quad k$: Número de cavas do induzido;\
- $\quad\quad z$: Número de condutores ativos no induzido; $\quad\quad\: z=la\:s=2\:s\:Ns$\
- $\quad\quad y_p$: Passo polar. Número de lados ativos entre dois polos adjacentes;\
- $\quad\quad y_1$: Passo da secção ou passo posterior. Número de lados ativos entre a ida e o retorno da mesma secção;\
- $\quad\quad y_2$: Passo da ligação ou passo anterior. Número de lados ativos entre o retorno de uma secção e a ida da secção seguinte;\
- $\quad\quad y$: Passo do enrolamento ou passo resultante. Número de lados ativos entre a ida de uma secção e a ida da secção seguinte;\
- $\quad\quad y_c$: Passo do coletor. Número de lâminas no coletor entre as duas ligações da mesma secção.
+ $\qquad c$: Número de lâminas do coletor;\
+ $\qquad s$: Número de secções (bobinas) no induzido; $\qquad\:\: s=c$\
+ $\qquad la$: Número de lados ativos no induzido; $\qquad\qquad la=2s$\
+ $\qquad N_s$: Número de condutores por lado ativo;\
+ $\qquad p$: Número de par de polos;\
+ $\qquad k$: Número de cavas do induzido;\
+ $\qquad z$: Número de condutores ativos no induzido; $\qquad\: z=la\:s=2\:s\:Ns$\
+ $\qquad y_p$: Passo polar. Número de lados ativos entre dois polos adjacentes;\
+ $\qquad y_1$: Passo da secção ou passo posterior. Número de lados ativos entre a ida e o retorno da mesma secção;\
+ $\qquad y_2$: Passo da ligação ou passo anterior. Número de lados ativos entre o retorno de uma secção e a ida da secção seguinte;\
+ $\qquad y$: Passo do enrolamento ou passo resultante. Número de lados ativos entre a ida de uma secção e a ida da secção seguinte;\
+ $\qquad y_c$: Passo do coletor. Número de lâminas no coletor entre as duas ligações da mesma secção;\
+ $\qquad u$: Número de lados ativos por cava;\
+ $\qquad y_{1k}$: Passo da secção ou passo posterior $(y_1)$, em número de cavas;\
+ $\qquad y_{2k}$: Passo da ligação ou passo anterior $(y_2)$, em número de cavas.
+
 """
+
+# ╔═╡ b7a4e10d-c775-43a1-9dd5-172533d979ce
+
+
+# ╔═╡ 9a85c027-b125-407e-ad2a-05ed3df3720a
+md"""
+### 1.2.1 - Enrolamento imbricado
+"""
+
+# ╔═╡ 43e643d4-9a85-4b5a-ac50-629a25bef0d2
+
+
+# ╔═╡ a6031815-87ef-4495-abe1-87810b5405d0
+
+
+# ╔═╡ 7cfa01c0-46ae-454d-8697-978836b99baf
+
+
+# ╔═╡ 63820b95-7bf3-40a0-b758-b8eefe194ff0
+
+
+# ╔═╡ e74e74fd-0c8b-445b-aaa5-9df365b8c589
+md"""
+### 1.2.2 - Enrolamento ondulado
+"""
+
+# ╔═╡ c43f2443-cda4-4083-9983-96afe4df409b
+
+
+# ╔═╡ 904019a5-542f-4a77-9db2-979caa67d261
+
+
+# ╔═╡ 7b102a0a-c257-47d5-aabc-a267af9bd5a5
+
 
 # ╔═╡ eaef98e4-c79f-4932-8b7c-32a90fa664db
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/armature_reaction.jpg?raw=true)\
@@ -275,9 +313,9 @@ No entanto, não é prático a colocação das secções nas cavas do induzido, 
 Na prática, torna-se mais conveniente transpor a contagem em lados ativos para uma contagem em número de cavas.\
 Assim, definem-se os parâmetros:\
 \
- $\quad\quad u$: Número de lados ativos por cava;\
- $\quad\quad y_{1k}$: Passo da secção ou passo posterior em número de cavas;\
- $\quad\quad y_{2k}$: Passo da ligação ou passo anterior em número de cavas.
+ $\qquad u$: Número de lados ativos por cava;\
+ $\qquad y_{1k}$: Passo da secção ou passo posterior em número de cavas;\
+ $\qquad y_{2k}$: Passo da ligação ou passo anterior em número de cavas.
 """
 
 # ╔═╡ 169cd52b-44ef-46c1-a9c9-a36e14f0c44c
@@ -640,12 +678,16 @@ md"""
 md"""
 # Bibliografia
 \
-**Créditos da imagens:**\
+**Créditos da imagens:**
+
 [^Kennedy_1903]: Rankin Kennedy, Electrical Installations, vol. III, London: Caxton, 1903. 
 
 [^Audel_1917]: Theo. Audel & Co., Hawkins Electrical Guide, Volume 1, Chapter 20: Commutation and the Commutator, Page 286, USA, 1917.
 
 [^Kral_2022]:  Christian Kral, [Commutator and brushes DC motor](https://commons.wikimedia.org/w/index.php?curid=122251615), Own work, CC BY 4.0, 2022. 
+
+
+
 
 \
 **Leitura recomendada:**\
@@ -656,17 +698,39 @@ DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/
 """
 
 # ╔═╡ bc2a479e-a961-43ef-b430-afd69b496ac0
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
-html"""<style>
-pluto-output p {
-    text-align: justify;
-}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
-}
-</style>
-"""
+begin
+	#=
+	Advanced CSS code for text formatting in Pluto.jl notebooks
+	- Applies text justification and automatic hyphenation to content
+	- Bilingual support: European Portuguese (pt-PT) and English (en)
+	- Dynamic mapping based on the 'lang' selector variable
+	- Uses system fonts with fallbacks for better compatibility
+	- Significantly improves readability of long texts
+	
+	Developed with GenAI assistance from Claude (Anthropic) - September 2025
+	=#
+	
+	# Language code mapping for specific locales
+	#lang_code = lang == "pt" ? "pt-PT" : lang
+	lang_code = "pt-PT"
+	
+	html"""<div lang="$(lang_code)">
+	<style>
+	pluto-output p {
+	   text-align: justify;
+	   hyphens: auto;
+	   -webkit-hyphens: auto;
+	   -ms-hyphens: auto;
+	   -moz-hyphens: auto;
+	}
+	pluto-output {
+	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	   font-size: 100%;
+	}
+	</style>
+	</div>
+	"""
+end
 
 # ╔═╡ b467ed22-2892-4875-a2b7-173efafa5a8d
 md"""
@@ -984,9 +1048,9 @@ version = "1.2.1"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "9306f6085165d270f7e3db02af26a400d580f5c6"
+git-tree-sha1 = "0f27480397253da18fe2c12a4ba4eb9eb208bf3d"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.4.3"
+version = "1.5.0"
 
 [[deps.Printf]]
 deps = ["Unicode"]
@@ -1075,9 +1139,9 @@ uuid = "6ba57fb7-81df-4b24-8e8e-a3885b6fcae7"
 version = "0.2.4"
 
 [[deps.Tricks]]
-git-tree-sha1 = "0fc001395447da85495b7fef1dfae9789fdd6e31"
+git-tree-sha1 = "372b90fe551c019541fafc6ff034199dc19c8436"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.11"
+version = "0.1.12"
 
 [[deps.URIs]]
 git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"
@@ -1126,6 +1190,16 @@ version = "17.4.0+2"
 # ╟─f5802767-8a84-4a79-a949-2c873e47af28
 # ╟─ff0e1c6b-6c1a-4d27-b986-a2c003b27ab3
 # ╟─de94ef0e-5ff7-4233-b38b-ad6ad6ec8171
+# ╟─b7a4e10d-c775-43a1-9dd5-172533d979ce
+# ╟─9a85c027-b125-407e-ad2a-05ed3df3720a
+# ╠═43e643d4-9a85-4b5a-ac50-629a25bef0d2
+# ╠═a6031815-87ef-4495-abe1-87810b5405d0
+# ╠═7cfa01c0-46ae-454d-8697-978836b99baf
+# ╟─63820b95-7bf3-40a0-b758-b8eefe194ff0
+# ╟─e74e74fd-0c8b-445b-aaa5-9df365b8c589
+# ╠═c43f2443-cda4-4083-9983-96afe4df409b
+# ╠═904019a5-542f-4a77-9db2-979caa67d261
+# ╠═7b102a0a-c257-47d5-aabc-a267af9bd5a5
 # ╟─eaef98e4-c79f-4932-8b7c-32a90fa664db
 # ╟─3571ba78-44b7-489a-a2bd-c4841c931879
 # ╟─2b9ef51e-bfe4-4a77-9e04-f1eea7320f99

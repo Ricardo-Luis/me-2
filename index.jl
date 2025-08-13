@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.13
+# v0.20.15
 
 #> [frontmatter]
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/9286b03f000c773f8811a67dc6649fba00f9d6c8/images/card/qr-code.svg?raw=true"
@@ -174,11 +174,11 @@ md"""
 
 
 ## "*Time to first plot*"
-`Julia` utiliza um compilador *just-in-time*, que gera código máquina à medida que este é executado pela primeira vez. Desta forma, ao executar um *notebook* pela primeira vez, poderá ter de aguardar algum tempo até que o código seja compilado e executado. O tempo necessário depende da complexidade do programa e do desempenho do computador  — nos *notebooks* desta unidade curricular, com versões recentes de `Julia`, situa-se normalmente entre algumas dezenas de segundos a dois minutos (podendo ser superior em máquinas menos potentes).
+`Julia` utiliza um compilador *just-in-time*, que gera código máquina à medida que este é executado pela primeira vez. Assim, a execução inicial de um *notebook* poderá implicar um período de espera até que o código seja compilado e executado. A duração deste processo depende da complexidade do programa e do desempenho do sistema — nos *notebooks* desta unidade curricular, com versões recentes de `Julia`, situa-se geralmente entre algumas dezenas de segundos e dois minutos, podendo ser superior em sistemas de desempenho reduzido.
 
 Por exemplo, a biblioteca `Plots.jl`, utilizada para criar gráficos, é relativamente extensa e contribui para esta latência inicial, conhecida por "**_time to first plot_**". As versões [1.6](https://lwn.net/Articles/856819/), [1.9](https://lwn.net/Articles/933019/) e [1.10](https://lwn.net/Articles/958337/) de `Julia` introduziram melhorias significativas neste aspeto.
 
-Após esta fase inicial, o código já compilado é reutilizado, tornando as execuções subsequentes muito mais rápidas, permitindo tirar partido do [elevado desempenho](https://julialang.org/benchmarks/) característico da linguagem.
+Após esta fase inicial, o código já compilado é reutilizado, tornando as execuções subsequentes consideravelmente mais rápidas, permitindo tirar partido do [elevado desempenho](https://julialang.org/benchmarks/) característico da linguagem.
 
 💡 **Sugestão:** Quando abrir um dos *notebooks* de Máquinas Elétricas $\rm{II}$ no ambiente Julia/Pluto, pode iniciar a leitura na versão estática disponível neste *website*, enquanto decorre a primeira execução. Desta forma, aproveita o tempo de espera e, logo que o *notebook* esteja pronto, pode explorá-lo de forma interativa.
 """
@@ -265,7 +265,7 @@ Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$
 
 - Alinhamento com Boas Práticas Científicas
   - Implementação dos princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles) (Localizável, Acessível, Interoperável, Reutilizável)
-  - Utilização de tecnologias [open-source](https://en.wikipedia.org/wiki/Free_and_open-source_software)  com [licenças](#Condições-de-Licença) abertas e livres
+  - Utilização de tecnologias [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software)  com [licenças](#Condições-de-Licença) abertas e livres
   - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilhados
 
 
@@ -1092,9 +1092,9 @@ version = "1.2.1"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "9306f6085165d270f7e3db02af26a400d580f5c6"
+git-tree-sha1 = "0f27480397253da18fe2c12a4ba4eb9eb208bf3d"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.4.3"
+version = "1.5.0"
 
 [[deps.Printf]]
 deps = ["Unicode"]
@@ -1153,9 +1153,9 @@ uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 version = "1.11.0"
 
 [[deps.Tricks]]
-git-tree-sha1 = "0fc001395447da85495b7fef1dfae9789fdd6e31"
+git-tree-sha1 = "372b90fe551c019541fafc6ff034199dc19c8436"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.11"
+version = "0.1.12"
 
 [[deps.URIs]]
 git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"

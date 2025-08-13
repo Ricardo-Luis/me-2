@@ -179,21 +179,25 @@ end
 
 # ╔═╡ f0b7a6b5-a87f-4c54-aff8-f23f5c6f726f
 if lang == "pt"
-	Foldable("Experimentação Colaborativa e Prática Reflexiva", md"As aulas Práticas direcionam os alunos para o trabalho em equipa na realização de ensaios experimentais, de modo a:
-	- desenvolver as competências técnicas nos procedimentos de ensaio e de segurança;
-	- promover a reflexão estruturada sobre as observações e os resultados obtidos; 
-	- através do processo iterativo de experimentação e reflexão coletiva: 
-	  - aprofundar a compreensão teórica dos conceitos em estudo;
-	  - desenvolver aptidões práticas; 
-	  - estimular o pensamento crítico.")
+	Foldable("Experimentação Colaborativa e Prática Reflexiva", 
+			 md"""
+			 As aulas Práticas direcionam os alunos para o trabalho em equipa na realização de ensaios experimentais, de modo a:
+			 - desenvolver as competências técnicas nos procedimentos de ensaio e de segurança;
+			 - promover a reflexão estruturada sobre as observações e os resultados obtidos;
+			 - através do processo iterativo de experimentação e reflexão coletiva:
+			   - aprofundar a compreensão teórica dos conceitos em estudo;
+			   - desenvolver aptidões práticas;
+			   - estimular o pensamento crítico.""")
 elseif lang == "en"
-	Foldable("Collaborative Experimentation and Reflective Practice", md"Practical classes direct students to teamwork in conducting experimental tests, in order to:
-	- develop technical competencies in testing and safety procedures;
-	- promote structured reflection on observations and results obtained;
-	- through the iterative process of experimentation and collective reflection:
-	  - deepen theoretical understanding of concepts under study;
-	  - develop practical skills;
-	  - stimulate critical thinking.")
+	Foldable("Collaborative Experimentation and Reflective Practice", 
+			 md"""
+			 Practical classes direct students to teamwork in conducting experimental tests, in order to:
+			 - develop technical competencies in testing and safety procedures;
+			 - promote structured reflection on observations and results obtained;
+			 - through the iterative process of experimentation and collective reflection:
+			   - deepen theoretical understanding of concepts under study;
+			   - develop practical skills;
+			   - stimulate critical thinking.""")
 end
 
 # ╔═╡ 364d1e59-c671-41ba-9be9-83aa1e167208
@@ -443,17 +447,38 @@ elseif lang == "en"
 end
 
 # ╔═╡ a9501886-df7e-4c46-88b7-06e8344b01fd
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
-html"""<style>
-pluto-output p {
-    text-align: justify;
-}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
-}
-</style>
-"""
+begin
+	#=
+	Advanced CSS code for text formatting in Pluto.jl notebooks:
+	  - Applies text justification and automatic hyphenation to content
+	  - Bilingual support: European Portuguese (pt-PT) and English (en)
+	  - Dynamic mapping based on the 'lang' selector variable
+	  - Uses system fonts with fallbacks for better compatibility
+	  - Significantly improves readability of long texts
+	
+	Developed with GenAI assistance from Claude (Anthropic) - Septembre 2025
+	=#
+	
+	# Language code mapping for specific locales
+	lang_code = lang == "pt" ? "pt-PT" : lang
+	
+	html"""<div lang="$(lang_code)">
+	<style>
+	pluto-output p {
+	   text-align: justify;
+	   hyphens: auto;
+	   -webkit-hyphens: auto;
+	   -ms-hyphens: auto;
+	   -moz-hyphens: auto;
+	}
+	pluto-output {
+	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	   font-size: 100%;
+	}
+	</style>
+	</div>
+	"""
+end
 
 # ╔═╡ 5b3c89b5-a757-4709-9bdb-f3e0feff5da1
 if lang == "pt"
@@ -923,7 +948,7 @@ version = "17.4.0+2"
 # ╟─79b6d4b5-4617-4084-81fe-a06d1c728c06
 # ╟─c251fd12-11b6-4649-898d-70dba9f9e976
 # ╟─3b3aa8fe-8b09-43e5-8ca6-05860f3044ad
-# ╟─a9501886-df7e-4c46-88b7-06e8344b01fd
+# ╠═a9501886-df7e-4c46-88b7-06e8344b01fd
 # ╟─5b3c89b5-a757-4709-9bdb-f3e0feff5da1
 # ╟─bf113704-6d60-4677-901c-79d0125bc3c0
 # ╠═5d6fbd00-461b-11ef-2a02-cf1ef479864a

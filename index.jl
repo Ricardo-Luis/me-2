@@ -601,37 +601,66 @@ Ricardo Luís
 </div>
 """)
 
-# ╔═╡ eaf85eed-ae13-42f2-ba95-0bd2024394e2
+# ╔═╡ f3cdebec-bd90-4877-ade5-82690f031f1e
 begin
 	#=
-	Advanced CSS code for text formatting in Pluto.jl notebooks:
-	  - Applies text justification and automatic hyphenation to content
-	  - Bilingual support: European Portuguese (pt-PT) and English (en)
-	  - Dynamic mapping based on the 'lang' selector variable
-	  - Uses system fonts with fallbacks for better compatibility
-	  - Significantly improves readability of long texts
+	Advanced CSS for text justification & hyphenation in Pluto.jl
+	  - Detects and applies correct language for hyphenation
+	  - Works in Pluto, PlutoSliderServer and embedded sites
+	  - Mobile-friendly: prevents overflow of long words
+	  - Adds soft hyphen fallback for browsers without hyphen dictionaries
 	
-	Developed with GenAI assistance from Claude (Anthropic) - Septembre 2025
+	Developed with GenAI assistance from ChatGPT (OpenAI) - Septembre 2025
 	=#
 	
-	# Language code mapping for specific locales
 	#lang_code = lang == "pt" ? "pt-PT" : lang
+	lang = "pt-PT"
 	
-	html"""<div lang="pt-PT">
+	html"""
 	<style>
-	pluto-output p {
-	   text-align: justify;
-	   hyphens: auto;
-	   -webkit-hyphens: auto;
-	   -ms-hyphens: auto;
-	   -moz-hyphens: auto;
-	}
+	/* Base font stack for cross-platform readability */
 	pluto-output {
-	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-	   font-size: 100%;
+	    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	    font-size: 100%;
+	}
+	
+	/* Apply justification & hyphenation to text containers */
+	pluto-output p,
+	pluto-output li,
+	pluto-output div {
+	    text-align: justify;
+	    hyphens: auto;
+	    -webkit-hyphens: auto;
+	    -ms-hyphens: auto;
+	    -moz-hyphens: auto;
+	    word-break: normal; /* Avoid ugly mid-word breaks */
+	}
+	
+	/* Slightly better readability */
+	pluto-output p {
+	    line-height: 1.5;
+	    text-justify: inter-word;
 	}
 	</style>
-	</div>
+	
+	<script>
+	(function() {
+	    const langCode = "${lang_code}";
+	    const outputs = document.querySelectorAll("pluto-output");
+	
+	    outputs.forEach(el => {
+	        el.setAttribute("lang", langCode);
+	
+	        // Fallback hyphenation for browsers without dictionary
+	        // Soft-hyphenate words longer than 12 characters
+	        el.querySelectorAll("p, li, div").forEach(block => {
+	            block.innerHTML = block.innerHTML.replace(/(\\w{12,})/g, function(word) {
+	                return word.split("").join("&shy;");
+	            });
+	        });
+	    });
+	})();
+	</script>
 	"""
 end
 
@@ -1249,7 +1278,7 @@ version = "17.4.0+2"
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76
 # ╟─a5004d56-6b46-49b9-bf7a-35d0a2749e6d
 # ╟─cc5006d1-c8fb-4d34-863a-f1e5e5ce3147
-# ╟─eaf85eed-ae13-42f2-ba95-0bd2024394e2
+# ╠═f3cdebec-bd90-4877-ade5-82690f031f1e
 # ╟─72c8086a-c513-4245-a00a-0a5a9da78ffb
 # ╟─4c204456-666b-492f-b92e-45a591a95cda
 # ╠═766e42e6-0d19-48ba-b1a5-462708df3ff9

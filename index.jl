@@ -601,66 +601,38 @@ Ricardo Luís
 </div>
 """)
 
-# ╔═╡ f3cdebec-bd90-4877-ade5-82690f031f1e
+# ╔═╡ adc45990-2098-4021-b086-35fa19045a51
 begin
 	#=
-	Advanced CSS for text justification & hyphenation in Pluto.jl
-	  - Detects and applies correct language for hyphenation
-	  - Works in Pluto, PlutoSliderServer and embedded sites
-	  - Mobile-friendly: prevents overflow of long words
-	  - Adds soft hyphen fallback for browsers without hyphen dictionaries
+	Advanced CSS code for text formatting in Pluto.jl notebooks
+	- Applies text justification and automatic hyphenation to content
+	- Bilingual support: European Portuguese (pt-PT) and English (en)
+	- Dynamic mapping based on the 'lang' selector variable
+	- Uses system fonts with fallbacks for better compatibility
+	- Significantly improves readability of long texts
 	
-	Developed with GenAI assistance from ChatGPT (OpenAI) - Septembre 2025
+	Developed with GenAI assistance from Claude (Anthropic) - September 2025
 	=#
 	
+	# Language code mapping for specific locales
 	#lang_code = lang == "pt" ? "pt-PT" : lang
-	lang = "pt-PT"
+	lang_code = "pt-PT"
 	
-	html"""
+	html"""<div lang="$(lang_code)">
 	<style>
-	/* Base font stack for cross-platform readability */
-	pluto-output {
-	    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-	    font-size: 100%;
-	}
-	
-	/* Apply justification & hyphenation to text containers */
-	pluto-output p,
-	pluto-output li,
-	pluto-output div {
-	    text-align: justify;
-	    hyphens: auto;
-	    -webkit-hyphens: auto;
-	    -ms-hyphens: auto;
-	    -moz-hyphens: auto;
-	    word-break: normal; /* Avoid ugly mid-word breaks */
-	}
-	
-	/* Slightly better readability */
 	pluto-output p {
-	    line-height: 1.5;
-	    text-justify: inter-word;
+	   text-align: justify;
+	   hyphens: auto;
+	   -webkit-hyphens: auto;
+	   -ms-hyphens: auto;
+	   -moz-hyphens: auto;
+	}
+	pluto-output {
+	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	   font-size: 100%;
 	}
 	</style>
-	
-	<script>
-	(function() {
-	    const langCode = "${lang_code}";
-	    const outputs = document.querySelectorAll("pluto-output");
-	
-	    outputs.forEach(el => {
-	        el.setAttribute("lang", langCode);
-	
-	        // Fallback hyphenation for browsers without dictionary
-	        // Soft-hyphenate words longer than 12 characters
-	        el.querySelectorAll("p, li, div").forEach(block => {
-	            block.innerHTML = block.innerHTML.replace(/(\\w{12,})/g, function(word) {
-	                return word.split("").join("&shy;");
-	            });
-	        });
-	    });
-	})();
-	</script>
+	</div>
 	"""
 end
 
@@ -687,9 +659,10 @@ TableOfContents(title="Índice", depth=2)  # Table of Contents from Markdown hea
 
 # ╔═╡ e785e52d-3662-4e9f-a932-b01dac732421
 #= 
-Função para alterar automaticamente logotipos utilizados no notebook, dependendo se o browser está ou não em "dark mode".
-A função integra ainda a possibilidade de cada imagem funcionar como link para uma nova aba do browser.
-Nota: obtido com ajuda de AI (deepseek)
+Function to automatically switch the logos used in the notebook, depending on whether the browser is in "dark mode" or not.
+The function also includes the option for each image to act as a link that opens in a new browser tab.
+
+Developed with GenAI assistance from DeepSeek Chat - September 2025
 =#
 
 function logo_adaptativo(logos::Dict, links::Dict=Dict(); default_logo=first(keys(logos)))
@@ -746,7 +719,7 @@ end;
 
 # ╔═╡ c6d64e49-3d58-41a6-bdd3-62cddc7e86d6
 begin
-	# Configuração dos logos
+	# Logo configuration
 	my_logos = Dict(
 	    "isel" => (
 	        light="https://github.com/Ricardo-Luis/me-2/blob/main/images/ISEL-logo.png?raw=true",
@@ -780,7 +753,7 @@ begin
 		)
 	)
 	
-	# Links correspondentes
+	# Corresponding links
 	my_links = Dict(
 	    "isel" => "https://www.isel.pt",
 	    "julia" => "https://julialang.org",
@@ -789,7 +762,7 @@ begin
 	)
 end;
 
-# ╔═╡ c4c3c88d-e13f-4782-9131-eb0d70b5277d
+# ╔═╡ 13bc811f-1c59-4345-8c34-8bfb8701f216
 TwoColumnWideLeft(logo_adaptativo(my_logos, my_links, default_logo="isel"),
     md"""
     $$\begin{align}
@@ -1220,7 +1193,7 @@ version = "17.4.0+2"
 """
 
 # ╔═╡ Cell order:
-# ╟─c4c3c88d-e13f-4782-9131-eb0d70b5277d
+# ╟─13bc811f-1c59-4345-8c34-8bfb8701f216
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
 # ╟─ed8524bb-0e87-42fa-9c9c-dc198f44c39f
@@ -1278,7 +1251,7 @@ version = "17.4.0+2"
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76
 # ╟─a5004d56-6b46-49b9-bf7a-35d0a2749e6d
 # ╟─cc5006d1-c8fb-4d34-863a-f1e5e5ce3147
-# ╠═f3cdebec-bd90-4877-ade5-82690f031f1e
+# ╟─adc45990-2098-4021-b086-35fa19045a51
 # ╟─72c8086a-c513-4245-a00a-0a5a9da78ffb
 # ╟─4c204456-666b-492f-b92e-45a591a95cda
 # ╠═766e42e6-0d19-48ba-b1a5-462708df3ff9

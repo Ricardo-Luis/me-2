@@ -37,7 +37,7 @@ md"""
 
 # Visão geral
 
-Este *website* disponibiliza uma coleção de *notebooks*, na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas $\rm{II}$ (ME $\small{\rm{II\,}}$), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
+Este *website* disponibiliza uma coleção de *notebooks*, na forma de notas de aula e cálculos de engenharia, de apoio à unidade curricular de Máquinas Elétricas $\rm{II}$ (ME $\rm{II\,}$), do curso de Licenciatura em Engenharia Eletrotécnica do ISEL -- Instituto Superior de Engenharia de Lisboa.
 
 Os *notebooks* são documentos computacionais que combinam, num único ambiente, código executável, resultados, texto explicativo, expressões matemáticas, tabelas, imagens e outros elementos. Permitem articular a aprendizagem teórica com exemplos práticos e contextos aplicados, promovendo uma experiência de estudo mais interativa e integrada.
 
@@ -190,10 +190,10 @@ details("Informação complementar",
 		md"""
 ## Informação complementar
 ### 📚 Fundamentos e História
-#### Origem da Linguagem Julia
+#### Origem da Linguagem `Julia`
 - **Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman**, [Why We Created Julia](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, fev. 2012.
   - *Artigo fundacional que explica a motivação e a filosofia por detrás da linguagem*  
-  - *Leitura essencial para compreender os objectivos de conceção*
+  - *Leitura essencial para compreender os objetivos de conceção*
 
 
 #### Introduções Técnicas Aprofundadas
@@ -210,14 +210,14 @@ details("Informação complementar",
   - *Comparação prática para computação científica*  
   - *Análise de desempenho e usabilidade*
 
-#### Perspectivas de Adoção
+#### Perspetivas de Adoção
 - **Gabriel Maistre**, [10 Reasons Why You Should Learn Julia](https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, set. 2018.
 - **Bekhruz Tuychiev**, [The Rise of the Julia Programming Language — Is it Worth Learning in 2023?](https://www.datacamp.com/blog/the-rise-of-julia-is-it-worth-learning-in-2022), artigo de opinião, DataCamp, mai. 2023. 
-  - *Análise actual do mercado e tendências*  
-  - *Perspectiva de carreira e oportunidades*
+  - *Análise atual do mercado e tendências*  
+  - *Perspetiva de profissional e oportunidades*
 
 #### Aplicações Científicas
-- **William F. Godoy**, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, Better Scientific Software, abr. 2023.  
+- **William F. Godoy**, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, *Better Scientific Software*, abr. 2023.  
   - *Foco em software científico de qualidade*  
   - *Casos de utilização em investigação*
 
@@ -261,27 +261,27 @@ A plataforma oferece suporte nativo para *widgets* interativos (como *sliders*, 
 
 
 ## *Notebooks* em ME II
-Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$, são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que oferecem vantagens integradas:
+Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$ são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que apresentam qualidades integradas:
 
 - Alinhamento com Boas Práticas Científicas
-  - Implementação dos princípios [FAIR](https://openscience.eu/) (Localizável, Acessível, Interoperável, Reutilizável)
-  - Utilização de tecnologias [open-source](https://en.wikipedia.org/wiki/Free_and_open-source_software) sem restrições de licenciamento
-  - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilháveis
+  - Implementação dos princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles) (Localizável, Acessível, Interoperável, Reutilizável)
+  - Utilização de tecnologias [open-source](https://en.wikipedia.org/wiki/Free_and_open-source_software)  com [licenças](#Condições-de-Licença) abertas e livres
+  - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilhados
 
 
 - Robustez Computacional
-  - Reprodutibilidade garantida entre plataformas (mesmos *inputs* = mesmos *outputs*)
-  - Gestão automática de dependências via ambiente controlado
+  - Reprodutibilidade entre plataformas (mesmos *inputs* $\to$ mesmos *outputs*)
+  - Gestão automática de dependências via ambiente dedicado
   - Atualizações dinâmicas com arquitetura reativa
 
 
 - Valor Educativo
-  - Plataforma interativa para experimentação com modelos teóricos
+  - Ambiente interativo para exploração de modelos teóricos
   - Visualização paramétrica em tempo real
   - Ferramenta flexível, adaptável a diferentes metodologias de ensino
 
 
-Esta implementação concretiza os princípios da [Ciência Aberta](https://www.ciencia-aberta.pt/), garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas, estabelecendo uma prática científica moderna, colaborativa e orientada para desafios de engenharia.
+Esta implementação concretiza os princípios da [Ciência Aberta](https://www.ciencia-aberta.pt/), garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas, estabelecendo uma prática científica moderna, colaborativa e orientada para os desafios da engenharia.
 """
 
 # ╔═╡ 1f41786c-01a2-4b48-9f13-937f7d6f75bf
@@ -289,7 +289,7 @@ details("Informação complementar",
 md"""
 ## Informação complementar
 ### 🎥 Apresentações Oficiais
-- Fons van der Plas, Mikołaj Bochenski, **[Interactive notebooks Pluto.jl](https://youtu.be/IAF8DjrQSSk)**, apresentação do Pluto, JuliaCon 2020, 24min.
+- Fons van der Plas, Mikołaj Bochenski, **[Interactive notebooks Pluto.jl](https://youtu.be/IAF8DjrQSSk)**, apresentação do `Pluto.jl`, JuliaCon 2020, 24min.
 
 		
 - Fons van der Plas, **[Pluto.jl — one year later](https://youtu.be/HiI4jgDyDhY)**, JuliaCon 2021, 27min.
@@ -304,7 +304,7 @@ md"""
 #### Guias Práticos
 - Connor Burns, **[A Guide to Building Reactive Notebooks for Scientific Computing With Julia and Pluto.jl](https://medium.com/swlh/a-guide-to-building-reactive-notebooks-for-scientific-computing-with-julia-and-pluto-jl-1a2c0c455d51)**, Medium, dez. 2020.
   - *Tutorial prático para computação científica*
-  - *Foco em aplicações reactivas*
+  - *Foco em aplicações reativas*
   - *Exemplos concretos e boas práticas*
 
 
@@ -312,7 +312,7 @@ md"""
 - Lee Phillips, **[An introduction to Pluto](https://lwn.net/Articles/835930/)**, LWN.net, nov. 2020.
   - *Análise técnica independente*
   - *Comparação com Jupyter e outros notebooks*
-  - *Perspectiva de utilizador experiente*
+  - *Perspetiva de utilizador experiente*
 """
 )
 
@@ -341,16 +341,16 @@ details("Julia: zero to hero",
 - Victoria Gregory, Andrij Stachurski, Natasha Watkins **[Julia cheatsheet](https://cheatsheets.quantecon.org/julia-cheatsheet.html)**, QuantEcon, 2017.
 
 
-- **[Julia By Example](https://juliabyexample.helpmanual.io/)** – Coleção prática de exemplos comentados que ilustram conceitos essenciais da linguagem Julia
+- **[Julia By Example](https://juliabyexample.helpmanual.io/)** – Coleção prática de exemplos comentados que ilustram conceitos essenciais da linguagem `Julia`
 
 
 #### Boas Práticas
 
-- **[Modern Julia Workflows](https://modernjuliaworkflows.org/writing/)** – Guia sobre organização, estilo e estrutura de código em Julia
+- **[Modern Julia Workflows](https://modernjuliaworkflows.org/writing/)** – Guia sobre organização, estilo e estrutura de código em `Julia`
 
 
 #### Recursos Interativos
-- 🎈 **[Julia docs with Pluto.jl](https://julia-docs-pluto.netlify.app/)** - Documentação oficial em notebooks interativos
+- 🎈 **[Julia docs with Pluto.jl](https://julia-docs-pluto.netlify.app/)** - Documentação oficial em *notebooks* interativos
 
 
 - 🎈 Rémi Vezy, **[Julia course: from total beginner to power user](https://vezy.github.io/julia_course/)** - Curso completo e prático
@@ -365,7 +365,7 @@ details("Julia: zero to hero",
 - **[Noteworthy Differences from Other Languages](https://docs.julialang.org/en/v1/manual/noteworthy-differences/)** - Documentação oficial sobre diferenças
 
 
-- Lydia Krasilnikova, **[MATLAB to Julia online converter](https://lakras.github.io/matlab-to-julia/)**  - Ferramenta que converte código MATLAB para Julia de forma automática
+- Lydia Krasilnikova, **[MATLAB to Julia online converter](https://lakras.github.io/matlab-to-julia/)**  - Ferramenta que converte código MATLAB para `Julia` de forma automática
 
 		
 - **[CodeConvert.AI](https://www.codeconvert.ai/)** - *Convert code with a click of a button*
@@ -401,13 +401,13 @@ details("Julia: zero to hero",
 - **[Julia Discourse](https://discourse.julialang.org/)** - Fórum oficial
 
 
-- **[Julia Community - Zulip](https://julialang.zulipchat.com/)** – Plataforma de chat colaborativo da comunidade Julia para discussão técnica, troca de ideias e apoio entre utilizadores
+- **[Julia Community - Zulip](https://julialang.zulipchat.com/)** – Plataforma de *chat* colaborativo da comunidade `Julia` para discussão técnica, troca de ideias e apoio entre utilizadores
 
 
-- **[Julia Slack](https://julialang.org/slack/)** - Chat da comunidade  
+- **[Julia Slack](https://julialang.org/slack/)** - *Chat* da comunidade  
 
 		
-- **[Julia YouTube Channel](https://www.youtube.com/user/JuliaLanguage)** - Talks e tutoriais oficiais
+- **[Julia YouTube Channel](https://www.youtube.com/user/JuliaLanguage)** - *Talks* e tutoriais oficiais
 
 \
 
@@ -447,11 +447,11 @@ md"""
 - **[Markdown Guide](https://www.markdownguide.org/)** - Referência completa para sintaxe Markdown
 
 
-- **[Unicode characters](https://docs.julialang.org/en/v1/manual/unicode-input/)** - Caracteres especiais em Julia
+- **[Unicode characters](https://docs.julialang.org/en/v1/manual/unicode-input/)** - Caracteres especiais em `Julia`
 
 
 #### Ferramentas para Ensino
-- **🎈 [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html)** - Funções específicas para notebooks educacionais
+- **🎈 [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html)** - Funções específicas para *notebooks* educacionais
 
 
 #### $\small{\LaTeX}$ e Equações Matemáticas
@@ -472,7 +472,7 @@ md"""
 - **[Gerador online de tabelas Markdown](https://www.tablesgenerator.com/markdown_tables)** - Interface visual para criar tabelas
 
 
-- **[PrettyTables.jl](https://ronisbr.github.io/PrettyTables.jl/stable/)** - Formatação avançada de tabelas em Julia
+- **[PrettyTables.jl](https://ronisbr.github.io/PrettyTables.jl/stable/)** - Formatação avançada de tabelas em `Julia`
 
 \
 		
@@ -498,10 +498,10 @@ md"""
 
 \
 
-### 🔗 Integração e Embedding
+### 🔗 Integração e *Embedding*
 
 #### ShortCodes.jl
-- **🎈 [ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html)** - Embedding simplificado
+- **🎈 [ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html)** - *Embedding* simplificado
 
 \
 
@@ -521,8 +521,11 @@ md"""
 O material publicado neste *website* e no respetivo repositório do GitHub está licenciado da seguinte forma:
 
 - O conteúdo explicativo e visual dos *notebooks* é partilhado sob a [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/deed.pt) (CC BY-SA 4.0);
+
+
 - Os segmentos de código `Julia` dos *notebooks* são disponibilizados sob a [Licença MIT](https://tldrlegal.com/license/mit-license).
 
+\
 As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestões de melhoria](https://github.com/Ricardo-Luis/me-2/pulls) sobre o(s) *notebook*(*s*) são bem-vindas.
 
 
@@ -578,15 +581,15 @@ md"""
 
 Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino-aprendizagem da unidade curricular de Máquinas Elétricas $\rm{II}$.
 
-Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilitou a adopção de *notebooks* computacionais para o ensino e investigação em máquinas elétricas.
+Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilita a adoção de *notebooks* computacionais para o ensino e investigação em máquinas elétricas.
 
 Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes *notebooks*, cujo trabalho colaborativo enriquece constantemente as possibilidades educativas desta plataforma.
 
 ---
 
-I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for the teaching and learning the Electric Machinery $\rm{II}$ course.
+I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for the teaching and learning of the Electric Machinery $\rm{II}$ course.
 
-Special acknowledgment goes to the creators of `Pluto.jl`, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the `Julia` scientific programming language made it possible to adopt this type of computational notebook for teaching and research in electrical machines.
+Special acknowledgment goes to the creators of `Pluto.jl`, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the `Julia` scientific programming language enables the adoption of computational notebooks for teaching and research in electrical machines.
 
 I also express my appreciation to the `Julia` community and the developers of the packages used in these notebooks, whose collaborative work constantly enriches the educational possibilities of this platform.
 """
@@ -599,17 +602,38 @@ Ricardo Luís
 """)
 
 # ╔═╡ eaf85eed-ae13-42f2-ba95-0bd2024394e2
-# Define alinhamento justificado para distribuir uniformemente o texto entre as margens + fonte principal:
-html"""<style>
-pluto-output p {
-    text-align: justify;
-}
-pluto-output {
-    font-family: system-ui;
-	font-size:  100%
-}
-</style>
-"""
+begin
+	#=
+	Advanced CSS code for text formatting in Pluto.jl notebooks:
+	  - Applies text justification and automatic hyphenation to content
+	  - Bilingual support: European Portuguese (pt-PT) and English (en)
+	  - Dynamic mapping based on the 'lang' selector variable
+	  - Uses system fonts with fallbacks for better compatibility
+	  - Significantly improves readability of long texts
+	
+	Developed with GenAI assistance from Claude (Anthropic) - Septembre 2025
+	=#
+	
+	# Language code mapping for specific locales
+	#lang_code = lang == "pt" ? "pt-PT" : lang
+	
+	html"""<div lang="pt-PT">
+	<style>
+	pluto-output p {
+	   text-align: justify;
+	   hyphens: auto;
+	   -webkit-hyphens: auto;
+	   -ms-hyphens: auto;
+	   -moz-hyphens: auto;
+	}
+	pluto-output {
+	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	   font-size: 100%;
+	}
+	</style>
+	</div>
+	"""
+end
 
 # ╔═╡ 72c8086a-c513-4245-a00a-0a5a9da78ffb
 md"""
@@ -763,7 +787,7 @@ A página de instalação apresentada deteta o sistema operativo do seu computad
 Se por algum motivo não foi bem-sucedido com o instalador `juliaup`, pode, em alternativa, fazer uma instalação manual do *software* `Julia`, optando pela "**_Current stable release_**" adequada ao seu computador/sistema operativo. Por favor, consulte: [*Download* Julia](https://julialang.org/downloads/)
 
 ### Verificar a instalação do `Julia`
-Após a instalação, certifique-se de que consegue executar o `Julia`. Em alguns sistemas operativos, isto significa abrir o programa "**Julia 1.11.x**"; noutros, significa executar o comando `julia` no terminal.
+Após a instalação, certifique-se de que consegue executar o `Julia`. Em alguns sistemas operativos, isto significa abrir o programa "**Julia 1.X.x**"; noutros, significa executar o comando `julia` no terminal.
 
 Após abrir o `Julia`, teste a instalação executando, por exemplo:
 

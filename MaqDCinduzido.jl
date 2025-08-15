@@ -33,10 +33,12 @@ end
 
 # ╔═╡ 3b461ddf-3b4b-457b-9f9c-f606d8b260aa
 using PlutoUI, Handcalcs, PlutoTeachingTools
-# Short packages description:
-  # PlutoUI.jl, to add interactivity objects to notebook
-  # PlutoTeachingTools.jl, to enhance the notebook
-  # Handcalcs.jl, to generate LaTeX formatted strings from mathematical formulas, mimitizing an handwriting calculation
+#=
+Short packages description:
+ PlutoUI.jl, to add interactivity objects to notebook
+ PlutoTeachingTools.jl, to enhance the notebook
+ Handcalcs.jl, interactive engineering calculations with symbolic equation display
+=#
 
 # ╔═╡ 91180300-0b49-4211-9ad3-12fd0785f518
 TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 16·09·2024`")
@@ -136,13 +138,44 @@ md"""
 """
 
 # ╔═╡ 43e643d4-9a85-4b5a-ac50-629a25bef0d2
+md"""
+A Fig.2 apresenta o exemplo do desenvolvimento de um enrolamento imbricado simples de uma máquina CC de 2 pares de polos e um coletor de 24 lâminas.
+"""
 
+# ╔═╡ a9ae848a-2d79-44f9-8a46-9371b916004d
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:	
+   raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/MaqDCinduzido/DC.LapWinding.drawio"
+   
+# Adjustable settings:
+   iframe_width = 690
+   iframe_height = 710
+# 1 = fit diagram to iframe size (keeps aspect ratio); 0 = original diagram size
+   fit = 0  
 
-# ╔═╡ a6031815-87ef-4495-abe1-87810b5405d0
+# viewer_url build   
+   viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&fit=$(fit)#U" * raw_url
 
+# HTML
+   HTML("""
+   <div style="text-align: center;">
+       <iframe frameborder="0" 
+               style="width:$(iframe_width)px; height:$(iframe_height)px; border: 1px solid #ddd;" 
+               src="$(viewer_url)">
+       </iframe>
+   </div>
+   """)
+end
 
-# ╔═╡ 7cfa01c0-46ae-454d-8697-978836b99baf
+# ╔═╡ e1245c3a-cd1e-416f-ac23-e612b8be5157
+md"""
+Fig. 2: Planificação de um enrolamento impbricado simples.
+"""
 
+# ╔═╡ 7c117066-973e-466d-92aa-f507e69affd6
+md"""
+Uma máquina com enrolamento induzido imbricado utiliza um número de escovas igual ao número de polos da máquina. Assim, no presente exemplo tém-se um par de escovas positivas e um par de escovas negativas, pelo que a corrente no interior do enrolamento do induzido divide-se por 4 caminhos em paralelo.
+"""
 
 # ╔═╡ 63820b95-7bf3-40a0-b758-b8eefe194ff0
 
@@ -152,19 +185,50 @@ md"""
 ### 1.2.2 - Enrolamento ondulado
 """
 
-# ╔═╡ c43f2443-cda4-4083-9983-96afe4df409b
-
+# ╔═╡ 1e6969b2-da36-4cbb-a7a8-47468716c86b
+md"""
+A Fig.3 apresenta o exemplo do desenvolvimento de um enrolamento ondulado simples da mesma máquina CC da Fig. 2.
+"""
 
 # ╔═╡ 904019a5-542f-4a77-9db2-979caa67d261
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:	
+   raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/MaqDCinduzido/DC.WaveWinding.drawio"
+   
+# Adjustable settings:
+   iframe_width = 690
+   iframe_height = 710
+# 1 = fit diagram to iframe size (keeps aspect ratio); 0 = original diagram size
+   fit = 0  
 
+# viewer_url build   
+   viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&fit=$(fit)#U" * raw_url
+
+# HTML
+   HTML("""
+   <div style="text-align: center;">
+       <iframe frameborder="0" 
+               style="width:$(iframe_width)px; height:$(iframe_height)px; border: 1px solid #ddd;" 
+               src="$(viewer_url)">
+       </iframe>
+   </div>
+   """)
+end
 
 # ╔═╡ 7b102a0a-c257-47d5-aabc-a267af9bd5a5
+md"""
+Fig. 3: Planificação de um enrolamento ondulado simples.
+"""
 
+# ╔═╡ dd4ece32-e186-46ea-a1fc-a31dc8f80388
+md"""
+Note-se, no entanto, que um enrolamento ondulado terá apenas um par de escovas, independente do número de polos da máquina. Tal significa que a corrente no interior do induzido divide-se apenas por 2 caminhos em paralelo. No entanto, como as secções do enrolamento induzido na tipologia ondulado são colocadas em série, resulta uma maior força eletromotriz induzida entre as escovas, comparativamente com as secções colocadas no modo imbricado.
+"""
 
 # ╔═╡ eaef98e4-c79f-4932-8b7c-32a90fa664db
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/armature_reaction.jpg?raw=true)\
 
-Fig. 2: Distorção do campo magnético num induzido em anel de Gramme, [^Audel_1917]
+Fig. 4: Distorção do campo magnético num induzido em anel de Gramme, [^Audel_1917]
 
 
 "),v_offset=100)
@@ -186,7 +250,7 @@ Assim, o campo magnético resultante que a atravessa o enrolamento induzido, qua
 # ╔═╡ 0d4b1a9b-de84-4e60-8256-ab48dbde4ccc
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/commutator.jpg?raw=true)\
 
-Fig. 3: Coletor e escovas, [^Kral_2022]
+Fig. 5: Coletor e escovas, [^Kral_2022]
 
 
 "),v_offset=130)
@@ -198,9 +262,9 @@ md"""
 
 # ╔═╡ 17402250-5f39-4343-9dcb-a30a0d5a361f
 md"""
-A comutação é um processo fundamental nas máquinas CC e ocorre no processo de retificação mecânica da forma de onda da tensão induzida nas secções do enrolamento induzido (rotor) em movimento. Este processo é realizado pelo conjunto coletor e escovas, Fig. 3, que também retifica a corrente que circule no enrolamento. A comutação é essencial para manter a unidirecionalidade da corrente no exterior da máquina, característica que define uma máquina de corrente contínua.
+A comutação é um processo fundamental nas máquinas CC e ocorre no processo de retificação mecânica da forma de onda da tensão induzida nas secções do enrolamento induzido (rotor) em movimento. Este processo é realizado pelo conjunto coletor e escovas, Fig. 5, que também retifica a corrente que circule no enrolamento. A comutação é essencial para manter a unidirecionalidade da corrente no exterior da máquina, característica que define uma máquina de corrente contínua.
 
-O posicionamento das escovas é fundamental para o correto funcionamento da máquina CC. Idealmente, o plano das escovas deve estar em quadratura com a linha dos polos magnéticos ou de excitação. Essa posição é designada por **Linha Neutra Geométrica**  (linha de **N'** a **S'** da Fig. 2). Nessa posição, verifica-se que a força eletromotriz na(s) secção(ões) do induzido que entra(m) em comutação é nula, o que reduz a ocorrência de arcos elétricos (faíscas) entre as lâminas do coletor e as escovas. A existência de intenso faiscamento no processo de comutação pode provocar, a longo prazo, dois tipos de deterioração na superfície do coletor:
+O posicionamento das escovas é fundamental para o correto funcionamento da máquina CC. Idealmente, o plano das escovas deve estar em quadratura com a linha dos polos magnéticos ou de excitação. Essa posição é designada por **Linha Neutra Geométrica**  (linha de **N'** a **S'** da Fig. 4). Nessa posição, verifica-se que a força eletromotriz na(s) secção(ões) do induzido que entra(m) em comutação é nula, o que reduz a ocorrência de arcos elétricos (faíscas) entre as lâminas do coletor e as escovas. A existência de intenso faiscamento no processo de comutação pode provocar, a longo prazo, dois tipos de deterioração na superfície do coletor:
 - surgimento de pequenas cavidades, formadas pela remoção de cobre, na superfície das lâminas do coletor (faíscas num tom esverdeado -> vaporização do cobre);
 - formação de uma ranhura ou sulco de desgaste, correspondente a um rebaixamento na superfície das lâminas na área de contacto com as escovas (faíscas num tom alaranjado -> vaporização do carvão).
 
@@ -687,10 +751,7 @@ md"""
 [^Kral_2022]:  Christian Kral, [Commutator and brushes DC motor](https://commons.wikimedia.org/w/index.php?curid=122251615), Own work, CC BY 4.0, 2022. 
 
 
-
-
-\
-**Leitura recomendada:**\
+## Leitura recomendada
 
 José Carvalho (2018). Máquinas Elétricas de Corrente Contínua: Reação Magnética do Induzido e Comutação. Revista técnico-científica “Neutro-à-Terra”, ISEP\Departamento de Engenharia Eletrotécnica.\
 
@@ -1192,14 +1253,16 @@ version = "17.4.0+2"
 # ╟─de94ef0e-5ff7-4233-b38b-ad6ad6ec8171
 # ╟─b7a4e10d-c775-43a1-9dd5-172533d979ce
 # ╟─9a85c027-b125-407e-ad2a-05ed3df3720a
-# ╠═43e643d4-9a85-4b5a-ac50-629a25bef0d2
-# ╠═a6031815-87ef-4495-abe1-87810b5405d0
-# ╠═7cfa01c0-46ae-454d-8697-978836b99baf
+# ╟─43e643d4-9a85-4b5a-ac50-629a25bef0d2
+# ╟─a9ae848a-2d79-44f9-8a46-9371b916004d
+# ╟─e1245c3a-cd1e-416f-ac23-e612b8be5157
+# ╟─7c117066-973e-466d-92aa-f507e69affd6
 # ╟─63820b95-7bf3-40a0-b758-b8eefe194ff0
 # ╟─e74e74fd-0c8b-445b-aaa5-9df365b8c589
-# ╠═c43f2443-cda4-4083-9983-96afe4df409b
-# ╠═904019a5-542f-4a77-9db2-979caa67d261
-# ╠═7b102a0a-c257-47d5-aabc-a267af9bd5a5
+# ╟─1e6969b2-da36-4cbb-a7a8-47468716c86b
+# ╟─904019a5-542f-4a77-9db2-979caa67d261
+# ╟─7b102a0a-c257-47d5-aabc-a267af9bd5a5
+# ╟─dd4ece32-e186-46ea-a1fc-a31dc8f80388
 # ╟─eaef98e4-c79f-4932-8b7c-32a90fa664db
 # ╟─3571ba78-44b7-489a-a2bd-c4841c931879
 # ╟─2b9ef51e-bfe4-4a77-9e04-f1eea7320f99

@@ -41,18 +41,28 @@ Short packages description:
 =#
 
 # ╔═╡ 91180300-0b49-4211-9ad3-12fd0785f518
-TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 16·09·2024`")
+TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 01·09·2025`")
 
 # ╔═╡ 4e3917b0-4458-11ef-2b69-bd55e90578e0
 md"""
 ---
-$\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
-
 $\text{RELATÓRIO}$ 
 
-$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Aspetos construtivos e de funcionamento da máquina de corrente contínua}}}$
+$$\begin{gather}
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Observação dos aspetos construtivos e do funcionamento}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{da}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Máquina Elétrica de Corrente Contínua}}}
+\end{gather}$$
 ---
 """
+
+# ╔═╡ bb397679-8965-4486-8c22-80a973b00bd1
+aside((md"""
+!!! info "Nota:"
+	Este relatório foi preparado como guia para a **aula de observação**. Algumas secções estão em branco para que possam registar as vossas observações e notas durante a sessão.
+	
+	As partes a completar estão indicadas ao longo do relatório com o símbolo 📌.
+"""), v_offset=-80)
 
 # ╔═╡ 2239ebd6-bb9c-4e48-bf2b-78557cd8f7e6
 md"""
@@ -581,6 +591,11 @@ md"""
 md"""
 ## 2B.1 - Esquema de ligações
 
+(📌 Secção a completar em aula com as suas observações)
+\
+\
+\
+\
 \
 \
 \
@@ -603,6 +618,9 @@ md"""
 # ╔═╡ b5ded038-cd25-4da6-8429-0c162dae4477
 md"""
 ## 2B.2 - Material utilizado
+
+(📌 Secção a completar em aula com as suas observações)
+
 \
 \
 \
@@ -657,6 +675,8 @@ md"""
 
 # ╔═╡ 16933177-1655-4d68-b2be-6a2d26d02280
 md"""
+(📌 Secção a completar em aula com as suas observações)
+
 - **Enrolamento imbricado:**
 \
 \
@@ -686,6 +706,8 @@ md"""
 
 # ╔═╡ ab9cc707-2ce2-4eb2-987f-c27755dd9d85
 md"""
+(📌 Secção a completar em aula com as suas observações)
+
 - **Linha Neutra Geométrica (LNG) ou Linha Neutra Magnética (LNM) em vazio:**
 \
 Ângulo LNG = _____°
@@ -721,6 +743,7 @@ md"""
 # ╔═╡ c003b9a6-7d8b-4b49-ad41-1661618522b4
 md"""
 # 4 - Conclusões
+(📌 Secção a completar em aula com as suas observações)
 \
 \
 \
@@ -816,7 +839,7 @@ TableOfContents(title="Índice")
 
 # ╔═╡ a916e2c4-ef39-4bd0-8c96-732ae356a8b1
 aside((md"""
-!!! info
+!!! info "Informação"
 	No índice deste *notebook*, o tópico assinalado com "💻" requer a participação do estudante.
 """), v_offset=-100)
 
@@ -1242,6 +1265,7 @@ version = "17.4.0+2"
 # ╔═╡ Cell order:
 # ╟─91180300-0b49-4211-9ad3-12fd0785f518
 # ╟─4e3917b0-4458-11ef-2b69-bd55e90578e0
+# ╟─bb397679-8965-4486-8c22-80a973b00bd1
 # ╟─2239ebd6-bb9c-4e48-bf2b-78557cd8f7e6
 # ╟─14c7e7d9-5e3f-4680-a625-cfa81ba48e69
 # ╟─9ef12029-565b-4a7c-8075-da777a76159d

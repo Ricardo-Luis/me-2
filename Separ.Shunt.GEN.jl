@@ -59,9 +59,6 @@ $$\begin{gather}
 \end{gather}$$
 ---
 """
-#=
-$\colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação separada (ou independente e Gerador de excitação em derivação (ou gerador \textit{shunt})}}}}$
-=#
 
 # ╔═╡ 75ecba91-0134-4ebe-8c7d-683a75b86137
 md"""

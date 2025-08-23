@@ -184,6 +184,8 @@ Por exemplo, a biblioteca `Plots.jl`, utilizada para criar gráficos, é relativ
 Após esta fase inicial, o código já compilado é reutilizado, tornando as execuções subsequentes consideravelmente mais rápidas, permitindo tirar partido do [elevado desempenho](https://julialang.org/benchmarks/) característico da linguagem.
 
 💡 **Sugestão:** Quando abrir um dos *notebooks* de ME $\rm{II}$ no ambiente Julia/Pluto, pode iniciar a leitura na versão estática disponível neste *website*, enquanto decorre a primeira execução. Desta forma, aproveita o tempo de espera e, logo que o *notebook* esteja pronto, pode explorá-lo de forma interativa.
+
+\
 """
 
 # ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
@@ -258,32 +260,9 @@ Os *notebooks* Pluto distinguem-se pela sua característica reativa: qualquer al
 Esta ferramenta oferece suporte nativo para *widgets* interativos (como *sliders*, caixas de seleção e campos de texto), a partir da biblioteca `PlutoUI.jl` e controláveis através do comando `@bind`. Estes elementos permitem ajustar parâmetros e observar instantaneamente os seus efeitos nos resultados e visualizações, sem necessidade de reexecução manual. Esta capacidade torna o `Pluto.jl` particularmente útil para criar *dashboards* e aplicações científicas interativas.
 
 ### Reprodutibilidade
-O `Pluto.jl` garante a reprodutibilidade através da gestão automática de dependências. Cada *notebook* inclui um registo das bibliotecas utilizadas, criando um ambiente de execução consistente em qualquer sistema. Esta funcionalidade elimina o problema habitual de "funciona no meu computador", assegurando resultados idênticos independentemente da plataforma utilizada.
+O `Pluto.jl` garante a reprodutibilidade através da gestão automática de dependências. Cada *notebook* regista as bibliotecas utilizadas, criando um ambiente de execução consistente em qualquer plataforma. Esta funcionalidade elimina o problema habitual de "funciona no meu computador", assegurando resultados idênticos independentemente do sistema onde seja executado.
 
-
-
-## *Notebooks* em ME II
-Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$ são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que apresentam qualidades integradas:
-
-- Alinhamento com Boas Práticas Científicas
-  - Implementação dos princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles) (Localizável, Acessível, Interoperável, Reutilizável)
-  - Utilização de tecnologias [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software)  com [licenças](#Condições-de-Licença) abertas e livres
-  - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilhados
-
-
-- Robustez Computacional
-  - Reprodutibilidade entre plataformas (mesmos *inputs* $\to$ mesmos *outputs*)
-  - Gestão automática de dependências via ambiente dedicado
-  - Atualizações dinâmicas com arquitetura reativa
-
-
-- Valor Educativo
-  - Ambiente interativo para exploração de modelos teóricos
-  - Visualização paramétrica em tempo real
-  - Ferramenta flexível, adaptável a diferentes metodologias de ensino
-
-
-Esta implementação concretiza os princípios da [Ciência Aberta](https://www.ciencia-aberta.pt/), garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas. Estabelece uma prática científica moderna, colaborativa e orientada para os desafios da engenharia, combinando rigor técnico, abertura do conhecimento e autonomia intelectual.
+\
 """
 
 # ╔═╡ 1f41786c-01a2-4b48-9f13-937f7d6f75bf
@@ -323,7 +302,7 @@ md"""
 
 # ╔═╡ 16d500be-59b5-4d8e-b77e-f40a9d3dd231
 md"""
-# Guia rápido Julia & Pluto
+# Guia Rápido
 
 **Materiais de apoio** — Documentação, exemplos práticos, bibliotecas e ferramentas para programação científica em **`Julia`** e criação de notebooks interativos em **`Pluto.jl`**.
 """
@@ -331,7 +310,7 @@ md"""
 # ╔═╡ 7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
 details("Julia: zero to hero",
 	md"""
-## Julia: _zero to hero_
+## **Julia**: _zero to hero_
 ### 🚀 Primeiros Passos e Introdução Rápida
 #### Quick Start
 - Jeff Delaney, **[Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0)**, Fireship, YouTube, May 2022.
@@ -395,6 +374,9 @@ details("Julia: zero to hero",
 - Alan Edelman, David P. Sanders, Charles E. Leiserson, **🎈[Computational Thinking with Julia](https://computationalthinking.mit.edu/)** - Curso MIT
 
 
+- [**Do Zero ao Julia**](https://www.ime.unicamp.br/~juliacps/), projeto do IMECC/UNICAMP que promove o ensino e a utilização da linguagem de programação Julia na academia e na indústria
+
+		
 #### Livro online gratuito
 - Ben Lauwens, Allen Downey, **[Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html)**, O'Reilly Media Inc., 2018.
 
@@ -422,7 +404,7 @@ details("Julia: zero to hero",
 # ╔═╡ 5bd4a301-45c5-4829-96fd-027affe65cbd
 details("Pluto.jl: ferramentas e recursos",
 md"""
-## Pluto.jl: ferramentas e recursos
+## **Pluto.jl**: ferramentas e recursos
 ### ⌨️ Comandos Básicos e Fundamentos
 #### Recursos Essenciais
 
@@ -511,6 +493,36 @@ md"""
 	O símbolo 🎈 indica a presença de *notebook*(*s*) de exemplo disponíveis.		
 """
 )
+
+# ╔═╡ 1372feeb-c5b1-4f29-9cc5-fe36cfacd656
+
+
+# ╔═╡ b1445262-ec96-4967-82f5-600c75bd2e11
+md"""
+# Ensino Interativo em ME II
+
+Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$ são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que apresentam qualidades integradas:
+
+- Alinhamento com Boas Práticas Científicas
+  - Implementação dos princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles) (Localizável, Acessível, Interoperável, Reutilizável)
+  - Utilização de tecnologias [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software)  com [licenças](#Condições-de-Licença) abertas e livres
+  - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilhados
+
+
+- Robustez Computacional
+  - Reprodutibilidade multiplataformas (mesmos *inputs* $\to$ mesmos *outputs*)
+  - Gestão automática de dependências via ambiente dedicado
+  - Atualizações dinâmicas com arquitetura reativa
+
+
+- Valor Educativo
+  - Ambiente interativo para exploração de modelos teóricos
+  - Visualização paramétrica em tempo real
+  - Ferramenta flexível, adaptável a diferentes metodologias de ensino
+
+
+Esta implementação concretiza os princípios da [Ciência Aberta](https://www.ciencia-aberta.pt/), garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas. Estabelece uma prática científica moderna, colaborativa e orientada para os desafios da engenharia, combinando rigor técnico, abertura do conhecimento e autonomia intelectual.
+"""
 
 # ╔═╡ ef240421-67ee-43bc-83cb-b92bc64c2bbe
 
@@ -1249,6 +1261,8 @@ version = "17.4.0+2"
 # ╟─16d500be-59b5-4d8e-b77e-f40a9d3dd231
 # ╟─7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
 # ╟─5bd4a301-45c5-4829-96fd-027affe65cbd
+# ╟─1372feeb-c5b1-4f29-9cc5-fe36cfacd656
+# ╟─b1445262-ec96-4967-82f5-600c75bd2e11
 # ╟─ef240421-67ee-43bc-83cb-b92bc64c2bbe
 # ╟─1af310d4-12f0-4895-876c-eceed6b6fba5
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76

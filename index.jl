@@ -44,6 +44,41 @@ Os *notebooks* são documentos computacionais que combinam, num único ambiente,
 Estes *notebooks* são desenvolvidos com **`Pluto.jl`**, um ambiente de desenvolvimento simples e reativo, para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo ligações entre o conhecimento académico e os desafios reais da engenharia. O objetivo é promover uma qualificação sólida e prática dos conteúdos, contribuindo para a formação de futuros engenheiros.
 """
 
+# ╔═╡ cb9fa83a-f3d2-4b45-adfe-74f22bb65147
+details("Educação Aberta em ME II",
+md"""
+## Educação Aberta em ME II
+		
+A dimensão de **educação aberta** em ME II materializa-se através dos **_Notebooks_ Computacionais aplicados a Máquinas Elétricas II**, desenvolvidos com `Julia` e `Pluto.jl`,  tecnologias [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software) que asseguram transparência, acessibilidade e robustez.
+		
+Os *notebooks* produzidos para esta unidade curricular são disponibilizados como [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), com [licenças abertas](#Condições-de-Licença), promovendo a partilha de conhecimento e a reutilização em diversos contextos de ensino e aprendizagem. 
+		
+### Fundamentos Científicos e Tecnológicos
+
+- **Reprodutibilidade**: Os _notebooks_ desenvolvidos com `Pluto.jl` funcionam em qualquer sistema operativo, graças à sua compatibilidade multiplataforma, e asseguram resultados consistentes e verificáveis através da gestão automática de dependências, que elimina configurações manuais e garante a reprodutibilidade dos cálculos e simulações;
+
+- **Transparência metodológica**: O código-fonte está visível e acessível, permitindo compreender não só os resultados, mas também os métodos utilizados para os obter;
+
+- **Princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles)**: Os *notebooks* são Encontráveis, Acessíveis, Interoperáveis e Reutilizáveis, seguindo as práticas da [Ciência Aberta](https://www.ciencia-aberta.pt/) para promover a transparência e a partilha de conhecimento;
+
+- **Acessibilidade tecnológica**: A interface através do navegador _web_ elimina barreiras de instalação de _software_ proprietário.
+
+		
+### Valor Formativo Integrado
+
+- **Experimentação interativa**: A reatividade do ambiente `Pluto.jl` permite aos estudantes manipular parâmetros através de controlos interativos (_sliders_, caixas de seleção) e observar de imediato as alterações nos cálculos e gráficos;
+
+- **Formação técnico-científica**: Os _notebooks_ promovem a compreensão de modelos teóricos e o desenvolvimento da capacidade de análise no estudo de máquinas elétricas;
+
+- **Práticas autênticas**: Os estudantes lidam diretamente com métodos e práticas reais da engenharia;
+		
+- **Flexibilidade metodológica**: Ferramenta adaptável a diferentes abordagens pedagógicas.
+
+
+Esta implementação concretiza os princípios da Ciência Aberta, garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas. Estabelece uma prática científica moderna, colaborativa e orientada para os desafios da engenharia, combinando rigor técnico, abertura do conhecimento e autonomia intelectual.
+"""
+)
+
 # ╔═╡ ed8524bb-0e87-42fa-9c9c-dc198f44c39f
 blockquote("Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.", md"-- Richard P. Feynman",)
 
@@ -189,7 +224,6 @@ Após esta fase inicial, o código já compilado é reutilizado, tornando as exe
 """
 
 # ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
-
 details("Informação complementar",
 
 		md"""
@@ -377,7 +411,9 @@ details("Julia: zero to hero",
 - [**Do Zero ao Julia**](https://www.ime.unicamp.br/~juliacps/), projeto do IMECC/UNICAMP que promove o ensino e a utilização da linguagem de programação Julia na academia e na indústria
 
 		
-#### Livro online gratuito
+#### Livros online gratuitos
+- Bogumił Kamiński, **[The Julia Express](http://bogumilkaminski.pl/files/julia_express.pdf)**, a tutorial on Julia language, 2022. 
+- A. Lobianco, **[Julia language: a concise tutorial](https://syl1.gitbook.io/julia-language-a-concise-tutorial)**, GitBook, 2018.
 - Ben Lauwens, Allen Downey, **[Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html)**, O'Reilly Media Inc., 2018.
 
 
@@ -495,36 +531,6 @@ md"""
 )
 
 # ╔═╡ 1372feeb-c5b1-4f29-9cc5-fe36cfacd656
-
-
-# ╔═╡ b1445262-ec96-4967-82f5-600c75bd2e11
-md"""
-# Ensino Interativo em ME II
-
-Os **_Notebooks_ Computacionais Aplicados a Máquinas Elétricas** $\textbf{II}$ são desenvolvidos usando `Julia` & `Pluto.jl`, ferramentas que apresentam qualidades integradas:
-
-- Alinhamento com Boas Práticas Científicas
-  - Implementação dos princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles) (Localizável, Acessível, Interoperável, Reutilizável)
-  - Utilização de tecnologias [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software)  com [licenças](#Condições-de-Licença) abertas e livres
-  - Produção de [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources) e partilhados
-
-
-- Robustez Computacional
-  - Reprodutibilidade multiplataformas (mesmos *inputs* $\to$ mesmos *outputs*)
-  - Gestão automática de dependências via ambiente dedicado
-  - Atualizações dinâmicas com arquitetura reativa
-
-
-- Valor Educativo
-  - Ambiente interativo para exploração de modelos teóricos
-  - Visualização paramétrica em tempo real
-  - Ferramenta flexível, adaptável a diferentes metodologias de ensino
-
-
-Esta implementação concretiza os princípios da [Ciência Aberta](https://www.ciencia-aberta.pt/), garantindo transparência metodológica, resultados reprodutíveis e conhecimento reutilizável no estudo de máquinas elétricas. Estabelece uma prática científica moderna, colaborativa e orientada para os desafios da engenharia, combinando rigor técnico, abertura do conhecimento e autonomia intelectual.
-"""
-
-# ╔═╡ ef240421-67ee-43bc-83cb-b92bc64c2bbe
 
 
 # ╔═╡ 1af310d4-12f0-4895-876c-eceed6b6fba5
@@ -840,22 +846,22 @@ md"""
 
 # ╔═╡ 1d27f002-0a8f-4326-a1ed-12036aa9c8a3
 md"""
-## $(ME2color("Fundamentos"))
+## **$(ME2color("Fundamentos"))**
 """
 
 # ╔═╡ 93d4db20-7c76-4396-82ee-15f7fdd37b8a
 md"""
-## $(ME2color("Máquina Elétrica de Corrente Contínua"))
+## **$(ME2color("Máquina Elétrica de Corrente Contínua"))**
 """
 
 # ╔═╡ 3ae99ca8-e11d-4186-8d0a-80570dc1ac9d
 md"""
-## $(ME2color("Máquina Elétrica Síncrona Trifásica"))
+## **$(ME2color("Máquina Elétrica Síncrona Trifásica"))**
 """
 
 # ╔═╡ 4d1504da-3b03-4c0f-9582-22aa552b21ea
 md"""
-## $(ME2color("Transitórios de Máquinas Elétricas"))
+## **$(ME2color("Transitórios de Máquinas Elétricas"))**
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -1210,6 +1216,7 @@ version = "17.4.0+2"
 # ╟─13bc811f-1c59-4345-8c34-8bfb8701f216
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
+# ╟─cb9fa83a-f3d2-4b45-adfe-74f22bb65147
 # ╟─ed8524bb-0e87-42fa-9c9c-dc198f44c39f
 # ╟─1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2
@@ -1262,8 +1269,6 @@ version = "17.4.0+2"
 # ╟─7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
 # ╟─5bd4a301-45c5-4829-96fd-027affe65cbd
 # ╟─1372feeb-c5b1-4f29-9cc5-fe36cfacd656
-# ╟─b1445262-ec96-4967-82f5-600c75bd2e11
-# ╟─ef240421-67ee-43bc-83cb-b92bc64c2bbe
 # ╟─1af310d4-12f0-4895-876c-eceed6b6fba5
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76
 # ╟─a5004d56-6b46-49b9-bf7a-35d0a2749e6d

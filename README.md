@@ -43,4 +43,7 @@ The material published on this website/GitHub repository is licensed as follows:
 - The Julia code snippets are released under the [MIT License](https://opensource.org/licenses/MIT).
 
 \
+Your [questions](https://github.com/Ricardo-Luis/me-2/issues) and/or [sugestions for improvement](https://github.com/Ricardo-Luis/me-2/pulls) about the *notebooks* are welcome.
+
+\
 © 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io)

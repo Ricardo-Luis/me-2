@@ -373,7 +373,7 @@ details("Julia: zero to hero",
 - **[The Fastrack to Julia](https://juliadocs.github.io/Julia-Cheat-Sheet/)** - A quick and dirty overview of Julia 1.0, [JuliaDocs](https://juliadocs.org/)
 
 
-- Victoria Gregory, Andrij Stachurski, Natasha Watkins **[Julia cheatsheet](https://cheatsheets.quantecon.org/julia-cheatsheet.html)**, QuantEcon, 2017.
+- Victoria Gregory, Andrij Stachurski, Natasha Watkins, **[Julia cheatsheet](https://cheatsheets.quantecon.org/julia-cheatsheet.html)**, QuantEcon, 2017.
 
 
 - **[Julia By Example](https://juliabyexample.helpmanual.io/)** – Coleção prática de exemplos comentados que ilustram conceitos essenciais da linguagem `Julia`
@@ -561,15 +561,15 @@ md"""
 # Termos de Utilização
 
 ## Condições de Licença
-O material publicado neste *website* e no respetivo repositório do GitHub está licenciado da seguinte forma:
+O material publicado neste *website* e no repositório do GitHub está licenciado da seguinte forma:
 
 - O conteúdo explicativo e visual dos *notebooks* é partilhado sob a [Licença Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional](https://creativecommons.org/licenses/by-sa/4.0/deed.pt) (CC BY-SA 4.0);
 
 
-- Os segmentos de código `Julia` dos *notebooks* são disponibilizados sob a [Licença MIT](https://tldrlegal.com/license/mit-license).
+- Os segmentos de código `Julia` dos *notebooks* são disponibilizados sob a [Licença MIT](https://opensource.org/licenses/MIT).
 
 \
-As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestões de melhoria](https://github.com/Ricardo-Luis/me-2/pulls) sobre o(s) *notebook*(*s*) são bem-vindas.
+As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestões de melhoria](https://github.com/Ricardo-Luis/me-2/pulls) sobre os *notebooks* são bem-vindas.
 
 
 ## Sobre o Autor
@@ -585,7 +585,7 @@ Professor Adjunto, PhD
 **Endereço institucional:**
 
 > ISEL -- Instituto Superior de Engenharia de Lisboa\
-> DEEEA \\ Lab. de Máquinas Elétricas\
+> DEEEA \\ Laboratório de Máquinas Elétricas\
 > Rua Conselheiro Emídio Navarro, 1\
 > 1959-007 Lisboa, Portugal
 
@@ -605,14 +605,14 @@ Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados
 ```bibtex
 @misc{luis2025notebooks,
   author       = {Ricardo Luís},
-  title        = {Notebooks Computacionais Aplicados a Máquinas Eléctricas II},
+  title        = {Notebooks Computacionais Aplicados a Máquinas Elétricas II},
   howpublished = {recurso educacional aberto},
   institution  = {ISEL},
   address      = {Lisboa, Portugal},
   year         = {2025},
   url          = {https://ricardo-luis.github.io/me-2/},
-  note         = {Acedido em: [inserir data]},
-  notebook     = {[inserir nome específico do notebook, se aplicável]}
+  chapter      = {[inserir nome específico do notebook, se aplicável]},
+  note         = {Acedido em: [inserir data]}
 }
 ```
 """
@@ -627,19 +627,19 @@ Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados
 md"""
 # Agradecimentos / Acknowledgements
 
-Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes documentos computacionais, como material de apoio ao ensino-aprendizagem da unidade curricular de Máquinas Elétricas $\rm{II}$.
+Agradeço aos amigos e colegas do Grupo Disciplinar de Máquinas Elétricas do ISEL-DEEEA, pelas discussões e ideias que contribuem para a conceção e desenvolvimento destes *notebooks* computacionais, como material de apoio ao ensino e aprendizagem da unidade curricular de Máquinas Elétricas $\rm{II}$.
 
-Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebooks* para a linguagem de programação científica `Julia` possibilita a adoção de *notebooks* computacionais para o ensino e investigação em máquinas elétricas.
+Um reconhecimento especial aos criadores do `Pluto.jl`, Fons van der Plas e Mikołaj Bochenski, bem como a toda a equipa de contribuidores. A característica reativa do seu ambiente de *notebook* para a linguagem de programação científica `Julia` facilita a adoção de *notebooks* computacionais para o ensino e investigação em máquinas elétricas.
 
-Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes *notebooks*, cujo trabalho colaborativo enriquece constantemente as possibilidades educativas desta plataforma.
+Expresso também o meu apreço à comunidade `Julia` e aos programadores das bibliotecas utilizadas nestes *notebooks*, cujo trabalho colaborativo enriquece continuamente as possibilidades educativas desta plataforma.
 
 ---
 
-I thank my friends and colleagues from the Electrical Machines Teaching Group at ISEL-DEEEA for the discussions and ideas that contributed to the conception and development of these computational documents as support material for the teaching and learning of the Electric Machinery $\rm{II}$ course.
+I thank my friends and colleagues from the Electrical Machines Academic Group at ISEL-DEEEA for the discussions and ideas that contributed to the to the design and development of these computational notebooks as support material for the teaching and learning of the Electric Machinery $\rm{II}$ course.
 
-Special acknowledgment goes to the creators of `Pluto.jl`, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the `Julia` scientific programming language enables the adoption of computational notebooks for teaching and research in electrical machines.
+Special acknowledgment goes to the creators of `Pluto.jl`, Fons van der Plas and Mikołaj Bochenski, as well as the entire team of contributors. The reactive nature of their notebook environment for the `Julia` scientific programming language facilitates the adoption of computational notebooks for teaching and research in electrical machines.
 
-I also express my appreciation to the `Julia` community and the developers of the packages used in these notebooks, whose collaborative work constantly enriches the educational possibilities of this platform.
+I also express my appreciation to the `Julia` community and the developers of the packages used in these notebooks, whose collaborative work continuously enhances the educational possibilities of this platform.
 """
 
 # ╔═╡ cc5006d1-c8fb-4d34-863a-f1e5e5ce3147

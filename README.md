@@ -1,5 +1,5 @@
 # Notebooks Computacionais Aplicados a Máquinas Elétricas II
-Applied Computational Notebooks for Electric Machinery II
+**Applied Computational Notebooks for Electric Machinery II**
 
 &nbsp;
 ## Overview

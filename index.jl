@@ -49,9 +49,9 @@ details("Educação Aberta em ME II",
 md"""
 ## Educação Aberta em ME II
 		
-A dimensão de **educação aberta** em ME II materializa-se através dos **_Notebooks_ Computacionais aplicados a Máquinas Elétricas II**, desenvolvidos com `Julia` e `Pluto.jl`,  tecnologias [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software) que asseguram transparência, acessibilidade e robustez.
+A dimensão de **educação aberta** em ME II materializa-se através dos **_Notebooks_ Computacionais aplicados a Máquinas Elétricas II**, desenvolvidos com `Julia` e `Pluto.jl`, ferramentas [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software) que asseguram transparência, acessibilidade e robustez.
 		
-Os *notebooks* produzidos para esta unidade curricular são disponibilizados como [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), com [licenças abertas](#Condições-de-Licença), promovendo a partilha de conhecimento e a reutilização em diversos contextos de ensino e aprendizagem. 
+Os *notebooks* produzidos nesta unidade curricular são disponibilizados como [recursos educacionais abertos] (https://en.wikipedia.org/wiki/Open_educational_resources), com [licenças abertas](#Condições-de-Licença), promovendo a partilha de conhecimento e a reutilização em diversos contextos de ensino e aprendizagem. 
 		
 ### Fundamentos Científicos e Tecnológicos
 

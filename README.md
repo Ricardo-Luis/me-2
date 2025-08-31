@@ -15,12 +15,28 @@ The [website](https://ricardo-luis.github.io/me-2/) is primarily in Portuguese, 
 ## How to Cite This Work
 For any reuse or citation of the notebooks or their results available on this website, whether in academic work, publications, educational materials, projects, or other contexts, please use the following reference:
 
+**Bibliographic Reference Format:**
 ```
 Ricardo Luís, "Computational Notebooks Applied to Electric Machinery II", open educational resource, ISEL, Lisbon, Portugal, 2025. [Online]. Available: https://ricardo-luis.github.io/me-2/
 ```
 
+**BibTeX Format:**
+```bitex
+@misc{luis2025notebooks,
+  author       = {Ricardo Luís},
+  title        = {Computational Notebooks Applied to Electric Machinery II},
+  howpublished = {open educational resource},
+  institution  = {ISEL},
+  address      = {Lisbon, Portugal},
+  year         = {2025},
+  url          = {https://ricardo-luis.github.io/me-2/},
+  chapter      = {[insert specific notebook name, if applicable]},
+  note         = {Accessed: [insert date]}
+}
+```
+
 ## Terms of Use
 - All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)).
-- The Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).
+- The Julia code snippets are released under the [MIT License](https://opensource.org/licenses/MIT).
 
 © 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io)

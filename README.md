@@ -26,7 +26,7 @@ Ricardo Luís, "Computational Notebooks Applied to Electric Machinery II", open 
 ```bitex
 @misc{luis2025notebooks,
   author       = {Ricardo Luís},
-  title        = {Computational Notebooks Applied to Electric Machinery II},
+  title        = {Applied Computational Notebooks for Electric Machinery II},
   howpublished = {open educational resource},
   institution  = {ISEL},
   address      = {Lisbon, Portugal},

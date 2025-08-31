@@ -16,7 +16,7 @@ The [website](https://ricardo-luis.github.io/me-2/) is primarily in Portuguese, 
 For any reuse or citation of the notebooks or their results available on this website, whether in academic work, publications, educational materials, projects, or other contexts, please use the following reference:
 
 ```
-Ricardo Luís, "Computational Notebooks Applied to Electric Machinery II", open educational resource, ISEL, Lisbon, Portugal, 2025 [Online]. Available: https://ricardo-luis.github.io/me-2/
+Ricardo Luís, "Computational Notebooks Applied to Electric Machinery II", open educational resource, ISEL, Lisbon, Portugal, 2025. [Online]. Available: https://ricardo-luis.github.io/me-2/
 ```
 
 ## Terms of Use

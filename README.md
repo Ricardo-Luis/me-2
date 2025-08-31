@@ -2,6 +2,7 @@
 Applied Computational Notebooks for Electric Machinery II
 
 \
+
 ## Overview
 This [website](https://ricardo-luis.github.io/me-2/) provides a collection of computational notebooks supporting the [Electric Machinery II](https://www.isel.pt/sites/default/files/FUC_202425_3894.pdf) course in the Electrical Engineering undergraduate program at [ISEL](https://www.isel.pt/en). 
 
@@ -19,12 +20,14 @@ The [website](https://ricardo-luis.github.io/me-2/) is primarily in Portuguese, 
 For any reuse or citation of the notebooks or their results available on this website, whether in academic work, publications, educational materials, projects, or other contexts, please use the following reference:
 
 \
+
 **Bibliographic Reference Format:**
 ```
 Ricardo Luís, "Applied Computational Notebooks for Electric Machinery II", open educational resource, ISEL, Lisbon, Portugal, 2025. [Online]. Available: https://ricardo-luis.github.io/me-2/
 ```
 
 \
+
 **BibTeX Format:**
 ```bitex
 @misc{luis2025notebooks,

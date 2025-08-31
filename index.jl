@@ -42,6 +42,8 @@ Este *website* disponibiliza uma coleção de *notebooks*, na forma de notas de 
 Os *notebooks* são documentos computacionais que combinam, num único ambiente, código executável, resultados, texto explicativo, expressões matemáticas, tabelas, imagens e outros elementos. Permitem articular a teoria com exemplos práticos e contextos aplicados, promovendo uma experiência educativa interativa e integrada.
 
 Estes *notebooks* são desenvolvidos com **`Pluto.jl`**, um ambiente de desenvolvimento simples e reativo, para a linguagem de computação científica **`Julia`**. Esta abordagem imersiva permite aos estudantes explorar conceitos complexos de forma dinâmica, estabelecendo ligações entre o conhecimento académico e os desafios reais da engenharia. O objetivo é promover uma qualificação sólida e prática dos conteúdos, contribuindo para a formação de futuros engenheiros.
+
+\
 """
 
 # ╔═╡ cb9fa83a-f3d2-4b45-adfe-74f22bb65147
@@ -55,23 +57,23 @@ Os *notebooks* produzidos nesta unidade curricular são disponibilizados como [r
 		
 ### Fundamentos Científicos e Tecnológicos
 
-- **Reprodutibilidade**: Os _notebooks_ desenvolvidos com `Pluto.jl` funcionam em qualquer sistema operativo, graças à sua compatibilidade multiplataforma, e asseguram resultados consistentes e verificáveis através da gestão automática de dependências, que elimina configurações manuais e garante a reprodutibilidade dos cálculos e simulações;
+- **Reprodutibilidade**: Os _notebooks_ funcionam em qualquer sistema operativo, graças à compatibilidade multiplataforma de `Julia`. A gestão automática de dependências do `Pluto.jl` elimina configurações manuais, assegurando resultados consistentes e verificáveis nos cálculos e simulações;
 
-- **Transparência metodológica**: O código-fonte está visível e acessível, permitindo compreender não só os resultados, mas também os métodos utilizados para os obter;
+- **Transparência metodológica**: O código-fonte em `Julia`, visível e acessível nos *notebooks*, permite compreender não só os resultados, mas também os métodos utilizados para os obter;
 
 - **Princípios [FAIR](https://openscience.eu/article/infrastructure/guide-fair-principles)**: Os *notebooks* são Encontráveis, Acessíveis, Interoperáveis e Reutilizáveis, seguindo as práticas da [Ciência Aberta](https://www.ciencia-aberta.pt/) para promover a transparência e a partilha de conhecimento;
 
-- **Acessibilidade tecnológica**: A interface através do navegador _web_ elimina barreiras de instalação de _software_ proprietário.
+- **Acessibilidade tecnológica**: A interface do `Pluto.jl`, acessível via navegador *web*, elimina barreiras de instalação de *software* proprietário, permitindo que estudantes utilizem os *notebooks* em diversos dispositivos conectados à internet, em diferentes contextos educacionais.
 
 		
 ### Valor Formativo Integrado
 
 - **Experimentação interativa**: A reatividade do ambiente `Pluto.jl` permite aos estudantes manipular parâmetros através de controlos interativos (_sliders_, caixas de seleção) e observar de imediato as alterações nos cálculos e gráficos;
 
-- **Formação técnico-científica**: Os _notebooks_ promovem a compreensão de modelos teóricos e o desenvolvimento da capacidade de análise no estudo de máquinas elétricas;
+- **Formação técnico-científica**: Os _notebooks_, desenvolvidos em `Julia` com o ambiente `Pluto.jl`, promovem a compreensão de modelos teóricos e o desenvolvimento da capacidade de análise no estudo de máquinas elétricas;
 
 - **Práticas autênticas**: Os estudantes lidam diretamente com métodos e práticas reais da engenharia;
-		
+
 - **Flexibilidade metodológica**: Ferramenta adaptável a diferentes abordagens pedagógicas.
 
 
@@ -79,8 +81,14 @@ Esta implementação concretiza os princípios da Ciência Aberta, garantindo tr
 """
 )
 
+# ╔═╡ c3d3ebe7-a81d-4fea-9f4e-766bd59d7920
+
+
 # ╔═╡ ed8524bb-0e87-42fa-9c9c-dc198f44c39f
 blockquote("Study hard what interests you the most in the most undisciplined, irreverent and original manner possible.", md"-- Richard P. Feynman",)
+
+# ╔═╡ 7c1cb4bc-bac8-48c4-9ef2-6444bfdc25ae
+
 
 # ╔═╡ 1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 
@@ -165,6 +173,9 @@ NotebookCard("https://ricardo-luis.github.io/me-2/SCsynAlt.html")
 # ╔═╡ f64b1b81-5967-4859-9d0b-ef3e96849faf
 NotebookCard("https://ricardo-luis.github.io/me-2/TL5.html")
 
+# ╔═╡ 7a7ab8fe-e805-482d-8469-8b754fc82dc1
+
+
 # ╔═╡ f3769341-6dcd-4332-a0a0-0cf79205f627
 
 
@@ -199,6 +210,9 @@ md"""
 md"""
 	import Pluto; Pluto.run()
 """
+
+# ╔═╡ 67fb88aa-b2b8-4e3b-ab72-7c8beb5750f6
+
 
 # ╔═╡ 33ee713c-2142-47b7-8bca-691c00ca4db4
 
@@ -272,6 +286,9 @@ details("Informação complementar",
 """
 )
 
+# ╔═╡ 1bda8b5e-240f-476b-8cbb-8b59acb5002a
+
+
 # ╔═╡ 7e966db6-ca39-4f66-9ab1-bdc088591608
 
 
@@ -330,6 +347,9 @@ md"""
   - *Perspetiva de utilizador experiente*
 """
 )
+
+# ╔═╡ 385911fd-1ee9-4022-b79d-4c14371dae51
+
 
 # ╔═╡ 79b4d3c8-4867-499b-8aec-7fb2f84f419e
 
@@ -530,6 +550,9 @@ md"""
 """
 )
 
+# ╔═╡ d2db380f-ba35-47f5-9d61-2d9e69e61ca1
+
+
 # ╔═╡ 1372feeb-c5b1-4f29-9cc5-fe36cfacd656
 
 
@@ -573,24 +596,29 @@ Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados
 
 **Formato de Referência Bibliográfica:**
 
-	Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2/
+	Ricardo Luís, "Notebooks Computacionais Aplicados a Máquinas Elétricas II", recurso educacional aberto, ISEL, Lisboa, Portugal, 2025. [Online]. 
+	Disponível: https://ricardo-luis.github.io/me-2/
 
 
 **Formato BibTeX:**
 
 ```bibtex
 @misc{luis2025notebooks,
-  author      = {Ricardo Luís},
-  title       = {Notebooks Computacionais Aplicados a Máquinas Eléctricas II},
-  year        = {2025},
-  institution = {Instituto Superior de Engenharia de Lisboa},
-  program     = {Licenciatura em Engenharia Electrotécnica},
-  url         = {https://ricardo-luis.github.io/me-2/},
-  note        = {Acedido em: [inserir data]},
-  notebook    = {[inserir nome específico do notebook, se aplicável]}
+  author       = {Ricardo Luís},
+  title        = {Notebooks Computacionais Aplicados a Máquinas Eléctricas II},
+  howpublished = {recurso educacional aberto},
+  institution  = {ISEL},
+  address      = {Lisboa, Portugal},
+  year         = {2025},
+  url          = {https://ricardo-luis.github.io/me-2/},
+  note         = {Acedido em: [inserir data]},
+  notebook     = {[inserir nome específico do notebook, se aplicável]}
 }
 ```
 """
+
+# ╔═╡ 1a4701b3-0073-4fbf-847e-55920daa519d
+
 
 # ╔═╡ 329f957f-5031-4da9-93a8-2c6acd87ed76
 
@@ -620,6 +648,9 @@ HTML("""
 Ricardo Luís
 </div>
 """)
+
+# ╔═╡ 781c30b1-e5e6-450d-ba0c-32e7498b21e1
+
 
 # ╔═╡ adc45990-2098-4021-b086-35fa19045a51
 begin
@@ -1217,7 +1248,9 @@ version = "17.4.0+2"
 # ╟─054f60fc-9f3b-49c7-8f0e-c94dd6595000
 # ╟─d4933445-95c9-4f86-a832-95278e8aa34c
 # ╟─cb9fa83a-f3d2-4b45-adfe-74f22bb65147
+# ╟─c3d3ebe7-a81d-4fea-9f4e-766bd59d7920
 # ╟─ed8524bb-0e87-42fa-9c9c-dc198f44c39f
+# ╟─7c1cb4bc-bac8-48c4-9ef2-6444bfdc25ae
 # ╟─1eb0fa23-13f7-4dd2-b4b8-b8a6d802d90c
 # ╟─659cda0d-61f1-4e65-b541-9d5e6c69bab2
 # ╟─354f89d1-5860-47f8-9a7f-d1f4faf40979
@@ -1249,6 +1282,7 @@ version = "17.4.0+2"
 # ╟─2d68bd77-e483-441b-b2cc-d4e69f684fd5
 # ╟─20b341b4-341f-465c-9709-afa732072611
 # ╟─f64b1b81-5967-4859-9d0b-ef3e96849faf
+# ╟─7a7ab8fe-e805-482d-8469-8b754fc82dc1
 # ╟─f3769341-6dcd-4332-a0a0-0cf79205f627
 # ╟─0823c4d6-bf8a-4bb5-9719-385f8fe90684
 # ╟─5fa1359a-5e2b-4d95-a09c-e32157b55a29
@@ -1258,21 +1292,27 @@ version = "17.4.0+2"
 # ╟─8e883eba-aed5-4d0d-8846-e440a9f6ee4f
 # ╟─e77f2489-a0e5-4aeb-a577-e86c353fdf0c
 # ╟─82dbfe15-8e45-4348-8845-424e70f0deeb
+# ╟─67fb88aa-b2b8-4e3b-ab72-7c8beb5750f6
 # ╟─33ee713c-2142-47b7-8bca-691c00ca4db4
 # ╟─69cefea4-fcc2-4f74-ad6f-4366de284bf7
 # ╟─bee54122-c768-4232-be50-4a35b365dd0e
+# ╟─1bda8b5e-240f-476b-8cbb-8b59acb5002a
 # ╟─7e966db6-ca39-4f66-9ab1-bdc088591608
 # ╟─a99a1360-b179-4080-bdbe-b58217597d7e
 # ╟─1f41786c-01a2-4b48-9f13-937f7d6f75bf
+# ╟─385911fd-1ee9-4022-b79d-4c14371dae51
 # ╟─79b4d3c8-4867-499b-8aec-7fb2f84f419e
 # ╟─16d500be-59b5-4d8e-b77e-f40a9d3dd231
 # ╟─7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
 # ╟─5bd4a301-45c5-4829-96fd-027affe65cbd
+# ╟─d2db380f-ba35-47f5-9d61-2d9e69e61ca1
 # ╟─1372feeb-c5b1-4f29-9cc5-fe36cfacd656
 # ╟─1af310d4-12f0-4895-876c-eceed6b6fba5
+# ╟─1a4701b3-0073-4fbf-847e-55920daa519d
 # ╟─329f957f-5031-4da9-93a8-2c6acd87ed76
 # ╟─a5004d56-6b46-49b9-bf7a-35d0a2749e6d
 # ╟─cc5006d1-c8fb-4d34-863a-f1e5e5ce3147
+# ╟─781c30b1-e5e6-450d-ba0c-32e7498b21e1
 # ╟─adc45990-2098-4021-b086-35fa19045a51
 # ╟─72c8086a-c513-4245-a00a-0a5a9da78ffb
 # ╟─4c204456-666b-492f-b92e-45a591a95cda

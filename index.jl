@@ -113,6 +113,9 @@ NotebookCard("https://ricardo-luis.github.io/me-2/PowerMap.html")
 # ╔═╡ 1f3385c5-e2cb-4b36-af2c-3ca16e7dc4f1
 
 
+# ╔═╡ 6d794fa6-e2e4-4311-9521-e45cf1680724
+NotebookCard("https://ricardo-luis.github.io/me-2/EMFdc.html")
+
 # ╔═╡ 379a42a7-8f18-42de-bdc0-5601561196dd
 NotebookCard("https://ricardo-luis.github.io/me-2/MaqDCinduzido.html")
 
@@ -1260,6 +1263,7 @@ version = "17.4.0+2"
 # ╟─a80136eb-b0fa-4062-8889-2c90976369a3
 # ╟─1f3385c5-e2cb-4b36-af2c-3ca16e7dc4f1
 # ╟─93d4db20-7c76-4396-82ee-15f7fdd37b8a
+# ╟─6d794fa6-e2e4-4311-9521-e45cf1680724
 # ╟─379a42a7-8f18-42de-bdc0-5601561196dd
 # ╟─fc130cda-394a-44e8-b00e-ee330b9051c0
 # ╟─f7821a8b-970f-4ab2-807e-05cb5d0304ee

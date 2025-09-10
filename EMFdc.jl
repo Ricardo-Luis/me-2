@@ -7,7 +7,7 @@
 #> date = "2025-09-09"
 #> tags = ["lecture", "module2"]
 #> layout = "layout.jlhtml"
-#> description = "Apresenta-se a dedução da expressão da força eletromotriz (FEM) da máquina de corrente contínua em função dos seus parâmetros construtivos. É também analisada a ação do comutador e escovas no processo de retificação das FEM das secções em movimento do enrolamento induzido (rotor)."
+#> description = "Apresenta-se a dedução da expressão da força eletromotriz (FEM) da máquina de corrente contínua em função dos seus parâmetros construtivos. É também analisada a ação do coletor e escovas no processo de retificação das FEM das secções em movimento do enrolamento induzido (rotor)."
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
@@ -104,7 +104,7 @@ e = \frac{p \: \phi}{\pi \: r \: l} \: l \: \omega \: r =\frac{p}{\pi} \: \phi \
 
 # ╔═╡ ca99c789-934e-4deb-958c-e43a00dc732d
 md"""
-Se em vez de um condutor, tivermos $z$ condutores e os número de caminhos derivados, $2a$, que compõem o enrolamento induzido, a FEM total vem dada por, $E_0$:
+Se em vez de um condutor, tivermos $z$ condutores e o número de caminhos derivados, $2a$, que compõem o enrolamento induzido, a FEM total vem dada por, $E_0$:
 
 $\tag{7}
 E_0=\frac{z}{2\:a} \: e = \frac{z \: p}{2 \: \pi \:a} \: \phi \: \omega$

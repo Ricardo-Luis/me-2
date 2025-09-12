@@ -349,7 +349,7 @@ end
 md"""
 # Referência
 
-[^2025Phy]: Electric generators and back emf. Physics LibreTexts, 2025. [online] Disponível em: [https://phys.libretexts.org/@go/page/4433](https://phys.libretexts.org/@go/page/4433). Licença CC BY 4.0.
+[^Phy2025]: Electric generators and back emf. Physics LibreTexts, 2025. [online] Disponível em: [https://phys.libretexts.org/@go/page/4433](https://phys.libretexts.org/@go/page/4433). Licença CC BY 4.0.
 """
 
 # ╔═╡ 98378cf7-d21c-4422-8513-c2e34fe06db4

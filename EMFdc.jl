@@ -38,7 +38,7 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ 10519ed6-20ad-4503-b3ec-3e707fdf46a0
-TwoColumnWideLeft(md"`EMFdc.jl`", md"`Last update: 09·09·2025`")
+TwoColumnWideLeft(md"`EMFdc.jl`", md"`Last update: 12·09·2025`")
 
 # ╔═╡ 72127041-f9b1-40d9-ae5e-0c435688461c
 md"""
@@ -79,12 +79,12 @@ A velocidade tangencial do condutor relaciona-se com a velocidade angular de rot
 $\tag{2}
 v=\omega \: r$
 
-Por outro lado, a indução magnética, $B$, depende do fluxo magnético por polo, $\phi$, e da área de polo magnético, $A_p$:
+Por outro lado, a indução magnética, $B$, depende do fluxo magnético por polo, $\phi$, e da área de um polo magnético, $A_p$:
 
 $\tag{3}
 B=\frac{\phi}{A_p}$
 
-A área de polo magnético, $A_p$, obtém-se:
+A área do polo magnético, $A_p$, obtém-se desprezando espaço entre os polos e o comprimento (profundidade) dos núcleos ferromagnéticos, $l$:
 
 $\tag{4}
 A_p=\frac{2\:\pi \: r \: l}{2\:p}=\frac{\pi \: r \: l}{p}$
@@ -121,7 +121,7 @@ $\tag{9}
 E_0= \frac{z \: p}{60 \:a} \: \phi \: n$
 
 
-As expressões da FEM $(7)$ e $(9)$, podem assim tomar as formas:
+Assim, as expressões da FEM $(7)$ e $(9)$, podem assim tomar as formas:
 
 $\tag{10}
 E_0= K_1 \: \phi \: \omega \qquad \text{ou} \qquad E_0= K_2 \: \phi \: n$
@@ -143,7 +143,7 @@ md"""
 
 # ╔═╡ 15448951-0958-447d-a7a7-cbb21c48893d
 md"""
-Compreendidas as expressões da FEM, pode-se analisar a influência dos parâmetros construtivos: $z, p, a$, indução magnética $B$ e a área por polo $A_p$ no resultado da tensão gerada em vazio.
+Compreendidas as expressões da FEM, pode-se analisar a influência dos parâmetros construtivos: $z, p, a$, e a área por polo $A_p$. Da mesma forma, também se pode analisar a influência da variação da indução magnética, $B$, e da velocidade no resultado da tensão gerada em vazio, $E_0$.
 """
 
 # ╔═╡ b609f83d-0182-41c4-89c7-cc5ac10754b3
@@ -158,6 +158,11 @@ md"""
 | Tipo de enrolamento do induzido: | $\qquad$ $(@bind winding Select(["Imbricado", "Ondulado"]; default="Imbricado")) |
 | $n$, velocidade de rotação, (rpm): | $\qquad$ $(@bind n Slider(0:5:3000; default=1500, show_value=true)) |
 
+"""
+
+# ╔═╡ 66724a6a-e999-4920-a0a0-e20ab3ec42d4
+md"""
+ > **Nota:** Para uma melhor perceção da área de um polo magnético, são consideradas áreas correspondentes aos tamanhos normalizados das folhas de papel: A0, A1, ..., A6.
 """
 
 # ╔═╡ 661b6347-6f55-4b3c-9933-f640ee4eab59
@@ -226,7 +231,7 @@ end;
 
 # ╔═╡ 0f364a41-6789-4ac5-a885-b6263d23217d
 md"""
-**Resultado da FEM**:  $$\quad E_0 = K_2 \: \phi \: n =$$ $(E₀) V 
+**Resultado da FEM**:  $$\quad E_0 = K_2 \, \phi \, n =$$ $(E₀) V 
 """
 
 # ╔═╡ 46d4efc2-67c6-4a30-a6f2-aeb9c0e4733e
@@ -237,22 +242,12 @@ md"""
 # Acção do coletor e escovas
 """
 
-# ╔═╡ eb63b33f-328c-4436-91b8-953d6391d680
+# ╔═╡ b5a19b5d-6b07-48e7-b81e-3f38bcfea724
 md"""
-A análise do coletor de escovas na ligação aos condutores do enrolamento induzido permite verificar que a sua ação realiza uma retificação de onda completa na FEM induzida em cada secção em movimento. As FEM de cada secção em movimento são então somadas de acordo com o tipo de enrolamento implementado (imbricado ou ondulado).
+A análise do coletor de escovas na ligação aos condutores do enrolamento induzido permite verificar que a sua ação realiza uma retificação de onda completa na FEM induzida em cada secção em movimento, Fig.2. 
 
-Suponhamos uma máquina de corrente contínua com enrolamento ondulado simples; por conseguinte, tem-se um par de caminhos em paralelo formado a partir de um par de escovas ("escova +" e "escova -").
-
-Imaginemos que a FEM induzida por condutor, $e$, é de 2 V. 
-
-Para analisarmos o efeito do coletor e escovas na tensão de saída, considere-se um número de condutores, $z$, uniformemente distribuídos na periferia do núcleo ferromagnético do induzido.
-
-Em cada secção do induzido (1 secção = 2 condutores, de ida e volta) produz-se uma retificação de onda completa na sua FEM induzida. O somatório das FEM das secções, por se encontrarem distribuídas, faz com que o resultado seja uma tensão tendencialmente contínua. Quanto maior for o número de condutores, $z$, mais suave, ou seja contínua, será a tensão (FEM) resultante.
-"""
-
-# ╔═╡ 4ea8fcc1-34fc-4d4e-a2f6-e32872286a60
-md"""
 Compare as Figuras 1 e 2 e verifique a diferença na FEM induzida numa secção em movimento, quando ligada a anéis e escovas (Fig.1), ou ligada a semi-anéis (coletor) e escovas (Fig.2):
+
 """
 
 # ╔═╡ 86b59c4e-3145-4acd-8cf8-b88d32706cb7
@@ -262,17 +257,36 @@ md"""
 Fig.1 -  FEM induzida numa secção em movimento com anéis e escovas. (Fonte: extraído de [^Phy2025])
 """
 
-# ╔═╡ c2d539b8-dcee-4e77-92e1-9c62c7c8c04b
-
-
-# ╔═╡ e5d3a37f-0358-444a-b734-ebab1a36519e
-
-
 # ╔═╡ 4613c4f0-cb25-4844-9f27-f96854214f83
 md"""
 ![](https://phys.libretexts.org/@api/deki/files/8432/CNX_UPhysics_30_06_SplitRing.jpg?revision=1)
 
 Fig.2 -  FEM induzida numa secção em movimento com coletor e escovas. (Fonte: extraído de [^Phy2025])
+"""
+
+# ╔═╡ 740f857c-a7e1-4090-9d9d-756a2050182f
+
+
+# ╔═╡ eb63b33f-328c-4436-91b8-953d6391d680
+md"""
+As FEM de cada secção em movimento são então somadas de acordo com o tipo de enrolamento implementado no induzido (imbricado ou ondulado):
+- **Imbricado simples**: o número de escovas é igual ao número de polos, o que permite ter vários caminhos em paralelo se $p>1$. Assim:
+
+$2a=2p$
+
+- **Ondulado simples**: o número de escovas é igual a 2, pelo que o enrolamento ondulado forma apenas 2 caminhos derivados (paralelo). Assim:
+
+$2a=2$
+
+
+ > **Nota:** Por facilidade de racicínio aborda-se a bobinagem do induzido considerando o enrolamento (imbricado ou ondulado) **simples**, mas este pode ter um fator de multiplicidade, $m$, associcado, podendo ser **duplo** ou **triplo**. A multiplicidade do enrolamento induzido verifica-se através da espessura das escovas em comparação com a dimensão das lâminas do coletor. Assim, se:
+> - a espessura das escovas for igual a 1 lâmina => enrolamento simples, $m=1$;
+> - a espessura das escovas for igual a 2 lâminas => enrolamento duplo, $m=2$;
+> - a espessura das escovas for igual a 3 lâminas => enrolamento triplo, $m=3$;
+>
+> Então nos enrolamentos com $m \neq 1$, o número de caminhos derivados é aumentado, ou seja: 
+> - bobinagem imbricado, $2a=2\, p\, m$; 
+> - bobinagem ondulado, $2a=2m$. 
 """
 
 # ╔═╡ ca474e83-f344-4f98-97e5-18ac6366314e
@@ -283,15 +297,26 @@ md"""
 ## 💻 Visualização
 """
 
+# ╔═╡ b0a14be5-ba3c-4b39-9dd1-96c286ea28f7
+md"""
+Suponhamos uma máquina de corrente contínua com enrolamento ondulado simples; por conseguinte, tem-se um par de caminhos em paralelo formado a partir de um par de escovas ("escova +" e "escova -").
+
+Imaginemos que a FEM induzida por condutor, $e$, é de 2 V. 
+
+Para analisarmos o efeito do coletor e escovas na tensão de saída, considere-se um número de condutores, $z$, uniformemente distribuídos na periferia do núcleo ferromagnético do induzido.
+
+Em cada secção do induzido (1 secção = 2 condutores, de ida e volta) produz-se uma retificação de onda completa na sua FEM induzida. O somatório das FEM das secções, por se encontrarem distribuídas, faz com que o resultado seja uma tensão tendencialmente contínua. Quanto maior for o número de condutores, $z$, mais suave, ou seja contínua, será a tensão (FEM) resultante:
+"""
+
 # ╔═╡ 70e09a98-49f8-40b8-be6c-e191f8d53540
 e = 2; 			# maximum induced voltage in one winding section
 
 # ╔═╡ 475f80ca-de15-4fc5-adb1-8e7ed4406cc0
-θ=0:0.1:2π;  	#  θ = ωt, considered one period for analsys, from 0 to 2π
+θ=0:0.01:2π;  	#  θ = ωt, considered one period for analsys, from 0 to 2π
 
 # ╔═╡ de23223f-283d-4b94-b2f9-a51dfb81885c
 md"""
-Número de condutores, $z$, do induzido: $(@bind z Slider(2:2:30; default=2, show_value=true))
+Número de condutores, $z$, do induzido: $(@bind z Slider(2:2:50; default=6, show_value=true))
 """
 
 # ╔═╡ 875a1881-b5da-42b6-ac2a-d7f33fc36def
@@ -314,7 +339,7 @@ begin
 	    plot!(θ, fem[i], label="fem_$i")
 	end
 	plot!(θ, fem_total, label="FEM Total", linewidth=3, color=:black)
-	plot!(xlabel="ωt, rad", ylabel="FEM, V", yaxis=[0,20], legend=:outerright)
+	plot!(xlabel="ωt, rad", ylabel="FEM, V", yaxis=[0,35], legend=:outerright)
 end
 
 # ╔═╡ d420f8ab-b368-4b0a-98ac-b56486e571db
@@ -326,9 +351,6 @@ md"""
 
 [^2025Phy]: Electric generators and back emf. Physics LibreTexts, 2025. [online] Disponível em: [https://phys.libretexts.org/@go/page/4433](https://phys.libretexts.org/@go/page/4433). Licença CC BY 4.0.
 """
-
-# ╔═╡ b1c749fd-c7a7-4063-8e9e-4e8710dd4375
-
 
 # ╔═╡ 98378cf7-d21c-4422-8513-c2e34fe06db4
 begin
@@ -1562,6 +1584,7 @@ version = "1.9.2+0"
 # ╟─15448951-0958-447d-a7a7-cbb21c48893d
 # ╟─b609f83d-0182-41c4-89c7-cc5ac10754b3
 # ╟─0f364a41-6789-4ac5-a885-b6263d23217d
+# ╟─66724a6a-e999-4920-a0a0-e20ab3ec42d4
 # ╟─661b6347-6f55-4b3c-9933-f640ee4eab59
 # ╟─33321abc-8a22-4331-b02e-2522c3c285ff
 # ╟─253d69c3-450e-4737-8ec8-72fefd8a6dda
@@ -1576,14 +1599,14 @@ version = "1.9.2+0"
 # ╠═7bb13fda-fb3c-4acc-b45a-9b044e5356be
 # ╟─46d4efc2-67c6-4a30-a6f2-aeb9c0e4733e
 # ╟─678835e1-3d11-405c-867f-dbbca71b6afa
-# ╟─eb63b33f-328c-4436-91b8-953d6391d680
-# ╟─4ea8fcc1-34fc-4d4e-a2f6-e32872286a60
+# ╟─b5a19b5d-6b07-48e7-b81e-3f38bcfea724
 # ╟─86b59c4e-3145-4acd-8cf8-b88d32706cb7
-# ╟─c2d539b8-dcee-4e77-92e1-9c62c7c8c04b
-# ╟─e5d3a37f-0358-444a-b734-ebab1a36519e
 # ╟─4613c4f0-cb25-4844-9f27-f96854214f83
+# ╟─740f857c-a7e1-4090-9d9d-756a2050182f
+# ╟─eb63b33f-328c-4436-91b8-953d6391d680
 # ╟─ca474e83-f344-4f98-97e5-18ac6366314e
 # ╟─982fc3ff-f849-40d7-a13c-7b5a1d082499
+# ╟─b0a14be5-ba3c-4b39-9dd1-96c286ea28f7
 # ╠═70e09a98-49f8-40b8-be6c-e191f8d53540
 # ╠═475f80ca-de15-4fc5-adb1-8e7ed4406cc0
 # ╠═875a1881-b5da-42b6-ac2a-d7f33fc36def
@@ -1594,7 +1617,6 @@ version = "1.9.2+0"
 # ╟─fbd811f4-8d28-403e-b9d7-8313d3491150
 # ╟─d420f8ab-b368-4b0a-98ac-b56486e571db
 # ╟─11d25618-3eda-4b94-9a92-8b2ad15646c0
-# ╟─b1c749fd-c7a7-4063-8e9e-4e8710dd4375
 # ╟─98378cf7-d21c-4422-8513-c2e34fe06db4
 # ╟─8d127c70-df84-480e-b247-83fd0a09c57e
 # ╟─6809aa25-0e1f-4df8-8c64-18972da8cf60

@@ -4,7 +4,7 @@
 #> [frontmatter]
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/main/images/card/EMFdc.png?raw=true"
 #> title = "Força Eletromotriz da Máquina de Corrente Contínua"
-#> date = "2025-09-09"
+#> date = "2025-09-12"
 #> tags = ["lecture", "module2"]
 #> layout = "layout.jlhtml"
 #> description = "Apresenta-se a dedução da expressão da força eletromotriz (FEM) da máquina de corrente contínua em função dos seus parâmetros construtivos. É também analisada a ação do coletor e escovas no processo de retificação das FEM das secções em movimento do enrolamento induzido (rotor)."

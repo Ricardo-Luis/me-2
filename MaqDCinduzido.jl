@@ -8,7 +8,7 @@
 #> image = "https://github.com/Ricardo-Luis/notebooks/blob/main/ME2/images/commutator.jpg?raw=true"
 #> title = "Máquina CC: induzido, RMI, comutação"
 #> tags = ["lecture", "module2"]
-#> date = "2024-09-16"
+#> date = "2025-09-14"
 #> layout = "layout.jlhtml"
 #> description = "As observações laboratoriais deste trabalho incidem principalmente sobre o rotor da máquina de corrente contínua, com os seguintes objetivos: esquematizar os enrolamentos do induzido; observar a reação magnética do induzido; e analisar o processo de comutação."
 #> 
@@ -41,7 +41,7 @@ Short packages description:
 =#
 
 # ╔═╡ 91180300-0b49-4211-9ad3-12fd0785f518
-TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 01·09·2025`")
+TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 14·09·2025`")
 
 # ╔═╡ 4e3917b0-4458-11ef-2b69-bd55e90578e0
 md"""
@@ -62,7 +62,7 @@ aside((md"""
 	Este relatório foi preparado como guia para a **aula de observação**. Algumas secções estão em branco para que possam registar as vossas observações e notas durante a sessão.
 	
 	As partes a completar estão indicadas ao longo do relatório com o símbolo 📌.
-"""), v_offset=-80)
+"""), v_offset=- 80)
 
 # ╔═╡ 2239ebd6-bb9c-4e48-bf2b-78557cd8f7e6
 md"""
@@ -71,11 +71,11 @@ md"""
 
 # ╔═╡ 14c7e7d9-5e3f-4680-a625-cfa81ba48e69
 md"""
-A máquina de Corrente Contínua (CC) distingue-se das restantes máquinas elétricas rotativas devido à presença do coletor e escovas. Estes componentes operam como um retificador mecânico de contato deslizante das forças eletromotrizes alternadas geradas nos condutores do enrolamento induzido (rotor) em movimento, sob um campo magnético constante.\
+A máquina de Corrente Contínua (CC) distingue-se das restantes máquinas elétricas rotativas devido à presença do coletor e escovas. Estes componentes operam como um retificador mecânico de contacto deslizante das forças eletromotrizes alternadas geradas nos condutores do enrolamento induzido (rotor) em movimento, sob um campo magnético constante.\
 
-O coletor faz a ligação elétrica com o **enrolamento do induzido**, através das suas lâminas. O conjunto lâminas e escovas, realiza a retificação da forma de onda da tensão induzida nas bobinas do enrolamento induzido. Este processo é designado por **comutação**. Como resultado, quando o induzido da máquina CC se encontra num circuito fechado, verifica-se uma corrente unidirecional, entre escova(s) positiva(s) e escova(s) negativa(s).\
+O coletor faz a ligação elétrica com o **enrolamento do induzido** através das suas lâminas. O conjunto lâminas e escovas realiza a retificação de onda completa da força eletromotriz induzida nas bobinas do enrolamento induzido. Este processo é designado por **comutação**. Como resultado, quando o induzido da máquina CC se encontra num circuito fechado, verifica-se uma corrente unidirecional, entre escova(s) positiva(s) e escova(s) negativa(s) com o circuito externo, mas no interior do enrolamento induzido a corrente vai "comutando", ou seja, mudando de sentido à medida que as lâminas associadas às secções vão sendo curto-circuitadas pelas escovas.\
 
-Quando circula um valor considerável de corrente no enrolamento induzido, tanto no funcionamento como gerador como motor, ocorre a **reação magnética do induzido** que tem algumas implicações no funcionamento da máquina CC e que são observáveis neste trabalho experimental.
+Quando circula um valor considerável de corrente no enrolamento induzido tanto no funcionamento como gerador como motor, ocorre a **reação magnética do induzido** que tem algumas implicações no funcionamento da máquina CC e que são evidenciadas nesta aula de observação no Lab. de Máquinas Elétricas.
 """
 
 # ╔═╡ 9ef12029-565b-4a7c-8075-da777a76159d
@@ -112,7 +112,7 @@ Existem dois tipos de bobinagem do induzido para disposições em tambor:
 - enrolamento imbricado
 - enrolamento ondulado
 
-Estes enrolamentos podem ser simples ou múltiplos (geramente duplos ou triplos). É possível percepcionar a multiplicidade do enrolamento do induzido pela largura das escovas, medida em número de lâminas do coletor abrangidas na área de contacto entre uma escova e o coletor. 
+Estes enrolamentos podem ser simples ou múltiplos (geramente duplos ou triplos). É possível percepcionar a multiplicidade do enrolamento do induzido pela largura das escovas, medida em número de lâminas do coletor abrangidas na superfície de contacto entre uma escova e o coletor. 
 
 No presente trabalho, serão executados apenas enrolamentos simples. Em vez de utilizar um rotor real, _e.g._ Fig. 1, será empregue um modelo de madeira, utilizando um cordel para simular a sequência de execução do enrolamento induzido.
 """
@@ -123,11 +123,11 @@ Para o dimensionamento de um enrolamento induzido são necessários os seguintes
 
  $\qquad c$: Número de lâminas do coletor;\
  $\qquad s$: Número de secções (bobinas) no induzido; $\qquad\:\: s=c$\
- $\qquad la$: Número de lados ativos no induzido; $\qquad\qquad la=2s$\
+ $\qquad la$: Número de lados ativos no induzido; $\qquad\qquad la=2\,s$\
  $\qquad N_s$: Número de condutores por lado ativo;\
  $\qquad p$: Número de par de polos;\
  $\qquad k$: Número de cavas do induzido;\
- $\qquad z$: Número de condutores ativos no induzido; $\qquad\: z=la\:s=2\:s\:Ns$\
+ $\qquad z$: Número de condutores ativos no induzido; $\qquad\: z=la\,N_s=2\,s\,N_s$\
  $\qquad y_p$: Passo polar. Número de lados ativos entre dois polos adjacentes;\
  $\qquad y_1$: Passo da secção ou passo posterior. Número de lados ativos entre a ida e o retorno da mesma secção;\
  $\qquad y_2$: Passo da ligação ou passo anterior. Número de lados ativos entre o retorno de uma secção e a ida da secção seguinte;\
@@ -140,6 +140,16 @@ Para o dimensionamento de um enrolamento induzido são necessários os seguintes
 """
 
 # ╔═╡ b7a4e10d-c775-43a1-9dd5-172533d979ce
+
+
+# ╔═╡ 1dac7191-d776-46dd-8178-dd1e7685533c
+md"""
+> **Nota:**
+> O dimensionamento da bobinagem do enrolamento induzido exemplificado na [secção 2A.2 para imbricado](#2A.2---Dimensionamento:-enrolamento-imbricado-simples) e na [secção 2A.3 para ondulado](#2A.3---Dimensionamento:-enrolamento-ondulado-simples) não faz parte do programa da unidade curricular. Serve o propósito de, durante a aula de observação, mostrar as diferenças de colocação do enrolamento induzido no núcleo ferromagnético e as implicações no funcionamento das máquinas CC.
+	
+"""
+
+# ╔═╡ 1e7bf323-80aa-4d3e-92ac-fa45b5992d49
 
 
 # ╔═╡ 9a85c027-b125-407e-ad2a-05ed3df3720a
@@ -263,22 +273,131 @@ aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275
 Fig. 5: Coletor e escovas, [^Kral_2022]
 
 
-"),v_offset=130)
+"),v_offset=110)
 
 # ╔═╡ 689c4341-3ff8-4a3f-b913-8b196fde0a0f
 md"""
 ## 1.4 - Comutação
 """
 
-# ╔═╡ 17402250-5f39-4343-9dcb-a30a0d5a361f
+# ╔═╡ 8939ec96-c166-45cf-8e2d-3e5206428a00
 md"""
 A comutação é um processo fundamental nas máquinas CC e ocorre no processo de retificação mecânica da forma de onda da tensão induzida nas secções do enrolamento induzido (rotor) em movimento. Este processo é realizado pelo conjunto coletor e escovas, Fig. 5, que também retifica a corrente que circule no enrolamento. A comutação é essencial para manter a unidirecionalidade da corrente no exterior da máquina, característica que define uma máquina de corrente contínua.
+"""
 
+# ╔═╡ fabb1f60-abcb-4c49-b7bb-45308314aa7f
+md"""
+A Fig. 6, apresenta o processo de comutação numa secção do induzido em movimento. Assim, o início da comutação para a secção situada entre as lâminas do coletor 2 e 3 ocorre quando a lâmina se encontra sob a lâmina 2, Fig. 6(a).
+
+Para a secção do induzido considerada, a comutação ocorre durante o tempo que as lâminas 2 e 3 estão a ser a escova curto-circuitadas pela escova. Neste processo, a superfície de contacto entre a escova e a lâmina 2 vai diminuindo, enquanto a superfície com a lâmina 3 vai aumentando, Fig. 6(b). A resistência variável das superfícies de contacto escova-lâminas, o coeficiente de autoindução da secção em comutação e a sua força eletromotriz induzida contribuem para a corrente em comutação, $i_c(t)$. A comutação termina quando a lâmina 3 se encontra totalmente sob escova, iniciando-se o processo de comutação para a secção colocada entre as lâminas 3 e 4, Fig. 6(c). Repare-se que o sentido da corrente da secção entre as lâminas 2 e 3, do início para o final da comutação, se alterou. 
+"""
+
+# ╔═╡ 6d0eff0a-8b0b-46d5-a42c-45cc8c5be27f
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:	
+   raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/MaqDCinduzido/DC.commutator.drawio"
+   
+# Adjustable settings:
+   iframe_width = 790
+   iframe_height = 300
+# 1 = fit diagram to iframe size (keeps aspect ratio); 0 = original diagram size
+   fit = 0  
+
+# viewer_url build   
+   viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&fit=$(fit)#U" * raw_url
+
+# HTML
+   HTML("""
+   <div style="text-align: center;">
+       <iframe frameborder="0" 
+               style="width:$(iframe_width)px; height:$(iframe_height)px; border: 1px solid #ddd;" 
+               src="$(viewer_url)">
+       </iframe>
+   </div>
+   """)
+end
+
+# ╔═╡ bfbef154-1bcc-414c-858b-752718d60be9
+md"""
+Fig. 6: Processo de comutação para a secção ligada entre as lâminas 2 e 3: (a) início da comutação; (b) corrente em comutação; (c) fim da comutação / início da comutação para a secção entre as lâminas 3 e 4. 
+"""
+
+# ╔═╡ 44cfe7bb-1a94-4923-9658-dc83704113c2
+md"""
+A trajetória da corrente de comutação, $i_c(t)$ depende de uma adequada escolha das escovas em conjunção com os parâmetros mencionados que interferem na corrente durante a comutação (superfícies de contacto escova-lâminas, coeficiente de autoindução e força eletromotriz da secção). Assim, $i_c(t)$ pode assumir diversas trajetórias, Fig.7:
+
+
+"""
+
+# ╔═╡ 1ebae2f5-045d-4b66-ba89-9ba398697233
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:	
+   raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/MaqDCinduzido/DC.commutation.drawio"
+   
+# Adjustable settings:
+   iframe_width = 690
+   iframe_height = 500
+# 1 = fit diagram to iframe size (keeps aspect ratio); 0 = original diagram size
+   fit = 0  
+
+# viewer_url build   
+   viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&fit=$(fit)#U" * raw_url
+
+# HTML
+   HTML("""
+   <div style="text-align: center;">
+       <iframe frameborder="0" 
+               style="width:$(iframe_width)px; height:$(iframe_height)px; border: 1px solid #ddd;" 
+               src="$(viewer_url)">
+       </iframe>
+   </div>
+   """)
+end
+
+# ╔═╡ 22606757-ffca-4148-9a85-81a15c1a1c3a
+md"""
+Fig.7: Curvas de comutação. 
+"""
+
+# ╔═╡ 44a0c7c3-7671-4003-ab95-c1a2edc28365
+md"""
+
+Da Fig.7:
+- **Trajetória** $\textbf{A}$: designada por comutação linear ou resistiva, onde a resistência equivalente à superfície de contacto entre lâminas e escovas, durante o tempo de comutação, $T_c$, é predominante. Trata-se de uma comutação aceitável embora sejam visíveis algumas faíscas entre o colector e as escovas;
+
+
+- **Trajetória** $\textbf{B}$: esta curva apresenta uma comutação ligeiramente adiantada (a corrente $i_c$ muda de sentido antes de $\dfrac{T_c}{2}$), terminando com uma tangente nula. Tal significa que a comutação termina com densidade de corrente nula, pelo que não apresenta faíscas;
+
+
+- **Trajetória** $\textbf{C}$: comutação retardada, terminando com uma tangente $\alpha$ não nula. Trata-se de uma comutação inaceitavél, com densidade de corrente elevada no final da comutação, que conduz a faíscas das lâminas para as escovas (faíscas num tom esverdeado);
+
+
+- **Trajetória** $\textbf{D}$: comutação adiantada, terminando com uma tangente $\alpha$ não nula. Trata-se também de uma comutação inaceitavél, com uma densidade de corrente elevada no final da comutação, verificando-se faíscas da escova para a lâmina (faíscas num tom alaranjado).
+
+No projeto de uma máquina CC procura-se que a curva de comutação se situe entre as trajetórias $\textbf{A}$ e $\textbf{B}$ como bom compromisso de funcionamento. 
+"""
+
+# ╔═╡ 3da3ba0f-4f0e-4843-83d7-7eccbec1073a
+
+
+# ╔═╡ 17402250-5f39-4343-9dcb-a30a0d5a361f
+md"""
 O posicionamento das escovas é fundamental para o correto funcionamento da máquina CC. Idealmente, o plano das escovas deve estar em quadratura com a linha dos polos magnéticos ou de excitação. Essa posição é designada por **Linha Neutra Geométrica**  (linha de **N'** a **S'** da Fig. 4). Nessa posição, verifica-se que a força eletromotriz na(s) secção(ões) do induzido que entra(m) em comutação é nula, o que reduz a ocorrência de arcos elétricos (faíscas) entre as lâminas do coletor e as escovas. A existência de intenso faiscamento no processo de comutação pode provocar, a longo prazo, dois tipos de deterioração na superfície do coletor:
-- surgimento de pequenas cavidades, formadas pela remoção de cobre, na superfície das lâminas do coletor (faíscas num tom esverdeado -> vaporização do cobre);
-- formação de uma ranhura ou sulco de desgaste, correspondente a um rebaixamento na superfície das lâminas na área de contacto com as escovas (faíscas num tom alaranjado -> vaporização do carvão).
+- surgimento de pequenas cavidades, formadas pela remoção de cobre, na superfície das lâminas do coletor (faíscas num tom esverdeado $\to$ vaporização do cobre);
+
+
+- formação de uma ranhura ou sulco de desgaste, correspondente a um rebaixamento na superfície das lâminas na área de contacto com as escovas (faíscas num tom alaranjado $\to$ vaporização do carvão).
 
 Um comutação insatisfatória (ocorrência de arcos elétricos) pode ainda provocar danos nas escovas, por sobreaquecimento. Assim, a qualidade da comutação é essencial para o bom funcionamento da máquina CC.
+"""
+
+# ╔═╡ 71948876-4613-4983-84c0-4ce7b9361579
+
+
+# ╔═╡ 5036db21-84b4-4912-9c29-6654ee919b1b
+md"""
+> **Nota:**
+> O estudo das curvas de comutação exemplificado na Fig.7 não faz parte do programa da unidade curricular. No entanto, as suas implicações no processo de comutação são importantes para prevenir ou adequar procedimentos de manutenção do coletor e das escovas, garantindo o correto funcionamento da máquina CC.
 """
 
 # ╔═╡ fe8c05b9-e4fe-4f43-91a4-90c150992a83
@@ -764,8 +883,17 @@ md"""
 # ╔═╡ 06ae56ec-52d0-46d1-96da-3613ecc56df2
 md"""
 # Bibliografia
-\
-**Créditos da imagens:**
+
+## Sugestões de leitura:
+
+- José Carvalho (2018). Máquinas Elétricas de Corrente Contínua: Reação Magnética do Induzido e Comutação. Revista técnico-científica “Neutro-à-Terra”, ISEP\Departamento de Engenharia Eletrotécnica. DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/neutroaterra.vi21.4393)
+
+
+- [C. Pereira Cabrita, "Escovas de Carvão para Máquinas Eléctricas: características técnicas e manutenção", Fundação EDP-Museu da Electricidade, revista Electricidade, n.º 383, pp. 299-312, Dez. 2000.](https://www.gest.colecoesfundacaoedp.edp.pt/Nyron/Library/Catalog/winlibimg.aspx?skey=CE7FA17DDB0743DB9CD1BDFF0CDDD76C&doc=167812&img=159270)
+
+
+
+## Créditos das imagens
 
 [^Kennedy_1903]: Rankin Kennedy, Electrical Installations, vol. III, London: Caxton, 1903. 
 
@@ -774,11 +902,6 @@ md"""
 [^Kral_2022]:  Christian Kral, [Commutator and brushes DC motor](https://commons.wikimedia.org/w/index.php?curid=122251615), Own work, CC BY 4.0, 2022. 
 
 
-## Leitura recomendada
-
-José Carvalho (2018). Máquinas Elétricas de Corrente Contínua: Reação Magnética do Induzido e Comutação. Revista técnico-científica “Neutro-à-Terra”, ISEP\Departamento de Engenharia Eletrotécnica.\
-
-DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/neutroaterra.vi21.4393)
 """
 
 # ╔═╡ bc2a479e-a961-43ef-b430-afd69b496ac0
@@ -1276,6 +1399,8 @@ version = "17.4.0+2"
 # ╟─ff0e1c6b-6c1a-4d27-b986-a2c003b27ab3
 # ╟─de94ef0e-5ff7-4233-b38b-ad6ad6ec8171
 # ╟─b7a4e10d-c775-43a1-9dd5-172533d979ce
+# ╟─1dac7191-d776-46dd-8178-dd1e7685533c
+# ╟─1e7bf323-80aa-4d3e-92ac-fa45b5992d49
 # ╟─9a85c027-b125-407e-ad2a-05ed3df3720a
 # ╟─43e643d4-9a85-4b5a-ac50-629a25bef0d2
 # ╟─a9ae848a-2d79-44f9-8a46-9371b916004d
@@ -1292,7 +1417,18 @@ version = "17.4.0+2"
 # ╟─2b9ef51e-bfe4-4a77-9e04-f1eea7320f99
 # ╟─0d4b1a9b-de84-4e60-8256-ab48dbde4ccc
 # ╟─689c4341-3ff8-4a3f-b913-8b196fde0a0f
+# ╟─8939ec96-c166-45cf-8e2d-3e5206428a00
+# ╟─fabb1f60-abcb-4c49-b7bb-45308314aa7f
+# ╟─6d0eff0a-8b0b-46d5-a42c-45cc8c5be27f
+# ╟─bfbef154-1bcc-414c-858b-752718d60be9
+# ╟─44cfe7bb-1a94-4923-9658-dc83704113c2
+# ╟─1ebae2f5-045d-4b66-ba89-9ba398697233
+# ╟─22606757-ffca-4148-9a85-81a15c1a1c3a
+# ╟─44a0c7c3-7671-4003-ab95-c1a2edc28365
+# ╟─3da3ba0f-4f0e-4843-83d7-7eccbec1073a
 # ╟─17402250-5f39-4343-9dcb-a30a0d5a361f
+# ╟─71948876-4613-4983-84c0-4ce7b9361579
+# ╟─5036db21-84b4-4912-9c29-6654ee919b1b
 # ╟─fe8c05b9-e4fe-4f43-91a4-90c150992a83
 # ╟─4f237e49-6ff8-4539-a73d-8847d14d4696
 # ╟─d51cf305-b047-4f54-8875-c161edc12cd1

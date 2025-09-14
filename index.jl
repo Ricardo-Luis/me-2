@@ -5,7 +5,7 @@
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/9286b03f000c773f8811a67dc6649fba00f9d6c8/images/card/qr-code.svg?raw=true"
 #> site_name = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"
 #> title = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"
-#> date = "2025-01-09"
+#> date = "2025-09-14"
 #> tags = ["Pluto Notebooks", "Electric Machines", "DC Machines", "Synchronous Machines", "Transients of Electrical Machines"]
 #> url = "https://ricardo-luis.github.io/me-2/"
 #> description = "Luís, Ricardo (2025). Notebooks Computacionais Aplicados a Máquinas Elétricas II. Instituto Superior de Engenharia de Lisboa, Licenciatura em Engenharia Eletrotécnica. Disponível em: https://ricardo-luis.github.io/me-2/"

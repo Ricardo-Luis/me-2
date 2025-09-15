@@ -279,7 +279,7 @@ $2a=2p$
 $2a=2$
 
 
- > **Nota:** Por facilidade de racicínio aborda-se a bobinagem do induzido considerando o enrolamento (imbricado ou ondulado) **simples**, mas este pode ter um fator de multiplicidade, $m$, associcado, podendo ser **duplo** ou **triplo**. A multiplicidade do enrolamento induzido verifica-se através da espessura das escovas em comparação com a dimensão das lâminas do coletor. Assim, se:
+ > **Nota:** Por facilidade de raciocínio aborda-se a bobinagem do induzido considerando o enrolamento (imbricado ou ondulado) **simples**, mas este pode ter um fator de multiplicidade, $m$, associcado, podendo ser **duplo** ou **triplo**. A multiplicidade do enrolamento induzido verifica-se através da espessura das escovas em comparação com a dimensão das lâminas do coletor. Assim, se:
 > - a espessura das escovas for igual a 1 lâmina => enrolamento simples, $m=1$;
 > - a espessura das escovas for igual a 2 lâminas => enrolamento duplo, $m=2$;
 > - a espessura das escovas for igual a 3 lâminas => enrolamento triplo, $m=3$;

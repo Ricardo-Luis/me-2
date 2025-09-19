@@ -50,7 +50,7 @@ md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
-$\text{EXERCÍCIO 4}$ 
+$\text{EXERCÍCIO 5}$ 
 
 $$\begin{gather}
 \colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação separada (ou independente)}}} \\

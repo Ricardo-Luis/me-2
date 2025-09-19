@@ -62,7 +62,7 @@ $$\begin{gather}
 
 # ╔═╡ 75ecba91-0134-4ebe-8c7d-683a75b86137
 md"""
-# Exercício 4. Dados:
+# Exercício 5. Dados:
 """
 
 # ╔═╡ f33dd982-062c-4369-ac89-4b4a6e2d231c

@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.15
+# v0.20.18
 
 #> [frontmatter]
 #> chapter = 1
@@ -42,7 +42,7 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ a1307fbd-12bb-43b0-9ea9-e92cef5039a7
-TwoColumnWideLeft(md"`Compound.GEN.jl`", md"`Last update: 09·09·2024`")
+TwoColumnWideLeft(md"`Compound.GEN.jl`", md"`Last update: 22·09·2025`")
 
 # ╔═╡ 9ebdbc99-de18-4fdf-9203-17cc731144d9
 md"""
@@ -431,7 +431,7 @@ PlutoUI = "~0.7.69"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.6"
+julia_version = "1.11.7"
 manifest_format = "2.0"
 project_hash = "affe220aa9ac326fa3a0a896e85c9df6686a28a0"
 

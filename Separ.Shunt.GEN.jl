@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.15
+# v0.20.18
 
 #> [frontmatter]
 #> chapter = 1
@@ -43,7 +43,7 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ 1f9f4012-1be5-42a4-8d56-949d783e6518
-TwoColumnWideLeft(md"`Separ.Shunt.GEN.jl`", md"`Last update: 09·09·2024`")
+TwoColumnWideLeft(md"`Separ.Shunt.GEN.jl`", md"`Last update: 22·09·2025`")
 
 # ╔═╡ 9a4e9d24-3fd0-405f-adc3-4afc509629ef
 md"""
@@ -544,7 +544,7 @@ QuizQuestions = "~0.3.27"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.6"
+julia_version = "1.11.7"
 manifest_format = "2.0"
 project_hash = "104b6d010cfa35dc97f5a50c5d5ba29b4f972b60"
 

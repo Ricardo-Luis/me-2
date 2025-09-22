@@ -49,7 +49,7 @@ md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
-$\text{EXERCÍCIO 8}$ 
+$\text{EXERCÍCIO 9}$ 
 
 $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Associação em paralelo de geradores CC}}}$
 ---
@@ -57,7 +57,7 @@ $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Associação em paralelo de ge
 
 # ╔═╡ 570473a3-be60-4ff1-b6d7-269c7c3cd321
 md"""
-# Exercício 8. Dados:
+# Exercício 9. Dados:
 """
 
 # ╔═╡ 860e56f2-921c-4943-a31b-3c2a896ca092

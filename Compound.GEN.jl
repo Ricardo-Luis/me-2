@@ -49,7 +49,7 @@ md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
-$\text{EXERCÍCIO 6}$ 
+$\text{EXERCÍCIO 7}$ 
 
 $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação composta (ou gerador \textit{compound})}}}$
 ---
@@ -57,7 +57,7 @@ $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Gerador de excitação compost
 
 # ╔═╡ 6e05600b-5e0d-44e7-83ce-5abb23f22f10
 md"""
-# Exercício 6. Dados:
+# Exercício 7. Dados:
 """
 
 # ╔═╡ e1b90c33-155d-4eda-b8f8-5ca4f9c120db

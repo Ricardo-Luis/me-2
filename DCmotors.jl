@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.15
+# v0.20.18
 
 #> [frontmatter]
 #> chapter = 1
@@ -42,14 +42,14 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ e227c53c-28a1-4d09-bf05-ba24236f613a
-TwoColumnWideLeft(md"`DCmotors.jl`", md"`Last update: 09·09·2024`")
+TwoColumnWideLeft(md"`DCmotors.jl`", md"`Last update: 02·10·2025`")
 
 # ╔═╡ d45dcd85-db5f-4f9e-8f67-a82df904e0dc
 md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS DE CORRENTE CONTÍNUA}$
 
-$\text{EXERCÍCIO 10}$ 
+$\text{EXERCÍCIO 13}$ 
 
 $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Motores CC: curvas características}}}$
 ---
@@ -57,7 +57,7 @@ $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Motores CC: curvas caracterís
 
 # ╔═╡ ed44a647-2ed8-47f3-84d0-3efde79cf276
 md"""
-# Exercício 10. Dados:
+# Exercício 13. Dados:
 """
 
 # ╔═╡ ed4846d5-70d2-4deb-9a4a-41cdc8c99bdd
@@ -584,7 +584,7 @@ PlutoUI = "~0.7.69"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.6"
+julia_version = "1.11.7"
 manifest_format = "2.0"
 project_hash = "affe220aa9ac326fa3a0a896e85c9df6686a28a0"
 

@@ -42,7 +42,7 @@ Brief description of the used Julia packages:
 =#
 
 # ╔═╡ e227c53c-28a1-4d09-bf05-ba24236f613a
-TwoColumnWideLeft(md"`DCmotors.jl`", md"`Last update: 02·10·2025`")
+TwoColumnWideLeft(md"`DCmotors.jl`", md"`Last update: 06·10·2025`")
 
 # ╔═╡ d45dcd85-db5f-4f9e-8f67-a82df904e0dc
 md"""
@@ -65,8 +65,11 @@ md"""
 **Considere um motor de corrente contínua, com a seguinte chapa de características:**
 """
 
+# ╔═╡ 3e9c0345-f00d-4eb9-b4cb-15524c7ff950
+Pᵤ, Uₙ, nₙ, ηₙ = 17e3, 250, 1200, 0.85 				# W, V, rpm, efficiency
+
 # ╔═╡ 1301d1ad-89e8-4282-ab35-1a6b8214bea0
-(Pᵤ, Uₙ, nₙ, ηₙ, Rᵢ, Rₛ, Ns, Rd, Nd) = (17e3, 250, 1200, 0.85, 0.6, 0.1, 12, 200, 3000)
+Rᵢ, Rₛ, Rd, Ns, Nd = 0.6, 0.1, 200, 12, 3000 		# Ω, Ω, Ω, turns, turns
 
 # ╔═╡ 1a427cf6-b2d3-4d9b-9cb5-4682d5f49869
 begin
@@ -185,7 +188,7 @@ A característica magnética foi obtida à mesma velocidade inscrita na chapa de
 # ╔═╡ cfc7844e-3974-46ef-a53a-ee6a1a85d7f3
 # computational method of querying the ΔE(Ii) curve, by interpolating the data using Pkg Dierckx.jl
 begin
-	E₀ₙ = Eʼ₀ₙ  				# because they are at the same speed!
+	E₀ₙ = Eʼ₀ₙ  						# because they are at the same speed!
 	Id_int = Spline1D(E₀, Iex)  
 	Id = Id_int(E₀ₙ)
 	Id = round(Id, digits=2)
@@ -193,7 +196,8 @@ end;
 
 # ╔═╡ 71356175-ffe4-4c3a-a895-8a4be8713a44
 md"""
-Consultando a característica magnética a 1200rpm, verifica-se para $$E₀=$$ $(E₀ₙ)V $$\Rightarrow$$ $$I_d=$$ $(Id)A.
+Consultando a característica magnética a 1200rpm, verifica-se:
+ $$E_0=$$ $(E₀ₙ)V $$\Rightarrow$$ $$I_d=$$ $(Id)A.
 """
 
 # ╔═╡ d85a5505-1ab5-43d0-97ad-a0cb4a220c06
@@ -440,11 +444,10 @@ md"""
 
 # ╔═╡ 36295cf6-19ba-4240-9806-745ec0bfdccd
 md"""
-Tensão do induzido, $$Ui\:\: (\rm V):\quad$$ $(@bind Ui PlutoUI.Slider(150:1:350, default=250.0, show_value=true))
-
-Reóstato de campo, $$R_c\:\: (\rm \Omega):\quad$$ $(@bind Rc1 PlutoUI.Slider(0*Rc:0.01*Rc:2.5*Rc, default= Rc, show_value=true))
-
-Resistência adicional, $$R_{ad}\:\: (\rm \Omega):\quad$$ $(@bind Rad PlutoUI.Slider(0:0.1:1.5, default=0.0, show_value=true))
+| $\qquad$Tensão do induzido$\qquad$  | $\qquad$Reóstato de campo$\qquad$ | $\qquad$Resistência adicional$\qquad$ |
+|:---:|:---:|:---:|
+| $$U_i\:\: (\rm V)$$ | $$R_c\:\: (\rm \Omega)$$ | $$R_{ad}\:\: (\rm \Omega)$$ |
+| $(@bind Ui PlutoUI.Slider(150:1:350, default=250.0, show_value=true)) | $(@bind Rc1 PlutoUI.Slider(0*Rc:0.01*Rc:2.5*Rc, default= Rc, show_value=true)) | $(@bind Rad PlutoUI.Slider(0:0.1:1.5, default=0.0, show_value=true))
 """
 
 # ╔═╡ e648310c-8172-4cf0-ab72-f40229ba2577
@@ -1730,6 +1733,7 @@ version = "1.9.2+0"
 # ╟─d45dcd85-db5f-4f9e-8f67-a82df904e0dc
 # ╟─ed44a647-2ed8-47f3-84d0-3efde79cf276
 # ╟─ed4846d5-70d2-4deb-9a4a-41cdc8c99bdd
+# ╠═3e9c0345-f00d-4eb9-b4cb-15524c7ff950
 # ╠═1301d1ad-89e8-4282-ab35-1a6b8214bea0
 # ╟─1a427cf6-b2d3-4d9b-9cb5-4682d5f49869
 # ╟─8bde3ad9-2d03-4557-ab50-a89ac8e834a3

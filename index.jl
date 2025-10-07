@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.15
+# v0.20.18
 
 #> [frontmatter]
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/9286b03f000c773f8811a67dc6649fba00f9d6c8/images/card/qr-code.svg?raw=true"
@@ -130,6 +130,9 @@ NotebookCard("https://ricardo-luis.github.io/me-2/Parallel.GEN.html")
 
 # ╔═╡ f33737fc-a926-454a-9d74-bf61b9529e2b
 NotebookCard("https://ricardo-luis.github.io/me-2/DCmotors.html")
+
+# ╔═╡ 65a8f553-7b87-4997-bd8a-dca64b056928
+NotebookCard("https://ricardo-luis.github.io/me-2/Starter.html")
 
 # ╔═╡ ef1fe96b-efc1-4172-bb6f-9b7739b22382
 NotebookCard("https://ricardo-luis.github.io/me-2/back2backlab.html")
@@ -913,7 +916,7 @@ PlutoUI = "~0.7.69"
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.6"
+julia_version = "1.11.7"
 manifest_format = "2.0"
 project_hash = "76ab8b73b713e8a99fdd4b01a1edb6667195d203"
 
@@ -1268,7 +1271,8 @@ version = "17.4.0+2"
 # ╟─fc130cda-394a-44e8-b00e-ee330b9051c0
 # ╟─f7821a8b-970f-4ab2-807e-05cb5d0304ee
 # ╟─7d3b4efe-fe0b-4496-b16a-439dc1f84638
-# ╟─f33737fc-a926-454a-9d74-bf61b9529e2b
+# ╠═f33737fc-a926-454a-9d74-bf61b9529e2b
+# ╟─65a8f553-7b87-4997-bd8a-dca64b056928
 # ╟─ef1fe96b-efc1-4172-bb6f-9b7739b22382
 # ╟─034fb377-ce0e-4c8d-b038-1ef84b5f0aaa
 # ╟─37ecb88b-e91a-4bb2-aeae-94c3cd3dec62

@@ -256,7 +256,7 @@ Após ligar o motor série com o reóstato de arranque totalmente inserido, veri
 
 # ╔═╡ 3385447f-98b4-4545-8b49-de47cdf38920
 md"""
-À medida que a velocidade aumenta, durante a fase de arranque, aumenta a força contraeletromotriz, $E'=k\: \phi \: n$, por conseguinte a corrente de arranque decresce até ao valor de $I_{min}$:
+À medida que a velocidade aumenta, durante a fase de arranque, aumenta a força contraeletromotriz, $E'=k\: \phi \: n$, por conseguinte, a corrente de arranque decresce até ao valor de $I_{min}$:
 """
 
 # ╔═╡ 3c109614-201f-4b63-972e-43905d4a3b06
@@ -272,7 +272,7 @@ Kϕᴵᵐⁱⁿ = 249.2/1000 			# V/rpm
 
 # ╔═╡ 7f368886-4932-46d5-a5e7-f7ddb5f77948
 md"""
-Assim, a velocidade estabilizada, $n_1$, com o reóstao na posição de arranque, $R_{arr_1}=R_1-(R_i+R_s)$, vem dada por:
+Assim, a velocidade estabilizada, $n_1$, com o reóstato na posição de arranque, $R_{arr_1}=R_1-(R_i+R_s)$, vem dada por:
 """
 
 # ╔═╡ e2be86d0-6c61-43fe-8a88-8fddf52e7aaf
@@ -303,7 +303,7 @@ md"""
 
 # ╔═╡ 5eb4d8e5-9b2f-4d76-9f70-4a1540e5419a
 md"""
-Quando o reóstato de arranque é posicionado no **2º contacto**, $R_{arr_2}=R_2-(R_i+R_s)$, tem de limitar a corrente em $I_{max}$. No entanto, a máquina vem da situação anterior (já em movimento), e por conseguinte, a velocidade, $n$, e a força contraeletromotriz, $E'$, não são nulas.
+Quando o reóstato de arranque é posicionado no **2º contacto**, $R_{arr_2}=R_2-(R_i+R_s)$, este tem de limitar a corrente em $I_{max}$. No entanto, a máquina vem da situação anterior (já em movimento), e por conseguinte, a velocidade, $n$, e a força contraeletromotriz, $E'$, não são nulas.
 
 Por outro lado, na transição do 1º para o 2º contacto, a corrente passa do valor $I_{min} \to I_{max}$, pois $R_{arr_2}$, está dimensionada para tal, no entanto, essa transição afeta o fluxo magnético da máquina, dada a sua dependência do valor da corrente que a percorre, ou seja  $K\phi=\mathrm{f}(I_{arr})$.
 
@@ -313,7 +313,7 @@ Por outro lado, na transição do 1º para o 2º contacto, a corrente passa do v
 # ╔═╡ e0e28319-3984-4545-b07b-7e39ec39757b
 md"""
 Consultando novamente a característica magnética, tem-se
- o valor correspondente ao fluxo magnético, traduzido por $k\phi(I_{max})$, no instante, em que o reóstato inicia o 2º contacto:"""
+ o valor correspondente ao fluxo magnético, traduzido por $k\phi(I_{max})$, no instante em que o reóstato inicia o 2º contacto:"""
 
 # ╔═╡ 7a6a5c34-7fa6-4f41-8ac1-4ed425afa715
 Kϕᴵᵐᵃˣ = 253/1000 				# V/rpm
@@ -501,7 +501,7 @@ md"""
 
 # ╔═╡ a20470d5-dab8-4461-994a-851da1e095ce
 md"""
-Na tabela seguinte apresentam-se os resultados obtidos no dimensionamento do reóstatode arranque. Observe-se como progressivamente as velocidades em cada contacto do reóstato vão subindo:
+Na tabela seguinte apresentam-se os resultados obtidos no dimensionamento do reóstato de arranque. Observe como progressivamente as velocidades aumentam a cada contacto do reóstato de arranque:
 """
 
 # ╔═╡ e5ed3891-fdd2-4904-b1a0-2cdde2ae665c
@@ -510,7 +510,7 @@ md"""
 | Dimensionamento $R_n$ | $\qquad$Velocidade$\qquad$ | resist. entre contactos |
 |:---------------------:|:--------------------:|:-----------------------------:|
 | $$R_1=$$ $(R₁) Ω      | $$n_1=$$ $(round(Int, n₁)) rpm | --                  |
-| $$R_2=$$ $(R₂) Ω      | $$n_2=$$ $(round(Int, n₂)) rpm | $$r_1=$$ $(r₂) Ω    |
+| $$R_2=$$ $(R₂) Ω      | $$n_2=$$ $(round(Int, n₂)) rpm | $$r_1=$$ $(r₁) Ω    |
 | $$R_3=$$ $(R₃) Ω      | $$n_3=$$ $(round(Int, n₃)) rpm | $$r_2=$$ $(r₂) Ω    |
 | $$R_4=$$ $(R₄) Ω      | $$n_4=$$ $(round(Int, n₄)) rpm | $$r_3=$$ $(r₃) Ω    |
 | $$R_5=$$ $(R₅) Ω $$\leqslant (R_i+R_s) \implies 5\: \mathrm{contactos}$$ | $$n_f=$$ $(nᶠ) rpm | $$r_4=$$ $(r₄) Ω  |
@@ -590,7 +590,7 @@ md"""
 
 # ╔═╡ 2b10f7f5-9dea-4703-9c39-82ffc8fe5d71
 md"""
-A sequência de cálculo para o dimensionamento do reóstato de arranque, inicia-se com o cálculo da resistência total do circuito de potência do motor, no momento que ainda se encontra em repouso, $R_1$: 
+A sequência de cálculo para o dimensionamento do reóstato de arranque, inicia-se com o cálculo da resistência total do circuito de potência do motor, no momento em que este ainda se encontra em repouso, $R_1$: 
 
 $R_1=\dfrac{U}{I_{max}}$
 
@@ -611,7 +611,7 @@ O cálulo sucessivo termina na condição $R_n \leqslant (R_i+R_s)$, extraindo-s
 md"""
 Este cálculo é válido para qualquer motor CC que contenha o enrolamento de excitação série (**motor série e motor _compound_**). 
 
-Nos motores CC de excitaçao constante (**motor _shunt_ e motor de excitação separada**), como o fluxo magnético é independente da corrente que circula no induzido, resulta que: $$E_n''= E_{n-1}'$$, o que simplifica a expressão de cálculo sucessivo:
+Nos motores CC de excitação constante (**motor _shunt_ e motor de excitação separada**), como o fluxo magnético é independente da corrente que circula no induzido, resulta que: $$E_n''= E_{n-1}'$$, o que simplifica a expressão de cálculo sucessivo de $R_n$:
 
 $R_n=R_{n-1}\:\frac{I_{min}}{I_{max}}$
 

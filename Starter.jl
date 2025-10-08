@@ -202,7 +202,7 @@ end
 md"""
 Percorrendo o circuito de corrente estabelece-se a seguinte equação de funcionamento do motor série, em regime permanente, em qualquer posição do reóstato de arranque, $R_{arr}$:
 
-$-U + (R_{arr} +R_i + R_s) + I_{arr} + E' = 0 \quad\Leftrightarrow$
+$-U + (R_{arr} +R_i + R_s) \: I_{arr} + E' = 0 \quad\Leftrightarrow$
 
 $\Leftrightarrow\quad I_{arr}=\frac{U-E'}{(R_{arr} +R_i + R_s)}$
 

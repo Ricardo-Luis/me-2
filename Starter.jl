@@ -48,7 +48,7 @@ md"""
 md"""
 A ligação de um motor de corrente contínua (CC) a uma fonte de tensão fixa requer a existência de um reóstato de arranque para limitar o valor da corrente de arranque, $I_{arr}$. Exceptuam-se os motores de potência reduzida $(< 1\: \mathrm{CV})$.
 
-A manobra de arranque é exectuda por um reostato ligado em série com o enrolamento induzido do motor CC, [^Fig_1]. O reostato é constituído por diversos pontos de contacto, entre os quais existem resistências dimensionadas de modo a permitir a proteção da motor CC durante a fase de arranque, limitando a corrente de arranque a um valor máximo, $I_{max}$. Simultaneamente, durante a manobra de arranque, o reostato tem de assegurar uma corrente mínima de funcionamento, $I_{min}$, de modo a permitir o desenvolvimento de binário acima do binário de carga aplicado ao veio, para que o rotor possa acelerar até à velocidade de regime permanente.
+A manobra de arranque é exectuda por um reóstato ligado em série com o enrolamento induzido do motor CC, [^Fig_1]. O reóstato é constituído por diversos pontos de contacto, entre os quais existem resistências dimensionadas de modo a permitir a proteção da motor CC durante a fase de arranque, limitando a corrente de arranque a um valor máximo, $I_{max}$. Simultaneamente, durante a manobra de arranque, o reostato tem de assegurar uma corrente mínima de funcionamento, $I_{min}$, de modo a permitir o desenvolvimento de binário acima do binário de carga aplicado ao veio, para que o rotor possa acelerar até à velocidade de regime permanente.
 """
 
 # ╔═╡ f537b891-986a-4a8c-8553-c02a79bddf5b

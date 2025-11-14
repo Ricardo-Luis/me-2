@@ -48,7 +48,7 @@ md"""
 ---
 $\textbf{MÁQUINAS ELÉTRICAS SÍNCRONAS TRIFÁSICAS}$
 
-$\text{EXERCÍCIO 12}$ 
+$\text{EXERCÍCIO 13}$ 
 
 $\colorbox{Bittersweet}{\textcolor{white}{\textbf{Motor síncrono de polos salientes}}}$
 ---

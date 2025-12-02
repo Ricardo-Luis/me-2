@@ -558,8 +558,8 @@ begin
 		ylims=(0,3000), 
 		framestyle = :origin, minorticks=5, label="cosφ=0.8(i)",
 		legend=:bottomleft)
-	plot!(I, U₅c, label="cosφ=1")
-	plot!(I, U₆c, label="cosφ=0.8(c)")
+	plot!(I, U₅c, label="cosφ=0.8(c)")
+	plot!(I, U₆c, label="cosφ=1")
 end
 
 # ╔═╡ a8a21207-28b4-4372-9404-177a81b59e83

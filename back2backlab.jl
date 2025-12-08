@@ -1,0 +1,2985 @@
+### A Pluto.jl notebook ###
+# v0.20.19
+
+#> [frontmatter]
+#> chapter = 1
+#> section = 6
+#> order = 6
+#> image = "https://github.com/Ricardo-Luis/me-2/blob/276c849a55a685a43c1b3e7d97355f648664d3a9/images/card/back2back.svg?raw=true"
+#> title = "Ensaio back-to-back"
+#> layout = "layout.jlhtml"
+#> tags = ["lecture", "module2"]
+#> description = "Este notebook documenta o relatório laboratorial de um ensaio back-to-back em máquinas de corrente contínua (CC), realizado com um grupo motor-gerador mecanicamente acoplado e eletricamente ligado em paralelo a uma rede CC. Este método permite analisar o balanço de potências, avaliar as perdas e determinar o rendimento das máquinas em diferentes condições de funcionamento."
+#> date = "2024-09-09"
+#> 
+#>     [[frontmatter.author]]
+#>     name = "Ricardo Luís"
+#>     url = "https://ricardo-luis.github.io"
+
+using Markdown
+using InteractiveUtils
+
+# This Pluto notebook uses @bind for interactivity. When running this notebook outside of Pluto, the following 'mock version' of @bind gives bound variables a default value (instead of an error).
+macro bind(def, element)
+    #! format: off
+    return quote
+        local iv = try Base.loaded_modules[Base.PkgId(Base.UUID("6e696c72-6542-2067-7265-42206c756150"), "AbstractPlutoDingetjes")].Bonds.initial_value catch; b -> missing; end
+        local el = $(esc(element))
+        global $(esc(def)) = Core.applicable(Base.get, el) ? Base.get(el) : iv(el)
+        el
+    end
+    #! format: on
+end
+
+# ╔═╡ e89303b7-3dbb-452c-bd71-ddaac5d22dc4
+using PlutoUI, PlutoTeachingTools, Plots, EasyFit, PrettyTables, Statistics, BasicInterpolators, SankeyPlots
+#= 
+Brief description of the used Julia packages:
+  - PlutoUI.jl, to add interactivity objects
+  - PlutoTeachingTools.jl, to enhance the notebook
+  - Plots.jl, visualization interface and toolset to build graphics
+  - EasyFit.jl, interface for obtaining fits of 2D data
+  - PrettyTables.jl, print data in matrices in a human-readable format (tables)
+  - Statistics.jl, for basic statistics functionality
+  - BasicInterpolators.jl, provides interpolation methods
+  - SankeyPlots.jl, provides a Plots.jl recipe for Sankey diagrams
+=#
+
+# ╔═╡ 1aceb22f-57fe-4428-bbd7-3410a10e269e
+TwoColumnWideLeft(md"`back2backlab.jl`", md"`Last update: 09·09·2024`")
+
+# ╔═╡ c064e55c-6924-49b7-abbc-385a081c57b2
+md"""
+---
+$\text{RELATÓRIO}$ 
+
+$$\begin{gather}
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Ensaio \emph{back-to-back} :}}} \\
+\colorbox{Bittersweet}{\textcolor{white}{\textbf{Análise de potências, perdas e rendimento de máquinas CC}}}
+\end{gather}$$
+---
+"""
+
+# ╔═╡ 01d6ccf1-a046-4386-95b9-7a8437e6bc48
+md"""
+# 1 - Introdução
+"""
+
+# ╔═╡ aa438d59-98d7-41b6-b34d-aa55220cf04f
+md"""
+## 1.1 - Objetivos
+"""
+
+# ╔═╡ 57972b14-d0eb-49f2-a8fe-fbfa25eb2f43
+md"""
+- Compreender o ensaio *back-to-back*;
+- Ligar eletricamente máquinas de corrente contínua (CC) em paralelo;
+- Estabelecer o balanço de potências de uma máquina CC (gerador e motor);
+- Determinar curvas de rendimento das máquinas CC.
+"""
+
+# ╔═╡ dcfb10ac-3a34-477f-ae1e-6a4b42fdc0d2
+md"""
+## 1.2 - Ensaio *back-to-back*
+"""
+
+# ╔═╡ 5d618284-7f40-4d33-94a1-829407bd5f47
+md"""
+O ensaio *back-to-back* de máquinas elétricas CC consiste em associar em paralelo um grupo motor-gerador (mecanicamente acoplados), ligados eletricamente a uma rede CC, como apresentado no esquema de ligações, [^Fig_2_1].
+
+O funcionamento do grupo CC motor-gerador no ensaio *back-to-back* pode resumir-se nos seguintes passos:
+- Após o arranque do motor este alimentará mecanicamente o gerador;
+- O gerador é ligado à rede CC, após verificação das condições de paralelo;
+- A regulação da corrente de excitação do gerador, $I_{ex}^G$, permite regular a potência elétrica que o gerador fornece à rede CC, carregando mecanicamente o motor;
+- Em simultâneo, o motor absorve a potência elétrica produzida pelo gerador;
+- Como os processos de conversão eletromecânica de energia nas máquinas têm perdas, a potência absorvida pela rede CC corresponderá ao somatório das perdas existentes no grupo motor-gerador.
+"""
+
+# ╔═╡ 07eeed4a-6a40-4585-b04f-26da0157fe2e
+Foldable("Listagem das grandezas utilizadas neste relatório:",md"
+-  $$U, I$$: tensão, corrente da rede CC\
+-  $$p_t$$: perdas totais do sistema *back-to-back*\
+-  $$R_i^M, R_i^G$$: resistências rotórica do motor e gerador, velocidade do grupo motor-gerador\
+-  $$I_l^M, I_l^G$$: correntes de linha do motor e gerador\
+-  $$P_{ab}^M, P_{ab}^G$$: potências absorvidas do motor e gerador\
+-  $$I_{ex}^M, I_{ex}^G$$: correntes de campo do motor e gerador\
+-  $$p_J^M, p_J^G$$:  perdas de Joule no induzido do motor e gerador\
+-  $$p_{ex}^M, p_{ex}^G$$:  perdas de excitação (em derivação) do motor e gerador\
+-  $$p_{ele}^M, p_{ele}^G$$:  perdas elétricas do motor e gerador\
+-  $$p_{C}^M, p_{C}^G$$:  perdas constantes do motor e gerador\
+-  $$P_d^M, P_d^G$$: potências desenvolvidas do motor e gerador\
+-  $$T_d^M, T_d^G$$: binários desenvolvidos do motor e gerador\
+-  $$p^M_{(mec+Fe)}=p^G_{(mec+Fe)}=p_{(mec+Fe)}$$: as perdas mecânicas e magnéticas, ou perdas rotacionais, $$p_{rot}$$, das máquinas consideram-se iguais, dado que as máquinas têm dimensões/características semelhantes\
+-  $$T_d^M=T_d^G=T_d$$: também se conclui que os binários desenvolvidos são iguais, $$T_d=T_u+\frac{p_{rot}}{ω_m}$$ \
+-  $$T_u, ω_m$$ ou $$n$$: binário mecânico, velocidade angular mecânica do grupo motor-gerador em $$\rm rads^{-1}\:$$ ou $$\:\rm rpm$$, respetivamente\
+-  $$P_{u}^M, P_{u}^G$$: potências úteis do motor e gerador\
+-  $$E^{'},E$$: força contra-eletromotriz do motor, força eletromotriz do gerador\
+")
+
+# ╔═╡ 1eb4379f-2d29-4dea-b6c5-cd2f81ed8381
+aside((md"""
+!!! info "Informação"
+	👈 clicar em ▶ / ▼ para expandir/comprimir
+"""), v_offset=-110)
+
+# ╔═╡ 184d5409-76fa-4970-9da7-6d8c8bd79713
+md"""
+Seguindo o raciocício sobre o princípio de funcionamento do sistema *back-to-back*, a potência mecânica absorvida pelo gerador, $P_{ab}^G$, corresponde à potência útil do motor, $P_{u}^M$, $(1.2)$.   
+
+Em $(1.1)$ e $(1.3)$ estabelecem-se os balanços de potências para o motor e gerador, respetivamente.
+
+Substituindo $(1.1)$ em $(1.2)$ e recombinando com $(1.3)$ obtém-se $(1.4)$, mostrando que a diferença entre $P_{ab}^M$ e $P_{u}^G$, corresponde ao somatório das perdas do grupo motor-gerador.
+
+Assim, o somatório das perdas corresponde à potência absorvida da rede CC, traduzida em $(1.5)$ e $(1.6)$.
+
+As perdas elétricas do motor e gerador, $P_{el}^M$ e $P_{el}^G$, respetivamente, são determinadas pelo conhecimento dos seus circuitos induzidos e indutores (resistências, tensões e correntes).
+
+Sobram as perdas mecânicas e do ferro, ou perdas rotacionais, de cada máquina CC. Se as máquinas a ensaiar tiverem dimensões e potências semelhantes, então assume-se os mesmo valor de $p_{rot}$ para ambas, $(1.7)$, resultando $(1.8)$. 
+
+Caso tal não se verifique, uma possibilidade consiste em tomar uma ponderação que relacione a potência nominal de cada uma das máquinas CC, atribuindo um peso correnpondente, para o cálculo da perdas rotacionais.
+
+Determinadas todas as perdas é exequível a análise de potências, perdas e rendimento das máquinas CC ensaiadas.
+"""
+
+# ╔═╡ f8de4a5c-64a2-49c4-88e2-c26c843b1fc1
+md"""
+$\begin{align}
+\tag{1.1}
+P_{ab}^M - p_J^M - p_{ex}^M - p_{rot}^M &= P_{u}^M \\
+
+\tag{1.2}
+P_{u}^M &= P_{ab}^G \\
+
+\tag{1.3}
+P_{ab}^G &= P_{u}^G + p_J^G + p_{ex}^G + p_{rot}^G \\
+
+\tag{1.4}
+P_{ab}^M - P_{u}^G &= p_J^M + p_{ex}^M + p_{rot}^M + p_J^G + p_{ex}^G + p_{rot}^G \\
+
+\tag{1.5}
+p_t &= p_{el}^M + p_{el}^G + p_{rot}^M + p_{rot}^G \\
+
+\tag{1.6}
+P_{ab}^M - P_{u}^G &= p_t = U I \\
+
+\tag{1.7}
+p_{rot}^M &\approx  p_{rot}^G \\
+
+\tag{1.8}
+p_{rot} &= \frac{1}{2} (p_t - p_{el}^M - p_{el}^G) \\
+\end{align}$
+"""
+
+# ╔═╡ 39721ee5-b4f8-47ed-ae4f-0865952ebd28
+
+
+# ╔═╡ 3010fa73-fdb8-4ad9-94dc-45db49ae7fcf
+md"""
+# 2 - Procedimento de ensaio
+"""
+
+# ╔═╡ f60d6cdd-7ff4-4a00-b2aa-a1440234ec6d
+md"""
+## 2.1 - Esquema de ligações
+"""
+
+# ╔═╡ 5f0b7230-28eb-4394-981f-0974e49284a3
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/back2backlab/scheme.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:700px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
+
+# ╔═╡ 127a7dbf-88fe-4b28-a265-7bf315850497
+md"""
+[^Fig_2_1]: Esquema de ligações do ensaio *back-to-back*.
+"""
+
+# ╔═╡ c387e50c-5aac-4901-b1f3-51b690c38a56
+md"""
+## 2.2 - Material utilizado
+"""
+
+# ╔═╡ dfa54345-bcae-4350-aa43-72cd62b83d65
+md"""
+**Bancada n.º3**
+
+Máquinas CC de excitação composta (utilizadas em excitação derivação): Elektromotoren Werke Kaiser (fabricante) 
+
+- Motor CC n.º 951 (5.5kW; 1500rpm; 220V; 29A):
+
+| **V** | **A** | **kW** | **rpm** |
+|:-----:|:-----:|:------:|:-------:|
+|  178  |   29  |   4.4  |   1200  |
+|  220  |   29  |   5.5  |   1500  |
+|  220  |   29  |   5.5  |   2000  |
+|       |       |        |         |
+|  220  | 0.59 ... 0.35A | (excit.) |
+
+		
+- Gerador CC n.º 942 (4.0kW; 250V; 16A; 1500rpm):
+
+| **V** | **A** | **kW** | **rpm** |
+|:-----:|:-----:|:------:|:-------:|
+|  195  |   16  |   3.1  |   1200  |
+|  250  |   16  |   4.0  |   1500  |
+|  345  |   16  |   5.5  |   2000  |
+|       |       |        |         |
+|  250  | 0.3 | (excit.) |
+
+
+**Reostatos**
+- Reóstato de arranque: 7.5Ω
+- Reóstato de campo (motor CC): 750Ω
+- Reostáto de campo (gerador CC): 1100Ω
+
+
+**Equipamento de medida**
+
+- 2 amperímetros (circ. de excitação): Chauvin Arnoux C.A 401; Calibre: 1A
+- 3 pinças amperimétricas: Chauvin Arnoux F03
+- 3 voltímetros: Chauvin Arnoux C.A 402; Calibre: 300V
+- taquímetro: Chauvin Arnoux C.A 25
+- ponte de Wheatstone: Cropico Test
+
+
+"""
+
+# ╔═╡ 59b3486d-61cd-43ac-ae1c-4bd04ab5dd40
+
+
+# ╔═╡ eb5f4190-17a0-4bac-b2a2-1d35622f3d2c
+md"""
+## 2.3 - Condução do trabalho
+"""
+
+# ╔═╡ fce78f7b-dcdc-4ae3-918d-622db2f27269
+md"""
+**Tempo de realização da montagem e execução do ensaio:** cerca de 75 minutos. 
+\
+1. Realizar a montagem elétrica de acordo com o esquema de ligações, [^Fig_2_1], com:
+
+  - reóstato de arranque no valor máximo ⟹ corrente de arranque baixa;
+  - reóstato de campo do motor no valor mínimo ⟹ velocidade baixa;
+  - reóstato de campo do gerador no valor máximo ⟹ tensão baixa;
+  - interruptores da montagem elétrica desligados inicialmente.
+\
+2. Ligar rede CC do Lab. de Máq. Elétricas e na bancada de ensaio $(U_{rede}=220\rm{V})$. Ligar o interruptor, $\rm IF1$, fazendo arrancar o motor CC;
+\
+3. Diminuir suavemente o reóstato de arranque até ao valor mínimo, $(0\Omega)$;
+\
+4. Ajustar a velocidade do grupo motor-gerador CC através do reostato de campo do motor para a velocidade nominal, $(n=1500\rm{rpm})$;
+\
+5. Ajustar a tensão do gerador CC, $(U_{ger}=220\rm{V})$, através do seu reóstato de campo. Confirmar a correta polaridade dos terminais gerador CC, relativamente aos terminais da rede CC. Fechar o interruptor, $\rm IF2$. Poderá verificar-se uma corrente de linha do gerador CC residual, devido a diferença de aferição entre o voltímetro do gerador *vs.* voltímetro na entrada da rede CC da bancada;
+\
+6. Dá-se início ao registo de valores do ensaio *back-to-back*:
+
+   - Para regular a carga das máquinas, de modo a criar vários pontos de funcionamento do grupo motor-gerador com potências em jogo sucessivamente crescentes, diminui-se progressivamente o reóstato de campo do gerador CC e reajusta-se a velocidade para o valor nominal, através do reóstato de campo do motor CC;
+
+   - Registam-se sucessivamente os valores das correntes de linha e de exitação de cada máquina CC, a corrente na entrada da rede CC e a velocidade, para os diferentes pontos de funcionamento do grupo motor-gerador. A tensão será constante. 
+\
+7. Repetir ponto 5 (exceto a condição de polaridade). Desligar os interruptores por ordem inversa. Fim de ensaio.\
+
+"""
+
+# ╔═╡ 6fef9e1c-e321-4ef8-9140-dc4dbfe49936
+
+
+# ╔═╡ 349d542f-024d-4982-867c-afa9e105db27
+md"""
+# 3 - Resultados experimentais
+"""
+
+# ╔═╡ f1b48849-a61f-4825-bcc8-ff12d3c09987
+md"""
+## 3.1 - Leituras realizadas
+"""
+
+# ╔═╡ e05493c5-1231-4fda-821c-65420c221551
+md"""
+Tensão da rede de corrente contínua:
+"""
+
+# ╔═╡ 5bb9b54a-56f3-431c-b47c-75a58bff7d22
+U = 220; 			# DC grid voltage, V
+
+# ╔═╡ 494278aa-f24d-4168-8615-f7803495fafd
+md"""
+Medição dos enrolamentos induzidos das máquinas CC:
+"""
+
+# ╔═╡ 080ba59a-6a4a-424e-8741-9b59332c2f86
+begin
+	Rᵢᴹ = 1.22 		# Armature resistance of the motor, Ω
+	Rᵢᴳ = 2.02 		# Armature resistance of the generator, Ω
+end;
+
+# ╔═╡ 60cc12ac-6fe6-439b-a149-39ffa704ba8b
+md"""
+Dados registados ao longo do ensaio *back-to-back*:
+"""
+
+# ╔═╡ a41a8eeb-c2bf-4025-8a91-a5654ba69ca7
+# test data:
+begin
+	I = [2.95, 3.15, 3.63, 4.71, 5.40, 6.91, 7.82, 8.64, 8.75, 10.70]  					# A₁ amperemeter data
+	Iₗᴹ = [3.86, 6.00, 9.13, 14.10, 16.10, 20.83, 23.34, 24.79, 25.33, 29.30] 			# A₂ amperemeter data
+	Iₑₓᴹ = [0.660, 0.660, 0.630, 0.580, 0.580, 0.580, 0.580, 0.605, 0.570, 0.600] 		# A₃ amperemeter data
+	Iₗᴳ = [1.69, 3.57, 6.02, 9.91, 11.43, 14.42, 16.18, 16.95, 17.16, 19.38] 			# A₄ amperemeter data
+	Iₑₓᴳ = [0.280, 0.275, 0.280, 0.285, 0.295, 0.320, 0.330, 0.370, 0.360, 0.390] 		# A₅ amperemeter data
+	n = [1497, 1491, 1490, 1518, 1512, 1510, 1510, 1490, 1522, 1491] 					# Tachometer data
+	I, Iₗᴹ, Iₑₓᴹ, Iₗᴳ, Iₑₓᴳ, n 
+end;
+
+# ╔═╡ d37297d1-3e7d-4a17-9169-6d9fe268f2c5
+
+
+# ╔═╡ df5bc5cc-9d9d-41d7-9956-a5f9af31c4cf
+md"""
+## 3.2 - Apresentação dos dados de ensaio
+"""
+
+# ╔═╡ 13d6e0d9-2cb9-4125-a406-c4caa0d63719
+md"""
+Nesta secção apresentam-se os quadros relativos aos dados obtidos das leituras realizadas, Tabelas 1 e 2:
+"""
+
+# ╔═╡ cf35b99b-b280-4866-a0e2-0092167a55ba
+md"""
+**Organização dos dados de ensaio para construção das Tabelas 1 e 2:** 
+"""
+
+# ╔═╡ fdb1a1d4-fb0f-45ae-96ef-5c3b5bec7f69
+# header of the table 1
+header_b2b = (["Irede", "Imot", "Iₑₓmot", "Iger", "Iₑₓger", "n"],
+			  ["(A)", "(A)", "(A)", "(A)", "(A)", "(rpm)"]);  
+
+# ╔═╡ f202a1bf-aaf8-4115-98e9-eba0da1666e4
+# header of the table 2
+OthersHeader = (["tensão da rede CC", "resistência rotórica do motor", 
+				 "resistência rotórica do gerador" ], ["(V)", "(Ω)", "(Ω)"]); 		
+
+# ╔═╡ bba03ae4-313e-4e3a-a367-73b1d28e733e
+dados_b2b = [I Iₗᴹ Iₑₓᴹ Iₗᴳ Iₑₓᴳ n]; 		# data of the table 1
+
+# ╔═╡ 22e2b92e-d1e2-4f4b-b61c-f4776976f216
+OutrosDados = [U Rᵢᴹ Rᵢᴳ]; 					# data of the table 2
+
+# ╔═╡ 216e6f77-0b5a-4a38-aa82-6fc429147f23
+pretty_table(HTML, dados_b2b, header = header_b2b, alignment=:c, title = "Tabela 1: Leituras realizadas no ensaio back-to-back")
+
+# ╔═╡ b74e6eae-d059-4409-b0cb-ba19475a53a0
+pretty_table(HTML, OutrosDados, header = OthersHeader, alignment=:c, title = "Tabela 2: Outros dados registados")
+
+# ╔═╡ 7becf999-5f11-4a47-8e3f-2b775f52bd27
+
+
+# ╔═╡ f0132080-ad3c-47d1-b0e3-c9c7994c072f
+begin
+	n_media = median(n)  			# arithmetic mean calculation
+	n_media = round(Int, n_media)   # rounding to integer number 
+
+	n_desvio = std(n)    			# standard deviation calculation
+	n_desvio = round(Int, n_desvio)
+	
+	n_media, n_desvio   			# show statistical results
+end
+
+# ╔═╡ b32d55d7-80b2-45f1-abaf-ef8f6958e980
+md"""
+Por análise dos dados estatísticos da velocidade constata-se que o ensaio *back-to-back* foi realizado com uma velocidade aproximadamente constante, rondando o valor nominal de $$1500\rm rpm$$:
+
+- **Média aritmética** = $(n_media) rpm
+
+- **Desvio padrão** = $(n_desvio) rpm
+
+"""
+
+# ╔═╡ 71a60d6f-1527-4537-952d-b490af18a935
+md"""
+Assim, como a tensão das máquinas é contante (ambas ligadas à rede CC de $$220\rm V$$) e a velocidade é aproximadamente constante, perspectiva-se que as perdas rotacionais, $$p_{rot}$$, das máquinas sejam também aproximadamente constantes.
+"""
+
+# ╔═╡ 5bcefcd9-f30e-4b40-a1f0-b66ff862d963
+begin
+	Kirchhoff = I + Iₗᴳ - Iₗᴹ 				 
+	Kirchhoffₘₐₓ = maximum(Kirchhoff)
+	Kirchhoffₘₐₓ = round(Kirchhoffₘₐₓ, digits=1)
+	
+	Kirchhoff, Kirchhoffₘₐₓ
+end
+
+# ╔═╡ 6a7b7432-cb54-445a-aa39-33a13fb958ba
+md"""
+Aplicando a lei dos nós, ao nó $\textbf 1$ apresentado no esquema de ligações, [^Fig_2_1], verifica-se que as correntes medidas: $I$, $I_l^G$ e $I_l^M$, não verificam plenamente a 1ª lei de Kirchhoff, devido a diferenças de aferição entre os amperímetros utilizados, sendo o erro absoluto máximo das correntes medidas nesse nó de $(Kirchhoffₘₐₓ)A, ao longo do ensaio. 
+"""
+
+# ╔═╡ 81298eb8-b548-42aa-9fea-fa502482578b
+
+
+# ╔═╡ 1931180b-424d-43ba-af25-61e84faf0eaf
+md"""
+# 4 - Análise de resultados
+"""
+
+# ╔═╡ 7e48b1e0-b66c-4773-9189-b72e931b8520
+md"""
+## 4.1 - Balanço de potências
+"""
+
+# ╔═╡ df08b5c7-d63b-430d-8869-a994ed85b73c
+md"""
+Na figura  [^Fig_2_2] apresenta-se o diagrama representativo do balanço de potências do ensaio *back-to-back*, com as relações de potências e perdas desta associação de máquinas elétricas de corrente contínua.
+"""
+
+# ╔═╡ 3a44a05d-68a4-4622-afd3-1b67e95c7088
+let
+# raw_url -> on github draw.io file click the "Raw" button (top right, of file view) and then copy the URL from your browser address bar:
+	raw_url = "https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/draw/back2backlab/power_flow.drawio"
+
+# viewer_url build:
+	viewer_url = "https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1#U" * raw_url
+
+# HTML:
+HTML("""
+<iframe frameborder="0" style="width:100%;height:400px;" 
+        src="$(viewer_url)">
+</iframe>
+""")
+end
+
+# ╔═╡ bc95d83c-fb07-4f24-b08a-b461d871c79e
+md"""
+[^Fig_2_2]: Balanço de potências do ensaio *back-to-back*.
+"""
+
+# ╔═╡ 404e5b4b-0ddc-45b0-a4af-e29618a501be
+md"""
+O diagrama do balanço de potências da [^Fig_2_2] permite perceber as conversões de potências que ocorrem no funcionamento das máquinas envolvidas, mas ainda não quantifica o valor de cada parcela relativa a potências e perdas de cada máquina.
+"""
+
+# ╔═╡ 2f7931fa-262f-4f76-8f4b-f28e26989a2b
+
+
+# ╔═╡ 66ada8ac-6556-4d18-9cf3-cbdbf3f9bc69
+md"""
+## 4.2 - Cálculo de potências e perdas
+"""
+
+# ╔═╡ 01e08f32-9f91-41f9-b022-ad877864a784
+md"""
+**Perdas das máquinas CC:**
+"""
+
+# ╔═╡ d12d08d6-4c4c-4afc-b4e5-970f86a440e5
+md"""
+- Cálculo das perdas totais do grupo motor-gerador:
+"""
+
+# ╔═╡ 2b7754b3-44b3-4a09-99e2-4827afbacc64
+pₜ = U * I
+
+# ╔═╡ d777bcfb-ffad-4061-b86b-cf3f2709576d
+pₜ[6]
+
+
+# ╔═╡ 9c117644-13d3-4de3-a30b-e626df7d6815
+md"""
+- Cálculo das perdas por efeito de Joule no circuito **induzido** de cada máquina:
+"""
+
+# ╔═╡ fc62b652-0d92-49e4-ae27-fd04a6b1d8bd
+begin
+	pⱼᴹ = Rᵢᴹ * Iₗᴹ.^2
+	pⱼᴳ = Rᵢᴳ * Iₗᴳ.^2
+	pⱼᴹ, pⱼᴳ
+end
+
+# ╔═╡ dff17723-bba8-491f-af37-9119e4ff4445
+md"""
+- Cálculo das perdas por efeito de Joule no circuito **indutor** de cada máquina:
+"""
+
+# ╔═╡ 1c048c68-2a41-4710-9d5d-e092abbfc7d9
+begin
+	pₑₓᴹ = U * Iₑₓᴹ
+	pₑₓᴳ = U * Iₑₓᴳ
+	pₑₓᴹ, pₑₓᴳ
+end
+
+# ╔═╡ 55483f43-ca65-4775-a4b7-b824295ad34d
+md"""
+- Cálculo das perdas rotacionais (consideradas igualmente repartidas pelas máquinas CC):
+"""
+
+# ╔═╡ 4cda0d79-6a76-4529-b70e-4eb0bf9c2451
+pᵣₒₜ = 0.5 * (pₜ - pₑₓᴹ - pⱼᴹ - pₑₓᴳ - pⱼᴳ)
+
+# ╔═╡ 0865009d-6d80-452b-b9e5-74b424f9b3c3
+begin
+	pᵣₒₜᵃᵛᵍ = median(pᵣₒₜ)				# arithmetic mean
+	pᵣₒₜᵈᵉᵛ = std(n)					# standard deviation
+	pᵣₒₜᵛᵃʳ = pᵣₒₜᵈᵉᵛ * 100 / pᵣₒₜᵃᵛᵍ 	# percentage change
+	(pᵣₒₜᵃᵛᵍ, pᵣₒₜᵈᵉᵛ, pᵣₒₜᵛᵃʳ) = round.((pᵣₒₜᵃᵛᵍ, pᵣₒₜᵈᵉᵛ, pᵣₒₜᵛᵃʳ), digits=1) # rounding of statistical results
+end
+
+# ╔═╡ 4643e926-67e5-4ac5-a332-1895b992b981
+md"""
+Como esperado as perdas rotacionais são aproximadamente constantes, apresentando uma pequena variação de $(pᵣₒₜᵛᵃʳ)%, ao longo do ensaio *back-to-back*, em relação ao valor médio de $(pᵣₒₜᵃᵛᵍ)W:
+"""
+
+# ╔═╡ 361b5bbe-2fcd-4f96-8488-c52d9b2dbea5
+md"""
+- Cálulo das perdas constantes do motor e do gerador:
+"""
+
+# ╔═╡ 863fe345-3a98-46d6-9112-78ee18635ffe
+begin
+	pcᴹ = pᵣₒₜ + pₑₓᴹ
+	pcᴳ = pᵣₒₜ + pₑₓᴳ
+	pcᴹ, pcᴳ
+end
+
+# ╔═╡ bf4807d5-6fbb-43bc-9be3-475b2ad6e0f6
+md"""
+- Cálulo da potência útil do motor:
+"""
+
+# ╔═╡ f7e7769e-9be0-41bb-900b-9034db833a5b
+md"""
+A potência útil do motor pode ser calculada vista do lado gerador, correspondendo à sua potência mecânica (potência absorvida):
+"""
+
+# ╔═╡ ad8fdc0f-4059-4bec-98a5-8b38b5a17fd0
+Pᵤᴹ¹ = U * Iₗᴳ + pₑₓᴳ + pⱼᴳ + pᵣₒₜ
+
+# ╔═╡ 7c45e9f8-de6b-4bf8-aa91-5b23a47f5d02
+md"""
+Visto do lado do motor:
+"""
+
+# ╔═╡ 5d25244c-7d05-43af-a6a5-69fdb52a253e
+Pᵤᴹ² = U * Iₗᴹ - pₑₓᴹ - pⱼᴹ - pᵣₒₜ
+
+# ╔═╡ 901eaef2-2cff-4131-b19c-b43a88b35b34
+begin
+	dif = Pᵤᴹ¹ - Pᵤᴹ² 			# difference in calculation formula
+	difₘₐₓ = maximum(dif)		# maximum difference
+	difₘₐₓ = round(difₘₐₓ, digits=1)
+end;
+
+# ╔═╡ 29c9a3a5-73a1-4daa-b492-178b97917258
+md"""
+A diferença de resultados deve-se a diferenças de aferição da aparelhagem de medida. A difereça absoluta no cálculo da potência útil do motor, não excede os $(difₘₐₓ) W, o que é bastante aceitável, considerando a potência nominal do motor ensaiado.
+"""
+
+# ╔═╡ 99f6a01a-4a46-43dd-8ef9-a614302e29af
+aside((md"""
+!!! tip "Proposta de atividade"
+	Para os objetivos definidos neste relatório não é necessário, mas adicionalmente poderá determinar-se a evolução de outras potências e binários de ambas as máquinas no ensaio *back-to-back*.
+	
+	Assim, utilizando a célula para código Julia indicada (com as potências e binários em comentário), calcule e represente graficamente as seguintes potências e binários:
+
+	- potência absorvidas do motor e gerador, $$P_{ab}^M$$ e $$P_{ab}^G$$
+	- potências desenvolvidas do motor e gerador, $$P_d^M$$ e $$P_d^G$$
+	- binários desenvolvidos do motor e gerador, $$T_d^M$$ e $$T_d^G$$
+	- binário mecânico, $$T_u$$
+	
+	No final, analise comparativamente os resultados das potências e binários obtidos entre as máquinas CC.
+"""), v_offset=20)
+
+# ╔═╡ 076bd182-885d-4808-ba4a-9d125cd09957
+md"""
+### 4.2.1 - 💻 Potências e binários
+"""
+
+# ╔═╡ c4fd1d3b-9b18-48b3-a0fd-466fcb3e17ee
+md"""
+**Cálculos:**
+"""
+
+# ╔═╡ d780fb54-2677-481e-a228-478845fba613
+#begin
+	#Pabᴹ = 
+	#Pabᴳ =  
+	#
+	#Pdᴹ = 
+	#Pdᴳ = 
+	#
+	#Tdᴹ = 
+	#Tdᴳ = 
+	#
+	#Tᵤ = 
+#end
+
+# ╔═╡ d65460a3-a703-44f6-aa42-a3dd47ae3034
+md"""
+**Gráficos:**
+"""
+
+# ╔═╡ 7bcd562e-970f-4614-94d0-41b8f47a5ff2
+begin
+	# Left plot:
+	h1=plot(                  ylabel="Potências (kW)", xlabel="Corrente (A)",
+			title="Motor vs Gerador")
+
+	# Right plot:
+	h2=plot(                  ylabel="Binários (Nm)", xlabel="Corrente (A)", 
+			title="Motor vs Gerador")
+	
+	#Plot layout:
+	plot(h1, h2, layout = (1, 2), size=(750,500))
+end
+
+# ╔═╡ 18159d33-d61e-44cc-9966-801f15b7f5d5
+
+
+# ╔═╡ 51f8e7ee-868e-47d9-bfa5-4ac06f37d942
+md"""
+**Análise:**
+      
+    
+    
+    
+    
+.
+"""
+
+# ╔═╡ 95fdbbc4-b612-4512-9069-6110e41f9e9d
+
+
+# ╔═╡ c771cef0-8fb8-4414-af8a-3e6512832d90
+md"""
+### 4.2.2 - 💻 Diagrama de Sankey
+"""
+
+# ╔═╡ 46273cec-629b-4a2f-ba2c-e354e5003adc
+md"""
+Um diagrama de Sankey permite visualizar o fluxo de dados entre dois ou mais estados ou dimensões num dado processo. A largura das barras/setas de cada estado é proporcional à taxa de fluxo nessa fase do processo. O diagrama de Sankey é especialmente útil para a visualização global de fluxos de energia ou de potência em processos industriais ou numa rede elétrica com diferentes fontes de energia, sendo os fluxos energéticos dirigidos a diferentes categorias de utilizadores de energia.
+
+Em geral, os diagramas de Sankey formam grafos acíclicos dirigidos, ou seja, nenhuma das partes do diagrama forma um ciclo. Esta característica, à partida inviabilizaria a sua utilização para análise do balanço de potência neste ensaio, pois pela [^Fig_2_2], o balanço de potências do ensaio _back-to-back_ forma um ciclo.
+
+No entanto, abrindo o ciclo, a representação do balanço de potências no diagrama de Sankey, através de uma ferramenta computacional interativa, permite visualizar a evolução das perdas e potências das máquinas elétricas utilizadas ao longo do ensaio _back-to-back_.\
+Assim, verifica-se que:
+
+$P_u^G(k)=P_{ab}^M(k)-p_t(k)$
+
+com: $k \in \{1,2,3,...,10,\}$, correspondendo à ordem de ensaio na Tabela 1.
+
+Ou seja, verifica-se no diagrama de Sankey, em qualquer momento, $k$, do ensaio _back-to-back_, que a potência útil do gerador, $P_u^G(k)$, é entregue ao motor, sendo-lhe adicionada uma potência elétrica proveniente da rede CC, que é igual ao somatório das perdas, $p_t$, relativas às máquinas elétricas em funcionamento.
+"""
+
+# ╔═╡ 50f9ef55-ec4d-4801-a7df-b755fcc9cdef
+aside((md"""
+!!! tip "Atividade interativa"
+	👈 Através do _slider_ selecione o momento do ensaio realizado, $k$, e visualize interativamente ao longo do ensaio _back-to-back_, a evolução relativa entre as perdas e as potências das máquinas elétricas de corrente contínua no diagrama de Sankey.
+"""), v_offset=30)
+
+# ╔═╡ 80d0dbc9-9e4c-4270-9395-baec8974bdf2
+md"""
+Momento do ensaio _back-to-back_ (linha de dados da Tabela 1): $\quad k=$ $(@bind k PlutoUI.Slider(1:1:10, default=6, show_value=true))
+"""
+
+# ╔═╡ 994319d8-2e54-4edd-a6fb-cd8df9f9fcd7
+md"""
+**Matrizes de construção do diagrama de Sankey:**
+"""
+
+# ╔═╡ a11a242c-4672-4639-ad54-faa63d0a1cd1
+names = ["pₜ", "Pabᴹ", "Pdᴹ", "Pᵤᴹ=Pabᴳ", "Pdᴳ", "Pᵤᴳ", "Pₑₗₑᴹ", "pᵣₒₜᴹ", "pᵣₒₜᴳ", "Pₑₗₑᴳ", "Pabᴹ-pₜ"];  # state names in the Sankey chart
+
+# ╔═╡ 6873136d-76b9-41ee-a61f-2dd473ac8aca
+src = [1, 2, 2, 3, 3, 4, 4, 5, 5, 6]; # sources (order number of state names) in the Sankey chart
+
+# ╔═╡ b6d6d602-03f6-4d11-be10-631a3502ea40
+dst = [2, 3, 7, 8, 4, 9, 5, 10, 6, 11];  # destiny of the flow in the Sankey chart
+
+# ╔═╡ f5d3be1c-ccb1-43ec-8d5b-5afc631cb54b
+weights = [pₜ[k], U * Iₗᴹ[k] - pₑₓᴹ[k] - pⱼᴹ[k], pₑₓᴹ[k] + pⱼᴹ[k], pᵣₒₜ[k], Pᵤᴹ²[k], pᵣₒₜ[k], Pᵤᴹ²[k]-pᵣₒₜ[k], pⱼᴳ[k]+pₑₓᴳ[k], Pᵤᴹ²[k]-pₑₓᴳ[k]-pⱼᴳ[k]-pᵣₒₜ[k],Pᵤᴹ²[k]-pₑₓᴳ[k]-pⱼᴳ[k]-pᵣₒₜ[k]] 		# flow weights on Sankey chart (from previous loss and power calculations)
+
+# ╔═╡ e8e790c5-fd10-4797-8dbf-74cde9ac20a2
+colors = palette(:seaborn_bright);  	# palette colors used in the Sankey chart
+# from color schemes: https://docs.juliaplots.org/latest/generated/colorschemes/
+
+# ╔═╡ fbb2ce7b-3a81-4c4e-b271-0f33819837a7
+sankey(src, dst, weights; node_labels=names, label_position=:bottom, label_size=12, edge_color=:gradient, compact=:true, node_colors=colors, size=(1000,500))
+
+# ╔═╡ 469dd7f7-dc57-4743-a844-714fa3952c8c
+
+
+# ╔═╡ bbdfee6a-fd4d-4220-aadf-9ceba2415a75
+md"""
+## 4.3 - Curvas de rendimento
+"""
+
+# ╔═╡ 884beeaf-d196-4d9a-9088-a3b88ff5670e
+md"""
+Cálculo dos pontos de rendimento do motor CC:
+"""
+
+# ╔═╡ 69892e4e-821b-4efa-b7f5-26bdbb5d0f8a
+begin
+	ηᴹ = Pᵤᴹ¹./(U*Iₗᴹ)
+	ηᴹ = round.(ηᴹ*100, digits=1)		# percentage and rounding
+end
+
+# ╔═╡ 1658f96c-7d15-4ed2-9f58-a161bc8b635f
+md"""
+Cálculo dos pontos de rendimento do gerador CC:
+"""
+
+# ╔═╡ 3ad1607a-66c4-42e2-a088-db1832fd1f32
+begin
+	#ηᴳ=(U*Iₗᴳ)./(U*Iₗᴹ-pⱼᴹ-pₑₓᴹ-pᵣₒₜ) 	# other option!
+	ηᴳ = (U*Iₗᴳ)./(Pᵤᴹ¹)
+	ηᴳ = round.(ηᴳ*100, digits=1) 		# percentage and rounding
+end
+
+# ╔═╡ 49e3234a-c066-42bc-bc90-bf7699309286
+
+
+# ╔═╡ 065d2711-a5b6-4fcd-8e99-919296af78cb
+md"""
+Cálculos auxiliares para determinação das linhas de tendência para o traçado das curvas de rendimento, perdas constantes e perdas variáveis calculadas, do motor e gerador, determinadas a partir dos dados de ensaio:
+"""
+
+# ╔═╡ 45757ac2-7db2-4ffa-bc5c-fb993eb6a991
+begin
+	# Calculation of the trend line for the motor efficiency curve:
+	Iₗᴹ_m = hcat(Iₗᴹ)						# convert data vector to matrix
+	ηᴹ_m = hcat(ηᴹ)							# convert data vector to matrix
+	FIT_ηᴹ = fitexp(Iₗᴹ_m, ηᴹ_m, n=2)		# exponential trend line
+
+	pcᴹ_m = hcat(pcᴹ)						# convert data vector to matrix
+	FIT_pcᴹ = fitlinear(Iₗᴹ_m, pcᴹ_m)		# linear trend line
+
+	pⱼᴹ_m = hcat(pⱼᴹ)						# convert data vector to matrix
+	FIT_pⱼᴹ = fitquad(Iₗᴹ_m, pⱼᴹ_m)			# quadratic trend line
+
+	# Calculation of the trend line for the generator efficiency curve: 
+	Iₗᴳ_m = hcat(Iₗᴳ)						# convert data vector to matrix
+	ηᴳ_m = hcat(ηᴳ)							# convert data vector to matrix
+	FIT_ηᴳ = fitexp(Iₗᴳ_m, ηᴳ_m, n=2)		# exponential trend line
+
+	pcᴳ_m = hcat(pcᴳ)						# convert data vector to matrix
+	FIT_pcᴳ = fitlinear(Iₗᴳ_m, pcᴳ_m)		# linear trend line
+
+	pⱼᴳ_m = hcat(pⱼᴳ)						# convert data vector to matrix
+	FIT_pⱼᴳ = fitquad(Iₗᴳ_m, pⱼᴳ_m)			# quadratic trend line
+end;
+
+# ╔═╡ debd87f9-13ee-4177-8245-c9cc4df1d157
+
+
+# ╔═╡ 2a0e3a6a-0fd0-4f9e-ab54-2377d0761ba3
+md"""
+**Gráfico de curva de rendimento do motor CC, $$\:\eta^M=f(I_l^M)$$, e relação com as perdas "constantes", $$\:p_C^M=f(I_l^M)$$ e as perdas variáveis, $$\:p_J^M=f(I_l^M)$$:**
+"""
+
+# ╔═╡ 7ced39d8-26a1-497f-94fc-96d725ea6287
+begin
+	scatter(Iₗᴹ, ηᴹ, ylims=(70,90), ylabel="rendimento (%)", 
+			right_margin = 5Plots.mm, bottom_margin = 5Plots.mm, mc=:orange, 
+			legend=:topleft, label="ηᴹ, ensaio", size=(700,500))				# calculated efficiency points
+	plot!(FIT_ηᴹ.x, FIT_ηᴹ.y, title="Motor CC", label="ηᴹ", lw=2) 				# trend line
+	
+	scatter!(twinx(), Iₗᴹ, pcᴹ, ylims=(0,800), xlabel="corrente de linha (A)", label=:none)
+	plot!(twinx(), FIT_pcᴹ.x, FIT_pcᴹ.y, ylims=(0,800), legend=:bottomright,
+			ylabel="perdas (W)", label="pcᴹ", ls=:dash, lw=2)
+	
+	scatter!(twinx(), Iₗᴹ, pⱼᴹ, ylims=(0,800), mc=:green, 
+			xlabel="corrente de linha (A)", label=:none)
+	plot!(twinx(), FIT_pⱼᴹ.x, FIT_pⱼᴹ.y, ylims=(0,800), legend=:topright,
+			ylabel="perdas (W)", label="pⱼᴹ", ls=:dash, lw=2, lc=:green)
+end
+
+# ╔═╡ e9e3afa0-0b4d-4367-a7f9-acd8992a88a5
+
+
+# ╔═╡ 1ee60c29-bb29-4d9c-a2d9-20fac192f89f
+md"""
+**Gráfico de curva de rendimento do gerador CC, $$\:\eta^G=f(I_l^G)$$, e relação com as perdas "constantes", $$\:p_C^G=f(I_l^G)$$ e as perdas variáveis, $$\:p_J^G=f(I_l^G)$$:**
+"""
+
+# ╔═╡ cd62422c-abd3-493d-a563-16520b237537
+begin
+	scatter(Iₗᴳ, ηᴳ, ylims=(50,90), ylabel="rendimento (%)", 
+			right_margin = 15Plots.mm, bottom_margin = 5Plots.mm, mc=:orange, 
+			legend=:topleft, label="ηᴳ, ensaio", size=(700,500))			# calculated efficiency points
+	plot!(FIT_ηᴳ.x, FIT_ηᴳ.y, title="Gerador CC", label="ηᴳ", lw=2) 		# trend line
+	
+	scatter!(twinx(), Iₗᴳ, pcᴳ, ylims=(0,800), xlabel="corrente de linha (A)", label=:none)
+	plot!(twinx(), FIT_pcᴳ.x, FIT_pcᴳ.y, ylims=(0,800), legend=:bottomright,
+			ylabel="perdas (W)", label="pcᴳ", ls=:dash, lw=2)
+	
+	scatter!(twinx(), Iₗᴳ, pⱼᴳ, ylims=(0,800), mc=:green, 
+			xlabel="corrente de linha (A)", label=:none)
+	plot!(twinx(), FIT_pⱼᴳ.x, FIT_pⱼᴳ.y, ylims=(0,800), legend=:topright,
+			ylabel="perdas (W)", label="pⱼᴳ", ls=:dash, lw=2, lc=:green)
+end
+
+# ╔═╡ 6c2bab0b-4785-413b-a851-0c0ab06c73a4
+
+
+# ╔═╡ 830796ba-f8d6-4843-9297-e76492589d49
+begin
+	(pcᴹᵃᵛᵍ, pcᴳᵃᵛᵍ) = median.((pcᴹ, pcᴳ))				# arithmetic mean
+	(pcᴹᵈᵉᵛ, pcᴳᵈᵉᵛ) = std.((pcᴹ, pcᴳ))					# standard deviation
+	# rounding of statistical results:
+	(pcᴹᵃᵛᵍ, pcᴳᵃᵛᵍ, pcᴹᵈᵉᵛ, pcᴳᵈᵉᵛ) = round.((pcᴹᵃᵛᵍ, pcᴳᵃᵛᵍ, pcᴹᵈᵉᵛ, pcᴳᵈᵉᵛ), digits=1) 
+
+	# Percent variation:
+	pcᴹᵥₐᵣ = pcᴹᵈᵉᵛ * 100 / pcᴹᵃᵛᵍ
+	pcᴳᵥₐᵣ = pcᴳᵈᵉᵛ * 100 / pcᴳᵃᵛᵍ
+	(pcᴹᵥₐᵣ, pcᴳᵥₐᵣ) = round.((pcᴹᵥₐᵣ, pcᴳᵥₐᵣ), digits=1)
+	
+	# Presentation of results:
+	Text("Perdas constantes do motor CC, (média aritmética, desvio padrão) W:"), (pcᴹᵃᵛᵍ, pcᴹᵈᵉᵛ),  Text("Perdas constantes do gerador CC, (média aritmética, desvio padrão) W:"), (pcᴳᵃᵛᵍ, pcᴳᵈᵉᵛ) 
+end
+
+# ╔═╡ 1e3c4060-5d78-4159-bb2d-caf158d9a32d
+md"""
+Verifica-se apesar dos ligeiros declives, que as perdas "constantes" do motor e do gerador são efetivamente aproximadamente constantes, apresentando uma variação em relação ao valor médio, de $(pcᴹᵥₐᵣ)% e $(pcᴳᵥₐᵣ)%, respetivamente. 
+"""
+
+# ╔═╡ 5ea61cf4-4f87-43ef-8556-f37ea60d2515
+
+
+# ╔═╡ c870e56a-cc10-4f85-9767-af46d9845b6a
+md"""
+### 4.3.1 - Rendimento nominal
+"""
+
+# ╔═╡ d9063387-a1d9-44e5-81e8-9dd4111ad72a
+md"""
+Consultando as curvas de rendimento do motor e do gerador, para as respectivas correntes nominais, obtêm-se os seguintes rendimentos nominais:
+"""
+
+# ╔═╡ 24331be7-d705-41e9-925a-ec76b80fa38f
+# Computational way to read nominal efficiencies:
+begin
+	(Iₙᴹ, Iₙᴳ) = (29, 16)							# rated current, A
+	
+	ηᴹ_I = LinearInterpolator(FIT_ηᴹ.x,FIT_ηᴹ.y)  	# trend line linear interpolation
+	ηₙᴹ = ηᴹ_I(Iₙᴹ)									# rated efficiency, motor
+	ηₙᴹ = round(ηₙᴹ, digits=1)
+
+	ηᴳ_I = LinearInterpolator(FIT_ηᴳ.x,FIT_ηᴳ.y)
+	ηₙᴳ = ηᴳ_I(Iₙᴳ)
+	ηₙᴳ = round(ηₙᴳ, digits=1)
+
+	Text("ηₙᴹ = $(ηₙᴹ)%"), Text(" 	ηₙᴳ = $(ηₙᴳ)%")	# presentation of results
+end
+
+# ╔═╡ 36ce1f19-59f6-4595-a75a-22f519e326d9
+
+
+# ╔═╡ c674d531-be5a-45b6-b5be-480753f0135f
+md"""
+### 4.3.2 - Rendimento máximo
+"""
+
+# ╔═╡ 28563a65-dfbd-4143-a0ec-772e553a3fb9
+md"""
+Forma computacional para obtenção dos pontos de rendimento máximo, nas curvas, $$\:\eta^M=f(I_l^M)$$ e $$\:\eta^G=f(I_l^G)$$, (optativo em relação a uma leitura direta dos gráficos obtidos): 
+"""
+
+# ╔═╡ e12e7cc3-abe6-4f51-a8b0-9254dbade011
+begin
+	index1=argmax(FIT_ηᴹ.y) 	# find the position in the vector where the value is maximum
+	ηₘₐₓᴹ=FIT_ηᴹ.y[index1]		# get maximum efficiency
+	ηₘₐₓᴹ=round(ηₘₐₓᴹ, digits=1)
+	I1=FIT_ηᴹ.x[index1]			# current value corresponding to maximum efficiency
+	I1=round(I1, digits=1)
+	
+	index2=argmax(FIT_ηᴳ.y) 	# find the position in the vector where the value is maximum
+	ηₘₐₓᴳ=FIT_ηᴳ.y[index2]		# get maximum efficiency
+	ηₘₐₓᴳ=round(ηₘₐₓᴳ, digits=1)
+	I2=FIT_ηᴳ.x[index2]			# current value corresponding to maximum efficiency
+	I2=round(I2, digits=1)
+	
+	Text("Ponto de rendimento máximo do motor CC: $(ηₘₐₓᴹ)% @ $(I1)A"),
+	Text("Ponto de rendimento máximo do gerador CC: $(ηₘₐₓᴳ)% @ $(I2)A")
+end
+
+# ╔═╡ e40a1b59-ed60-4081-afbf-661373b8b3fa
+md"""
+Da análise às curvas de rendimento das máquinas CC, verificam-se os seguintes pontos de rendimento máximo:
+
+- Gerador: $$\:\:I_l^G(\eta_{max}^G) =$$ $(I2) $$\rm A; \it \quad\eta_{max}^G =$$ $(ηₘₐₓᴳ) $$\rm\%$$
+- Motor: $$\quad I_l^M(\eta_{max}^M) =$$ $(I1) $$\rm A; \it \quad\eta_{max}^M =$$ $(ηₘₐₓᴹ) $$\rm\%$$
+"""
+
+# ╔═╡ 291e034f-a119-4c9b-8a50-4a35cd54e055
+md"""
+Comparando os pontos de rendimento máximo obtidos, do motor e do gerador, relativamente às respetivas perdas, verifica-se uma boa aproximação ao esperado dos conceitos teóricos sobre análise de rendimento de máquinas elétricas, em que o rendimento máximo se verifica quando as perdas variáveis são iguais às perdas contantes. 
+
+Alguma divergência nos valores encontrados, como apontado anteriormente, podem ser justificadas pela  diferença de aferição dos aparelhos de leitura utilizados, as pequenas variações de velocidade do grupo motor-gerador ao longo do ensaio e as perdas "constantes" na prática, apresentarem algum declive, ainda que pouco acentuado.
+"""
+
+# ╔═╡ c53871d4-c739-4dcf-ad6d-c5dced86c208
+
+
+# ╔═╡ 83d8e64c-e9ab-4065-a056-f189e30e149c
+md"""
+# 5 - Conclusões
+"""
+
+# ╔═╡ 5ab45915-9446-4583-a7b0-2ff97a5808f4
+md"""
+## 5.1 - Considerações finais
+"""
+
+# ╔═╡ 0ec4b965-80c4-4b40-925a-f3dcb2fd0115
+md"""
+No ensaio *back-to-back* verifica-se que o mesmo consome pouca potência elétrica da rede CC, comparativamente com a potência nominal das máquinas ensaiadas.\
+Após o arranque do motor CC e ajuste à velocidade nominal, este alimenta mecanicamente o gerador CC. Após ligar o gerador CC em paralelo com a rede CC (verificadas as condições para essa manobra), o gerador alimentará eletricamente o motor CC.\
+Por conseguinte, a potência consumida da rede elétrica corresponde ao somatório das perdas do grupo motor-gerador.  Este fato é muito importante e permite concluir que o ensaio *back-to-back* pode possibilitar o ensaio em carga de máquinas elétricas de elevada potência, comparativamente com a potência disponível da rede CC para a realização do ensaio, desde que a mesma suporte o arranque reostático do motor CC.
+"""
+
+# ╔═╡ e7aae6a9-1fa7-48a1-9b11-8e60c69cf9c9
+md"""
+O funcionamento do ensaio *back-to-back* utiliza a regulação dos circuitos de excitação de ambas as máquinas CC. Por um lado, o reóstato de campo do gerador CC ajusta a potência de saída do gerador (pois encontra-se ligado a uma rede CC de tensão constante), que por sua vez solicita mais potência mecânica ao motor CC (alimentado da mesma rede CC). Neste ajuste a velocidade poderá sofrer alguma variação significativa, sendo corrigida por atuação do reóstato de campo do motor CC.
+
+Estas variações nos reostato de campo e consequentes variações nas correntes de excitação das máquinas provocam pequenas variações nas perdas constantes, contudo aceitáveis.
+"""
+
+# ╔═╡ 5dded0ab-c093-4e14-a2f2-de5d3506d171
+md"""
+Como conclusão final, o ensaio *back-to-back* permite a análise de potências, cálculo das perdas e rendimento de 2 máquinas elétricas em simultâneo e com baixo consumo de energia.
+"""
+
+# ╔═╡ 0b42e250-90d9-4b97-8fb6-0a7a896b92e5
+
+
+# ╔═╡ e4d17d82-b7f0-4070-9177-e6a1cebb4c24
+md"""
+## 5.2 - Perspetivas de desenvolvimento futuro
+"""
+
+# ╔═╡ 7787b512-37e0-4c2e-8d43-88433ce6c764
+md"""
+O ensaio *back-to-back* pode ser também aproveitado para se analisar a reversibilidade de funcionamento das máquinas do grupo motor-gerador.
+
+Assim, com o sistema em funcionamento, o aumento do reóstato de campo do circuito de excitação do gerador pode fazer baixar a sua força-eletromotriz, tal que esta seja menor que a tensão da rede CC, invertendo o sentido da corrente de linha nesta máquina, passando a regime motor:
+
+$R_c 	\nearrow \quad \Rightarrow \quad I_{ex} \searrow\quad \Rightarrow \quad \phi \searrow \quad \Rightarrow \quad E \searrow$
+
+$\text{Se:} \quad E<U \quad \Rightarrow \quad I_l < 0 \quad \text{, então:} \quad \rm gerador \triangleright motor$
+"""
+
+# ╔═╡ 4cbd2235-074d-4374-99c8-f290215b1640
+md"""
+Do lado do motor CC estabelece-se um raciocínio semelhante, para que este passe para o regime de funcionamento gerador:
+
+$R_c 	\searrow \quad \Rightarrow \quad I_{ex} \nearrow\quad \Rightarrow \quad \phi \nearrow \quad \Rightarrow \quad E \nearrow$
+
+$\text{Se:} \quad E>U \quad \Rightarrow \quad I_l > 0 \quad \text{, então:} \quad \rm motor \triangleright gerador$
+
+"""
+
+# ╔═╡ 46a23d85-70f0-4f15-9a76-8a3701a82183
+md"""
+O teste de reversibilidade com o grupo motor-gerador deve ser realizado com especial cuidado por causa do reostato de campo com o terminal $\textbf q$ (reostato de campo do gerador CC) estar em funcionamento. Assim, quando a máquina CC muda o regime de funcionamento de gerador para motor, tendo em conta a possibilidade do circuito de excitação ficar acidentalmente em aberto, e consequentemente, provocar o embalamento do motor CC.
+"""
+
+# ╔═╡ 8495592a-9619-4e2c-97fb-ef9f55f29f4d
+begin
+	#=
+	Advanced CSS code for text formatting in Pluto.jl notebooks
+	- Applies text justification and automatic hyphenation to content
+	- Bilingual support: European Portuguese (pt-PT) and English (en)
+	- Dynamic mapping based on the 'lang' selector variable
+	- Uses system fonts with fallbacks for better compatibility
+	- Significantly improves readability of long texts
+	
+	Developed with GenAI assistance from Claude (Anthropic) - September 2025
+	=#
+	
+	# Language code mapping for specific locales
+	#lang_code = lang == "pt" ? "pt-PT" : lang
+	lang_code = "pt-PT"
+	
+	html"""<div lang="$(lang_code)">
+	<style>
+	pluto-output p {
+	   text-align: justify;
+	   hyphens: auto;
+	   -webkit-hyphens: auto;
+	   -ms-hyphens: auto;
+	   -moz-hyphens: auto;
+	}
+	pluto-output {
+	   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+	   font-size: 100%;
+	}
+	</style>
+	</div>
+	"""
+end
+
+# ╔═╡ 7ec2f5b9-5779-4f95-979d-96e23e742d5a
+md"""
+# *Notebook*
+"""
+
+# ╔═╡ 6bd294df-005b-4979-b2ee-39922b9223b7
+md"""
+Documentação das bibliotecas Julia utilizadas: \
+[Plots](http://docs.juliaplots.org/latest/), [EasyFit](https://github.com/m3g/EasyFit.jl), [PrettyTables](https://ronisbr.github.io/PrettyTables.jl/stable/), [Statistics](https://docs.julialang.org/en/v1/stdlib/Statistics/), [BasicInterpolators](https://markmbaum.github.io/BasicInterpolators.jl/dev/), [SankeyPlots](https://github.com/daschw/SankeyPlots.jl), [PlutoUI](https://featured.plutojl.org/basic/plutoui.jl), [PlutoTeachingTools](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html).
+"""
+
+# ╔═╡ 42b2d4f0-4d76-4e42-bd2a-f2ed48a4e4a4
+begin
+	version=VERSION
+	md"""
+*Notebook* desenvolvido em `Julia` versão $(version).
+"""
+end
+
+# ╔═╡ aa0f3953-c4e8-4735-831c-9129e893ca05
+TableOfContents(title="Índice")
+
+# ╔═╡ 75189e15-e7bd-4dcc-9d41-27f83687b966
+aside((md"""
+!!! info "Informação"
+	No índice deste *notebook*, os tópicos assinalados com "💻" requerem a participação do estudante.
+"""), v_offset=-100)
+
+# ╔═╡ 61d8b963-5ad7-4f64-8b5f-46e3b40346a0
+md"""
+|  |  |
+|:--:|:--|
+|  | This notebook, [back2backlab.jl](https://ricardo-luis.github.io/me-2/back2backlab.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
+| **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
+|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io/) |
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+BasicInterpolators = "26cce99e-4866-4b6d-ab74-862489e035e0"
+EasyFit = "fde71243-0cda-4261-b7c7-4845bd106b21"
+Plots = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+PlutoTeachingTools = "661c6b06-c737-4d37-b85c-46df65de6f69"
+PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+PrettyTables = "08abe8d2-0d0c-5749-adfa-8a2ac140af0d"
+SankeyPlots = "8fd88ec8-d95c-41fc-b299-05f2225f2cc5"
+Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[compat]
+BasicInterpolators = "~0.7.1"
+EasyFit = "~0.6.10"
+Plots = "~1.41.1"
+PlutoTeachingTools = "~0.4.4"
+PlutoUI = "~0.7.71"
+PrettyTables = "~2.4.0"
+SankeyPlots = "~0.3.0"
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.12.1"
+manifest_format = "2.0"
+project_hash = "89e99cfe30759078136bdf8a5f3367702ddbd7e6"
+
+[[deps.ADTypes]]
+git-tree-sha1 = "27cecae79e5cc9935255f90c53bb831cc3c870d7"
+uuid = "47edcb42-4c32-4615-8424-f2b9edc5f35b"
+version = "1.18.0"
+
+    [deps.ADTypes.extensions]
+    ADTypesChainRulesCoreExt = "ChainRulesCore"
+    ADTypesConstructionBaseExt = "ConstructionBase"
+    ADTypesEnzymeCoreExt = "EnzymeCore"
+
+    [deps.ADTypes.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    ConstructionBase = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
+    EnzymeCore = "f151be2c-9106-41f4-ab19-57ee4f262869"
+
+[[deps.AbstractPlutoDingetjes]]
+deps = ["Pkg"]
+git-tree-sha1 = "6e1d2a35f2f90a4bc7c2ed98079b2ba09c35b83a"
+uuid = "6e696c72-6542-2067-7265-42206c756150"
+version = "1.3.2"
+
+[[deps.Adapt]]
+deps = ["LinearAlgebra", "Requires"]
+git-tree-sha1 = "f7817e2e585aa6d924fd714df1e2a84be7896c60"
+uuid = "79e6a3ab-5dfb-504d-930d-738a2a938a0e"
+version = "4.3.0"
+weakdeps = ["SparseArrays", "StaticArrays"]
+
+    [deps.Adapt.extensions]
+    AdaptSparseArraysExt = "SparseArrays"
+    AdaptStaticArraysExt = "StaticArrays"
+
+[[deps.AliasTables]]
+deps = ["PtrArrays", "Random"]
+git-tree-sha1 = "9876e1e164b144ca45e9e3198d0b689cadfed9ff"
+uuid = "66dad0bd-aa9a-41b7-9441-69ab47430ed8"
+version = "1.1.3"
+
+[[deps.ArgTools]]
+uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
+version = "1.1.2"
+
+[[deps.ArnoldiMethod]]
+deps = ["LinearAlgebra", "Random", "StaticArrays"]
+git-tree-sha1 = "d57bd3762d308bded22c3b82d033bff85f6195c6"
+uuid = "ec485272-7323-5ecc-a04f-4719b315124d"
+version = "0.4.0"
+
+[[deps.ArrayInterface]]
+deps = ["Adapt", "LinearAlgebra"]
+git-tree-sha1 = "dbd8c3bbbdbb5c2778f85f4422c39960eac65a42"
+uuid = "4fba245c-0d91-5ea0-9b3e-6abc04ee57a9"
+version = "7.20.0"
+
+    [deps.ArrayInterface.extensions]
+    ArrayInterfaceBandedMatricesExt = "BandedMatrices"
+    ArrayInterfaceBlockBandedMatricesExt = "BlockBandedMatrices"
+    ArrayInterfaceCUDAExt = "CUDA"
+    ArrayInterfaceCUDSSExt = "CUDSS"
+    ArrayInterfaceChainRulesCoreExt = "ChainRulesCore"
+    ArrayInterfaceChainRulesExt = "ChainRules"
+    ArrayInterfaceGPUArraysCoreExt = "GPUArraysCore"
+    ArrayInterfaceMetalExt = "Metal"
+    ArrayInterfaceReverseDiffExt = "ReverseDiff"
+    ArrayInterfaceSparseArraysExt = "SparseArrays"
+    ArrayInterfaceStaticArraysCoreExt = "StaticArraysCore"
+    ArrayInterfaceTrackerExt = "Tracker"
+
+    [deps.ArrayInterface.weakdeps]
+    BandedMatrices = "aae01518-5342-5314-be14-df237901396f"
+    BlockBandedMatrices = "ffab5731-97b5-5995-9138-79e8c1846df0"
+    CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+    CUDSS = "45b445bb-4962-46a0-9369-b4df9d0f772e"
+    ChainRules = "082447d4-558c-5d27-93f4-14fc19e9eca2"
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    GPUArraysCore = "46192b85-c4d5-4398-a991-12ede77f4527"
+    Metal = "dde4c033-4e86-420c-a63e-0dd931031962"
+    ReverseDiff = "37e2e3b7-166d-5795-8a7a-e32c996b4267"
+    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+    StaticArraysCore = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
+    Tracker = "9f7883ad-71c0-57eb-9f7f-b5c9e6d3789c"
+
+[[deps.Artifacts]]
+uuid = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
+version = "1.11.0"
+
+[[deps.Base64]]
+uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
+version = "1.11.0"
+
+[[deps.BasicInterpolators]]
+deps = ["LinearAlgebra", "Memoize", "Random"]
+git-tree-sha1 = "3f7be532673fc4a22825e7884e9e0e876236b12a"
+uuid = "26cce99e-4866-4b6d-ab74-862489e035e0"
+version = "0.7.1"
+
+[[deps.BenchmarkTools]]
+deps = ["Compat", "JSON", "Logging", "Printf", "Profile", "Statistics", "UUIDs"]
+git-tree-sha1 = "7fecfb1123b8d0232218e2da0c213004ff15358d"
+uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+version = "1.6.3"
+
+[[deps.BitFlags]]
+git-tree-sha1 = "0691e34b3bb8be9307330f88d1a3c3f25466c24d"
+uuid = "d1d4a3ce-64b1-5f1a-9ba4-7e7e69966f35"
+version = "0.1.9"
+
+[[deps.Bzip2_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "1b96ea4a01afe0ea4090c5c8039690672dd13f2e"
+uuid = "6e34b625-4abd-537c-b88f-471c36dfa7a0"
+version = "1.0.9+0"
+
+[[deps.CEnum]]
+git-tree-sha1 = "389ad5c84de1ae7cf0e28e381131c98ea87d54fc"
+uuid = "fa961155-64e5-5f13-b03f-caf6b980ea82"
+version = "0.5.0"
+
+[[deps.Cairo_jll]]
+deps = ["Artifacts", "Bzip2_jll", "CompilerSupportLibraries_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "JLLWrappers", "LZO_jll", "Libdl", "Pixman_jll", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Zlib_jll", "libpng_jll"]
+git-tree-sha1 = "fde3bf89aead2e723284a8ff9cdf5b551ed700e8"
+uuid = "83423d85-b0ee-5818-9007-b63ccbeb887a"
+version = "1.18.5+0"
+
+[[deps.ChunkCodecCore]]
+git-tree-sha1 = "51f4c10ee01bda57371e977931de39ee0f0cdb3e"
+uuid = "0b6fb165-00bc-4d37-ab8b-79f91016dbe1"
+version = "1.0.0"
+
+[[deps.ChunkCodecLibZlib]]
+deps = ["ChunkCodecCore", "Zlib_jll"]
+git-tree-sha1 = "cee8104904c53d39eb94fd06cbe60cb5acde7177"
+uuid = "4c0bbee4-addc-4d73-81a0-b6caacae83c8"
+version = "1.0.0"
+
+[[deps.ChunkCodecLibZstd]]
+deps = ["ChunkCodecCore", "Zstd_jll"]
+git-tree-sha1 = "34d9873079e4cb3d0c62926a225136824677073f"
+uuid = "55437552-ac27-4d47-9aa3-63184e8fd398"
+version = "1.0.0"
+
+[[deps.CodecBzip2]]
+deps = ["Bzip2_jll", "TranscodingStreams"]
+git-tree-sha1 = "84990fa864b7f2b4901901ca12736e45ee79068c"
+uuid = "523fee87-0ab8-5b00-afb7-3ecf72e48cfd"
+version = "0.8.5"
+
+[[deps.CodecZlib]]
+deps = ["TranscodingStreams", "Zlib_jll"]
+git-tree-sha1 = "962834c22b66e32aa10f7611c08c8ca4e20749a9"
+uuid = "944b1d66-785c-5afd-91f1-9de20f533193"
+version = "0.7.8"
+
+[[deps.ColorSchemes]]
+deps = ["ColorTypes", "ColorVectorSpace", "Colors", "FixedPointNumbers", "PrecompileTools", "Random"]
+git-tree-sha1 = "b0fd3f56fa442f81e0a47815c92245acfaaa4e34"
+uuid = "35d6a980-a343-548e-a6ea-1d62b119f2f4"
+version = "3.31.0"
+
+[[deps.ColorTypes]]
+deps = ["FixedPointNumbers", "Random"]
+git-tree-sha1 = "67e11ee83a43eb71ddc950302c53bf33f0690dfe"
+uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
+version = "0.12.1"
+weakdeps = ["StyledStrings"]
+
+    [deps.ColorTypes.extensions]
+    StyledStringsExt = "StyledStrings"
+
+[[deps.ColorVectorSpace]]
+deps = ["ColorTypes", "FixedPointNumbers", "LinearAlgebra", "Requires", "Statistics", "TensorCore"]
+git-tree-sha1 = "8b3b6f87ce8f65a2b4f857528fd8d70086cd72b1"
+uuid = "c3611d14-8923-5661-9e6a-0046d554d3a4"
+version = "0.11.0"
+weakdeps = ["SpecialFunctions"]
+
+    [deps.ColorVectorSpace.extensions]
+    SpecialFunctionsExt = "SpecialFunctions"
+
+[[deps.Colors]]
+deps = ["ColorTypes", "FixedPointNumbers", "Reexport"]
+git-tree-sha1 = "37ea44092930b1811e666c3bc38065d7d87fcc74"
+uuid = "5ae59095-9a9b-59fe-a467-6f913c188581"
+version = "0.13.1"
+
+[[deps.CommonSubexpressions]]
+deps = ["MacroTools"]
+git-tree-sha1 = "cda2cfaebb4be89c9084adaca7dd7333369715c5"
+uuid = "bbf7d656-a473-5ed7-a52c-81e309532950"
+version = "0.3.1"
+
+[[deps.Compat]]
+deps = ["TOML", "UUIDs"]
+git-tree-sha1 = "9d8a54ce4b17aa5bdce0ea5c34bc5e7c340d16ad"
+uuid = "34da2185-b29b-5c13-b0c7-acf172513d20"
+version = "4.18.1"
+weakdeps = ["Dates", "LinearAlgebra"]
+
+    [deps.Compat.extensions]
+    CompatLinearAlgebraExt = "LinearAlgebra"
+
+[[deps.CompilerSupportLibraries_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
+version = "1.3.0+1"
+
+[[deps.ConcurrentUtilities]]
+deps = ["Serialization", "Sockets"]
+git-tree-sha1 = "d9d26935a0bcffc87d2613ce14c527c99fc543fd"
+uuid = "f0e56b4a-5159-44fe-b623-3e5288b988bb"
+version = "2.5.0"
+
+[[deps.ConstructionBase]]
+git-tree-sha1 = "b4b092499347b18a015186eae3042f72267106cb"
+uuid = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
+version = "1.6.0"
+
+    [deps.ConstructionBase.extensions]
+    ConstructionBaseIntervalSetsExt = "IntervalSets"
+    ConstructionBaseLinearAlgebraExt = "LinearAlgebra"
+    ConstructionBaseStaticArraysExt = "StaticArrays"
+
+    [deps.ConstructionBase.weakdeps]
+    IntervalSets = "8197267c-284f-5f27-9208-e0e47529a953"
+    LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+    StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+
+[[deps.Contour]]
+git-tree-sha1 = "439e35b0b36e2e5881738abc8857bd92ad6ff9a8"
+uuid = "d38c429a-6771-53c6-b99e-75d170b6e991"
+version = "0.6.3"
+
+[[deps.Crayons]]
+git-tree-sha1 = "249fe38abf76d48563e2f4556bebd215aa317e15"
+uuid = "a8cc5b0e-0ffa-5ad4-8c14-923d3ee1735f"
+version = "4.1.1"
+
+[[deps.DataAPI]]
+git-tree-sha1 = "abe83f3a2f1b857aac70ef8b269080af17764bbe"
+uuid = "9a962f9c-6df0-11e9-0e5d-c546b8b5ee8a"
+version = "1.16.0"
+
+[[deps.DataStructures]]
+deps = ["OrderedCollections"]
+git-tree-sha1 = "76b3b7c3925d943edf158ddb7f693ba54eb297a5"
+uuid = "864edb3b-99cc-5e75-8d2d-829cb0a9cfe8"
+version = "0.19.0"
+
+[[deps.DataValueInterfaces]]
+git-tree-sha1 = "bfc1187b79289637fa0ef6d4436ebdfe6905cbd6"
+uuid = "e2d170a0-9d28-54be-80f0-106bbe20a464"
+version = "1.0.0"
+
+[[deps.Dates]]
+deps = ["Printf"]
+uuid = "ade2ca70-3891-5945-98fb-dc099432e06a"
+version = "1.11.0"
+
+[[deps.Dbus_jll]]
+deps = ["Artifacts", "Expat_jll", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "473e9afc9cf30814eb67ffa5f2db7df82c3ad9fd"
+uuid = "ee1fde0b-3d02-5ea6-8484-8dfef6360eab"
+version = "1.16.2+0"
+
+[[deps.DelimitedFiles]]
+deps = ["Mmap"]
+git-tree-sha1 = "9e2f36d3c96a820c678f2f1f1782582fcf685bae"
+uuid = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+version = "1.9.1"
+
+[[deps.DiffResults]]
+deps = ["StaticArraysCore"]
+git-tree-sha1 = "782dd5f4561f5d267313f23853baaaa4c52ea621"
+uuid = "163ba53b-c6d8-5494-b064-1a9d43ac40c5"
+version = "1.1.0"
+
+[[deps.DiffRules]]
+deps = ["IrrationalConstants", "LogExpFunctions", "NaNMath", "Random", "SpecialFunctions"]
+git-tree-sha1 = "23163d55f885173722d1e4cf0f6110cdbaf7e272"
+uuid = "b552c78f-8df3-52c6-915a-8e097449b14b"
+version = "1.15.1"
+
+[[deps.DifferentiationInterface]]
+deps = ["ADTypes", "LinearAlgebra"]
+git-tree-sha1 = "16946a4d305607c3a4af54ff35d56f0e9444ed0e"
+uuid = "a0c0ee7d-e4b9-4e03-894e-1c5f64a51d63"
+version = "0.7.7"
+
+    [deps.DifferentiationInterface.extensions]
+    DifferentiationInterfaceChainRulesCoreExt = "ChainRulesCore"
+    DifferentiationInterfaceDiffractorExt = "Diffractor"
+    DifferentiationInterfaceEnzymeExt = ["EnzymeCore", "Enzyme"]
+    DifferentiationInterfaceFastDifferentiationExt = "FastDifferentiation"
+    DifferentiationInterfaceFiniteDiffExt = "FiniteDiff"
+    DifferentiationInterfaceFiniteDifferencesExt = "FiniteDifferences"
+    DifferentiationInterfaceForwardDiffExt = ["ForwardDiff", "DiffResults"]
+    DifferentiationInterfaceGPUArraysCoreExt = "GPUArraysCore"
+    DifferentiationInterfaceGTPSAExt = "GTPSA"
+    DifferentiationInterfaceMooncakeExt = "Mooncake"
+    DifferentiationInterfacePolyesterForwardDiffExt = ["PolyesterForwardDiff", "ForwardDiff", "DiffResults"]
+    DifferentiationInterfaceReverseDiffExt = ["ReverseDiff", "DiffResults"]
+    DifferentiationInterfaceSparseArraysExt = "SparseArrays"
+    DifferentiationInterfaceSparseConnectivityTracerExt = "SparseConnectivityTracer"
+    DifferentiationInterfaceSparseMatrixColoringsExt = "SparseMatrixColorings"
+    DifferentiationInterfaceStaticArraysExt = "StaticArrays"
+    DifferentiationInterfaceSymbolicsExt = "Symbolics"
+    DifferentiationInterfaceTrackerExt = "Tracker"
+    DifferentiationInterfaceZygoteExt = ["Zygote", "ForwardDiff"]
+
+    [deps.DifferentiationInterface.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    DiffResults = "163ba53b-c6d8-5494-b064-1a9d43ac40c5"
+    Diffractor = "9f5e2b26-1114-432f-b630-d3fe2085c51c"
+    Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
+    EnzymeCore = "f151be2c-9106-41f4-ab19-57ee4f262869"
+    FastDifferentiation = "eb9bf01b-bf85-4b60-bf87-ee5de06c00be"
+    FiniteDiff = "6a86dc24-6348-571c-b903-95158fe2bd41"
+    FiniteDifferences = "26cc04aa-876d-5657-8c51-4c34ba976000"
+    ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+    GPUArraysCore = "46192b85-c4d5-4398-a991-12ede77f4527"
+    GTPSA = "b27dd330-f138-47c5-815b-40db9dd9b6e8"
+    Mooncake = "da2b9cff-9c12-43a0-ae48-6db2b0edb7d6"
+    PolyesterForwardDiff = "98d1487c-24ca-40b6-b7ab-df2af84e126b"
+    ReverseDiff = "37e2e3b7-166d-5795-8a7a-e32c996b4267"
+    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+    SparseConnectivityTracer = "9f842d2f-2579-4b1d-911e-f412cf18a3f5"
+    SparseMatrixColorings = "0a514795-09f3-496d-8182-132a7b665d35"
+    StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+    Symbolics = "0c5d862f-8b57-4792-8d23-62f2024744c7"
+    Tracker = "9f7883ad-71c0-57eb-9f7f-b5c9e6d3789c"
+    Zygote = "e88e6eb3-aa80-5325-afca-941959d7151f"
+
+[[deps.Distributed]]
+deps = ["Random", "Serialization", "Sockets"]
+uuid = "8ba89e20-285c-5b6f-9357-94700520ee1b"
+version = "1.11.0"
+
+[[deps.Distributions]]
+deps = ["AliasTables", "FillArrays", "LinearAlgebra", "PDMats", "Printf", "QuadGK", "Random", "SpecialFunctions", "Statistics", "StatsAPI", "StatsBase", "StatsFuns"]
+git-tree-sha1 = "3e6d038b77f22791b8e3472b7c633acea1ecac06"
+uuid = "31c24e10-a181-5473-b8eb-7969acd0382f"
+version = "0.25.120"
+
+    [deps.Distributions.extensions]
+    DistributionsChainRulesCoreExt = "ChainRulesCore"
+    DistributionsDensityInterfaceExt = "DensityInterface"
+    DistributionsTestExt = "Test"
+
+    [deps.Distributions.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    DensityInterface = "b429d917-457f-4dbc-8f4c-0cc954292b1d"
+    Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[[deps.DocStringExtensions]]
+git-tree-sha1 = "7442a5dfe1ebb773c29cc2962a8980f47221d76c"
+uuid = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
+version = "0.9.5"
+
+[[deps.Downloads]]
+deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
+uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
+version = "1.6.0"
+
+[[deps.ECOS]]
+deps = ["CEnum", "ECOS_jll", "MathOptInterface"]
+git-tree-sha1 = "ee59bee24d48b45327ea711b6182178018a8401a"
+uuid = "e2685f51-7e38-5353-a97d-a921fd2c8199"
+version = "1.1.3"
+
+[[deps.ECOS_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Pkg"]
+git-tree-sha1 = "5f84034ddd642cf595e57d46ea2f085321c260e4"
+uuid = "c2c64177-6a8e-5dca-99a7-64895ad7445f"
+version = "200.0.800+0"
+
+[[deps.EasyFit]]
+deps = ["LsqFit", "Parameters", "Statistics", "TestItems", "Unitful"]
+git-tree-sha1 = "db5d8290bd46c9582782b4a29eaf155deb7c9fcc"
+uuid = "fde71243-0cda-4261-b7c7-4845bd106b21"
+version = "0.6.10"
+
+    [deps.EasyFit.extensions]
+    SplineFitExt = "Interpolations"
+
+    [deps.EasyFit.weakdeps]
+    Interpolations = "a98d9a8b-a2ab-59e6-89dd-64a1c18fca59"
+
+[[deps.EpollShim_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "8a4be429317c42cfae6a7fc03c31bad1970c310d"
+uuid = "2702e6a9-849d-5ed8-8c21-79e8b8f9ee43"
+version = "0.0.20230411+1"
+
+[[deps.ExceptionUnwrapping]]
+deps = ["Test"]
+git-tree-sha1 = "d36f682e590a83d63d1c7dbd287573764682d12a"
+uuid = "460bff9d-24e4-43bc-9d9f-a8973cb893f4"
+version = "0.1.11"
+
+[[deps.Expat_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "7bb1361afdb33c7f2b085aa49ea8fe1b0fb14e58"
+uuid = "2e619515-83b5-522b-bb60-26c02a35a201"
+version = "2.7.1+0"
+
+[[deps.FFMPEG]]
+deps = ["FFMPEG_jll"]
+git-tree-sha1 = "83dc665d0312b41367b7263e8a4d172eac1897f4"
+uuid = "c87230d0-a227-11e9-1b43-d7ebe4e7570a"
+version = "0.4.4"
+
+[[deps.FFMPEG_jll]]
+deps = ["Artifacts", "Bzip2_jll", "FreeType2_jll", "FriBidi_jll", "JLLWrappers", "LAME_jll", "Libdl", "Ogg_jll", "OpenSSL_jll", "Opus_jll", "PCRE2_jll", "Zlib_jll", "libaom_jll", "libass_jll", "libfdk_aac_jll", "libvorbis_jll", "x264_jll", "x265_jll"]
+git-tree-sha1 = "3a948313e7a41eb1db7a1e733e6335f17b4ab3c4"
+uuid = "b22a6f82-2f65-5046-a5b2-351ab43fb4e5"
+version = "7.1.1+0"
+
+[[deps.FileIO]]
+deps = ["Pkg", "Requires", "UUIDs"]
+git-tree-sha1 = "d60eb76f37d7e5a40cc2e7c36974d864b82dc802"
+uuid = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+version = "1.17.1"
+weakdeps = ["HTTP"]
+
+    [deps.FileIO.extensions]
+    HTTPExt = "HTTP"
+
+[[deps.FileWatching]]
+uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
+version = "1.11.0"
+
+[[deps.FillArrays]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "173e4d8f14230a7523ae11b9a3fa9edb3e0efd78"
+uuid = "1a297f60-69ca-5386-bcde-b61e274b549b"
+version = "1.14.0"
+weakdeps = ["PDMats", "SparseArrays", "Statistics"]
+
+    [deps.FillArrays.extensions]
+    FillArraysPDMatsExt = "PDMats"
+    FillArraysSparseArraysExt = "SparseArrays"
+    FillArraysStatisticsExt = "Statistics"
+
+[[deps.FiniteDiff]]
+deps = ["ArrayInterface", "LinearAlgebra", "Setfield"]
+git-tree-sha1 = "31fd32af86234b6b71add76229d53129aa1b87a9"
+uuid = "6a86dc24-6348-571c-b903-95158fe2bd41"
+version = "2.28.1"
+
+    [deps.FiniteDiff.extensions]
+    FiniteDiffBandedMatricesExt = "BandedMatrices"
+    FiniteDiffBlockBandedMatricesExt = "BlockBandedMatrices"
+    FiniteDiffSparseArraysExt = "SparseArrays"
+    FiniteDiffStaticArraysExt = "StaticArrays"
+
+    [deps.FiniteDiff.weakdeps]
+    BandedMatrices = "aae01518-5342-5314-be14-df237901396f"
+    BlockBandedMatrices = "ffab5731-97b5-5995-9138-79e8c1846df0"
+    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+    StaticArrays = "90137ffa-7385-5640-81b9-e52037218182"
+
+[[deps.FixedPointNumbers]]
+deps = ["Statistics"]
+git-tree-sha1 = "05882d6995ae5c12bb5f36dd2ed3f61c98cbb172"
+uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
+version = "0.8.5"
+
+[[deps.Fontconfig_jll]]
+deps = ["Artifacts", "Bzip2_jll", "Expat_jll", "FreeType2_jll", "JLLWrappers", "Libdl", "Libuuid_jll", "Zlib_jll"]
+git-tree-sha1 = "f85dac9a96a01087df6e3a749840015a0ca3817d"
+uuid = "a3f928ae-7b40-5064-980b-68af3947d34b"
+version = "2.17.1+0"
+
+[[deps.Format]]
+git-tree-sha1 = "9c68794ef81b08086aeb32eeaf33531668d5f5fc"
+uuid = "1fa38f19-a742-5d3f-a2b9-30dd87b9d5f8"
+version = "1.3.7"
+
+[[deps.ForwardDiff]]
+deps = ["CommonSubexpressions", "DiffResults", "DiffRules", "LinearAlgebra", "LogExpFunctions", "NaNMath", "Preferences", "Printf", "Random", "SpecialFunctions"]
+git-tree-sha1 = "910febccb28d493032495b7009dce7d7f7aee554"
+uuid = "f6369f11-7733-5829-9624-2563aa707210"
+version = "1.0.1"
+weakdeps = ["StaticArrays"]
+
+    [deps.ForwardDiff.extensions]
+    ForwardDiffStaticArraysExt = "StaticArrays"
+
+[[deps.FreeType2_jll]]
+deps = ["Artifacts", "Bzip2_jll", "JLLWrappers", "Libdl", "Zlib_jll"]
+git-tree-sha1 = "2c5512e11c791d1baed2049c5652441b28fc6a31"
+uuid = "d7e528f0-a631-5988-bf34-fe36492bcfd7"
+version = "2.13.4+0"
+
+[[deps.FriBidi_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "7a214fdac5ed5f59a22c2d9a885a16da1c74bbc7"
+uuid = "559328eb-81f9-559d-9380-de523a88c83c"
+version = "1.0.17+0"
+
+[[deps.Future]]
+deps = ["Random"]
+uuid = "9fa8497b-333b-5362-9e8d-4d0656e87820"
+version = "1.11.0"
+
+[[deps.GLFW_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Libglvnd_jll", "Xorg_libXcursor_jll", "Xorg_libXi_jll", "Xorg_libXinerama_jll", "Xorg_libXrandr_jll", "libdecor_jll", "xkbcommon_jll"]
+git-tree-sha1 = "fcb0584ff34e25155876418979d4c8971243bb89"
+uuid = "0656b61e-2033-5cc2-a64a-77c0f6c09b89"
+version = "3.4.0+2"
+
+[[deps.GR]]
+deps = ["Artifacts", "Base64", "DelimitedFiles", "Downloads", "GR_jll", "HTTP", "JSON", "Libdl", "LinearAlgebra", "Preferences", "Printf", "Qt6Wayland_jll", "Random", "Serialization", "Sockets", "TOML", "Tar", "Test", "p7zip_jll"]
+git-tree-sha1 = "1828eb7275491981fa5f1752a5e126e8f26f8741"
+uuid = "28b8d3ca-fb5f-59d9-8090-bfdbd6d07a71"
+version = "0.73.17"
+
+[[deps.GR_jll]]
+deps = ["Artifacts", "Bzip2_jll", "Cairo_jll", "FFMPEG_jll", "Fontconfig_jll", "FreeType2_jll", "GLFW_jll", "JLLWrappers", "JpegTurbo_jll", "Libdl", "Libtiff_jll", "Pixman_jll", "Qt6Base_jll", "Zlib_jll", "libpng_jll"]
+git-tree-sha1 = "27299071cc29e409488ada41ec7643e0ab19091f"
+uuid = "d2c73de3-f751-5644-a686-071e5b155ba9"
+version = "0.73.17+0"
+
+[[deps.GettextRuntime_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "Libiconv_jll"]
+git-tree-sha1 = "45288942190db7c5f760f59c04495064eedf9340"
+uuid = "b0724c58-0f36-5564-988d-3bb0596ebc4a"
+version = "0.22.4+0"
+
+[[deps.Ghostscript_jll]]
+deps = ["Artifacts", "JLLWrappers", "JpegTurbo_jll", "Libdl", "Zlib_jll"]
+git-tree-sha1 = "38044a04637976140074d0b0621c1edf0eb531fd"
+uuid = "61579ee1-b43e-5ca0-a5da-69d92c66a64b"
+version = "9.55.1+0"
+
+[[deps.Glib_jll]]
+deps = ["Artifacts", "GettextRuntime_jll", "JLLWrappers", "Libdl", "Libffi_jll", "Libiconv_jll", "Libmount_jll", "PCRE2_jll", "Zlib_jll"]
+git-tree-sha1 = "50c11ffab2a3d50192a228c313f05b5b5dc5acb2"
+uuid = "7746bdde-850d-59dc-9ae8-88ece973131d"
+version = "2.86.0+0"
+
+[[deps.Graphite2_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "8a6dbda1fd736d60cc477d99f2e7a042acfa46e8"
+uuid = "3b182d85-2403-5c21-9c21-1e1f0cc25472"
+version = "1.3.15+0"
+
+[[deps.Graphs]]
+deps = ["ArnoldiMethod", "DataStructures", "Distributed", "Inflate", "LinearAlgebra", "Random", "SharedArrays", "SimpleTraits", "SparseArrays", "Statistics"]
+git-tree-sha1 = "7a98c6502f4632dbe9fb1973a4244eaa3324e84d"
+uuid = "86223c79-3864-5bf0-83f7-82e725a168b6"
+version = "1.13.1"
+
+[[deps.Grisu]]
+git-tree-sha1 = "53bb909d1151e57e2484c3d1b53e19552b887fb2"
+uuid = "42e2da0e-8278-4e71-bc24-59509adca0fe"
+version = "1.0.2"
+
+[[deps.HTTP]]
+deps = ["Base64", "CodecZlib", "ConcurrentUtilities", "Dates", "ExceptionUnwrapping", "Logging", "LoggingExtras", "MbedTLS", "NetworkOptions", "OpenSSL", "PrecompileTools", "Random", "SimpleBufferStream", "Sockets", "URIs", "UUIDs"]
+git-tree-sha1 = "5e6fe50ae7f23d171f44e311c2960294aaa0beb5"
+uuid = "cd3eb016-35fb-5094-929b-558a96fad6f3"
+version = "1.10.19"
+
+[[deps.HarfBuzz_jll]]
+deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "Glib_jll", "Graphite2_jll", "JLLWrappers", "Libdl", "Libffi_jll"]
+git-tree-sha1 = "f923f9a774fcf3f5cb761bfa43aeadd689714813"
+uuid = "2e76f6c2-a576-52d4-95c1-20adfe4de566"
+version = "8.5.1+0"
+
+[[deps.HashArrayMappedTries]]
+git-tree-sha1 = "2eaa69a7cab70a52b9687c8bf950a5a93ec895ae"
+uuid = "076d061b-32b6-4027-95e0-9a2c6f6d7e74"
+version = "0.2.0"
+
+[[deps.HiGHS]]
+deps = ["HiGHS_jll", "MathOptIIS", "MathOptInterface", "PrecompileTools", "SparseArrays"]
+git-tree-sha1 = "39c4e07554b5f586b41d87645f9c9afd0f76acff"
+uuid = "87dc4568-4c63-4d18-b0c0-bb2238e4078b"
+version = "1.20.0"
+
+[[deps.HiGHS_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl", "METIS_jll", "OpenBLAS32_jll", "Zlib_jll"]
+git-tree-sha1 = "e0539aa3405df00e963a9a56d5e903a280f328e7"
+uuid = "8fd58aa0-07eb-5a78-9b36-339c94fd15ea"
+version = "1.12.0+0"
+
+[[deps.HypergeometricFunctions]]
+deps = ["LinearAlgebra", "OpenLibm_jll", "SpecialFunctions"]
+git-tree-sha1 = "68c173f4f449de5b438ee67ed0c9c748dc31a2ec"
+uuid = "34004b35-14d8-5ef3-9330-4cdb6864b03a"
+version = "0.3.28"
+
+[[deps.Hyperscript]]
+deps = ["Test"]
+git-tree-sha1 = "179267cfa5e712760cd43dcae385d7ea90cc25a4"
+uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
+version = "0.0.5"
+
+[[deps.HypertextLiteral]]
+deps = ["Tricks"]
+git-tree-sha1 = "7134810b1afce04bbc1045ca1985fbe81ce17653"
+uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
+version = "0.9.5"
+
+[[deps.IOCapture]]
+deps = ["Logging", "Random"]
+git-tree-sha1 = "b6d6bfdd7ce25b0f9b2f6b3dd56b2673a66c8770"
+uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
+version = "0.2.5"
+
+[[deps.Inflate]]
+git-tree-sha1 = "d1b1b796e47d94588b3757fe84fbf65a5ec4a80d"
+uuid = "d25df0c9-e2be-5dd7-82c8-3ad0b3e990b9"
+version = "0.1.5"
+
+[[deps.InteractiveUtils]]
+deps = ["Markdown"]
+uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
+version = "1.11.0"
+
+[[deps.IrrationalConstants]]
+git-tree-sha1 = "e2222959fbc6c19554dc15174c81bf7bf3aa691c"
+uuid = "92d709cd-6900-40b7-9082-c6be49f344b6"
+version = "0.2.4"
+
+[[deps.IterTools]]
+git-tree-sha1 = "42d5f897009e7ff2cf88db414a389e5ed1bdd023"
+uuid = "c8e1da08-722c-5040-9ed9-7db0dc04731e"
+version = "1.10.0"
+
+[[deps.IteratorInterfaceExtensions]]
+git-tree-sha1 = "a3f24677c21f5bbe9d2a714f95dcd58337fb2856"
+uuid = "82899510-4779-5014-852e-03e436cf321d"
+version = "1.0.0"
+
+[[deps.JLD2]]
+deps = ["ChunkCodecLibZlib", "ChunkCodecLibZstd", "FileIO", "MacroTools", "Mmap", "OrderedCollections", "PrecompileTools", "ScopedValues"]
+git-tree-sha1 = "da2e9b4d1abbebdcca0aa68afa0aa272102baad7"
+uuid = "033835bb-8acc-5ee8-8aae-3f567f8a3819"
+version = "0.6.2"
+weakdeps = ["UnPack"]
+
+    [deps.JLD2.extensions]
+    UnPackExt = "UnPack"
+
+[[deps.JLFzf]]
+deps = ["REPL", "Random", "fzf_jll"]
+git-tree-sha1 = "82f7acdc599b65e0f8ccd270ffa1467c21cb647b"
+uuid = "1019f520-868f-41f5-a6de-eb00f4b6a39c"
+version = "0.1.11"
+
+[[deps.JLLWrappers]]
+deps = ["Artifacts", "Preferences"]
+git-tree-sha1 = "0533e564aae234aff59ab625543145446d8b6ec2"
+uuid = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
+version = "1.7.1"
+
+[[deps.JSON]]
+deps = ["Dates", "Mmap", "Parsers", "Unicode"]
+git-tree-sha1 = "31e996f0a15c7b280ba9f76636b3ff9e2ae58c9a"
+uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
+version = "0.21.4"
+
+[[deps.JSON3]]
+deps = ["Dates", "Mmap", "Parsers", "PrecompileTools", "StructTypes", "UUIDs"]
+git-tree-sha1 = "411eccfe8aba0814ffa0fdf4860913ed09c34975"
+uuid = "0f8b85d8-7281-11e9-16c2-39a750bddbf1"
+version = "1.14.3"
+
+    [deps.JSON3.extensions]
+    JSON3ArrowExt = ["ArrowTypes"]
+
+    [deps.JSON3.weakdeps]
+    ArrowTypes = "31f734f8-188a-4ce0-8406-c8a06bd891cd"
+
+[[deps.JpegTurbo_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "4255f0032eafd6451d707a51d5f0248b8a165e4d"
+uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
+version = "3.1.3+0"
+
+[[deps.JuMP]]
+deps = ["LinearAlgebra", "MacroTools", "MathOptInterface", "MutableArithmetics", "OrderedCollections", "PrecompileTools", "Printf", "SparseArrays"]
+git-tree-sha1 = "d6ece925e8798b6f078731ab04ce82c5433b0d64"
+uuid = "4076af6c-e467-56ae-b986-b466b2749572"
+version = "1.29.2"
+
+    [deps.JuMP.extensions]
+    JuMPDimensionalDataExt = "DimensionalData"
+
+    [deps.JuMP.weakdeps]
+    DimensionalData = "0703355e-b756-11e9-17c0-8b28908087d0"
+
+[[deps.JuliaSyntaxHighlighting]]
+deps = ["StyledStrings"]
+uuid = "ac6e5ff7-fb65-4e79-a425-ec3bc9c03011"
+version = "1.12.0"
+
+[[deps.LAME_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "059aabebaa7c82ccb853dd4a0ee9d17796f7e1bc"
+uuid = "c1c5ebd0-6772-5130-a774-d5fcae4a789d"
+version = "3.100.3+0"
+
+[[deps.LERC_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "aaafe88dccbd957a8d82f7d05be9b69172e0cee3"
+uuid = "88015f11-f218-50d7-93a8-a6af411a945d"
+version = "4.0.1+0"
+
+[[deps.LLVMOpenMP_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "eb62a3deb62fc6d8822c0c4bef73e4412419c5d8"
+uuid = "1d63c593-3942-5779-bab2-d838dc0a180e"
+version = "18.1.8+0"
+
+[[deps.LZO_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "1c602b1127f4751facb671441ca72715cc95938a"
+uuid = "dd4b983a-f0e5-5f8d-a1b7-129d4a5fb1ac"
+version = "2.10.3+0"
+
+[[deps.LaTeXStrings]]
+git-tree-sha1 = "dda21b8cbd6a6c40d9d02a73230f9d70fed6918c"
+uuid = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+version = "1.4.0"
+
+[[deps.Latexify]]
+deps = ["Format", "Ghostscript_jll", "InteractiveUtils", "LaTeXStrings", "MacroTools", "Markdown", "OrderedCollections", "Requires"]
+git-tree-sha1 = "44f93c47f9cd6c7e431f2f2091fcba8f01cd7e8f"
+uuid = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
+version = "0.16.10"
+
+    [deps.Latexify.extensions]
+    DataFramesExt = "DataFrames"
+    SparseArraysExt = "SparseArrays"
+    SymEngineExt = "SymEngine"
+    TectonicExt = "tectonic_jll"
+
+    [deps.Latexify.weakdeps]
+    DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+    SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+    SymEngine = "123dc426-2d89-5057-bbad-38513e3affd8"
+    tectonic_jll = "d7dd28d6-a5e6-559c-9131-7eb760cdacc5"
+
+[[deps.LayeredLayouts]]
+deps = ["Dates", "ECOS", "Graphs", "HiGHS", "IterTools", "JuMP", "Random"]
+git-tree-sha1 = "a5bcf4f600cc57e99ce5aa4b579fbef804987b02"
+uuid = "f4a74d36-062a-4d48-97cd-1356bad1de4e"
+version = "0.2.10"
+
+[[deps.LibCURL]]
+deps = ["LibCURL_jll", "MozillaCACerts_jll"]
+uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
+version = "0.6.4"
+
+[[deps.LibCURL_jll]]
+deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "nghttp2_jll"]
+uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
+version = "8.11.1+1"
+
+[[deps.LibGit2]]
+deps = ["LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
+uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
+version = "1.11.0"
+
+[[deps.LibGit2_jll]]
+deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll"]
+uuid = "e37daf67-58a4-590a-8e99-b0245dd2ffc5"
+version = "1.9.0+0"
+
+[[deps.LibSSH2_jll]]
+deps = ["Artifacts", "Libdl", "OpenSSL_jll"]
+uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
+version = "1.11.3+1"
+
+[[deps.Libdl]]
+uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
+version = "1.11.0"
+
+[[deps.Libffi_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "c8da7e6a91781c41a863611c7e966098d783c57a"
+uuid = "e9f186c6-92d2-5b65-8a66-fee21dc1b490"
+version = "3.4.7+0"
+
+[[deps.Libglvnd_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libX11_jll", "Xorg_libXext_jll"]
+git-tree-sha1 = "d36c21b9e7c172a44a10484125024495e2625ac0"
+uuid = "7e76a0d4-f3c7-5321-8279-8d96eeed0f29"
+version = "1.7.1+1"
+
+[[deps.Libiconv_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "be484f5c92fad0bd8acfef35fe017900b0b73809"
+uuid = "94ce4f54-9a6c-5748-9c1c-f9c7231a4531"
+version = "1.18.0+0"
+
+[[deps.Libmount_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "706dfd3c0dd56ca090e86884db6eda70fa7dd4af"
+uuid = "4b2f31a3-9ecc-558c-b454-b3730dcb73e9"
+version = "2.41.1+0"
+
+[[deps.Libtiff_jll]]
+deps = ["Artifacts", "JLLWrappers", "JpegTurbo_jll", "LERC_jll", "Libdl", "XZ_jll", "Zlib_jll", "Zstd_jll"]
+git-tree-sha1 = "4ab7581296671007fc33f07a721631b8855f4b1d"
+uuid = "89763e89-9b03-5906-acba-b20f662cd828"
+version = "4.7.1+0"
+
+[[deps.Libuuid_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "d3c8af829abaeba27181db4acb485b18d15d89c6"
+uuid = "38a345b3-de98-5d2b-a5d3-14cd9215e700"
+version = "2.41.1+0"
+
+[[deps.LinearAlgebra]]
+deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
+uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+version = "1.12.0"
+
+[[deps.LogExpFunctions]]
+deps = ["DocStringExtensions", "IrrationalConstants", "LinearAlgebra"]
+git-tree-sha1 = "13ca9e2586b89836fd20cccf56e57e2b9ae7f38f"
+uuid = "2ab3a3ac-af41-5b50-aa03-7779005ae688"
+version = "0.3.29"
+
+    [deps.LogExpFunctions.extensions]
+    LogExpFunctionsChainRulesCoreExt = "ChainRulesCore"
+    LogExpFunctionsChangesOfVariablesExt = "ChangesOfVariables"
+    LogExpFunctionsInverseFunctionsExt = "InverseFunctions"
+
+    [deps.LogExpFunctions.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    ChangesOfVariables = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
+    InverseFunctions = "3587e190-3f89-42d0-90ee-14403ec27112"
+
+[[deps.Logging]]
+uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
+version = "1.11.0"
+
+[[deps.LoggingExtras]]
+deps = ["Dates", "Logging"]
+git-tree-sha1 = "f00544d95982ea270145636c181ceda21c4e2575"
+uuid = "e6f89c97-d47a-5376-807f-9c37f3926c36"
+version = "1.2.0"
+
+[[deps.LsqFit]]
+deps = ["Distributions", "ForwardDiff", "LinearAlgebra", "NLSolversBase", "Printf", "StatsAPI"]
+git-tree-sha1 = "f386224fa41af0c27f45e2f9a8f323e538143b43"
+uuid = "2fda8390-95c7-5789-9bda-21331edee243"
+version = "0.15.1"
+
+[[deps.METIS_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "2eefa8baa858871ae7770c98c3c2a7e46daba5b4"
+uuid = "d00139f3-1899-568f-a2f0-47f597d42d70"
+version = "5.1.3+0"
+
+[[deps.MIMEs]]
+git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
+uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
+version = "1.1.0"
+
+[[deps.MacroTools]]
+git-tree-sha1 = "1e0228a030642014fe5cfe68c2c0a818f9e3f522"
+uuid = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
+version = "0.5.16"
+
+[[deps.Markdown]]
+deps = ["Base64", "JuliaSyntaxHighlighting", "StyledStrings"]
+uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
+version = "1.11.0"
+
+[[deps.MathOptIIS]]
+deps = ["MathOptInterface"]
+git-tree-sha1 = "31d4a6353ea00603104f11384aa44dd8b7162b28"
+uuid = "8c4f8055-bd93-4160-a86b-a0c04941dbff"
+version = "0.1.1"
+
+[[deps.MathOptInterface]]
+deps = ["BenchmarkTools", "CodecBzip2", "CodecZlib", "DataStructures", "ForwardDiff", "JSON3", "LinearAlgebra", "MutableArithmetics", "NaNMath", "OrderedCollections", "PrecompileTools", "Printf", "SparseArrays", "SpecialFunctions", "Test"]
+git-tree-sha1 = "a2cbab4256690aee457d136752c404e001f27768"
+uuid = "b8f27783-ece8-5eb3-8dc8-9495eed66fee"
+version = "1.46.0"
+
+[[deps.MbedTLS]]
+deps = ["Dates", "MbedTLS_jll", "MozillaCACerts_jll", "NetworkOptions", "Random", "Sockets"]
+git-tree-sha1 = "c067a280ddc25f196b5e7df3877c6b226d390aaf"
+uuid = "739be429-bea8-5141-9913-cc70e7f3736d"
+version = "1.1.9"
+
+[[deps.MbedTLS_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "3cce3511ca2c6f87b19c34ffc623417ed2798cbd"
+uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
+version = "2.28.10+0"
+
+[[deps.Measures]]
+git-tree-sha1 = "c13304c81eec1ed3af7fc20e75fb6b26092a1102"
+uuid = "442fdcdd-2543-5da2-b0f3-8c86c306513e"
+version = "0.3.2"
+
+[[deps.Memoize]]
+deps = ["MacroTools"]
+git-tree-sha1 = "2b1dfcba103de714d31c033b5dacc2e4a12c7caa"
+uuid = "c03570c3-d221-55d1-a50c-7939bbd78826"
+version = "0.4.4"
+
+[[deps.MetaGraphs]]
+deps = ["Graphs", "JLD2", "Random"]
+git-tree-sha1 = "3a8f462a180a9d735e340f4e8d5f364d411da3a4"
+uuid = "626554b9-1ddb-594c-aa3c-2596fe9399a5"
+version = "0.8.1"
+
+[[deps.Missings]]
+deps = ["DataAPI"]
+git-tree-sha1 = "ec4f7fbeab05d7747bdf98eb74d130a2a2ed298d"
+uuid = "e1d29d7a-bbdc-5cf2-9ac0-f12de2c33e28"
+version = "1.2.0"
+
+[[deps.Mmap]]
+uuid = "a63ad114-7e13-5084-954f-fe012c677804"
+version = "1.11.0"
+
+[[deps.MozillaCACerts_jll]]
+uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
+version = "2025.5.20"
+
+[[deps.MutableArithmetics]]
+deps = ["LinearAlgebra", "SparseArrays", "Test"]
+git-tree-sha1 = "22df8573f8e7c593ac205455ca088989d0a2c7a0"
+uuid = "d8a4904e-b15c-11e9-3269-09a3773c0cb0"
+version = "1.6.7"
+
+[[deps.NLSolversBase]]
+deps = ["ADTypes", "DifferentiationInterface", "Distributed", "FiniteDiff", "ForwardDiff"]
+git-tree-sha1 = "25a6638571a902ecfb1ae2a18fc1575f86b1d4df"
+uuid = "d41bc354-129a-5804-8e4c-c37616107c6c"
+version = "7.10.0"
+
+[[deps.NaNMath]]
+deps = ["OpenLibm_jll"]
+git-tree-sha1 = "9b8215b1ee9e78a293f99797cd31375471b2bcae"
+uuid = "77ba4419-2d1f-58cd-9bb1-8ffee604a2e3"
+version = "1.1.3"
+
+[[deps.NetworkOptions]]
+uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
+version = "1.3.0"
+
+[[deps.Ogg_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "b6aa4566bb7ae78498a5e68943863fa8b5231b59"
+uuid = "e7412a2a-1a6e-54c0-be00-318e2571c051"
+version = "1.3.6+0"
+
+[[deps.OpenBLAS32_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "ece4587683695fe4c5f20e990da0ed7e83c351e7"
+uuid = "656ef2d0-ae68-5445-9ca0-591084a874a2"
+version = "0.3.29+0"
+
+[[deps.OpenBLAS_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
+uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
+version = "0.3.29+0"
+
+[[deps.OpenLibm_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "05823500-19ac-5b8b-9628-191a04bc5112"
+version = "0.8.7+0"
+
+[[deps.OpenSSL]]
+deps = ["BitFlags", "Dates", "MozillaCACerts_jll", "OpenSSL_jll", "Sockets"]
+git-tree-sha1 = "f1a7e086c677df53e064e0fdd2c9d0b0833e3f6e"
+uuid = "4d8831e6-92b7-49fb-bdf8-b643e874388c"
+version = "1.5.0"
+
+[[deps.OpenSSL_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
+version = "3.5.1+0"
+
+[[deps.OpenSpecFun_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "1346c9208249809840c91b26703912dff463d335"
+uuid = "efe28fd5-8261-553b-a9e1-b2916fc3738e"
+version = "0.5.6+0"
+
+[[deps.Opus_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "c392fc5dd032381919e3b22dd32d6443760ce7ea"
+uuid = "91d4177d-7536-5919-b921-800302f37372"
+version = "1.5.2+0"
+
+[[deps.OrderedCollections]]
+git-tree-sha1 = "05868e21324cede2207c6f0f466b4bfef6d5e7ee"
+uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
+version = "1.8.1"
+
+[[deps.PCRE2_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
+version = "10.44.0+1"
+
+[[deps.PDMats]]
+deps = ["LinearAlgebra", "SparseArrays", "SuiteSparse"]
+git-tree-sha1 = "f07c06228a1c670ae4c87d1276b92c7c597fdda0"
+uuid = "90014a1f-27ba-587c-ab20-58faa44d9150"
+version = "0.11.35"
+
+[[deps.Pango_jll]]
+deps = ["Artifacts", "Cairo_jll", "Fontconfig_jll", "FreeType2_jll", "FriBidi_jll", "Glib_jll", "HarfBuzz_jll", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "1f7f9bbd5f7a2e5a9f7d96e51c9754454ea7f60b"
+uuid = "36c8627f-9965-5494-a995-c6b170f724f3"
+version = "1.56.4+0"
+
+[[deps.Parameters]]
+deps = ["OrderedCollections", "UnPack"]
+git-tree-sha1 = "34c0e9ad262e5f7fc75b10a9952ca7692cfc5fbe"
+uuid = "d96e819e-fc66-5662-9728-84c9c7592b0a"
+version = "0.12.3"
+
+[[deps.Parsers]]
+deps = ["Dates", "PrecompileTools", "UUIDs"]
+git-tree-sha1 = "7d2f8f21da5db6a806faf7b9b292296da42b2810"
+uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
+version = "2.8.3"
+
+[[deps.Pixman_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "JLLWrappers", "LLVMOpenMP_jll", "Libdl"]
+git-tree-sha1 = "db76b1ecd5e9715f3d043cec13b2ec93ce015d53"
+uuid = "30392449-352a-5448-841d-b1acce4e97dc"
+version = "0.44.2+0"
+
+[[deps.Pkg]]
+deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
+uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
+version = "1.12.0"
+weakdeps = ["REPL"]
+
+    [deps.Pkg.extensions]
+    REPLExt = "REPL"
+
+[[deps.PlotThemes]]
+deps = ["PlotUtils", "Statistics"]
+git-tree-sha1 = "41031ef3a1be6f5bbbf3e8073f210556daeae5ca"
+uuid = "ccf2f8ad-2431-5c83-bf29-c5338b663b6a"
+version = "3.3.0"
+
+[[deps.PlotUtils]]
+deps = ["ColorSchemes", "Colors", "Dates", "PrecompileTools", "Printf", "Random", "Reexport", "StableRNGs", "Statistics"]
+git-tree-sha1 = "3ca9a356cd2e113c420f2c13bea19f8d3fb1cb18"
+uuid = "995b91a9-d308-5afd-9ec6-746e21dbc043"
+version = "1.4.3"
+
+[[deps.Plots]]
+deps = ["Base64", "Contour", "Dates", "Downloads", "FFMPEG", "FixedPointNumbers", "GR", "JLFzf", "JSON", "LaTeXStrings", "Latexify", "LinearAlgebra", "Measures", "NaNMath", "Pkg", "PlotThemes", "PlotUtils", "PrecompileTools", "Printf", "REPL", "Random", "RecipesBase", "RecipesPipeline", "Reexport", "RelocatableFolders", "Requires", "Scratch", "Showoff", "SparseArrays", "Statistics", "StatsBase", "TOML", "UUIDs", "UnicodeFun", "Unzip"]
+git-tree-sha1 = "12ce661880f8e309569074a61d3767e5756a199f"
+uuid = "91a5bcdd-55d7-5caf-9e0b-520d859cae80"
+version = "1.41.1"
+
+    [deps.Plots.extensions]
+    FileIOExt = "FileIO"
+    GeometryBasicsExt = "GeometryBasics"
+    IJuliaExt = "IJulia"
+    ImageInTerminalExt = "ImageInTerminal"
+    UnitfulExt = "Unitful"
+
+    [deps.Plots.weakdeps]
+    FileIO = "5789e2e9-d7fb-5bc7-8068-2c6fae9b9549"
+    GeometryBasics = "5c1252a2-5f33-56bf-86c9-59e7332b4326"
+    IJulia = "7073ff75-c697-5162-941a-fcdaad2a7d2a"
+    ImageInTerminal = "d8c32880-2388-543b-8c61-d9f865259254"
+    Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
+[[deps.PlutoTeachingTools]]
+deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
+git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
+uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
+version = "0.4.4"
+
+[[deps.PlutoUI]]
+deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
+git-tree-sha1 = "8329a3a4f75e178c11c1ce2342778bcbbbfa7e3c"
+uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
+version = "0.7.71"
+
+[[deps.PrecompileTools]]
+deps = ["Preferences"]
+git-tree-sha1 = "07a921781cab75691315adc645096ed5e370cb77"
+uuid = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
+version = "1.3.3"
+
+[[deps.Preferences]]
+deps = ["TOML"]
+git-tree-sha1 = "0f27480397253da18fe2c12a4ba4eb9eb208bf3d"
+uuid = "21216c6a-2e73-6563-6e65-726566657250"
+version = "1.5.0"
+
+[[deps.PrettyTables]]
+deps = ["Crayons", "LaTeXStrings", "Markdown", "PrecompileTools", "Printf", "Reexport", "StringManipulation", "Tables"]
+git-tree-sha1 = "1101cd475833706e4d0e7b122218257178f48f34"
+uuid = "08abe8d2-0d0c-5749-adfa-8a2ac140af0d"
+version = "2.4.0"
+
+[[deps.Printf]]
+deps = ["Unicode"]
+uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+version = "1.11.0"
+
+[[deps.Profile]]
+deps = ["StyledStrings"]
+uuid = "9abbd945-dff8-562f-b5e8-e1ebf5ef1b79"
+version = "1.11.0"
+
+[[deps.PtrArrays]]
+git-tree-sha1 = "1d36ef11a9aaf1e8b74dacc6a731dd1de8fd493d"
+uuid = "43287f4e-b6f4-7ad1-bb20-aadabca52c3d"
+version = "1.3.0"
+
+[[deps.Qt6Base_jll]]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "Fontconfig_jll", "Glib_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "OpenSSL_jll", "Vulkan_Loader_jll", "Xorg_libSM_jll", "Xorg_libXext_jll", "Xorg_libXrender_jll", "Xorg_libxcb_jll", "Xorg_xcb_util_cursor_jll", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_keysyms_jll", "Xorg_xcb_util_renderutil_jll", "Xorg_xcb_util_wm_jll", "Zlib_jll", "libinput_jll", "xkbcommon_jll"]
+git-tree-sha1 = "eb38d376097f47316fe089fc62cb7c6d85383a52"
+uuid = "c0090381-4147-56d7-9ebc-da0b1113ec56"
+version = "6.8.2+1"
+
+[[deps.Qt6Declarative_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Qt6Base_jll", "Qt6ShaderTools_jll"]
+git-tree-sha1 = "da7adf145cce0d44e892626e647f9dcbe9cb3e10"
+uuid = "629bc702-f1f5-5709-abd5-49b8460ea067"
+version = "6.8.2+1"
+
+[[deps.Qt6ShaderTools_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Qt6Base_jll"]
+git-tree-sha1 = "9eca9fc3fe515d619ce004c83c31ffd3f85c7ccf"
+uuid = "ce943373-25bb-56aa-8eca-768745ed7b5a"
+version = "6.8.2+1"
+
+[[deps.Qt6Wayland_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Qt6Base_jll", "Qt6Declarative_jll"]
+git-tree-sha1 = "e1d5e16d0f65762396f9ca4644a5f4ddab8d452b"
+uuid = "e99dba38-086e-5de3-a5b1-6e4c66e897c3"
+version = "6.8.2+1"
+
+[[deps.QuadGK]]
+deps = ["DataStructures", "LinearAlgebra"]
+git-tree-sha1 = "9da16da70037ba9d701192e27befedefb91ec284"
+uuid = "1fd47b50-473d-5c70-9696-f719f8f3bcdc"
+version = "2.11.2"
+
+    [deps.QuadGK.extensions]
+    QuadGKEnzymeExt = "Enzyme"
+
+    [deps.QuadGK.weakdeps]
+    Enzyme = "7da242da-08ed-463a-9acd-ee780be4f1d9"
+
+[[deps.REPL]]
+deps = ["InteractiveUtils", "JuliaSyntaxHighlighting", "Markdown", "Sockets", "StyledStrings", "Unicode"]
+uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
+version = "1.11.0"
+
+[[deps.Random]]
+deps = ["SHA"]
+uuid = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+version = "1.11.0"
+
+[[deps.RecipesBase]]
+deps = ["PrecompileTools"]
+git-tree-sha1 = "5c3d09cc4f31f5fc6af001c250bf1278733100ff"
+uuid = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
+version = "1.3.4"
+
+[[deps.RecipesPipeline]]
+deps = ["Dates", "NaNMath", "PlotUtils", "PrecompileTools", "RecipesBase"]
+git-tree-sha1 = "45cf9fd0ca5839d06ef333c8201714e888486342"
+uuid = "01d81517-befc-4cb6-b9ec-a95719d0359c"
+version = "0.6.12"
+
+[[deps.Reexport]]
+git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+uuid = "189a3867-3050-52da-a836-e630ba90ab69"
+version = "1.2.2"
+
+[[deps.RelocatableFolders]]
+deps = ["SHA", "Scratch"]
+git-tree-sha1 = "ffdaf70d81cf6ff22c2b6e733c900c3321cab864"
+uuid = "05181044-ff0b-4ac5-8273-598c1e38db00"
+version = "1.0.1"
+
+[[deps.Requires]]
+deps = ["UUIDs"]
+git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
+uuid = "ae029012-a4dd-5104-9daa-d747884805df"
+version = "1.3.1"
+
+[[deps.Rmath]]
+deps = ["Random", "Rmath_jll"]
+git-tree-sha1 = "852bd0f55565a9e973fcfee83a84413270224dc4"
+uuid = "79098fc4-a85e-5d69-aa6a-4863f24498fa"
+version = "0.8.0"
+
+[[deps.Rmath_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "58cdd8fb2201a6267e1db87ff148dd6c1dbd8ad8"
+uuid = "f50d1b31-88e8-58de-be2c-1cc44531875f"
+version = "0.5.1+0"
+
+[[deps.SHA]]
+uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
+version = "0.7.0"
+
+[[deps.SankeyPlots]]
+deps = ["Graphs", "LayeredLayouts", "MetaGraphs", "Plots", "SparseArrays"]
+git-tree-sha1 = "72e2a908c9aa12ef3f7e09354c506cd4b323e9f7"
+uuid = "8fd88ec8-d95c-41fc-b299-05f2225f2cc5"
+version = "0.3.0"
+
+[[deps.ScopedValues]]
+deps = ["HashArrayMappedTries", "Logging"]
+git-tree-sha1 = "c3b2323466378a2ba15bea4b2f73b081e022f473"
+uuid = "7e506255-f358-4e82-b7e4-beb19740aa63"
+version = "1.5.0"
+
+[[deps.Scratch]]
+deps = ["Dates"]
+git-tree-sha1 = "9b81b8393e50b7d4e6d0a9f14e192294d3b7c109"
+uuid = "6c6a2e73-6563-6170-7368-637461726353"
+version = "1.3.0"
+
+[[deps.Serialization]]
+uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
+version = "1.11.0"
+
+[[deps.Setfield]]
+deps = ["ConstructionBase", "Future", "MacroTools", "StaticArraysCore"]
+git-tree-sha1 = "c5391c6ace3bc430ca630251d02ea9687169ca68"
+uuid = "efcf1570-3423-57d1-acb7-fd33fddbac46"
+version = "1.1.2"
+
+[[deps.SharedArrays]]
+deps = ["Distributed", "Mmap", "Random", "Serialization"]
+uuid = "1a1011a3-84de-559e-8e89-a11a2f7dc383"
+version = "1.11.0"
+
+[[deps.Showoff]]
+deps = ["Dates", "Grisu"]
+git-tree-sha1 = "91eddf657aca81df9ae6ceb20b959ae5653ad1de"
+uuid = "992d4aef-0814-514b-bc4d-f2e9a6c4116f"
+version = "1.0.3"
+
+[[deps.SimpleBufferStream]]
+git-tree-sha1 = "f305871d2f381d21527c770d4788c06c097c9bc1"
+uuid = "777ac1f9-54b0-4bf8-805c-2214025038e7"
+version = "1.2.0"
+
+[[deps.SimpleTraits]]
+deps = ["InteractiveUtils", "MacroTools"]
+git-tree-sha1 = "be8eeac05ec97d379347584fa9fe2f5f76795bcb"
+uuid = "699a6c99-e7fa-54fc-8d76-47d257e15c1d"
+version = "0.9.5"
+
+[[deps.Sockets]]
+uuid = "6462fe0b-24de-5631-8697-dd941f90decc"
+version = "1.11.0"
+
+[[deps.SortingAlgorithms]]
+deps = ["DataStructures"]
+git-tree-sha1 = "64d974c2e6fdf07f8155b5b2ca2ffa9069b608d9"
+uuid = "a2af1166-a08f-5f64-846c-94a0d3cef48c"
+version = "1.2.2"
+
+[[deps.SparseArrays]]
+deps = ["Libdl", "LinearAlgebra", "Random", "Serialization", "SuiteSparse_jll"]
+uuid = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"
+version = "1.12.0"
+
+[[deps.SpecialFunctions]]
+deps = ["IrrationalConstants", "LogExpFunctions", "OpenLibm_jll", "OpenSpecFun_jll"]
+git-tree-sha1 = "41852b8679f78c8d8961eeadc8f62cef861a52e3"
+uuid = "276daf66-3868-5448-9aa4-cd146d93841b"
+version = "2.5.1"
+
+    [deps.SpecialFunctions.extensions]
+    SpecialFunctionsChainRulesCoreExt = "ChainRulesCore"
+
+    [deps.SpecialFunctions.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+
+[[deps.StableRNGs]]
+deps = ["Random"]
+git-tree-sha1 = "95af145932c2ed859b63329952ce8d633719f091"
+uuid = "860ef19b-820b-49d6-a774-d7a799459cd3"
+version = "1.0.3"
+
+[[deps.StaticArrays]]
+deps = ["LinearAlgebra", "PrecompileTools", "Random", "StaticArraysCore"]
+git-tree-sha1 = "b8693004b385c842357406e3af647701fe783f98"
+uuid = "90137ffa-7385-5640-81b9-e52037218182"
+version = "1.9.15"
+
+    [deps.StaticArrays.extensions]
+    StaticArraysChainRulesCoreExt = "ChainRulesCore"
+    StaticArraysStatisticsExt = "Statistics"
+
+    [deps.StaticArrays.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+
+[[deps.StaticArraysCore]]
+git-tree-sha1 = "192954ef1208c7019899fbf8049e717f92959682"
+uuid = "1e83bf80-4336-4d27-bf5d-d5a4f845583c"
+version = "1.4.3"
+
+[[deps.Statistics]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "ae3bb1eb3bba077cd276bc5cfc337cc65c3075c0"
+uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
+version = "1.11.1"
+weakdeps = ["SparseArrays"]
+
+    [deps.Statistics.extensions]
+    SparseArraysExt = ["SparseArrays"]
+
+[[deps.StatsAPI]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "9d72a13a3f4dd3795a195ac5a44d7d6ff5f552ff"
+uuid = "82ae8749-77ed-4fe6-ae5f-f523153014b0"
+version = "1.7.1"
+
+[[deps.StatsBase]]
+deps = ["AliasTables", "DataAPI", "DataStructures", "LinearAlgebra", "LogExpFunctions", "Missings", "Printf", "Random", "SortingAlgorithms", "SparseArrays", "Statistics", "StatsAPI"]
+git-tree-sha1 = "2c962245732371acd51700dbb268af311bddd719"
+uuid = "2913bbd2-ae8a-5f71-8c99-4fb6c76f3a91"
+version = "0.34.6"
+
+[[deps.StatsFuns]]
+deps = ["HypergeometricFunctions", "IrrationalConstants", "LogExpFunctions", "Reexport", "Rmath", "SpecialFunctions"]
+git-tree-sha1 = "8e45cecc66f3b42633b8ce14d431e8e57a3e242e"
+uuid = "4c63d2b9-4356-54db-8cca-17b64c39e42c"
+version = "1.5.0"
+
+    [deps.StatsFuns.extensions]
+    StatsFunsChainRulesCoreExt = "ChainRulesCore"
+    StatsFunsInverseFunctionsExt = "InverseFunctions"
+
+    [deps.StatsFuns.weakdeps]
+    ChainRulesCore = "d360d2e6-b24c-11e9-a2a3-2a2ae2dbcce4"
+    InverseFunctions = "3587e190-3f89-42d0-90ee-14403ec27112"
+
+[[deps.StringManipulation]]
+deps = ["PrecompileTools"]
+git-tree-sha1 = "725421ae8e530ec29bcbdddbe91ff8053421d023"
+uuid = "892a3eda-7b42-436c-8928-eab12a02cf0e"
+version = "0.4.1"
+
+[[deps.StructTypes]]
+deps = ["Dates", "UUIDs"]
+git-tree-sha1 = "159331b30e94d7b11379037feeb9b690950cace8"
+uuid = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
+version = "1.11.0"
+
+[[deps.StyledStrings]]
+uuid = "f489334b-da3d-4c2e-b8f0-e476e12c162b"
+version = "1.11.0"
+
+[[deps.SuiteSparse]]
+deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
+uuid = "4607b0f0-06f3-5cda-b6b1-a6196a1729e9"
+
+[[deps.SuiteSparse_jll]]
+deps = ["Artifacts", "Libdl", "libblastrampoline_jll"]
+uuid = "bea87d4a-7f5b-5778-9afe-8cc45184846c"
+version = "7.8.3+2"
+
+[[deps.TOML]]
+deps = ["Dates"]
+uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
+version = "1.0.3"
+
+[[deps.TableTraits]]
+deps = ["IteratorInterfaceExtensions"]
+git-tree-sha1 = "c06b2f539df1c6efa794486abfb6ed2022561a39"
+uuid = "3783bdb8-4a98-5b6b-af9a-565f29a5fe9c"
+version = "1.0.1"
+
+[[deps.Tables]]
+deps = ["DataAPI", "DataValueInterfaces", "IteratorInterfaceExtensions", "OrderedCollections", "TableTraits"]
+git-tree-sha1 = "f2c1efbc8f3a609aadf318094f8fc5204bdaf344"
+uuid = "bd369af6-aec1-5ad0-b16a-f7cc5008161c"
+version = "1.12.1"
+
+[[deps.Tar]]
+deps = ["ArgTools", "SHA"]
+uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
+version = "1.10.0"
+
+[[deps.TensorCore]]
+deps = ["LinearAlgebra"]
+git-tree-sha1 = "1feb45f88d133a655e001435632f019a9a1bcdb6"
+uuid = "62fd8b95-f654-4bbd-a8a5-9c27f68ccd50"
+version = "0.1.1"
+
+[[deps.Test]]
+deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
+uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+version = "1.11.0"
+
+[[deps.TestItems]]
+git-tree-sha1 = "42fd9023fef18b9b78c8343a4e2f3813ffbcefcb"
+uuid = "1c621080-faea-4a02-84b6-bbd5e436b8fe"
+version = "1.0.0"
+
+[[deps.TranscodingStreams]]
+git-tree-sha1 = "0c45878dcfdcfa8480052b6ab162cdd138781742"
+uuid = "3bb67fe8-82b1-5028-8e26-92a6c54297fa"
+version = "0.11.3"
+
+[[deps.Tricks]]
+git-tree-sha1 = "372b90fe551c019541fafc6ff034199dc19c8436"
+uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
+version = "0.1.12"
+
+[[deps.URIs]]
+git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"
+uuid = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
+version = "1.6.1"
+
+[[deps.UUIDs]]
+deps = ["Random", "SHA"]
+uuid = "cf7118a7-6976-5b1a-9a39-7adc72f591a4"
+version = "1.11.0"
+
+[[deps.UnPack]]
+git-tree-sha1 = "387c1f73762231e86e0c9c5443ce3b4a0a9a0c2b"
+uuid = "3a884ed6-31ef-47d7-9d2a-63182c4928ed"
+version = "1.0.2"
+
+[[deps.Unicode]]
+uuid = "4ec0a83e-493e-50e2-b9ac-8f72acf5a8f5"
+version = "1.11.0"
+
+[[deps.UnicodeFun]]
+deps = ["REPL"]
+git-tree-sha1 = "53915e50200959667e78a92a418594b428dffddf"
+uuid = "1cfade01-22cf-5700-b092-accc4b62d6e1"
+version = "0.4.1"
+
+[[deps.Unitful]]
+deps = ["Dates", "LinearAlgebra", "Random"]
+git-tree-sha1 = "cec2df8cf14e0844a8c4d770d12347fda5931d72"
+uuid = "1986cc42-f94f-5a68-af5c-568840ba703d"
+version = "1.25.0"
+
+    [deps.Unitful.extensions]
+    ConstructionBaseUnitfulExt = "ConstructionBase"
+    ForwardDiffExt = "ForwardDiff"
+    InverseFunctionsUnitfulExt = "InverseFunctions"
+    LatexifyExt = ["Latexify", "LaTeXStrings"]
+    PrintfExt = "Printf"
+
+    [deps.Unitful.weakdeps]
+    ConstructionBase = "187b0558-2788-49d3-abe0-74a17ed4e7c9"
+    ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+    InverseFunctions = "3587e190-3f89-42d0-90ee-14403ec27112"
+    LaTeXStrings = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
+    Latexify = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
+    Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+
+[[deps.Unzip]]
+git-tree-sha1 = "ca0969166a028236229f63514992fc073799bb78"
+uuid = "41fe7b60-77ed-43a1-b4f0-825fd5a5650d"
+version = "0.2.0"
+
+[[deps.Vulkan_Loader_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Wayland_jll", "Xorg_libX11_jll", "Xorg_libXrandr_jll", "xkbcommon_jll"]
+git-tree-sha1 = "2f0486047a07670caad3a81a075d2e518acc5c59"
+uuid = "a44049a8-05dd-5a78-86c9-5fde0876e88c"
+version = "1.3.243+0"
+
+[[deps.Wayland_jll]]
+deps = ["Artifacts", "EpollShim_jll", "Expat_jll", "JLLWrappers", "Libdl", "Libffi_jll"]
+git-tree-sha1 = "96478df35bbc2f3e1e791bc7a3d0eeee559e60e9"
+uuid = "a2964d1f-97da-50d4-b82a-358c7fce9d89"
+version = "1.24.0+0"
+
+[[deps.XZ_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "fee71455b0aaa3440dfdd54a9a36ccef829be7d4"
+uuid = "ffd25f8a-64ca-5728-b0f7-c24cf3aae800"
+version = "5.8.1+0"
+
+[[deps.Xorg_libICE_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "a3ea76ee3f4facd7a64684f9af25310825ee3668"
+uuid = "f67eecfb-183a-506d-b269-f58e52b52d7c"
+version = "1.1.2+0"
+
+[[deps.Xorg_libSM_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libICE_jll"]
+git-tree-sha1 = "9c7ad99c629a44f81e7799eb05ec2746abb5d588"
+uuid = "c834827a-8449-5923-a945-d239c165b7dd"
+version = "1.2.6+0"
+
+[[deps.Xorg_libX11_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libxcb_jll", "Xorg_xtrans_jll"]
+git-tree-sha1 = "b5899b25d17bf1889d25906fb9deed5da0c15b3b"
+uuid = "4f6342f7-b3d2-589e-9d20-edeb45f2b2bc"
+version = "1.8.12+0"
+
+[[deps.Xorg_libXau_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "aa1261ebbac3ccc8d16558ae6799524c450ed16b"
+uuid = "0c0b7dd1-d40b-584c-a123-a41640f87eec"
+version = "1.0.13+0"
+
+[[deps.Xorg_libXcursor_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libXfixes_jll", "Xorg_libXrender_jll"]
+git-tree-sha1 = "6c74ca84bbabc18c4547014765d194ff0b4dc9da"
+uuid = "935fb764-8cf2-53bf-bb30-45bb1f8bf724"
+version = "1.2.4+0"
+
+[[deps.Xorg_libXdmcp_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "52858d64353db33a56e13c341d7bf44cd0d7b309"
+uuid = "a3789734-cfe1-5b06-b2d0-1dd0d9d62d05"
+version = "1.1.6+0"
+
+[[deps.Xorg_libXext_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libX11_jll"]
+git-tree-sha1 = "a4c0ee07ad36bf8bbce1c3bb52d21fb1e0b987fb"
+uuid = "1082639a-0dae-5f34-9b06-72781eeb8cb3"
+version = "1.3.7+0"
+
+[[deps.Xorg_libXfixes_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libX11_jll"]
+git-tree-sha1 = "9caba99d38404b285db8801d5c45ef4f4f425a6d"
+uuid = "d091e8ba-531a-589c-9de9-94069b037ed8"
+version = "6.0.1+0"
+
+[[deps.Xorg_libXi_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libXext_jll", "Xorg_libXfixes_jll"]
+git-tree-sha1 = "a376af5c7ae60d29825164db40787f15c80c7c54"
+uuid = "a51aa0fd-4e3c-5386-b890-e753decda492"
+version = "1.8.3+0"
+
+[[deps.Xorg_libXinerama_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libXext_jll"]
+git-tree-sha1 = "a5bc75478d323358a90dc36766f3c99ba7feb024"
+uuid = "d1454406-59df-5ea1-beac-c340f2130bc3"
+version = "1.1.6+0"
+
+[[deps.Xorg_libXrandr_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libXext_jll", "Xorg_libXrender_jll"]
+git-tree-sha1 = "aff463c82a773cb86061bce8d53a0d976854923e"
+uuid = "ec84b674-ba8e-5d96-8ba1-2a689ba10484"
+version = "1.5.5+0"
+
+[[deps.Xorg_libXrender_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libX11_jll"]
+git-tree-sha1 = "7ed9347888fac59a618302ee38216dd0379c480d"
+uuid = "ea2f1a96-1ddc-540d-b46f-429655e07cfa"
+version = "0.9.12+0"
+
+[[deps.Xorg_libxcb_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libXau_jll", "Xorg_libXdmcp_jll"]
+git-tree-sha1 = "bfcaf7ec088eaba362093393fe11aa141fa15422"
+uuid = "c7cfdc94-dc32-55de-ac96-5a1b8d977c5b"
+version = "1.17.1+0"
+
+[[deps.Xorg_libxkbfile_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libX11_jll"]
+git-tree-sha1 = "e3150c7400c41e207012b41659591f083f3ef795"
+uuid = "cc61e674-0454-545c-8b26-ed2c68acab7a"
+version = "1.1.3+0"
+
+[[deps.Xorg_xcb_util_cursor_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_xcb_util_image_jll", "Xorg_xcb_util_jll", "Xorg_xcb_util_renderutil_jll"]
+git-tree-sha1 = "c5bf2dad6a03dfef57ea0a170a1fe493601603f2"
+uuid = "e920d4aa-a673-5f3a-b3d7-f755a4d47c43"
+version = "0.1.5+0"
+
+[[deps.Xorg_xcb_util_image_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_xcb_util_jll"]
+git-tree-sha1 = "f4fc02e384b74418679983a97385644b67e1263b"
+uuid = "12413925-8142-5f55-bb0e-6d7ca50bb09b"
+version = "0.4.1+0"
+
+[[deps.Xorg_xcb_util_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libxcb_jll"]
+git-tree-sha1 = "68da27247e7d8d8dafd1fcf0c3654ad6506f5f97"
+uuid = "2def613f-5ad1-5310-b15b-b15d46f528f5"
+version = "0.4.1+0"
+
+[[deps.Xorg_xcb_util_keysyms_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_xcb_util_jll"]
+git-tree-sha1 = "44ec54b0e2acd408b0fb361e1e9244c60c9c3dd4"
+uuid = "975044d2-76e6-5fbe-bf08-97ce7c6574c7"
+version = "0.4.1+0"
+
+[[deps.Xorg_xcb_util_renderutil_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_xcb_util_jll"]
+git-tree-sha1 = "5b0263b6d080716a02544c55fdff2c8d7f9a16a0"
+uuid = "0d47668e-0667-5a69-a72c-f761630bfb7e"
+version = "0.3.10+0"
+
+[[deps.Xorg_xcb_util_wm_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_xcb_util_jll"]
+git-tree-sha1 = "f233c83cad1fa0e70b7771e0e21b061a116f2763"
+uuid = "c22f9ab0-d5fe-5066-847c-f4bb1cd4e361"
+version = "0.4.2+0"
+
+[[deps.Xorg_xkbcomp_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libxkbfile_jll"]
+git-tree-sha1 = "801a858fc9fb90c11ffddee1801bb06a738bda9b"
+uuid = "35661453-b289-5fab-8a00-3d9160c6a3a4"
+version = "1.4.7+0"
+
+[[deps.Xorg_xkeyboard_config_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_xkbcomp_jll"]
+git-tree-sha1 = "00af7ebdc563c9217ecc67776d1bbf037dbcebf4"
+uuid = "33bec58e-1273-512f-9401-5d533626f822"
+version = "2.44.0+0"
+
+[[deps.Xorg_xtrans_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "a63799ff68005991f9d9491b6e95bd3478d783cb"
+uuid = "c5fb5394-a638-5e4d-96e5-b29de1b5cf10"
+version = "1.6.0+0"
+
+[[deps.Zlib_jll]]
+deps = ["Libdl"]
+uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
+version = "1.3.1+2"
+
+[[deps.Zstd_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "446b23e73536f84e8037f5dce465e92275f6a308"
+uuid = "3161d3a3-bdf6-5164-811a-617609db77b4"
+version = "1.5.7+1"
+
+[[deps.eudev_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "c3b0e6196d50eab0c5ed34021aaa0bb463489510"
+uuid = "35ca27e7-8b34-5b7f-bca9-bdc33f59eb06"
+version = "3.2.14+0"
+
+[[deps.fzf_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "b6a34e0e0960190ac2a4363a1bd003504772d631"
+uuid = "214eeab7-80f7-51ab-84ad-2988db7cef09"
+version = "0.61.1+0"
+
+[[deps.libaom_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "4bba74fa59ab0755167ad24f98800fe5d727175b"
+uuid = "a4ae2306-e953-59d6-aa16-d00cac43593b"
+version = "3.12.1+0"
+
+[[deps.libass_jll]]
+deps = ["Artifacts", "Bzip2_jll", "FreeType2_jll", "FriBidi_jll", "HarfBuzz_jll", "JLLWrappers", "Libdl", "Zlib_jll"]
+git-tree-sha1 = "125eedcb0a4a0bba65b657251ce1d27c8714e9d6"
+uuid = "0ac62f75-1d6f-5e53-bd7c-93b484bb37c0"
+version = "0.17.4+0"
+
+[[deps.libblastrampoline_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
+version = "5.15.0+0"
+
+[[deps.libdecor_jll]]
+deps = ["Artifacts", "Dbus_jll", "JLLWrappers", "Libdl", "Libglvnd_jll", "Pango_jll", "Wayland_jll", "xkbcommon_jll"]
+git-tree-sha1 = "9bf7903af251d2050b467f76bdbe57ce541f7f4f"
+uuid = "1183f4f0-6f2a-5f1a-908b-139f9cdfea6f"
+version = "0.2.2+0"
+
+[[deps.libevdev_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "56d643b57b188d30cccc25e331d416d3d358e557"
+uuid = "2db6ffa8-e38f-5e21-84af-90c45d0032cc"
+version = "1.13.4+0"
+
+[[deps.libfdk_aac_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "646634dd19587a56ee2f1199563ec056c5f228df"
+uuid = "f638f0a6-7fb0-5443-88ba-1cc74229b280"
+version = "2.0.4+0"
+
+[[deps.libinput_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "eudev_jll", "libevdev_jll", "mtdev_jll"]
+git-tree-sha1 = "91d05d7f4a9f67205bd6cf395e488009fe85b499"
+uuid = "36db933b-70db-51c0-b978-0f229ee0e533"
+version = "1.28.1+0"
+
+[[deps.libpng_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Zlib_jll"]
+git-tree-sha1 = "07b6a107d926093898e82b3b1db657ebe33134ec"
+uuid = "b53b4c65-9356-5827-b1ea-8c7a1a84506f"
+version = "1.6.50+0"
+
+[[deps.libvorbis_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Ogg_jll"]
+git-tree-sha1 = "11e1772e7f3cc987e9d3de991dd4f6b2602663a5"
+uuid = "f27f6e37-5d2b-51aa-960f-b287f2bc3b7a"
+version = "1.3.8+0"
+
+[[deps.mtdev_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "b4d631fd51f2e9cdd93724ae25b2efc198b059b1"
+uuid = "009596ad-96f7-51b1-9f1b-5ce2d5e8a71e"
+version = "1.1.7+0"
+
+[[deps.nghttp2_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
+version = "1.64.0+1"
+
+[[deps.p7zip_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
+version = "17.5.0+2"
+
+[[deps.x264_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "14cc7083fc6dff3cc44f2bc435ee96d06ed79aa7"
+uuid = "1270edf5-f2f9-52d2-97e9-ab00b5d0237a"
+version = "10164.0.1+0"
+
+[[deps.x265_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "e7b67590c14d487e734dcb925924c5dc43ec85f3"
+uuid = "dfaa095f-4041-5dcd-9319-2fabd8486b76"
+version = "4.1.0+0"
+
+[[deps.xkbcommon_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl", "Xorg_libxcb_jll", "Xorg_xkeyboard_config_jll"]
+git-tree-sha1 = "fbf139bce07a534df0e699dbb5f5cc9346f95cc1"
+uuid = "d8fb68d0-12a3-5cfd-a85a-d49703b185fd"
+version = "1.9.2+0"
+"""
+
+# ╔═╡ Cell order:
+# ╟─1aceb22f-57fe-4428-bbd7-3410a10e269e
+# ╟─c064e55c-6924-49b7-abbc-385a081c57b2
+# ╟─01d6ccf1-a046-4386-95b9-7a8437e6bc48
+# ╟─aa438d59-98d7-41b6-b34d-aa55220cf04f
+# ╟─57972b14-d0eb-49f2-a8fe-fbfa25eb2f43
+# ╟─dcfb10ac-3a34-477f-ae1e-6a4b42fdc0d2
+# ╟─5d618284-7f40-4d33-94a1-829407bd5f47
+# ╟─07eeed4a-6a40-4585-b04f-26da0157fe2e
+# ╟─1eb4379f-2d29-4dea-b6c5-cd2f81ed8381
+# ╟─184d5409-76fa-4970-9da7-6d8c8bd79713
+# ╟─f8de4a5c-64a2-49c4-88e2-c26c843b1fc1
+# ╟─39721ee5-b4f8-47ed-ae4f-0865952ebd28
+# ╟─3010fa73-fdb8-4ad9-94dc-45db49ae7fcf
+# ╟─f60d6cdd-7ff4-4a00-b2aa-a1440234ec6d
+# ╟─5f0b7230-28eb-4394-981f-0974e49284a3
+# ╟─127a7dbf-88fe-4b28-a265-7bf315850497
+# ╟─c387e50c-5aac-4901-b1f3-51b690c38a56
+# ╟─dfa54345-bcae-4350-aa43-72cd62b83d65
+# ╟─59b3486d-61cd-43ac-ae1c-4bd04ab5dd40
+# ╟─eb5f4190-17a0-4bac-b2a2-1d35622f3d2c
+# ╟─fce78f7b-dcdc-4ae3-918d-622db2f27269
+# ╟─6fef9e1c-e321-4ef8-9140-dc4dbfe49936
+# ╟─349d542f-024d-4982-867c-afa9e105db27
+# ╟─f1b48849-a61f-4825-bcc8-ff12d3c09987
+# ╟─e05493c5-1231-4fda-821c-65420c221551
+# ╠═5bb9b54a-56f3-431c-b47c-75a58bff7d22
+# ╟─494278aa-f24d-4168-8615-f7803495fafd
+# ╠═080ba59a-6a4a-424e-8741-9b59332c2f86
+# ╟─60cc12ac-6fe6-439b-a149-39ffa704ba8b
+# ╠═a41a8eeb-c2bf-4025-8a91-a5654ba69ca7
+# ╟─d37297d1-3e7d-4a17-9169-6d9fe268f2c5
+# ╟─df5bc5cc-9d9d-41d7-9956-a5f9af31c4cf
+# ╟─13d6e0d9-2cb9-4125-a406-c4caa0d63719
+# ╟─cf35b99b-b280-4866-a0e2-0092167a55ba
+# ╠═fdb1a1d4-fb0f-45ae-96ef-5c3b5bec7f69
+# ╠═f202a1bf-aaf8-4115-98e9-eba0da1666e4
+# ╠═bba03ae4-313e-4e3a-a367-73b1d28e733e
+# ╠═22e2b92e-d1e2-4f4b-b61c-f4776976f216
+# ╟─216e6f77-0b5a-4a38-aa82-6fc429147f23
+# ╟─b74e6eae-d059-4409-b0cb-ba19475a53a0
+# ╟─7becf999-5f11-4a47-8e3f-2b775f52bd27
+# ╟─b32d55d7-80b2-45f1-abaf-ef8f6958e980
+# ╠═f0132080-ad3c-47d1-b0e3-c9c7994c072f
+# ╟─71a60d6f-1527-4537-952d-b490af18a935
+# ╟─6a7b7432-cb54-445a-aa39-33a13fb958ba
+# ╠═5bcefcd9-f30e-4b40-a1f0-b66ff862d963
+# ╟─81298eb8-b548-42aa-9fea-fa502482578b
+# ╟─1931180b-424d-43ba-af25-61e84faf0eaf
+# ╟─7e48b1e0-b66c-4773-9189-b72e931b8520
+# ╟─df08b5c7-d63b-430d-8869-a994ed85b73c
+# ╟─3a44a05d-68a4-4622-afd3-1b67e95c7088
+# ╟─bc95d83c-fb07-4f24-b08a-b461d871c79e
+# ╟─404e5b4b-0ddc-45b0-a4af-e29618a501be
+# ╟─2f7931fa-262f-4f76-8f4b-f28e26989a2b
+# ╟─66ada8ac-6556-4d18-9cf3-cbdbf3f9bc69
+# ╟─01e08f32-9f91-41f9-b022-ad877864a784
+# ╟─d12d08d6-4c4c-4afc-b4e5-970f86a440e5
+# ╠═2b7754b3-44b3-4a09-99e2-4827afbacc64
+# ╠═d777bcfb-ffad-4061-b86b-cf3f2709576d
+# ╟─9c117644-13d3-4de3-a30b-e626df7d6815
+# ╠═fc62b652-0d92-49e4-ae27-fd04a6b1d8bd
+# ╟─dff17723-bba8-491f-af37-9119e4ff4445
+# ╠═1c048c68-2a41-4710-9d5d-e092abbfc7d9
+# ╟─55483f43-ca65-4775-a4b7-b824295ad34d
+# ╠═4cda0d79-6a76-4529-b70e-4eb0bf9c2451
+# ╟─4643e926-67e5-4ac5-a332-1895b992b981
+# ╠═0865009d-6d80-452b-b9e5-74b424f9b3c3
+# ╟─361b5bbe-2fcd-4f96-8488-c52d9b2dbea5
+# ╠═863fe345-3a98-46d6-9112-78ee18635ffe
+# ╟─bf4807d5-6fbb-43bc-9be3-475b2ad6e0f6
+# ╟─f7e7769e-9be0-41bb-900b-9034db833a5b
+# ╠═ad8fdc0f-4059-4bec-98a5-8b38b5a17fd0
+# ╟─7c45e9f8-de6b-4bf8-aa91-5b23a47f5d02
+# ╠═5d25244c-7d05-43af-a6a5-69fdb52a253e
+# ╟─29c9a3a5-73a1-4daa-b492-178b97917258
+# ╠═901eaef2-2cff-4131-b19c-b43a88b35b34
+# ╟─99f6a01a-4a46-43dd-8ef9-a614302e29af
+# ╟─076bd182-885d-4808-ba4a-9d125cd09957
+# ╟─c4fd1d3b-9b18-48b3-a0fd-466fcb3e17ee
+# ╠═d780fb54-2677-481e-a228-478845fba613
+# ╟─d65460a3-a703-44f6-aa42-a3dd47ae3034
+# ╠═7bcd562e-970f-4614-94d0-41b8f47a5ff2
+# ╟─18159d33-d61e-44cc-9966-801f15b7f5d5
+# ╠═51f8e7ee-868e-47d9-bfa5-4ac06f37d942
+# ╟─95fdbbc4-b612-4512-9069-6110e41f9e9d
+# ╟─c771cef0-8fb8-4414-af8a-3e6512832d90
+# ╟─46273cec-629b-4a2f-ba2c-e354e5003adc
+# ╟─50f9ef55-ec4d-4801-a7df-b755fcc9cdef
+# ╟─80d0dbc9-9e4c-4270-9395-baec8974bdf2
+# ╟─fbb2ce7b-3a81-4c4e-b271-0f33819837a7
+# ╟─994319d8-2e54-4edd-a6fb-cd8df9f9fcd7
+# ╠═a11a242c-4672-4639-ad54-faa63d0a1cd1
+# ╠═6873136d-76b9-41ee-a61f-2dd473ac8aca
+# ╠═b6d6d602-03f6-4d11-be10-631a3502ea40
+# ╠═f5d3be1c-ccb1-43ec-8d5b-5afc631cb54b
+# ╠═e8e790c5-fd10-4797-8dbf-74cde9ac20a2
+# ╟─469dd7f7-dc57-4743-a844-714fa3952c8c
+# ╟─bbdfee6a-fd4d-4220-aadf-9ceba2415a75
+# ╟─884beeaf-d196-4d9a-9088-a3b88ff5670e
+# ╠═69892e4e-821b-4efa-b7f5-26bdbb5d0f8a
+# ╟─1658f96c-7d15-4ed2-9f58-a161bc8b635f
+# ╠═3ad1607a-66c4-42e2-a088-db1832fd1f32
+# ╟─49e3234a-c066-42bc-bc90-bf7699309286
+# ╟─065d2711-a5b6-4fcd-8e99-919296af78cb
+# ╠═45757ac2-7db2-4ffa-bc5c-fb993eb6a991
+# ╟─debd87f9-13ee-4177-8245-c9cc4df1d157
+# ╟─2a0e3a6a-0fd0-4f9e-ab54-2377d0761ba3
+# ╟─7ced39d8-26a1-497f-94fc-96d725ea6287
+# ╟─e9e3afa0-0b4d-4367-a7f9-acd8992a88a5
+# ╟─1ee60c29-bb29-4d9c-a2d9-20fac192f89f
+# ╟─cd62422c-abd3-493d-a563-16520b237537
+# ╟─6c2bab0b-4785-413b-a851-0c0ab06c73a4
+# ╟─1e3c4060-5d78-4159-bb2d-caf158d9a32d
+# ╠═830796ba-f8d6-4843-9297-e76492589d49
+# ╟─5ea61cf4-4f87-43ef-8556-f37ea60d2515
+# ╟─c870e56a-cc10-4f85-9767-af46d9845b6a
+# ╟─d9063387-a1d9-44e5-81e8-9dd4111ad72a
+# ╠═24331be7-d705-41e9-925a-ec76b80fa38f
+# ╟─36ce1f19-59f6-4595-a75a-22f519e326d9
+# ╟─c674d531-be5a-45b6-b5be-480753f0135f
+# ╟─e40a1b59-ed60-4081-afbf-661373b8b3fa
+# ╟─28563a65-dfbd-4143-a0ec-772e553a3fb9
+# ╠═e12e7cc3-abe6-4f51-a8b0-9254dbade011
+# ╟─291e034f-a119-4c9b-8a50-4a35cd54e055
+# ╟─c53871d4-c739-4dcf-ad6d-c5dced86c208
+# ╟─83d8e64c-e9ab-4065-a056-f189e30e149c
+# ╟─5ab45915-9446-4583-a7b0-2ff97a5808f4
+# ╟─0ec4b965-80c4-4b40-925a-f3dcb2fd0115
+# ╟─e7aae6a9-1fa7-48a1-9b11-8e60c69cf9c9
+# ╟─5dded0ab-c093-4e14-a2f2-de5d3506d171
+# ╟─0b42e250-90d9-4b97-8fb6-0a7a896b92e5
+# ╟─e4d17d82-b7f0-4070-9177-e6a1cebb4c24
+# ╟─7787b512-37e0-4c2e-8d43-88433ce6c764
+# ╟─4cbd2235-074d-4374-99c8-f290215b1640
+# ╟─46a23d85-70f0-4f15-9a76-8a3701a82183
+# ╟─8495592a-9619-4e2c-97fb-ef9f55f29f4d
+# ╟─7ec2f5b9-5779-4f95-979d-96e23e742d5a
+# ╟─6bd294df-005b-4979-b2ee-39922b9223b7
+# ╠═e89303b7-3dbb-452c-bd71-ddaac5d22dc4
+# ╟─42b2d4f0-4d76-4e42-bd2a-f2ed48a4e4a4
+# ╠═aa0f3953-c4e8-4735-831c-9129e893ca05
+# ╟─75189e15-e7bd-4dcc-9d41-27f83687b966
+# ╟─61d8b963-5ad7-4f64-8b5f-46e3b40346a0
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002

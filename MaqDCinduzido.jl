@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.15
+# v0.20.21
 
 #> [frontmatter]
 #> chapter = 1
@@ -41,7 +41,7 @@ Short packages description:
 =#
 
 # ╔═╡ 91180300-0b49-4211-9ad3-12fd0785f518
-TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 14·09·2025`")
+TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 15·04·2026`")
 
 # ╔═╡ 4e3917b0-4458-11ef-2b69-bd55e90578e0
 md"""
@@ -282,14 +282,14 @@ md"""
 
 # ╔═╡ 8939ec96-c166-45cf-8e2d-3e5206428a00
 md"""
-A comutação é um processo fundamental nas máquinas CC e ocorre no processo de retificação mecânica da forma de onda da tensão induzida nas secções do enrolamento induzido (rotor) em movimento. Este processo é realizado pelo conjunto coletor e escovas, Fig. 5, que também retifica a corrente que circule no enrolamento. A comutação é essencial para manter a unidirecionalidade da corrente no exterior da máquina, característica que define uma máquina de corrente contínua.
+A comutação é um processo fundamental nas máquinas CC e ocorre no processo de retificação mecânica da forma de onda da tensão induzida nas secções do enrolamento induzido (rotor) em movimento. Este processo é realizado pelo conjunto coletor e escovas, Fig. 5, que também retifica a corrente que circula no enrolamento. A comutação é essencial para manter a unidirecionalidade da corrente no exterior da máquina, característica que define uma máquina de corrente contínua.
 """
 
 # ╔═╡ fabb1f60-abcb-4c49-b7bb-45308314aa7f
 md"""
 A Fig. 6, apresenta o processo de comutação numa secção do induzido em movimento. Assim, o início da comutação para a secção situada entre as lâminas do coletor 2 e 3 ocorre quando a lâmina se encontra sob a lâmina 2, Fig. 6(a).
 
-Para a secção do induzido considerada, a comutação ocorre durante o tempo que as lâminas 2 e 3 estão a ser a escova curto-circuitadas pela escova. Neste processo, a superfície de contacto entre a escova e a lâmina 2 vai diminuindo, enquanto a superfície com a lâmina 3 vai aumentando, Fig. 6(b). A resistência variável das superfícies de contacto escova-lâminas, o coeficiente de autoindução da secção em comutação e a sua força eletromotriz induzida contribuem para a corrente em comutação, $i_c(t)$. A comutação termina quando a lâmina 3 se encontra totalmente sob escova, iniciando-se o processo de comutação para a secção colocada entre as lâminas 3 e 4, Fig. 6(c). Repare-se que o sentido da corrente da secção entre as lâminas 2 e 3, do início para o final da comutação, se alterou. 
+Para a secção do induzido considerada, a comutação ocorre durante o tempo que as lâminas 2 e 3 estão curto-circuitadas pela escova. Neste processo, a superfície de contacto entre a escova e a lâmina 2 vai diminuindo, enquanto a superfície com a lâmina 3 vai aumentando, Fig. 6(b). A resistência variável das superfícies de contacto escova-lâminas, o coeficiente de autoindução da secção em comutação e a sua força eletromotriz induzida contribuem para a corrente em comutação, $i_c(t)$. A comutação termina quando a lâmina 3 se encontra totalmente sob escova, iniciando-se o processo de comutação para a secção colocada entre as lâminas 3 e 4, Fig. 6(c). Repare-se que o sentido da corrente na secção entre as lâminas 2 e 3 se inverte, entre o início e o final da comutação. 
 """
 
 # ╔═╡ 6d0eff0a-8b0b-46d5-a42c-45cc8c5be27f
@@ -319,7 +319,15 @@ end
 
 # ╔═╡ bfbef154-1bcc-414c-858b-752718d60be9
 md"""
-Fig. 6: Processo de comutação para a secção ligada entre as lâminas 2 e 3: (a) início da comutação; (b) corrente em comutação; (c) fim da comutação / início da comutação para a secção entre as lâminas 3 e 4. 
+Fig. 6: Processo de comutação para a secção ligada entre as lâminas 2 e 3: (a) início da comutação; (b) corrente em comutação; (c) fim da comutação / início da comutação para a secção seguinte. 
+"""
+
+# ╔═╡ 2e65b2fa-bd4d-4ec9-a326-41d52628e1a2
+
+
+# ╔═╡ a801eae4-2280-4009-b16f-4133bf323ef8
+md"""
+### 1.4.1 - Curvas de comutação e causas de centelhamento
 """
 
 # ╔═╡ 44cfe7bb-1a94-4923-9658-dc83704113c2
@@ -363,16 +371,16 @@ Fig.7: Curvas de comutação.
 md"""
 
 Da Fig.7:
-- **Trajetória** $\textbf{A}$: designada por comutação linear ou resistiva, onde a resistência equivalente à superfície de contacto entre lâminas e escovas, durante o tempo de comutação, $T_c$, é predominante. Trata-se de uma comutação aceitável embora sejam visíveis algumas faíscas entre o colector e as escovas;
+- **Trajetória** $\textbf{A}$: designada por **comutação linear ou resistiva**, onde a resistência de contacto entre lâminas e escovas é predominante durante o tempo de comutação, $T_c$. Trata-se de uma comutação aceitável, embora sejam visíveis algumas faíscas (centelhamento) entre o colector e as escovas;
 
 
-- **Trajetória** $\textbf{B}$: esta curva apresenta uma comutação ligeiramente adiantada (a corrente $i_c$ muda de sentido antes de $\dfrac{T_c}{2}$), terminando com uma tangente nula. Tal significa que a comutação termina com densidade de corrente nula, pelo que não apresenta faíscas;
+- **Trajetória** $\textbf{B}$: apresenta uma **comutação ideal (ligeiramente adiantada)**, onde a corrente $i_c$ muda de sentido antes de $\dfrac{T_c}{2}$, terminando com uma tangente nula. Tal significa que a comutação termina com densidade de corrente nula, o que elimina a formação de faíscas;
 
 
-- **Trajetória** $\textbf{C}$: comutação retardada, terminando com uma tangente $\alpha$ não nula. Trata-se de uma comutação inaceitavél, com densidade de corrente elevada no final da comutação, que conduz a faíscas das lâminas para as escovas (faíscas num tom esverdeado);
+- **Trajetória** $\textbf{C}$: **comutação retardada**, caracterizada po terminar com uma tangente $\alpha$ não nula. Trata-se de uma comutação inaceitavél, com elevada densidade de corrente no final do processo, resultando em faíscas das lâminas para as escovas (num tom esverdeado, devido à vaporização do cobre);
 
 
-- **Trajetória** $\textbf{D}$: comutação adiantada, terminando com uma tangente $\alpha$ não nula. Trata-se também de uma comutação inaceitavél, com uma densidade de corrente elevada no final da comutação, verificando-se faíscas da escova para a lâmina (faíscas num tom alaranjado).
+- **Trajetória** $\textbf{D}$: **comutação adiantada**, terminando também com uma tangente $\alpha$ não nula. Trata-se também de uma comutação inaceitavél, com uma densidade de corrente elevada no final da comutação, verificando-se faíscas da escova para a lâmina (num tom alaranjado, devido à vaporização do carvão).
 
 No projeto de uma máquina CC procura-se que a curva de comutação se situe entre as trajetórias $\textbf{A}$ e $\textbf{B}$ como bom compromisso de funcionamento. 
 """
@@ -382,23 +390,91 @@ No projeto de uma máquina CC procura-se que a curva de comutação se situe ent
 
 # ╔═╡ 17402250-5f39-4343-9dcb-a30a0d5a361f
 md"""
-O posicionamento das escovas é fundamental para o correto funcionamento da máquina CC. Idealmente, o plano das escovas deve estar em quadratura com a linha dos polos magnéticos ou de excitação. Essa posição é designada por **Linha Neutra Geométrica**  (linha de **N'** a **S'** da Fig. 4). Nessa posição, verifica-se que a força eletromotriz na(s) secção(ões) do induzido que entra(m) em comutação é nula, o que reduz a ocorrência de arcos elétricos (faíscas) entre as lâminas do coletor e as escovas. A existência de intenso faiscamento no processo de comutação pode provocar, a longo prazo, dois tipos de deterioração na superfície do coletor:
-- surgimento de pequenas cavidades, formadas pela remoção de cobre, na superfície das lâminas do coletor (faíscas num tom esverdeado $\to$ vaporização do cobre);
+O posicionamento das escovas é fundamental para o correto funcionamento da máquina CC. Idealmente, o plano das escovas deve estar em quadratura com a linha dos polos magnéticos ou de excitação. Essa posição é designada por **Linha Neutra Geométrica**  (linha de **N'** a **S'** da Fig. 4). Nessa posição, verifica-se que a força eletromotriz na(s) secção(ões) do induzido que entra(m) em comutação é nula, o que reduz a ocorrência de arcos elétricos (faíscas) entre as lâminas do coletor e as escovas. Um faiscamento intenso e prolongado no processo de comutação pode provocar, a longo prazo, dois tipos de deterioração na superfície do coletor:
 
+- **Corrosão por picadas (_pitting_)**: surgimento de pequenas cavidades na superfície das lâminas do coletor por remoção de material (vaporização do cobre);
 
-- formação de uma ranhura ou sulco de desgaste, correspondente a um rebaixamento na superfície das lâminas na área de contacto com as escovas (faíscas num tom alaranjado $\to$ vaporização do carvão).
+- **Sulcos de desgaste**: formação de ranhuras ou sulcos de desgaste, correspondente a rebaixamentos na superfície das lâminas na área de contacto com as escovas (desgaste abrasivo e vaporização do carvão).
 
-Um comutação insatisfatória (ocorrência de arcos elétricos) pode ainda provocar danos nas escovas, por sobreaquecimento. Assim, a qualidade da comutação é essencial para o bom funcionamento da máquina CC.
+Uma comutação insatisfatória (ocorrência de arcos elétricos) pode ainda danificar as escovas por sobreaquecimento. Assim, a monitorização da qualidade da comutação é essencial para o bom funcionamento da máquina CC.
 """
-
-# ╔═╡ 71948876-4613-4983-84c0-4ce7b9361579
-
 
 # ╔═╡ 5036db21-84b4-4912-9c29-6654ee919b1b
 md"""
 > **Nota:**
-> O estudo das curvas de comutação exemplificado na Fig.7 não faz parte do programa da unidade curricular. No entanto, as suas implicações no processo de comutação são importantes para prevenir ou adequar procedimentos de manutenção do coletor e das escovas, garantindo o correto funcionamento da máquina CC.
+> Embora o estudo das curvas de comutação da Fig.7 não faça parte do programa da unidade curricular, a compreensão das suas implicações é importante para prevenir falhas e adequar os procedimentos de manutenção do coletor, conforme apresentado de seguida.
 """
+
+# ╔═╡ a126d450-f7d9-48d6-abe7-951dba3da6f5
+aside((md"
+!!! cortesia
+	As imagens relativas ao controlo de qualidade e perfilometria do coletor (Fig. 	8) foram gentilmente cedidas pela [**Fletcher Moorland Ltd.**](https://fletchermoorland.co.uk), empresa sediada em Stoke-on-Trent (Inglaterra) e especialista na reparação e revisão de máquinas elétricas. 
+    
+    Este contributo permite ilustrar com rigor o processo de validação técnica após 
+	a intervenção de manutenção. 
+	   
+	Um agradecimento especial a **Matt Fletcher**, Diretor-Geral, pela disponibilidade e autorização de utilização.
+
+"),v_offset=675)
+
+# ╔═╡ 9042cd40-4d59-41c4-8515-ae5129c346c2
+md"""
+### 1.4.2 - Manutenção, retificação e diagnóstico do coletor
+"""
+
+# ╔═╡ 11fe3a35-1b56-42f0-9b1b-f9f7300a6a43
+md"""
+Para assegurar a longevidade e a eficiência da máquina CC, é essencial realizar a manutenção periódica do coletor. O processo de retificação do coletor (**_skimming_**) elimina as irregularidades, como sulcos e cavidades, bem como a ovalização da superfície de cobre decorrente do desgaste eletromecânico. Esta intervenção é realizada num torno de precisão para garantir uma superfície concêntrica e lisa. Desta forma, otimiza-se o contacto elétrico e previne-se o sobreaquecimento do induzido.
+
+Conforme ilustrado na Fig. 8, a precisão da intervenção é validada através de metrologia digital. Um sensor de alta sensibilidade mapeia a superfície do coletor para garantir que o batimento radial (ou excentricidade) cumpre as tolerâncias exigidas.
+
+Este rigor permite a formação da pátina ideal, uma película protetora de óxido de cobre e carbono que reduz o atrito e assegura uma comutação estável. A uniformidade desta constitui o principal indicador da condição operacional da máquina [^commutator_MAM]. 
+
+Complementarmente, a análise da superfície de contacto das escovas [^brushes_MAM] permite validar a qualidade do contacto mecânico, maximizando a fiabilidade global da máquina de CC.
+"""
+
+# ╔═╡ 5869a88c-3855-4af1-8b56-225059ad636e
+HTML("""
+<div style="overflow-x: auto; width: 100%; padding: 15px; background: #fafafa; border: 1px solid #ddd; border-radius: 8px;">
+	<div style="display: flex; flex-direction: row; width: max-content; gap: 10px; align-items: flex-start;">
+		
+		<div style="flex-shrink: 0; text-align: center; width: auto;">
+			<img src="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/images/MaqDCinduzido/skimming.jfif" 
+				 style="height: 800px; width: auto; max-width: none; display: block; border-radius: 4px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); margin: 0 auto;">
+			<p style="margin-top: 10px; text-align: center;"><strong>(a)</strong></p>
+		</div>
+
+		<div style="flex-shrink: 0; text-align: center; width: auto;">
+			<img src="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/images/MaqDCinduzido/skimming_detail.jfif" 
+				 style="height: 800px; width: auto; max-width: none; display: block; border-radius: 4px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); margin: 0 auto;">
+			<p style="margin-top: 10px; text-align: center;"><strong>(b)</strong></p>
+		</div>
+
+		<div style="flex-shrink: 0; text-align: center; width: auto;">
+			<img src="https://raw.githubusercontent.com/Ricardo-Luis/me-2/refs/heads/main/images/MaqDCinduzido/profilometry.jfif" 
+				 style="height: 800px; width: auto; max-width: none; display: block; border-radius: 4px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1); margin: 0 auto;">
+			<p style="margin-top: 10px; text-align: center;"><strong>(c)</strong></p>
+		</div>
+
+	</div>
+</div>
+""")
+
+
+# ╔═╡ 21ba5da7-7644-49f8-86ca-394cd75a0335
+md"""
+Fig.8: Controlo de qualidade e perfilometria do coletor, [^Fletcher_Moorland].
+
+ $\qquad\textbf{(a)}$ Monitorização digital da concentricidade e do batimento lâmina a lâmina, num torno de precisão;
+
+ $\qquad\textbf{(b)}$ Detalhe do sensor de alta precisão em contacto com as lâminas do coletor; 
+
+ $\qquad\textbf{(c)}$ Relatório final de perfilometria radial, validando a intervenção com um batimento total de $6$ µm.
+
+"""
+
+# ╔═╡ e70bc648-697a-4454-a9a9-6fc0173ce974
+
 
 # ╔═╡ fe8c05b9-e4fe-4f43-91a4-90c150992a83
 
@@ -436,8 +512,8 @@ md"""
 # ╔═╡ b8ce899e-dc76-4b98-b563-703f6fb296d7
 aside((md"""
 !!! info "Informação"
-	A biblioteca `handcalcs.jl` permite transpor código de cálculo em Julia para $\LaTeX$, mas de uma forma que imita como alguém escreveria o seu cálculo manualmente: escreve-se a fórmula simbólica de cálculo, seguida das substituições numéricas e, por fim, o resultado.\
-	Como a `handcalcs.jl` mostra as substituições numéricas, os cálculos tornam-se significativamente mais fáceis de verificar.
+	A biblioteca `handcalcs.jl` permite transpor código de cálculo em Julia para $\LaTeX$, apresentando a fórmula simbólica, a substituição automática das grandezas pelos seus valores numéricos e o resultado final da expressão.\
+	Como a `handcalcs.jl` expõe estas substituições numéricas, os cálculos tornam-se significativamente mais fáceis de verificar.
 """), v_offset=100)
 
 # ╔═╡ 5bd6c690-c2e9-4353-b262-fafb845a0aec
@@ -884,13 +960,9 @@ md"""
 md"""
 # Bibliografia
 
-## Sugestões de leitura:
+[^commutator_MAM]: Morgan Advanced Materials, [*"Commutator Patina - Technical Guide"*](https://www.morganperformancecarbon.com/media/cusotjtf/commutator_patina.pdf), Morgan Carbon Technical Publications.
 
-- José Carvalho (2018). Máquinas Elétricas de Corrente Contínua: Reação Magnética do Induzido e Comutação. Revista técnico-científica “Neutro-à-Terra”, ISEP\Departamento de Engenharia Eletrotécnica. DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/neutroaterra.vi21.4393)
-
-
-- [C. Pereira Cabrita, "Escovas de Carvão para Máquinas Eléctricas: características técnicas e manutenção", Fundação EDP-Museu da Electricidade, revista Electricidade, n.º 383, pp. 299-312, Dez. 2000.](https://www.gest.colecoesfundacaoedp.edp.pt/Nyron/Library/Catalog/winlibimg.aspx?skey=CE7FA17DDB0743DB9CD1BDFF0CDDD76C&doc=167812&img=159270)
-
+[^brushes_MAM]: Morgan Advanced Materials, [*"Surface Appearance of Brushes - Diagnostic Guide"*](https://www.morganperformancecarbon.com/media/2dhojel0/surface_appearance_of_brushesa.pdf), Morgan Carbon Technical Publications.
 
 
 ## Créditos das imagens
@@ -900,6 +972,16 @@ md"""
 [^Audel_1917]: Theo. Audel & Co., Hawkins Electrical Guide, Volume 1, Chapter 20: Commutation and the Commutator, Page 286, USA, 1917.
 
 [^Kral_2022]:  Christian Kral, [Commutator and brushes DC motor](https://commons.wikimedia.org/w/index.php?curid=122251615), Own work, CC BY 4.0, 2022. 
+
+[^Fletcher_Moorland]: Fletcher Moorland Ltd., *"Commutator Skimming and Profilometry Analysis"*, [fletchermoorland.co.uk](https://fletchermoorland.co.uk/comm-skim-undercut/).
+
+
+## Sugestões de leitura:
+
+- José Carvalho (2018). Máquinas Elétricas de Corrente Contínua: Reação Magnética do Induzido e Comutação. Revista técnico-científica “Neutro-à-Terra”, ISEP\Departamento de Engenharia Eletrotécnica. DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/neutroaterra.vi21.4393)
+
+
+- [C. Pereira Cabrita, "Escovas de Carvão para Máquinas Eléctricas: características técnicas e manutenção", Fundação EDP-Museu da Electricidade, revista Electricidade, n.º 383, pp. 299-312, Dez. 2000.](https://www.gest.colecoesfundacaoedp.edp.pt/Nyron/Library/Catalog/winlibimg.aspx?skey=CE7FA17DDB0743DB9CD1BDFF0CDDD76C&doc=167812&img=159270)
 
 
 """
@@ -972,7 +1054,7 @@ md"""
 |:--:|:--|
 |  | This notebook, [MaqDCinduzido.jl](https://ricardo-luis.github.io/me-2/MaqDCinduzido.html), is part of the collection "[_Notebooks_ Computacionais Aplicados a Máquinas Elétricas II](https://ricardo-luis.github.io/me-2/)" by Ricardo Luís. |
 | **Terms of Use** | All narrative and visual content is shared under the Creative Commons Attribution-ShareAlike 4.0 International License ([CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/)), while the Julia code snippets are released under the [MIT License](https://www.tldrlegal.com/license/mit-license).|
-|  | $©$ 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io) |
+|  | $©$ 2022-2026 [Ricardo Luís](https://ricardo-luis.github.io) |
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000001
@@ -984,17 +1066,17 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
 Handcalcs = "~0.4.4"
-PlutoTeachingTools = "~0.4.4"
-PlutoUI = "~0.7.69"
+PlutoTeachingTools = "~0.4.6"
+PlutoUI = "~0.7.77"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.11.6"
+julia_version = "1.12.6"
 manifest_format = "2.0"
-project_hash = "485a13069bcebe00bae76d1b660118c162f3718c"
+project_hash = "57a4c468bd84e35aa789b065be5fef476434a0a3"
 
 [[deps.AbstractPlutoDingetjes]]
 deps = ["Pkg"]
@@ -1043,7 +1125,7 @@ version = "0.1.1"
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.1.1+0"
+version = "1.3.0+1"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -1053,7 +1135,7 @@ version = "1.11.0"
 [[deps.Downloads]]
 deps = ["ArgTools", "FileWatching", "LibCURL", "NetworkOptions"]
 uuid = "f43a241f-c20a-4ad4-852c-f6b1247861c6"
-version = "1.6.0"
+version = "1.7.0"
 
 [[deps.FileWatching]]
 uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
@@ -1069,6 +1151,12 @@ version = "0.8.5"
 git-tree-sha1 = "9c68794ef81b08086aeb32eeaf33531668d5f5fc"
 uuid = "1fa38f19-a742-5d3f-a2b9-30dd87b9d5f8"
 version = "1.3.7"
+
+[[deps.Ghostscript_jll]]
+deps = ["Artifacts", "JLLWrappers", "JpegTurbo_jll", "Libdl", "Zlib_jll"]
+git-tree-sha1 = "38044a04637976140074d0b0621c1edf0eb531fd"
+uuid = "61579ee1-b43e-5ca0-a5da-69d92c66a64b"
+version = "9.55.1+0"
 
 [[deps.Handcalcs]]
 deps = ["AbstractTrees", "CodeTracking", "InteractiveUtils", "LaTeXStrings", "Latexify", "MacroTools", "PrecompileTools", "Revise", "TestHandcalcFunctions"]
@@ -1090,20 +1178,26 @@ version = "0.9.5"
 
 [[deps.IOCapture]]
 deps = ["Logging", "Random"]
-git-tree-sha1 = "b6d6bfdd7ce25b0f9b2f6b3dd56b2673a66c8770"
+git-tree-sha1 = "0ee181ec08df7d7c911901ea38baf16f755114dc"
 uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
-version = "0.2.5"
+version = "1.0.0"
 
 [[deps.InteractiveUtils]]
 deps = ["Markdown"]
 uuid = "b77e0a4c-d291-57a0-90e8-8db25a27a240"
 version = "1.11.0"
 
-[[deps.JSON]]
-deps = ["Dates", "Mmap", "Parsers", "Unicode"]
-git-tree-sha1 = "31e996f0a15c7b280ba9f76636b3ff9e2ae58c9a"
-uuid = "682c06a0-de6a-54ab-a142-c8b1cf79cde6"
-version = "0.21.4"
+[[deps.JLLWrappers]]
+deps = ["Artifacts", "Preferences"]
+git-tree-sha1 = "0533e564aae234aff59ab625543145446d8b6ec2"
+uuid = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
+version = "1.7.1"
+
+[[deps.JpegTurbo_jll]]
+deps = ["Artifacts", "JLLWrappers", "Libdl"]
+git-tree-sha1 = "b6893345fd6658c8e475d40155789f4860ac3b21"
+uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
+version = "3.1.4+0"
 
 [[deps.JuliaInterpreter]]
 deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
@@ -1111,16 +1205,21 @@ git-tree-sha1 = "6ac9e4acc417a5b534ace12690bc6973c25b862f"
 uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
 version = "0.10.3"
 
+[[deps.JuliaSyntaxHighlighting]]
+deps = ["StyledStrings"]
+uuid = "ac6e5ff7-fb65-4e79-a425-ec3bc9c03011"
+version = "1.12.0"
+
 [[deps.LaTeXStrings]]
 git-tree-sha1 = "dda21b8cbd6a6c40d9d02a73230f9d70fed6918c"
 uuid = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
 version = "1.4.0"
 
 [[deps.Latexify]]
-deps = ["Format", "InteractiveUtils", "LaTeXStrings", "MacroTools", "Markdown", "OrderedCollections", "Requires"]
-git-tree-sha1 = "4f34eaabe49ecb3fb0d58d6015e32fd31a733199"
+deps = ["Format", "Ghostscript_jll", "InteractiveUtils", "LaTeXStrings", "MacroTools", "Markdown", "OrderedCollections", "Requires"]
+git-tree-sha1 = "44f93c47f9cd6c7e431f2f2091fcba8f01cd7e8f"
 uuid = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
-version = "0.16.8"
+version = "0.16.10"
 
     [deps.Latexify.extensions]
     DataFramesExt = "DataFrames"
@@ -1140,24 +1239,24 @@ uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
 version = "0.6.4"
 
 [[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll", "Zlib_jll", "nghttp2_jll"]
+deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "nghttp2_jll"]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "8.6.0+0"
+version = "8.15.0+0"
 
 [[deps.LibGit2]]
-deps = ["Base64", "LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
+deps = ["LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
 uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 version = "1.11.0"
 
 [[deps.LibGit2_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "MbedTLS_jll"]
+deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll"]
 uuid = "e37daf67-58a4-590a-8e99-b0245dd2ffc5"
-version = "1.7.2+0"
+version = "1.9.0+0"
 
 [[deps.LibSSH2_jll]]
-deps = ["Artifacts", "Libdl", "MbedTLS_jll"]
+deps = ["Artifacts", "Libdl", "OpenSSL_jll"]
 uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-version = "1.11.0+1"
+version = "1.11.3+1"
 
 [[deps.Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
@@ -1166,7 +1265,7 @@ version = "1.11.0"
 [[deps.LinearAlgebra]]
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-version = "1.11.0"
+version = "1.12.0"
 
 [[deps.Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
@@ -1189,47 +1288,37 @@ uuid = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 version = "0.5.16"
 
 [[deps.Markdown]]
-deps = ["Base64"]
+deps = ["Base64", "JuliaSyntaxHighlighting", "StyledStrings"]
 uuid = "d6f4376e-aef5-505a-96c1-9c027394607a"
-version = "1.11.0"
-
-[[deps.MbedTLS_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "c8ffd9c3-330d-5841-b78e-0817d7145fa1"
-version = "2.28.6+0"
-
-[[deps.Mmap]]
-uuid = "a63ad114-7e13-5084-954f-fe012c677804"
 version = "1.11.0"
 
 [[deps.MozillaCACerts_jll]]
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
-version = "2023.12.12"
+version = "2025.11.4"
 
 [[deps.NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
-version = "1.2.0"
+version = "1.3.0"
 
 [[deps.OpenBLAS_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
 uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-version = "0.3.27+1"
+version = "0.3.29+0"
+
+[[deps.OpenSSL_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
+version = "3.5.4+0"
 
 [[deps.OrderedCollections]]
 git-tree-sha1 = "05868e21324cede2207c6f0f466b4bfef6d5e7ee"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
 version = "1.8.1"
 
-[[deps.Parsers]]
-deps = ["Dates", "PrecompileTools", "UUIDs"]
-git-tree-sha1 = "7d2f8f21da5db6a806faf7b9b292296da42b2810"
-uuid = "69de0a69-1ddd-5017-9359-2bf0b02dc9f0"
-version = "2.8.3"
-
 [[deps.Pkg]]
 deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
 uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-version = "1.11.0"
+version = "1.12.1"
 weakdeps = ["REPL"]
 
     [deps.Pkg.extensions]
@@ -1237,27 +1326,27 @@ weakdeps = ["REPL"]
 
 [[deps.PlutoTeachingTools]]
 deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
-git-tree-sha1 = "d0f6e09433d14161a24607268d89be104e743523"
+git-tree-sha1 = "dacc8be63916b078b592806acd13bb5e5137d7e9"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.4.4"
+version = "0.4.6"
 
 [[deps.PlutoUI]]
-deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "JSON", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
-git-tree-sha1 = "2d7662f95eafd3b6c346acdbfc11a762a2256375"
+deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
+git-tree-sha1 = "6ed167db158c7c1031abf3bd67f8e689c8bdf2b7"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.69"
+version = "0.7.77"
 
 [[deps.PrecompileTools]]
 deps = ["Preferences"]
-git-tree-sha1 = "5aa36f7049a63a1528fe8f7c3f2113413ffd4e1f"
+git-tree-sha1 = "07a921781cab75691315adc645096ed5e370cb77"
 uuid = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
-version = "1.2.1"
+version = "1.3.3"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "0f27480397253da18fe2c12a4ba4eb9eb208bf3d"
+git-tree-sha1 = "522f093a29b31a93e34eaea17ba055d850edea28"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.5.0"
+version = "1.5.1"
 
 [[deps.Printf]]
 deps = ["Unicode"]
@@ -1265,7 +1354,7 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 version = "1.11.0"
 
 [[deps.REPL]]
-deps = ["InteractiveUtils", "Markdown", "Sockets", "StyledStrings", "Unicode"]
+deps = ["InteractiveUtils", "JuliaSyntaxHighlighting", "Markdown", "Sockets", "StyledStrings", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 version = "1.11.0"
 
@@ -1346,9 +1435,9 @@ uuid = "6ba57fb7-81df-4b24-8e8e-a3885b6fcae7"
 version = "0.2.4"
 
 [[deps.Tricks]]
-git-tree-sha1 = "372b90fe551c019541fafc6ff034199dc19c8436"
+git-tree-sha1 = "311349fd1c93a31f783f977a71e8b062a57d4101"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
-version = "0.1.12"
+version = "0.1.13"
 
 [[deps.URIs]]
 git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"
@@ -1367,22 +1456,22 @@ version = "1.11.0"
 [[deps.Zlib_jll]]
 deps = ["Libdl"]
 uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
-version = "1.2.13+1"
+version = "1.3.1+2"
 
 [[deps.libblastrampoline_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
-version = "5.11.0+0"
+version = "5.15.0+0"
 
 [[deps.nghttp2_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.59.0+0"
+version = "1.64.0+1"
 
 [[deps.p7zip_jll]]
-deps = ["Artifacts", "Libdl"]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
 uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
-version = "17.4.0+2"
+version = "17.7.0+0"
 """
 
 # ╔═╡ Cell order:
@@ -1421,14 +1510,21 @@ version = "17.4.0+2"
 # ╟─fabb1f60-abcb-4c49-b7bb-45308314aa7f
 # ╟─6d0eff0a-8b0b-46d5-a42c-45cc8c5be27f
 # ╟─bfbef154-1bcc-414c-858b-752718d60be9
+# ╟─2e65b2fa-bd4d-4ec9-a326-41d52628e1a2
+# ╟─a801eae4-2280-4009-b16f-4133bf323ef8
 # ╟─44cfe7bb-1a94-4923-9658-dc83704113c2
 # ╟─1ebae2f5-045d-4b66-ba89-9ba398697233
 # ╟─22606757-ffca-4148-9a85-81a15c1a1c3a
 # ╟─44a0c7c3-7671-4003-ab95-c1a2edc28365
 # ╟─3da3ba0f-4f0e-4843-83d7-7eccbec1073a
 # ╟─17402250-5f39-4343-9dcb-a30a0d5a361f
-# ╟─71948876-4613-4983-84c0-4ce7b9361579
 # ╟─5036db21-84b4-4912-9c29-6654ee919b1b
+# ╟─a126d450-f7d9-48d6-abe7-951dba3da6f5
+# ╟─9042cd40-4d59-41c4-8515-ae5129c346c2
+# ╟─11fe3a35-1b56-42f0-9b1b-f9f7300a6a43
+# ╟─5869a88c-3855-4af1-8b56-225059ad636e
+# ╟─21ba5da7-7644-49f8-86ca-394cd75a0335
+# ╟─e70bc648-697a-4454-a9a9-6fc0173ce974
 # ╟─fe8c05b9-e4fe-4f43-91a4-90c150992a83
 # ╟─4f237e49-6ff8-4539-a73d-8847d14d4696
 # ╟─d51cf305-b047-4f54-8875-c161edc12cd1

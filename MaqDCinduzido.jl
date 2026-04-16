@@ -434,6 +434,11 @@ Complementarmente, a análise da superfície de contacto das escovas [^brushes_M
 """
 
 # ╔═╡ 5869a88c-3855-4af1-8b56-225059ad636e
+#=
+- This html code creates a horizontally scrollable gallery to display multiple images side-by-side;
+- To change the image height, modify the 'height' value (e.g., height: 800px) inside the <img> tags;
+- Developed by Google AI.
+=#
 HTML("""
 <div style="overflow-x: auto; width: 100%; padding: 15px; background: #fafafa; border: 1px solid #ddd; border-radius: 8px;">
 	<div style="display: flex; flex-direction: row; width: max-content; gap: 10px; align-items: flex-start;">

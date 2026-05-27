@@ -352,12 +352,14 @@ begin
 
 md"""
 ## ✨ **IA na Engenharia**: Saber Usar, Saber Pensar
+Esta secção parte do concreto, o **Wattutor** e o seu uso em ME II, para uma reflexão mais ampla sobre o que significa trabalhar com IA na engenharia: como formular boas perguntas, como validar respostas, e que competências permanecem insubstituivelmente humanas.
 """
 
 	elseif lang == "en"
 
 md"""
 ## ✨ **AI in Engineering**: How to Use, How to Think
+This section moves from the concrete, **Wattutor** and its use in EM II, to a broader reflection on what it means to work with AI in engineering: how to ask good questions, how to validate answers, and which skills remain irreplaceably human.
 """
 	end
 end

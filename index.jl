@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.21
+# v1.0.1
 
 #> [frontmatter]
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/9286b03f000c773f8811a67dc6649fba00f9d6c8/images/card/qr-code.svg?raw=true"
@@ -54,7 +54,7 @@ md"""
 		
 A dimensão de **educação aberta** em ME II materializa-se através dos **_Notebooks_ Computacionais aplicados a Máquinas Elétricas II**, desenvolvidos com `Julia` e `Pluto.jl`, ferramentas [*open-source*](https://en.wikipedia.org/wiki/Free_and_open-source_software) que asseguram transparência, acessibilidade e robustez.
 		
-Os *notebooks* produzidos nesta unidade curricular são disponibilizados como [recursos educacionais abertos] (https://en.wikipedia.org/wiki/Open_educational_resources), com [licenças abertas](#Condições-de-Licença), promovendo a partilha de conhecimento e a reutilização em diversos contextos de ensino e aprendizagem. 
+Os *notebooks* produzidos nesta unidade curricular são disponibilizados como [recursos educacionais abertos](https://en.wikipedia.org/wiki/Open_educational_resources), com [licenças abertas](#Condições-de-Licença), promovendo a partilha de conhecimento e a reutilização em diversos contextos de ensino e aprendizagem. 
 		
 ### Fundamentos Científicos e Tecnológicos
 
@@ -247,52 +247,45 @@ Após esta fase inicial, o código já compilado é reutilizado, tornando as exe
 \
 """
 
-# ╔═╡ bee54122-c768-4232-be50-4a35b365dd0e
+# ╔═╡ 9d2bf3ae-1198-4222-8a30-a14b4d2fe724
 details("Informação complementar",
-
 		md"""
 ## Informação complementar
 ### 📚 Fundamentos e História
 #### Origem da Linguagem `Julia`
 - **Jeff Bezanson, Stefan Karpinski, Viral B. Shah, Alan Edelman**, [Why We Created Julia](https://julialang.org/blog/2012/02/why-we-created-julia/), Massachusetts Institute of Technology, fev. 2012.
-  - *Artigo fundacional que explica a motivação e a filosofia por detrás da linguagem*  
+  - *Artigo fundacional que explica a motivação e a filosofia por detrás da linguagem*
   - *Leitura essencial para compreender os objetivos de conceção*
-
-
+#### Evolução e Impacto Global
+- **Zach Winn**, [How an MIT Research Project Became a Global Programming Language](https://news.mit.edu/2026/how-mit-research-project-became-global-programming-language-0831), MIT News, ago. 2026.
+  - *Retrospetiva sobre o percurso do Julia Lab à JuliaHub, com mais de 1 milhão de utilizadores em todo o mundo*
+  - *Contextualiza a origem do MIT com os desenvolvimentos mais recentes da linguagem*
 #### Introduções Técnicas Aprofundadas
-- **Lee Phillips**, [An introduction to the Julia language, part 1](https://lwn.net/Articles/763626/), LWN.net, ago. 2018.  
-- **Lee Phillips**, [An introduction to the Julia language, part 2](https://lwn.net/Articles/764001/), LWN.net, set. 2018. 
-  - *Análise técnica detalhada das características da linguagem*  
+- **Lee Phillips**, [An introduction to the Julia language, part 1](https://lwn.net/Articles/763626/), LWN.net, ago. 2018.
+- **Lee Phillips**, [An introduction to the Julia language, part 2](https://lwn.net/Articles/764001/), LWN.net, set. 2018.
+  - *Análise técnica detalhada das características da linguagem*
   - *Abordagem de um especialista em programação científica*
-
-\
 
 ### 🔍 Análises Comparativas e de Mercado
 #### Comparações com Outras Linguagens
 - **Toby Driscoll**, [Matlab vs. Julia vs. Python](https://tobydriscoll.net/post/matlab-vs.-julia-vs.-python/), artigo de opinião, jun. 2019.
-  - *Comparação prática para computação científica*  
+  - *Comparação prática para computação científica*
   - *Análise de desempenho e usabilidade*
-
 #### Perspetivas de Adoção
-- **Gabriel Maistre**, [10 Reasons Why You Should Learn Julia](https://blog.goodaudience.com/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, set. 2018.
-- **Bekhruz Tuychiev**, [The Rise of the Julia Programming Language — Is it Worth Learning in 2023?](https://www.datacamp.com/blog/the-rise-of-julia-is-it-worth-learning-in-2022), artigo de opinião, DataCamp, mai. 2023. 
-  - *Análise atual do mercado e tendências*  
-  - *Perspetiva de profissional e oportunidades*
-
+- **Gabriel Gauci Maistre**, [10 Reasons Why You Should Learn Julia](https://medium.com/good-audience/10-reasons-why-you-should-learn-julia-d786ac29c6ca), artigo de opinião, Good Audience, set. 2018.
+  - *Panorama acessível das vantagens técnicas da linguagem para quem a está a conhecer*
+  - *Perspetiva de entusiasta e utilizador prático*
 #### Aplicações Científicas
-- **William F. Godoy**, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, *Better Scientific Software*, abr. 2023.  
-  - *Foco em software científico de qualidade*  
+- **William F. Godoy**, [Julia's Value Proposition for Better Scientific Software](https://bssw.io/blog_posts/julia-s-value-proposition-for-better-scientific-software), artigo de opinião, *Better Scientific Software*, abr. 2023.
+  - *Foco em software científico de qualidade*
   - *Casos de utilização em investigação*
-
-\
 
 ### 📖 Recursos em Português
 #### Livros e Artigos Académicos
-		
-- Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em Julia](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O’Reilly Media, 2018.
-- Raimundo Filho, Marina Miranda, Millena Rocha, André Nascimento, [Introdução a linguagem de programação Julia](https://www.edufma.ufma.br/wp-content/uploads/woocommerce_uploads/2023/05/Introdu%C3%A7%C3%A3o-a-linguagem-de-programa%C3%A7%C3%A3o-Julia.pdf),  EDFUMA - Editora da Universidade Federal do Maranhão, São Luís, Brasil, 2023.
-- J. A. Carneiro Neto e G. dos Santos Lima, [LINGUAGEM DE PROGRAMAÇÃO JULIA: uma linguagem feita para a ciência](https://revista.ibict.br/p2p/article/view/7060/6815), p2p, vol. 11, nº 1, p. e-7060, ago. 2024.
-- João Pereira, Mario Siqueira, [Linguagem de programação JULIA: uma alternativa open source e de alto desempenho ao MATLAB](https://periodicos.ifpb.edu.br/index.php/principia/article/view/1345/661), Revista principia - divulgação científica e tecnológica do IFPB, N.º 34, p. 132-140, 2017;
+- Abel Soares Siqueira, Gustavo Sarturi, João Okimoto, Kally Chung, [Introdução à programação em Julia](https://juliaintro.github.io/JuliaIntroBR.jl/), tradução do livro de: Allen Downey, Ben Lauwens, [Think Julia: How to Think Like a Computer Scientist](https://benlauwens.github.io/ThinkJulia.jl/latest/book.html), O'Reilly Media, 2018.
+- Raimundo Filho, Marina Miranda, Millena Rocha, André Nascimento, [Introdução a linguagem de programação Julia](https://www.edufma.ufma.br/wp-content/uploads/woocommerce_uploads/2023/05/Introdu%C3%A7%C3%A3o-a-linguagem-de-programa%C3%A7%C3%A3o-Julia.pdf), EDFUMA - Editora da Universidade Federal do Maranhão, São Luís, Brasil, 2023.
+- J. A. Carneiro Neto e G. dos Santos Lima, [Linguagem de programação Julia: uma linguagem feita para a ciência](https://revista.ibict.br/p2p/article/view/7060/6815), p2p, vol. 11, nº 1, p. e-7060, ago. 2024.
+- João Pereira, Mario Siqueira, [Linguagem de programação JULIA: uma alternativa open source e de alto desempenho ao MATLAB](https://periodicos.ifpb.edu.br/index.php/principia/article/view/1345/661), Revista principia - divulgação científica e tecnológica do IFPB, N.º 34, p. 132-140, 2017.
 """
 )
 
@@ -371,76 +364,52 @@ md"""
 **Materiais de apoio** — Documentação, exemplos práticos, bibliotecas e ferramentas para programação científica em **`Julia`** e criação de notebooks interativos em **`Pluto.jl`**.
 """
 
-# ╔═╡ 7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
+# ╔═╡ a75b69f3-ca78-4c67-9eaa-a463d8d1153a
 details("Julia: zero to hero",
 	md"""
 ## **Julia**: _zero to hero_
 ### 🚀 Primeiros Passos e Introdução Rápida
 #### Quick Start
-- Jeff Delaney, **[Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0)**, Fireship, YouTube, May 2022.
-
-
+- Jeff Delaney, **[Julia in 100 Seconds](https://www.youtube.com/watch?v=JYs_94znYy0)**, Fireship, YouTube, mai. 2022.
 - **[The Fastrack to Julia](https://juliadocs.github.io/Julia-Cheat-Sheet/)** - A quick and dirty overview of Julia 1.0, [JuliaDocs](https://juliadocs.org/)
-
-
 - Victoria Gregory, Andrij Stachurski, Natasha Watkins, **[Julia cheatsheet](https://cheatsheets.quantecon.org/julia-cheatsheet.html)**, QuantEcon, 2017.
-
-
 - **[Julia By Example](https://juliabyexample.helpmanual.io/)** – Coleção prática de exemplos comentados que ilustram conceitos essenciais da linguagem `Julia`
 
 
 #### Boas Práticas
-
 - **[Modern Julia Workflows](https://modernjuliaworkflows.org/writing/)** – Guia sobre organização, estilo e estrutura de código em `Julia`
 
 
 #### Recursos Interativos
 - 🎈 **[Julia docs with Pluto.jl](https://julia-docs-pluto.netlify.app/)** - Documentação oficial em *notebooks* interativos
-
-
 - 🎈 Rémi Vezy, **[Julia course: from total beginner to power user](https://vezy.github.io/julia_course/)** - Curso completo e prático
-
 \
 
 ### 🔄 Migração de Outras Linguagens
 #### Comparações e Conversores
 - Victoria Gregory, Andrij Stachurski, Natasha Watkins, **[MATLAB--Python--Julia cheatsheet](https://cheatsheets.quantecon.org/)**, QuantEcon, 2017.
-
-
 - **[Noteworthy Differences from Other Languages](https://docs.julialang.org/en/v1/manual/noteworthy-differences/)** - Documentação oficial sobre diferenças
-
-
 - Lydia Krasilnikova, **[MATLAB to Julia online converter](https://lakras.github.io/matlab-to-julia/)**  - Ferramenta que converte código MATLAB para `Julia` de forma automática
-
-		
 - **[CodeConvert.AI](https://www.codeconvert.ai/)** - *Convert code with a click of a button*
-
 \
 
 ### 📦 Julia Packages
 #### Descoberta e Exploração
 - **[Julia Packages](https://juliapackages.com/packages?sort=stars)** - Diretório oficial
-
-
-- Lee Phillips, **[Digging into Julia's package system](https://lwn.net/Articles/871490/)**, LWN.net, Oct. 2021.
+- Lee Phillips, **[Digging into Julia's package system](https://lwn.net/Articles/871490/)**, LWN.net, out. 2021.
 
 
 #### Contribuição *Open Source*
-- Alejandra Ramirez, **[Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md)**, GitHub BlogPosts, Mar. 2023.
-
+- Alejandra Ramirez, **[Practical guide: how to contribute to open source Julia projects](https://github.com/MA-Ramirez/BlogPosts/blob/main/1_PracticalGuide.md)**, GitHub BlogPosts, mar. 2023.
 \
 
 ### 📚 Recursos Educacionais
 #### Cursos e Tutoriais
-- **[JuliaAcademy](https://juliaacademy.com/)** - Cursos oficiais gratuitos
-
-
+- **[Get Started with Julia](https://julialang.org/learning/)** - Página oficial de aprendizagem, com cursos em vídeo e tutoriais escritos
 - Alan Edelman, David P. Sanders, Charles E. Leiserson, **🎈[Computational Thinking with Julia](https://computationalthinking.mit.edu/)** - Curso MIT
+- [**Do Zero ao Julia**](https://ime.unicamp.br/julialang/), projeto do IMECC/UNICAMP que promove o ensino e a utilização da linguagem de programação Julia na academia e na indústria
 
 
-- [**Do Zero ao Julia**](https://www.ime.unicamp.br/~juliacps/), projeto do IMECC/UNICAMP que promove o ensino e a utilização da linguagem de programação Julia na academia e na indústria
-
-		
 #### Livros online gratuitos
 - Bogumił Kamiński, **[The Julia Express](http://bogumilkaminski.pl/files/julia_express.pdf)**, a tutorial on Julia language, 2022. 
 - A. Lobianco, **[Julia language: a concise tutorial](https://syl1.gitbook.io/julia-language-a-concise-tutorial)**, GitBook, 2018.
@@ -449,20 +418,13 @@ details("Julia: zero to hero",
 
 #### Comunidade e Suporte
 - **[Julia Discourse](https://discourse.julialang.org/)** - Fórum oficial
-
-
 - **[Julia Community - Zulip](https://julialang.zulipchat.com/)** – Plataforma de *chat* colaborativo da comunidade `Julia` para discussão técnica, troca de ideias e apoio entre utilizadores
-
-
 - **[Julia Slack](https://julialang.org/slack/)** - *Chat* da comunidade  
-
-		
 - **[Julia YouTube Channel](https://www.youtube.com/user/JuliaLanguage)** - *Talks* e tutoriais oficiais
-
 \
-
+		
 !!! tip "Legenda:"
-	O símbolo 🎈 indica a presença de *notebook*(*s*) de exemplo disponíveis.
+	O símbolo 🎈 indica a presença de *notebook(s)* de exemplo disponíveis.
 	
 """
 )
@@ -478,7 +440,6 @@ md"""
 
 
 - Abel Siqueira, **[Explorando notebooks Pluto.jl - Tutoriais de Julia em Português](https://www.youtube.com/watch?v=ZnF27xxlcD8)**, YouTube, Maio 2021. Duração: 33min.	
-
 \
 
 ### 🎮 Interatividade com PlutoUI.jl
@@ -488,7 +449,6 @@ md"""
 
 
 - **Tutorial de PlutoUI.jl:** doggo dot jl, [How to Create Engaging Interactive Reactive Notebooks using PlutoUI](https://www.youtube.com/watch?v=nkyvN7PXQZc), YouTube, Oct. 2022. Duration: 24min.
-
 \
 	
 ### ✍️ Formatação de Texto e Equações
@@ -498,11 +458,11 @@ md"""
 
 
 - **[Unicode characters](https://docs.julialang.org/en/v1/manual/unicode-input/)** - Caracteres especiais em `Julia`
-
+\
 
 #### Ferramentas para Ensino
 - **🎈 [PlutoTeachingTools.jl](https://juliapluto.github.io/PlutoTeachingTools.jl/example.html)** - Funções específicas para *notebooks* educacionais
-
+\
 
 #### $\small{\LaTeX}$ e Equações Matemáticas
 
@@ -511,9 +471,8 @@ md"""
 
 - **[Editor online de equações](https://editor.codecogs.com)** - Para criar equações complexas
 
-		
-- **Tutorial**: doggo dot jl, [How to Use Markdown and $\small{\LaTeX}$ in Pluto Notebooks](https://www.youtube.com/watch?v=YahByfBTnCc&list=PLhQ2JMBcfAsjeC10lx_2zDlFUMkBUTyyO&index=2), YouTube, Sep. 2022. Duration: 25min.
 
+- **Tutorial**: doggo dot jl, [How to Use Markdown and $\small{\LaTeX}$ in Pluto Notebooks](https://www.youtube.com/watch?v=YahByfBTnCc&list=PLhQ2JMBcfAsjeC10lx_2zDlFUMkBUTyyO&index=2), YouTube, Sep. 2022. Duration: 25min.
 \
 
 ### 📊 Tabelas e Apresentação de Dados
@@ -523,7 +482,6 @@ md"""
 
 
 - **[PrettyTables.jl](https://ronisbr.github.io/PrettyTables.jl/stable/)** - Formatação avançada de tabelas em `Julia`
-
 \
 		
 ### 📈 Visualização e Gráficos
@@ -533,26 +491,21 @@ md"""
 
 
 - **[🎈 Notebooks de exemplo do livro:](https://packtpublishing.github.io/Interactive-Visualization-and-Plotting-with-Julia/)** Diego Javier Zea, Interactive Visualization and Plotting with Julia, Packt Publishing, 2022.
-
 \
 
 ### 🎨 Ferramentas de Desenho e Diagramas
 #### Desenho Técnico e Diagramas
 
 - **[draw.io](https://app.diagrams.net/)** - Criação de diagramas técnicos profissionais
-
+\
 
 #### Desenho Livre
-
 - **[tldraw](https://www.tldraw.com/)** - Quadro branco digital para esboços
-
 \
 
 ### 🔗 Integração e *Embedding*
 
-#### ShortCodes.jl
 - **🎈 [ShortCodes.jl](https://raw.githack.com/hellemo/ShortCodes.jl/main/examples/static-demo.html)** - *Embedding* simplificado
-
 \
 
 !!! tip "Legenda:"
@@ -583,7 +536,7 @@ As suas [questões](https://github.com/Ricardo-Luis/me-2/issues) e/ou [sugestõe
 
 
 ## Sobre o Autor
- $\textcopyright$ 2022-2025 Ricardo Luís 
+ $\textcopyright$ 2022-2026 Ricardo Luís 
 
 [**Ricardo Luís**](https://www.isel.pt/docentes/ricardo-jorge-ferreira-luis)\
 Professor Adjunto, PhD
@@ -606,7 +559,7 @@ Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados
 
 **Formato de Referência Bibliográfica:**
 
-	Ricardo Luís, "Notebooks Computacionais Aplicados a Máquinas Elétricas II", recurso educacional aberto, ISEL, Lisboa, Portugal, 2025. [Online]. 
+	Ricardo Luís, "Notebooks Computacionais Aplicados a Máquinas Elétricas II", recurso educacional aberto, ISEL, Lisboa, Portugal, 2026. [Online]. 
 	Disponível: https://ricardo-luis.github.io/me-2/
 
 
@@ -619,7 +572,7 @@ Para qualquer reutilização ou citação dos *notebooks* ou dos seus resultados
   howpublished = {recurso educacional aberto},
   institution  = {ISEL},
   address      = {Lisboa, Portugal},
-  year         = {2025},
+  year         = {2026},
   url          = {https://ricardo-luis.github.io/me-2/},
   chapter      = {[inserir nome específico do notebook, se aplicável]},
   note         = {Acedido em: [inserir data]}
@@ -912,8 +865,8 @@ PlutoTeachingTools = "661c6b06-c737-4d37-b85c-46df65de6f69"
 PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
-PlutoTeachingTools = "~0.4.6"
-PlutoUI = "~0.7.77"
+PlutoTeachingTools = "~0.4.7"
+PlutoUI = "~0.7.83"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
@@ -922,13 +875,12 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.12.6"
 manifest_format = "2.0"
-project_hash = "09eeac44ed69eb5e7d45a6a07904eca94b37ca43"
+project_hash = "b2ecc7c6ca1a91c35cb268bae47c4736cead32b9"
 
 [[deps.AbstractPlutoDingetjes]]
-deps = ["Pkg"]
-git-tree-sha1 = "6e1d2a35f2f90a4bc7c2ed98079b2ba09c35b83a"
+git-tree-sha1 = "6c3913f4e9bdf6ba3c08041a446fb1332716cbc2"
 uuid = "6e696c72-6542-2067-7265-42206c756150"
-version = "1.3.2"
+version = "1.4.0"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
@@ -972,10 +924,10 @@ uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
 version = "1.11.0"
 
 [[deps.FixedPointNumbers]]
-deps = ["Statistics"]
-git-tree-sha1 = "05882d6995ae5c12bb5f36dd2ed3f61c98cbb172"
+deps = ["Random", "Statistics"]
+git-tree-sha1 = "59af96b98217c6ef4ae0dfe065ac7c20831d1a84"
 uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
-version = "0.8.5"
+version = "0.8.6"
 
 [[deps.Format]]
 git-tree-sha1 = "9c68794ef81b08086aeb32eeaf33531668d5f5fc"
@@ -996,9 +948,9 @@ version = "0.0.5"
 
 [[deps.HypertextLiteral]]
 deps = ["Tricks"]
-git-tree-sha1 = "7134810b1afce04bbc1045ca1985fbe81ce17653"
+git-tree-sha1 = "d1a86724f81bcd184a38fd284ce183ec067d71a0"
 uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "0.9.5"
+version = "1.0.0"
 
 [[deps.IOCapture]]
 deps = ["Logging", "Random"]
@@ -1013,15 +965,15 @@ version = "1.11.0"
 
 [[deps.JLLWrappers]]
 deps = ["Artifacts", "Preferences"]
-git-tree-sha1 = "0533e564aae234aff59ab625543145446d8b6ec2"
+git-tree-sha1 = "7204148362dafe5fe6a273f855b8ccbe4df8173e"
 uuid = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
-version = "1.7.1"
+version = "1.8.0"
 
 [[deps.JpegTurbo_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "b6893345fd6658c8e475d40155789f4860ac3b21"
+git-tree-sha1 = "1dae3057da6f2b9c857afef03177bbdc7c4afe92"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
-version = "3.1.4+0"
+version = "3.2.0+0"
 
 [[deps.JuliaSyntaxHighlighting]]
 deps = ["StyledStrings"]
@@ -1060,16 +1012,6 @@ version = "0.6.4"
 deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "nghttp2_jll"]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
 version = "8.15.0+0"
-
-[[deps.LibGit2]]
-deps = ["LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
-uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
-version = "1.11.0"
-
-[[deps.LibGit2_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll"]
-uuid = "e37daf67-58a4-590a-8e99-b0245dd2ffc5"
-version = "1.9.0+0"
 
 [[deps.LibSSH2_jll]]
 deps = ["Artifacts", "Libdl", "OpenSSL_jll"]
@@ -1123,38 +1065,27 @@ uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
 version = "3.5.4+0"
 
 [[deps.OrderedCollections]]
-git-tree-sha1 = "05868e21324cede2207c6f0f466b4bfef6d5e7ee"
+git-tree-sha1 = "94ba93778373a53bfd5a0caaf7d809c445292ff4"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
-version = "1.8.1"
-
-[[deps.Pkg]]
-deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
-uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-version = "1.12.1"
-
-    [deps.Pkg.extensions]
-    REPLExt = "REPL"
-
-    [deps.Pkg.weakdeps]
-    REPL = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
+version = "1.8.2"
 
 [[deps.PlutoTeachingTools]]
 deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
-git-tree-sha1 = "dacc8be63916b078b592806acd13bb5e5137d7e9"
+git-tree-sha1 = "90b41ced6bacd8c01bd05da8aed35c5458891749"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.4.6"
+version = "0.4.7"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
-git-tree-sha1 = "6ed167db158c7c1031abf3bd67f8e689c8bdf2b7"
+git-tree-sha1 = "e189d0623e7ce9c37389bac17e80aac3b0302e75"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.77"
+version = "0.7.83"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "522f093a29b31a93e34eaea17ba055d850edea28"
+git-tree-sha1 = "8b770b60760d4451834fe79dd483e318eee709c4"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.5.1"
+version = "1.5.2"
 
 [[deps.Printf]]
 deps = ["Unicode"]
@@ -1206,11 +1137,6 @@ deps = ["Dates"]
 uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 version = "1.0.3"
 
-[[deps.Tar]]
-deps = ["ArgTools", "SHA"]
-uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
-version = "1.10.0"
-
 [[deps.Test]]
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
@@ -1249,11 +1175,6 @@ version = "5.15.0+0"
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
 version = "1.64.0+1"
-
-[[deps.p7zip_jll]]
-deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
-uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
-version = "17.7.0+0"
 """
 
 # ╔═╡ Cell order:
@@ -1311,7 +1232,7 @@ version = "17.7.0+0"
 # ╟─67fb88aa-b2b8-4e3b-ab72-7c8beb5750f6
 # ╟─33ee713c-2142-47b7-8bca-691c00ca4db4
 # ╟─69cefea4-fcc2-4f74-ad6f-4366de284bf7
-# ╟─bee54122-c768-4232-be50-4a35b365dd0e
+# ╟─9d2bf3ae-1198-4222-8a30-a14b4d2fe724
 # ╟─1bda8b5e-240f-476b-8cbb-8b59acb5002a
 # ╟─7e966db6-ca39-4f66-9ab1-bdc088591608
 # ╟─a99a1360-b179-4080-bdbe-b58217597d7e
@@ -1319,7 +1240,7 @@ version = "17.7.0+0"
 # ╟─385911fd-1ee9-4022-b79d-4c14371dae51
 # ╟─79b4d3c8-4867-499b-8aec-7fb2f84f419e
 # ╟─16d500be-59b5-4d8e-b77e-f40a9d3dd231
-# ╟─7ab32d01-ea8f-4a3c-9ded-fed8f42ac4fe
+# ╟─a75b69f3-ca78-4c67-9eaa-a463d8d1153a
 # ╟─5bd4a301-45c5-4829-96fd-027affe65cbd
 # ╟─d2db380f-ba35-47f5-9d61-2d9e69e61ca1
 # ╟─1372feeb-c5b1-4f29-9cc5-fe36cfacd656

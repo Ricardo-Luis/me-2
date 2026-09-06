@@ -4,7 +4,7 @@
 #> [frontmatter]
 #> image = "https://github.com/Ricardo-Luis/me-2/blob/d4c738671f520db3ebc89b69cfef0cb4e3aec8c8/images/card/ME-II.png?raw=true"
 #> title = "Máquinas Elétricas II"
-#> date = "2025-09-01"
+#> date = "2026-09-06"
 #> description = "Apresentação da unidade curricular: competências, programa, funcionamento e avaliação."
 #> 
 #>     [[frontmatter.author]]
@@ -42,7 +42,7 @@ Columns(md"""
 		"pt" => "Português",
 		"en" => "English",
 		]))""", md"""
-		`Last update: 26·05·2026`""")
+		`Last update: 06·09·2026`""")
 
 # ╔═╡ 399c7a6d-88da-4966-a524-9a00491809a1
 if lang == "pt"
@@ -544,7 +544,7 @@ O objetivo central em ME II consiste na compreensão do funcionamento e na anál
 
 #### Integridade académica
 
-- A utilização de ferramentas de IA em componentes sujeitas a avaliação rege-se pelo [Código Conduta](https://files.diariodarepublica.pt/2s/2023/12/233000000/0027700287.pdf) da instituição e pelas diretrizes específicas estipuladas pelo corpo docente;
+- A utilização de ferramentas de IA em componentes sujeitas a avaliação rege-se pelo [Código Conduta](https://www.isel.pt/sites/default/files/SGAAE/PRE_RG_16_01_Codigo%20Conduta%20Academica%20ISEL.pdf) da instituição e pelas diretrizes específicas estipuladas pelo corpo docente;
 - Sempre que a IA for integrada no desenvolvimento de um trabalho, impõe-se a declaração explícita da sua utilização e a descrição da sua função;
 - A responsabilidade técnica e científica pelo conteúdo submetido recai inteiramente sobre os autores do trabalho.
 """
@@ -574,7 +574,7 @@ The core objective of ME II is to understand the operation and analyze the perfo
 
 #### Academic Integrity
 
-- The use of AI tools in graded components is governed by the institution's [Code of Conduct](https://files.diariodarepublica.pt/2s/2023/12/233000000/0027700287.pdf) and the specific guidelines stipulated by the teaching staff;
+- The use of AI tools in graded components is governed by the institution's [Code of Conduct](https://www.isel.pt/sites/default/files/SGAAE/PRE_RG_16_01_Codigo%20Conduta%20Academica%20ISEL.pdf) and the specific guidelines stipulated by the teaching staff;
 - Whenever AI is integrated into the development of coursework, explicit declaration of its use and a description of its role are required;
 - The technical and scientific responsibility for the submitted content rests entirely with the authors of the work.
 """

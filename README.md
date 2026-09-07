@@ -22,7 +22,7 @@ For any reuse or citation of the notebooks or their results available on this we
 &nbsp;
 ### Bibliographic Reference Format:
 ```
-Ricardo Luís, "Applied Computational Notebooks for Electric Machinery II", open educational resource, ISEL, Lisbon, Portugal, 2025. [Online]. Available: https://ricardo-luis.github.io/me-2/
+Ricardo Luís, "Applied Computational Notebooks for Electric Machinery II", open educational resource, ISEL, Lisbon, Portugal, 2026. [Online]. Available: https://ricardo-luis.github.io/me-2/
 ```
 
 &nbsp;
@@ -34,7 +34,7 @@ Ricardo Luís, "Applied Computational Notebooks for Electric Machinery II", open
   howpublished = {open educational resource},
   institution  = {ISEL},
   address      = {Lisbon, Portugal},
-  year         = {2025},
+  year         = {2026},
   url          = {https://ricardo-luis.github.io/me-2/},
   chapter      = {[insert specific notebook name, if applicable]},
   note         = {Accessed: [insert date]}
@@ -51,4 +51,4 @@ The material published on this website/GitHub repository is licensed as follows:
 Your [questions](https://github.com/Ricardo-Luis/me-2/issues) and/or [sugestions for improvement](https://github.com/Ricardo-Luis/me-2/pulls) about the *notebooks* are welcome.
 
 \
-© 2022-2025 [Ricardo Luís](https://ricardo-luis.github.io)
+© 2022-2026 [Ricardo Luís](https://ricardo-luis.github.io)

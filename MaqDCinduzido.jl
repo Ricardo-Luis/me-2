@@ -1,16 +1,16 @@
 ### A Pluto.jl notebook ###
-# v0.20.21
+# v1.0.3
 
 #> [frontmatter]
+#> tags = ["lecture", "module2"]
+#> title = "Máquina CC: induzido, RMI, comutação"
+#> description = "As observações laboratoriais deste trabalho incidem principalmente sobre o rotor da máquina de corrente contínua, com os seguintes objetivos: esquematizar os enrolamentos do induzido; observar a reação magnética do induzido; e analisar o processo de comutação."
 #> chapter = 1
 #> section = 1
-#> order = 1
 #> image = "https://github.com/Ricardo-Luis/notebooks/blob/main/ME2/images/commutator.jpg?raw=true"
-#> title = "Máquina CC: induzido, RMI, comutação"
-#> tags = ["lecture", "module2"]
-#> date = "2025-09-14"
+#> date = "2026-09-11"
 #> layout = "layout.jlhtml"
-#> description = "As observações laboratoriais deste trabalho incidem principalmente sobre o rotor da máquina de corrente contínua, com os seguintes objetivos: esquematizar os enrolamentos do induzido; observar a reação magnética do induzido; e analisar o processo de comutação."
+#> order = 1
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"
@@ -41,7 +41,7 @@ Short packages description:
 =#
 
 # ╔═╡ 91180300-0b49-4211-9ad3-12fd0785f518
-TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 15·04·2026`")
+TwoColumnWideLeft(md"`MaqDCinduzido.jl`", md"`Last update: 11·09·2026`")
 
 # ╔═╡ 4e3917b0-4458-11ef-2b69-bd55e90578e0
 md"""
@@ -97,7 +97,7 @@ As observações laboratoriais deste trabalho têm como foco principal, o rotor 
 # ╔═╡ 09eb0bd2-d889-4969-a426-5d76b394dd4b
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/armature_winders.jpg?raw=true)\
 
-Fig. 1: Bobinadores executando a montagem de um enrolamento induzido, [^Kennedy_1903].
+Fig. 1: Bobinadores executando a montagem de um enrolamento induzido, [^1].
 
 "),v_offset=100)
 
@@ -248,7 +248,7 @@ Note-se, no entanto, que um enrolamento ondulado terá apenas um par de escovas,
 # ╔═╡ eaef98e4-c79f-4932-8b7c-32a90fa664db
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/armature_reaction.jpg?raw=true)\
 
-Fig. 4: Distorção do campo magnético num induzido em anel de Gramme, [^Audel_1917]
+Fig. 4: Distorção do campo magnético num induzido em anel de Gramme, [^2]
 
 
 "),v_offset=100)
@@ -270,7 +270,7 @@ Assim, o campo magnético resultante que a atravessa o enrolamento induzido, qua
 # ╔═╡ 0d4b1a9b-de84-4e60-8256-ab48dbde4ccc
 aside((md"![](https://github.com/Ricardo-Luis/me-2/blob/d32997eec06d150a8f0bf275d8c2d46f6fe6a732/images/MaqDCinduzido/commutator.jpg?raw=true)\
 
-Fig. 5: Coletor e escovas, [^Kral_2022]
+Fig. 5: Coletor e escovas, [^3]
 
 
 "),v_offset=110)
@@ -428,9 +428,9 @@ Para assegurar a longevidade e a eficiência da máquina CC, é essencial realiz
 
 Conforme ilustrado na Fig. 8, a precisão da intervenção é validada através de metrologia digital. Um sensor de alta sensibilidade mapeia a superfície do coletor para garantir que o batimento radial (ou excentricidade) cumpre as tolerâncias exigidas.
 
-Este rigor permite a formação da pátina ideal, uma película protetora de óxido de cobre e carbono que reduz o atrito e assegura uma comutação estável. A uniformidade desta constitui o principal indicador da condição operacional da máquina [^commutator_MAM]. 
+Este rigor permite a formação da pátina ideal, uma película protetora de óxido de cobre e carbono que reduz o atrito e assegura uma comutação estável. A uniformidade desta constitui o principal indicador da condição operacional da máquina [^5]. 
 
-Complementarmente, a análise da superfície de contacto das escovas [^brushes_MAM] permite validar a qualidade do contacto mecânico, maximizando a fiabilidade global da máquina de CC.
+Complementarmente, a análise da superfície de contacto das escovas [^6] permite validar a qualidade do contacto mecânico, maximizando a fiabilidade global da máquina de CC.
 """
 
 # ╔═╡ 5869a88c-3855-4af1-8b56-225059ad636e
@@ -468,7 +468,7 @@ HTML("""
 
 # ╔═╡ 21ba5da7-7644-49f8-86ca-394cd75a0335
 md"""
-Fig.8: Controlo de qualidade e perfilometria do coletor, [^Fletcher_Moorland].
+Fig.8: Controlo de qualidade e perfilometria do coletor, [^4].
 
  $\qquad\textbf{(a)}$ Monitorização digital da concentricidade e do batimento lâmina a lâmina, num torno de precisão;
 
@@ -965,23 +965,25 @@ md"""
 md"""
 # Bibliografia
 
-[^commutator_MAM]: Morgan Advanced Materials, [*"Commutator Patina - Technical Guide"*](https://www.morganperformancecarbon.com/media/cusotjtf/commutator_patina.pdf), Morgan Carbon Technical Publications.
-
-[^brushes_MAM]: Morgan Advanced Materials, [*"Surface Appearance of Brushes - Diagnostic Guide"*](https://www.morganperformancecarbon.com/media/2dhojel0/surface_appearance_of_brushesa.pdf), Morgan Carbon Technical Publications.
-
-
 ## Créditos das imagens
 
-[^Kennedy_1903]: Rankin Kennedy, Electrical Installations, vol. III, London: Caxton, 1903. 
+[^1]: Rankin Kennedy, Electrical Installations, vol. III, London: Caxton, 1903. 
 
-[^Audel_1917]: Theo. Audel & Co., Hawkins Electrical Guide, Volume 1, Chapter 20: Commutation and the Commutator, Page 286, USA, 1917.
+[^2]: Theo. Audel & Co., Hawkins Electrical Guide, Volume 1, Chapter 20: Commutation and the Commutator, Page 286, USA, 1917.
 
-[^Kral_2022]:  Christian Kral, [Commutator and brushes DC motor](https://commons.wikimedia.org/w/index.php?curid=122251615), Own work, CC BY 4.0, 2022. 
+[^3]:  Christian Kral, [Commutator and brushes DC motor](https://commons.wikimedia.org/w/index.php?curid=122251615), Own work, CC BY 4.0, 2022. 
 
-[^Fletcher_Moorland]: Fletcher Moorland Ltd., *"Commutator Skimming and Profilometry Analysis"*, [fletchermoorland.co.uk](https://fletchermoorland.co.uk/comm-skim-undercut/).
+[^4]: Fletcher Moorland Ltd., *"Commutator Skimming and Profilometry Analysis"*, [fletchermoorland.co.uk](https://fletchermoorland.co.uk/comm-skim-undercut/).
 
 
-## Sugestões de leitura:
+## Referências
+
+[^5]: Morgan Advanced Materials, [*"Commutator Patina - Technical Guide"*](https://www.morganperformancecarbon.com/media/cusotjtf/commutator_patina.pdf), Morgan Carbon Technical Publications.
+
+[^6]: Morgan Advanced Materials, [*"Surface Appearance of Brushes - Diagnostic Guide"*](https://www.morganperformancecarbon.com/media/2dhojel0/surface_appearance_of_brushesa.pdf), Morgan Carbon Technical Publications.
+
+
+## Sugestões de leitura
 
 - José Carvalho (2018). Máquinas Elétricas de Corrente Contínua: Reação Magnética do Induzido e Comutação. Revista técnico-científica “Neutro-à-Terra”, ISEP\Departamento de Engenharia Eletrotécnica. DOI: [https://doi.org/10.34630/neutroaterra.vi21.4393](https://doi.org/10.34630/neutroaterra.vi21.4393)
 
@@ -1071,26 +1073,27 @@ PlutoUI = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
 
 [compat]
 Handcalcs = "~0.4.4"
-PlutoTeachingTools = "~0.4.6"
-PlutoUI = "~0.7.77"
+PlutoTeachingTools = "~0.4.7"
+PlutoUI = "~0.7.83"
 """
 
 # ╔═╡ 00000000-0000-0000-0000-000000000002
 PLUTO_MANIFEST_TOML_CONTENTS = """
 # This file is machine-generated - editing it directly is not advised
 
-julia_version = "1.12.6"
-manifest_format = "2.0"
-project_hash = "57a4c468bd84e35aa789b065be5fef476434a0a3"
+julia_version = "1.13.0"
+manifest_format = "2.1"
+project_hash = "53d1ba3780240e6fa3146c591e452471a87b8850"
 
 [[deps.AbstractPlutoDingetjes]]
-deps = ["Pkg"]
-git-tree-sha1 = "6e1d2a35f2f90a4bc7c2ed98079b2ba09c35b83a"
+git-tree-sha1 = "e71ee7b4aa06b045259a7d6101e1cb45ad140bce"
+registries = "General"
 uuid = "6e696c72-6542-2067-7265-42206c756150"
-version = "1.3.2"
+version = "1.4.1"
 
 [[deps.AbstractTrees]]
 git-tree-sha1 = "2d9c9a55f9c93e8887ad391fbae72f8ef55e1177"
+registries = "General"
 uuid = "1520ce14-60c1-5f80-bbc7-55ef81b5835c"
 version = "0.4.5"
 
@@ -1109,12 +1112,14 @@ version = "1.11.0"
 [[deps.CodeTracking]]
 deps = ["InteractiveUtils", "UUIDs"]
 git-tree-sha1 = "062c5e1a5bf6ada13db96a4ae4749a4c2234f521"
+registries = "General"
 uuid = "da1fd8a2-8d9e-5ec2-8556-3022fb5608a2"
 version = "1.3.9"
 
 [[deps.ColorTypes]]
 deps = ["FixedPointNumbers", "Random"]
 git-tree-sha1 = "67e11ee83a43eb71ddc950302c53bf33f0690dfe"
+registries = "General"
 uuid = "3da002f7-5984-5a60-b8a6-cbb66c0b333f"
 version = "0.12.1"
 weakdeps = ["StyledStrings"]
@@ -1124,13 +1129,14 @@ weakdeps = ["StyledStrings"]
 
 [[deps.Compiler]]
 git-tree-sha1 = "382d79bfe72a406294faca39ef0c3cef6e6ce1f1"
+registries = "General"
 uuid = "807dbc54-b67e-4c79-8afb-eafe4df6f2e1"
 version = "0.1.1"
 
 [[deps.CompilerSupportLibraries_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "e66e0078-7015-5450-92f7-15fbd957f2ae"
-version = "1.3.0+1"
+version = "1.5.5+2"
 
 [[deps.Dates]]
 deps = ["Printf"]
@@ -1147,43 +1153,50 @@ uuid = "7b1f6079-737a-58dc-b8bc-7a2ca5c1b5ee"
 version = "1.11.0"
 
 [[deps.FixedPointNumbers]]
-deps = ["Statistics"]
-git-tree-sha1 = "05882d6995ae5c12bb5f36dd2ed3f61c98cbb172"
+deps = ["Random", "Statistics"]
+git-tree-sha1 = "59af96b98217c6ef4ae0dfe065ac7c20831d1a84"
+registries = "General"
 uuid = "53c48c17-4a7d-5ca2-90c5-79b7896eea93"
-version = "0.8.5"
+version = "0.8.6"
 
 [[deps.Format]]
 git-tree-sha1 = "9c68794ef81b08086aeb32eeaf33531668d5f5fc"
+registries = "General"
 uuid = "1fa38f19-a742-5d3f-a2b9-30dd87b9d5f8"
 version = "1.3.7"
 
 [[deps.Ghostscript_jll]]
 deps = ["Artifacts", "JLLWrappers", "JpegTurbo_jll", "Libdl", "Zlib_jll"]
 git-tree-sha1 = "38044a04637976140074d0b0621c1edf0eb531fd"
+registries = "General"
 uuid = "61579ee1-b43e-5ca0-a5da-69d92c66a64b"
 version = "9.55.1+0"
 
 [[deps.Handcalcs]]
 deps = ["AbstractTrees", "CodeTracking", "InteractiveUtils", "LaTeXStrings", "Latexify", "MacroTools", "PrecompileTools", "Revise", "TestHandcalcFunctions"]
 git-tree-sha1 = "7f27904769778c2e476a6da73a9021e6589c9d21"
+registries = "General"
 uuid = "e8a07092-c156-4455-ab8e-ed8bc81edefb"
 version = "0.4.4"
 
 [[deps.Hyperscript]]
 deps = ["Test"]
 git-tree-sha1 = "179267cfa5e712760cd43dcae385d7ea90cc25a4"
+registries = "General"
 uuid = "47d2ed2b-36de-50cf-bf87-49c2cf4b8b91"
 version = "0.0.5"
 
 [[deps.HypertextLiteral]]
 deps = ["Tricks"]
-git-tree-sha1 = "7134810b1afce04bbc1045ca1985fbe81ce17653"
+git-tree-sha1 = "d1a86724f81bcd184a38fd284ce183ec067d71a0"
+registries = "General"
 uuid = "ac1192a8-f4b3-4bfe-ba22-af5b92cd3ab2"
-version = "0.9.5"
+version = "1.0.0"
 
 [[deps.IOCapture]]
 deps = ["Logging", "Random"]
 git-tree-sha1 = "0ee181ec08df7d7c911901ea38baf16f755114dc"
+registries = "General"
 uuid = "b5f81e59-6552-4d32-b1f0-c071b021bf89"
 version = "1.0.0"
 
@@ -1194,19 +1207,22 @@ version = "1.11.0"
 
 [[deps.JLLWrappers]]
 deps = ["Artifacts", "Preferences"]
-git-tree-sha1 = "0533e564aae234aff59ab625543145446d8b6ec2"
+git-tree-sha1 = "7204148362dafe5fe6a273f855b8ccbe4df8173e"
+registries = "General"
 uuid = "692b3bcd-3c85-4b1f-b108-f13ce0eb3210"
-version = "1.7.1"
+version = "1.8.0"
 
 [[deps.JpegTurbo_jll]]
 deps = ["Artifacts", "JLLWrappers", "Libdl"]
-git-tree-sha1 = "b6893345fd6658c8e475d40155789f4860ac3b21"
+git-tree-sha1 = "037babc10853eeb8e585418922246cb97b8e5b74"
+registries = "General"
 uuid = "aacddb02-875f-59d6-b918-886e6ef4fbf8"
-version = "3.1.4+0"
+version = "3.2.0+1"
 
 [[deps.JuliaInterpreter]]
 deps = ["CodeTracking", "InteractiveUtils", "Random", "UUIDs"]
 git-tree-sha1 = "6ac9e4acc417a5b534ace12690bc6973c25b862f"
+registries = "General"
 uuid = "aa1ae85d-cabe-5617-a682-6adf51b2e16a"
 version = "0.10.3"
 
@@ -1216,15 +1232,17 @@ uuid = "ac6e5ff7-fb65-4e79-a425-ec3bc9c03011"
 version = "1.12.0"
 
 [[deps.LaTeXStrings]]
-git-tree-sha1 = "dda21b8cbd6a6c40d9d02a73230f9d70fed6918c"
+git-tree-sha1 = "f88f3ccef05a6a72a0cf0ed417c8fd68530f4ab2"
+registries = "General"
 uuid = "b964fa9f-0449-5b57-a5c2-d3ea65f4040f"
-version = "1.4.0"
+version = "1.4.1"
 
 [[deps.Latexify]]
 deps = ["Format", "Ghostscript_jll", "InteractiveUtils", "LaTeXStrings", "MacroTools", "Markdown", "OrderedCollections", "Requires"]
-git-tree-sha1 = "44f93c47f9cd6c7e431f2f2091fcba8f01cd7e8f"
+git-tree-sha1 = "df7566479bd64f20bd16b09960145e70160ffb3b"
+registries = "General"
 uuid = "23fbe1c1-3f47-55db-b15f-69d7ec21a316"
-version = "0.16.10"
+version = "0.16.12"
 
     [deps.Latexify.extensions]
     DataFramesExt = "DataFrames"
@@ -1241,12 +1259,12 @@ version = "0.16.10"
 [[deps.LibCURL]]
 deps = ["LibCURL_jll", "MozillaCACerts_jll"]
 uuid = "b27032c2-a3e7-50c8-80cd-2d36dbcbfd21"
-version = "0.6.4"
+version = "1.0.0"
 
 [[deps.LibCURL_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "nghttp2_jll"]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "Zlib_jll", "Zstd_jll", "nghttp2_jll"]
 uuid = "deac9b47-8bc7-5906-a0fe-35ac56dc84c0"
-version = "8.15.0+0"
+version = "8.18.0+1"
 
 [[deps.LibGit2]]
 deps = ["LibGit2_jll", "NetworkOptions", "Printf", "SHA"]
@@ -1254,14 +1272,14 @@ uuid = "76f85450-5226-5b5a-8eaa-529ad045b433"
 version = "1.11.0"
 
 [[deps.LibGit2_jll]]
-deps = ["Artifacts", "LibSSH2_jll", "Libdl", "OpenSSL_jll"]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "LibSSH2_jll", "Libdl", "OpenSSL_jll", "PCRE2_jll", "Zlib_jll"]
 uuid = "e37daf67-58a4-590a-8e99-b0245dd2ffc5"
-version = "1.9.0+0"
+version = "1.9.1+0"
 
 [[deps.LibSSH2_jll]]
-deps = ["Artifacts", "Libdl", "OpenSSL_jll"]
+deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl", "OpenSSL_jll", "Zlib_jll"]
 uuid = "29816b5a-b9ab-546f-933c-edad1886dfa8"
-version = "1.11.3+1"
+version = "1.11.103+0"
 
 [[deps.Libdl]]
 uuid = "8f399da3-3557-5675-b5ff-fb832c97cbdb"
@@ -1270,7 +1288,7 @@ version = "1.11.0"
 [[deps.LinearAlgebra]]
 deps = ["Libdl", "OpenBLAS_jll", "libblastrampoline_jll"]
 uuid = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
-version = "1.12.0"
+version = "1.13.0"
 
 [[deps.Logging]]
 uuid = "56ddb016-857b-54e1-b83d-db4d58db5568"
@@ -1279,16 +1297,19 @@ version = "1.11.0"
 [[deps.LoweredCodeUtils]]
 deps = ["Compiler", "JuliaInterpreter"]
 git-tree-sha1 = "b882a7dd7ef37643066ae8f9380beea8fdd89cae"
+registries = "General"
 uuid = "6f1432cf-f94c-5a45-995e-cdbf5db27b0b"
 version = "3.4.2"
 
 [[deps.MIMEs]]
 git-tree-sha1 = "c64d943587f7187e751162b3b84445bbbd79f691"
+registries = "General"
 uuid = "6c6e2e6c-3030-632d-7369-2d6c69616d65"
 version = "1.1.0"
 
 [[deps.MacroTools]]
 git-tree-sha1 = "1e0228a030642014fe5cfe68c2c0a818f9e3f522"
+registries = "General"
 uuid = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 version = "0.5.16"
 
@@ -1299,7 +1320,7 @@ version = "1.11.0"
 
 [[deps.MozillaCACerts_jll]]
 uuid = "14a3606d-f60d-562e-9121-12d972cd8159"
-version = "2025.11.4"
+version = "2026.8.13"
 
 [[deps.NetworkOptions]]
 uuid = "ca575930-c2e3-43a9-ace4-1e988b2c1908"
@@ -1308,50 +1329,51 @@ version = "1.3.0"
 [[deps.OpenBLAS_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
 uuid = "4536629a-c528-5b80-bd46-f80d51c5b363"
-version = "0.3.29+0"
+version = "0.3.30+0"
 
 [[deps.OpenSSL_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
-version = "3.5.4+0"
+version = "3.5.6+0"
 
 [[deps.OrderedCollections]]
-git-tree-sha1 = "05868e21324cede2207c6f0f466b4bfef6d5e7ee"
+git-tree-sha1 = "94ba93778373a53bfd5a0caaf7d809c445292ff4"
+registries = "General"
 uuid = "bac558e1-5e72-5ebc-8fee-abe8a469f55d"
-version = "1.8.1"
+version = "1.8.2"
 
-[[deps.Pkg]]
-deps = ["Artifacts", "Dates", "Downloads", "FileWatching", "LibGit2", "Libdl", "Logging", "Markdown", "Printf", "Random", "SHA", "TOML", "Tar", "UUIDs", "p7zip_jll"]
-uuid = "44cfe95a-1eb2-52ea-b672-e2afdf69b78f"
-version = "1.12.1"
-weakdeps = ["REPL"]
-
-    [deps.Pkg.extensions]
-    REPLExt = "REPL"
+[[deps.PCRE2_jll]]
+deps = ["Artifacts", "Libdl"]
+uuid = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
+version = "10.46.0+0"
 
 [[deps.PlutoTeachingTools]]
 deps = ["Downloads", "HypertextLiteral", "Latexify", "Markdown", "PlutoUI"]
-git-tree-sha1 = "dacc8be63916b078b592806acd13bb5e5137d7e9"
+git-tree-sha1 = "90b41ced6bacd8c01bd05da8aed35c5458891749"
+registries = "General"
 uuid = "661c6b06-c737-4d37-b85c-46df65de6f69"
-version = "0.4.6"
+version = "0.4.7"
 
 [[deps.PlutoUI]]
 deps = ["AbstractPlutoDingetjes", "Base64", "ColorTypes", "Dates", "Downloads", "FixedPointNumbers", "Hyperscript", "HypertextLiteral", "IOCapture", "InteractiveUtils", "Logging", "MIMEs", "Markdown", "Random", "Reexport", "URIs", "UUIDs"]
-git-tree-sha1 = "6ed167db158c7c1031abf3bd67f8e689c8bdf2b7"
+git-tree-sha1 = "e189d0623e7ce9c37389bac17e80aac3b0302e75"
+registries = "General"
 uuid = "7f904dfe-b85e-4ff6-b463-dae2292396a8"
-version = "0.7.77"
+version = "0.7.83"
 
 [[deps.PrecompileTools]]
 deps = ["Preferences"]
-git-tree-sha1 = "07a921781cab75691315adc645096ed5e370cb77"
+git-tree-sha1 = "edbeefc7a4889f528644251bdb5fc9ab5348bc2c"
+registries = "General"
 uuid = "aea7be01-6a6a-4083-8856-8a6e6704d82a"
-version = "1.3.3"
+version = "1.3.4"
 
 [[deps.Preferences]]
 deps = ["TOML"]
-git-tree-sha1 = "522f093a29b31a93e34eaea17ba055d850edea28"
+git-tree-sha1 = "8b770b60760d4451834fe79dd483e318eee709c4"
+registries = "General"
 uuid = "21216c6a-2e73-6563-6e65-726566657250"
-version = "1.5.1"
+version = "1.5.2"
 
 [[deps.Printf]]
 deps = ["Unicode"]
@@ -1359,7 +1381,7 @@ uuid = "de0858da-6303-5e67-8744-51eddeeeb8d7"
 version = "1.11.0"
 
 [[deps.REPL]]
-deps = ["InteractiveUtils", "JuliaSyntaxHighlighting", "Markdown", "Sockets", "StyledStrings", "Unicode"]
+deps = ["Base64", "Dates", "FileWatching", "InteractiveUtils", "JuliaSyntaxHighlighting", "Markdown", "Sockets", "StyledStrings", "Unicode"]
 uuid = "3fa0cd96-eef1-5676-8a61-b3b8758bbffb"
 version = "1.11.0"
 
@@ -1370,18 +1392,21 @@ version = "1.11.0"
 
 [[deps.Reexport]]
 git-tree-sha1 = "45e428421666073eab6f2da5c9d310d99bb12f9b"
+registries = "General"
 uuid = "189a3867-3050-52da-a836-e630ba90ab69"
 version = "1.2.2"
 
 [[deps.Requires]]
 deps = ["UUIDs"]
 git-tree-sha1 = "62389eeff14780bfe55195b7204c0d8738436d64"
+registries = "General"
 uuid = "ae029012-a4dd-5104-9daa-d747884805df"
 version = "1.3.1"
 
 [[deps.Revise]]
 deps = ["CodeTracking", "FileWatching", "JuliaInterpreter", "LibGit2", "LoweredCodeUtils", "OrderedCollections", "REPL", "Requires", "UUIDs", "Unicode"]
 git-tree-sha1 = "f6f7d30fb0d61c64d0cfe56cf085a7c9e7d5bc80"
+registries = "General"
 uuid = "295af30f-e4ad-537b-8983-00126c2a3abe"
 version = "3.8.0"
 
@@ -1393,7 +1418,7 @@ version = "3.8.0"
 
 [[deps.SHA]]
 uuid = "ea8e919c-243c-51af-8825-aaa63cd721ce"
-version = "0.7.0"
+version = "1.0.0"
 
 [[deps.Serialization]]
 uuid = "9e88b42a-f829-5b0c-bbe9-9e923198166b"
@@ -1405,9 +1430,10 @@ version = "1.11.0"
 
 [[deps.Statistics]]
 deps = ["LinearAlgebra"]
-git-tree-sha1 = "ae3bb1eb3bba077cd276bc5cfc337cc65c3075c0"
+git-tree-sha1 = "e2b53ce13a53367e96601081e33d34746b571bad"
+registries = "General"
 uuid = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
-version = "1.11.1"
+version = "1.11.5"
 
     [deps.Statistics.extensions]
     SparseArraysExt = ["SparseArrays"]
@@ -1424,11 +1450,6 @@ deps = ["Dates"]
 uuid = "fa267f1f-6049-4f14-aa54-33bafae1ed76"
 version = "1.0.3"
 
-[[deps.Tar]]
-deps = ["ArgTools", "SHA"]
-uuid = "a4e569a6-e804-4fa4-b0f3-eef7a1d5b13e"
-version = "1.10.0"
-
 [[deps.Test]]
 deps = ["InteractiveUtils", "Logging", "Random", "Serialization"]
 uuid = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
@@ -1436,18 +1457,21 @@ version = "1.11.0"
 
 [[deps.TestHandcalcFunctions]]
 git-tree-sha1 = "54dac4d0a0cd2fc20ceb72e0635ee3c74b24b840"
+registries = "General"
 uuid = "6ba57fb7-81df-4b24-8e8e-a3885b6fcae7"
 version = "0.2.4"
 
 [[deps.Tricks]]
 git-tree-sha1 = "311349fd1c93a31f783f977a71e8b062a57d4101"
+registries = "General"
 uuid = "410a4b4d-49e4-4fbc-ab6d-cb71b17b3775"
 version = "0.1.13"
 
 [[deps.URIs]]
-git-tree-sha1 = "bef26fb046d031353ef97a82e3fdb6afe7f21b1a"
+git-tree-sha1 = "908fec9df6c5de98548ead82a468c95ccf6cd263"
+registries = "General"
 uuid = "5c2747f8-b7ea-4ff2-ba2e-563bfd36b1d4"
-version = "1.6.1"
+version = "1.7.0"
 
 [[deps.UUIDs]]
 deps = ["Random", "SHA"]
@@ -1463,20 +1487,24 @@ deps = ["Libdl"]
 uuid = "83775a58-1f1d-513f-b197-d71354ab007a"
 version = "1.3.1+2"
 
+[[deps.Zstd_jll]]
+deps = ["CompilerSupportLibraries_jll", "Libdl"]
+uuid = "3161d3a3-bdf6-5164-811a-617609db77b4"
+version = "1.5.7+1"
+
 [[deps.libblastrampoline_jll]]
 deps = ["Artifacts", "Libdl"]
 uuid = "8e850b90-86db-534c-a0d3-1478176c7d93"
 version = "5.15.0+0"
 
 [[deps.nghttp2_jll]]
-deps = ["Artifacts", "Libdl"]
-uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
-version = "1.64.0+1"
-
-[[deps.p7zip_jll]]
 deps = ["Artifacts", "CompilerSupportLibraries_jll", "Libdl"]
-uuid = "3f19e933-33d8-53b3-aaab-bd5110c3b7a0"
-version = "17.7.0+0"
+uuid = "8e850ede-7688-5339-a07c-302acd2aaf8d"
+version = "1.67.1+0"
+
+[registries.General]
+url = "https://github.com/JuliaRegistries/General.git"
+uuid = "23338594-aafe-5451-b93e-139f81909106"
 """
 
 # ╔═╡ Cell order:

@@ -91,8 +91,10 @@ com   $n$ e $R_{c}=\rm constantes$
 
 # ╔═╡ bdc9dc1f-3a77-4588-8dba-f53ffd0da995
 begin
-	I = [0.0, 5.0, 10.0, 15.0, 20.0, 25, 30] 				# load current data, A
-	U = [278.0, 260.0, 242.0, 216.0, 186.0, 152.0, 108.0] 	# load voltage data, V
+	# load current data, A:
+	I = [0.0, 5.0, 10.0, 15.0, 20.0, 25, 30, 35, 40] 				
+	# load voltage data, V:
+	U = [278.0, 260.0, 242.0, 216.0, 186.0, 156.0, 128.0, 96, 62] 	
 	I, U
 end
 
@@ -365,7 +367,7 @@ begin
 	
 	P3=plot(I_shunt,Ud, 
 			title="Característica externa", xlabel = "I(A)", ylabel="U(V)", 
-			ylims=(0,400), xlims=(0,30), label=false,linewidth=2)
+			ylims=(0,400), xlims=(0,40), label=false,linewidth=2)
 	
 	plot!(I, Rcarga2.*I, label="Reta de Carga", legend=:topright)
 	
@@ -1881,7 +1883,7 @@ uuid = "23338594-aafe-5451-b93e-139f81909106"
 # ╠═1c525022-003b-45ab-9e89-ace963c2ae78
 # ╟─6d6d84cd-9fa1-4b9c-8146-730fe420fc74
 # ╟─76bbd6f5-d24c-47d2-88cc-20d8528da56e
-# ╟─032831d9-8167-4039-a5ac-f088cc9efc21
+# ╠═032831d9-8167-4039-a5ac-f088cc9efc21
 # ╟─ed07e275-7ff6-4c9e-8a26-7dfcd79d7abe
 # ╟─85234e93-01fe-47d8-be53-ef84f7cde6a9
 # ╟─d62dc9fb-62f2-4503-8643-4aeeff617202

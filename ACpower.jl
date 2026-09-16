@@ -11,6 +11,7 @@
 #> layout = "layout.jlhtml"
 #> date = "2026-09-11"
 #> order = 1
+#> language = "pt-PT"
 #> 
 #>     [[frontmatter.author]]
 #>     name = "Ricardo Luís"

@@ -219,10 +219,11 @@ resistência de carga, nas seguintes situações:**
 md"""
 
 $$\textbf{Gerador de excitação composta com fluxo aditivo}$$
-|    |
-|:---:|
-| $$\rm{Carga}:$$ $(@bind Icarga PlutoUI.Slider(0:1:In*1.4, default=In/2, show_value=true)) $$\rm{A}$$ |
-| $$R_{\rm{campo}}:$$ $(@bind Rcampo PlutoUI.Slider(0:1:300, default=100, show_value=true)) $$\Omega\qquad$$ $$\qquad\rm{Velocidade}:$$ $(@bind rpm PlutoUI.Slider(500:2000, default=1500, show_value=true)) $$\rm{rpm}$$ |
+|    |     |
+|---:|:---|
+| $$\rm{Carga}:$$ | $(@bind Icarga PlutoUI.Slider(0:1:In*1.4, default=In/2, show_value=true)) $$\rm{A}$$ |
+| $$R_{\rm{campo}}:$$ | $(@bind Rcampo PlutoUI.Slider(0:1:300, default=100, show_value=true)) $$\Omega\qquad$$ | 
+| $$\qquad\rm{Velocidade}:$$ | $(@bind rpm PlutoUI.Slider(500:2000, default=1500, show_value=true)) $$\rm{rpm}$$ |
 
 """
 

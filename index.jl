@@ -1,6 +1,6 @@
 ### A Pluto.jl notebook ###
 # v1.0.3
-
+ 
 #> [frontmatter]
 #> tags = ["Pluto Notebooks", "Electric Machines", "DC Machines", "Synchronous Machines", "Transients of Electrical Machines"]
 #> title = "Notebooks Computacionais Aplicados a Máquinas Elétricas II"

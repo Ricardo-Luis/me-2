@@ -1,6 +1,6 @@
 ### A Pluto.jl notebook ###
 # v1.0.3
-
+ 
 #> [frontmatter]
 #> title = "Máquinas Elétricas II"
 #> description = "Apresentação da unidade curricular: competências, programa, funcionamento e avaliação."
